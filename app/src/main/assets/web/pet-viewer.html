@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Mascota</title>
+<style>html,body{margin:0;height:100%;background:transparent;overflow:hidden;touch-action:none}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{"three":"./three/three.module.js","three/addons/":"./three/addons/"}}</script>
+</head><body>
+<script type="module">
+/*
+ * Visor de la mascota 3D de StudyPlanner AI Pet (WebView, three.js local), versión 0.21.
+ * Modelos en pets/<nombre>.glb (1 m de alto, mirando a +Z), con párpados (<nombre>_cara.glb), accesorios
+ * (<nombre>_extras.glb) y máscara de zonas para pintar la ropa (<nombre>_zonas.png).
+ *
+ *   PetViewer.load('zorro')         carga (la anterior se ve hasta que la nueva está lista: nunca dos a la vez)
+ *   PetViewer.play('happy', false)  clip; si no es en bucle vuelve a idle
+ *   PetViewer.talk(true|false)      mueve la boca mientras suena la voz
+ *   PetViewer.poke(x, y)            toque (0..1): cabeza = risa, mano = choca los cinco, panza = feliz, pies = salto
+ *   PetViewer.drag(dx) / release()  girar con el dedo (dx en fracción del ancho); al soltar vuelve de frente
+ *   PetViewer.setColors({...})      ropa, piezas escondidas (_hide) y accesorios (_acc)
+ * Avisos a Android (window.AndroidPet): onLoaded(nombre), onClipFinished(nombre), onPoke(parte), onError(texto)
+ */
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const bridge = () => window.AndroidPet;
+const q = new URLSearchParams(location.search);
+const frame = q.get('frame') || 'full';
+const fpsCap = Math.max(15, Math.min(60, +(q.get('fps') || 30)));
+// Modo de prueba (solo lo pasa la versión de prueba de la app): apaga partes para aislar fallas.
+const MODO = new Set((q.get('modo') || '').split(/\s+/).filter(Boolean));
+const LIVELY = q.get('vivo') !== '0';
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'default' });
+} catch (e) {
+  bridge()?.onError?.('webgl');
+  throw e;
+}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+// Tono neutro y luz suave: colores fieles, sin brillos de espejo (estilo mate y simple).
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.setClearColor(0x000000, 0);
+let shaderFailed = false;
+renderer.debug.onShaderError = () => { shaderFailed = true; };
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.HemisphereLight(0xffffff, 0xf1e4ff, 1.35));
+const keyLight = new THREE.DirectionalLight(0xffffff, 1.25); keyLight.position.set(1.4, 3.0, 4.2); scene.add(keyLight);
+const fillLight = new THREE.DirectionalLight(0xe4ecff, 0.45); fillLight.position.set(-3, 1.4, 2); scene.add(fillLight);
+const rimLight = new THREE.DirectionalLight(0xffffff, 0.55); rimLight.position.set(0, 2.5, -3.5); scene.add(rimLight);
+// La mascota cuelga de un pivote: así se puede girar con el dedo sin tocar la animación.
+const pivot = new THREE.Group(); scene.add(pivot);
+
+const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 50);
+function placeCamera() {
+  if (frame === 'face') { camera.position.set(0, 0.70, 1.50); camera.lookAt(0, 0.66, 0); }
+  else if (frame === 'bust') { camera.position.set(0, 0.70, 1.55); camera.lookAt(0, 0.60, 0); }
+  else { camera.position.set(0, 0.56, 2.55); camera.lookAt(0, 0.49, 0); }
+}
+placeCamera();
+
+const clock = new THREE.Clock();
+let model = null, mixer = null, clips = [], current = null, currentName = '';
+let mouthMeshes = [], manualMouth = 0, mouthClipActive = false;
+let talking = false, talkT = 0, paused = false, acc = 0, firstFrame = false;
+
+function resize() {
+  const w = Math.max(1, window.innerWidth), h = Math.max(1, window.innerHeight);
+  renderer.setSize(w, h, false); camera.aspect = w / h;
+  camera.fov = camera.aspect < 0.75 ? 30 / Math.max(0.55, camera.aspect / 0.75) : 30;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize); resize();
+
+function mouthValue(dt) {
+  if (!talking) return manualMouth;
+  talkT += dt;
+  const s = Math.sin(talkT * 2 * Math.PI * 5.7) * 0.5 + 0.5;
+  const v = Math.sin(talkT * 2 * Math.PI * 1.3 + 1.1) * 0.5 + 0.5;
+  return Math.max(0, Math.min(1, s * (0.45 + 0.55 * v)));
+}
+
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), 0.1);
+  if (paused || document.hidden) return;
+  acc += dt;
+  if (acc < 1 / fpsCap - 0.002) return;
+  const step = acc; acc = 0;
+  frameStep(step);
+});
+function frameStep(step) {
+  spinStep(step);
+  idleLife(step);
+  if (mixer && !MODO.has('quieto')) mixer.update(step);
+  const sim = model && !MODO.has('sinsim');
+  if (sim) { saveSim(); simulate(step); }
+  renderer.render(scene, camera);
+  if (sim) undoSim();
+  if (shaderFailed && !MODO.has('plano')) { MODO.add('plano'); unpatchAll(); bridge()?.onError?.('shader'); }
+  if (model && !firstFrame) { firstFrame = true; bridge()?.onLoaded?.(currentPet); }
+}
+
+// ---- Girar con el dedo: velocidad con inercia; tras unos segundos sin tocar vuelve de frente con un resorte.
+const spin = { angle: 0, vel: 0, dragging: false, idle: 0 };
+function spinStep(dt) {
+  if (spin.dragging) { spin.idle = 0; return; }
+  spin.idle += dt;
+  spin.angle += spin.vel * dt; spin.vel *= Math.exp(-dt * 3.2);
+  if (spin.idle > 2.2) {
+    // vuelve por el camino más corto
+    const a = Math.atan2(Math.sin(spin.angle), Math.cos(spin.angle));
+    spin.angle = a + (0 - a) * Math.min(1, dt * 2.6); spin.vel *= Math.exp(-dt * 6);
+  }
+  pivot.rotation.y = spin.angle;
+}
+
+// ---- Vida en reposo: de vez en cuando un gesto corto (mira, asiente, saluda, se estira) para que no parezca quieta.
+let lifeAt = 6 + Math.random() * 4;
+function idleLife(dt) {
+  if (!LIVELY || !mixer || talking || MODO.has('quieto')) return;
+  if (currentName !== 'idle') { lifeAt = simT + 7 + Math.random() * 5; return; }
+  if (simT < lifeAt) return;
+  lifeAt = simT + 8 + Math.random() * 7;
+  const pick = ['yes', 'happy', 'think', 'wave', 'jump'][Math.floor(Math.random() * 5)];
+  if (pick === 'think') { look.ty = (Math.random() - 0.5) * 0.4; look.tp = 0.15; look.until = simT + 1.4; }
+  PetViewer.play(pick, false, 0.35);
+}
+
+// ---- Colores de la ropa: la máscara de zonas (una textura RGBA, un canal por prenda) dice dónde pintar; el color
+// elegido reemplaza el tono y escala saturación y brillo según el promedio de la prenda, así conserva el sombreado.
+// [id, canal de la máscara, saturación media, valor medio] medidos sobre la textura de cada GLB (zonemask.py).
+const ZONES = /*ZONES*/{"buho":[["ropa",0,0.535,0.441],["mochila",1,0.663,0.586],["birrete",2,0.386,0.417]],"conejo":[["ropa",0,0.927,0.481],["mochila",1,0.523,0.684],["zapatillas",2,0.507,0.632]],"gato":[["ropa",0,0.935,0.494],["mochila",1,0.886,0.558],["zapatillas",2,0.841,0.593]],"panda":[["ropa",0,0.891,0.734],["mochila",1,0.857,0.702]],"pinguino":[["ropa",0,0.835,0.792],["mochila",1,0.879,0.885],["gorra",2,0.762,0.945]],"zorro":[["ropa",0,0.756,0.546],["mochila",1,0.653,0.637],["botas",2,0.745,0.342],["audifonos",3,0.781,0.743]]};
+// Piezas que se pueden quitar: canal del atributo de vértice zmask de la pieza.
+const PARTS = {"zorro":{"mochila":1},"panda":{"mochila":1},"pinguino":{"mochila":1},"conejo":{"mochila":1}};
+const NZ = 4;
+const v4s = () => Array.from({ length: NZ }, () => new THREE.Vector4());
+const zoneU = { uZoneB: { value: v4s() }, uTarget: { value: v4s() }, uHide: { value: new THREE.Vector4() },
+  uZoneMap: { value: null }, uHasZones: { value: 0 } };
+let pendingColors = {};
+try { if (q.get('colors')) pendingColors = JSON.parse(q.get('colors')) || {}; } catch (e) { pendingColors = {}; }
+function hexToHsv(hex) {
+  const n = parseInt(String(hex).replace('#', ''), 16); const r = ((n >> 16) & 255) / 255, g = ((n >> 8) & 255) / 255, b = (n & 255) / 255;
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+  let h = 0; if (d > 1e-6) h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [(h * 60 + 360) % 360, mx > 0 ? d / mx : 0, mx];
+}
+function applyColors() {
+  const zs = ZONES[currentPet] || [];
+  for (let i = 0; i < NZ; i++) {
+    const z = zs.find(e => e[1] === i); const hex = z ? pendingColors[z[0]] : null;
+    if (!z || !hex) { zoneU.uZoneB.value[i].set(0, 0, 1, 1); continue; }
+    const [h, s, v] = hexToHsv(hex);
+    zoneU.uZoneB.value[i].set(0, 1, z[2], z[3]);
+    zoneU.uTarget.value[i].set(h, s, v, 0);
+  }
+  const hide = new Set(pendingColors._hide || []); const parts = PARTS[currentPet] || {};
+  const hv = [0, 0, 0, 0]; for (const k in parts) if (hide.has(k)) hv[parts[k]] = 1;
+  zoneU.uHide.value.set(hv[0], hv[1], hv[2], hv[3]);
+  const acc = pendingColors._acc || {};
+  for (const m of accMeshes) {
+    const glass = m.name.endsWith('_cristal');
+    const id = m.name.replace(/^acc_/, '').replace(/_cristal$/, '');
+    m.visible = id in acc;
+    if (m.visible && m.material && acc[id] && !glass) m.material.color.set(acc[id]);
+    else if (m.material && m.userData.baseColor) m.material.color.copy(m.userData.baseColor);
+  }
+}
+const RECOLOR = `
+vec3 spHsv(vec3 c){ float mx=max(c.r,max(c.g,c.b)), mn=min(c.r,min(c.g,c.b)), d=mx-mn; float h=0.0;
+  if(d>1e-5){ if(mx==c.r) h=mod((c.g-c.b)/d,6.0); else if(mx==c.g) h=(c.b-c.r)/d+2.0; else h=(c.r-c.g)/d+4.0; }
+  return vec3(h*60.0, mx>0.0? d/mx:0.0, mx); }
+vec3 spRgb(vec3 c){ vec3 k=mod(vec3(5.0,3.0,1.0)+c.x/60.0,6.0); return c.z - c.z*c.y*clamp(min(k,4.0-k),0.0,1.0); }
+vec3 spZone(vec3 col, vec3 hv, float w, vec4 B, vec4 T) {
+  if (B.y < 0.5 || w <= 0.002) return col;
+  vec3 nh = vec3(T.x, clamp(hv.y * T.y / max(B.z, 0.05), 0.0, 1.0), clamp(hv.z * T.z / max(B.w, 0.05), 0.0, 1.0));
+  return mix(col, pow(spRgb(nh), vec3(2.2)), w);
+}
+`;
+const patched = new Set();
+// Material mate: sin metal, rugosidad alta, relieve suave y casi sin reflejo del entorno.
+function matte(m, rough = 0.9) {
+  if (!m || !m.isMeshStandardMaterial) return;
+  m.metalness = 0; m.metalnessMap = null; m.roughness = rough; m.roughnessMap = null;
+  if (m.normalScale) m.normalScale.set(0.55, 0.55);
+  m.envMapIntensity = 0.22;
+  m.needsUpdate = true;
+}
+function patchMaterial(m, masked = true) {
+  if (MODO.has('plano')) return;
+  if (MODO.has('sinmascara')) masked = false;
+  patched.add(m);
+  m.onBeforeCompile = (sh) => {
+    Object.assign(sh.uniforms, zoneU);
+    if (masked) {
+      sh.vertexShader = 'attribute vec4 zmask;\nuniform vec4 uHide;\n' + sh.vertexShader
+        .replace('#include <project_vertex>', '#include <project_vertex>\n  if (dot(zmask, uHide) > 0.5) gl_Position = vec4(0.0, 0.0, 2.0, 1.0);');
+    }
+    // los escudos (segundo material) no cambian de color con la ropa; sí se esconden con su pieza
+    if (!m.map || m.name.endsWith('_escudo')) return;
+    sh.fragmentShader = 'uniform vec4 uZoneB[' + NZ + ']; uniform vec4 uTarget[' + NZ + ']; uniform sampler2D uZoneMap; uniform float uHasZones;\n'
+      + RECOLOR + sh.fragmentShader.replace('#include <color_fragment>', `#include <color_fragment>
+    if (uHasZones > 0.5) { vec4 zw = texture2D(uZoneMap, vMapUv); vec3 hv = spHsv(pow(max(diffuseColor.rgb, vec3(0.0)), vec3(1.0/2.2)));
+      diffuseColor.rgb = spZone(diffuseColor.rgb, hv, zw.x, uZoneB[0], uTarget[0]);
+      diffuseColor.rgb = spZone(diffuseColor.rgb, hv, zw.y, uZoneB[1], uTarget[1]);
+      diffuseColor.rgb = spZone(diffuseColor.rgb, hv, zw.z, uZoneB[2], uTarget[2]);
+      diffuseColor.rgb = spZone(diffuseColor.rgb, hv, zw.w, uZoneB[3], uTarget[3]);
+    }`);
+  };
+  m.needsUpdate = true;
+}
+// Si la tarjeta gráfica del teléfono no acepta el sombreador, se vuelve al material normal (sin colores propios).
+function unpatchAll() { for (const m of patched) { m.onBeforeCompile = () => {}; m.customProgramCacheKey = () => 'plano'; m.needsUpdate = true; } patched.clear(); }
+
+// ---- Simulación: cara (párpados hechos en Blender + boca) y cuerpo (huesos) encima de cada clip -------------
+const EXPR = {
+  idle: {}, talk_body: {}, talk: {},
+  happy: { face: { Happy: 1 }, mouth: 0.35 },
+  celebrate: { face: { Happy: 1 }, mouth: 0.55 },
+  dance: { face: { Happy: 1 }, mouth: 0.3 },
+  yes: { face: { Happy: 0.7 }, mouth: 0.2 },
+  no: { face: { Half: 0.35 } },
+  sad: { face: { Sad: 1 } },
+  angry: { face: { Angry: 1 }, mouth: 0.12 },
+  surprised: { mouth: 0.85 },
+  think: { face: { Half: 0.85 } },
+  sleep: { face: { Blink: 1 }, breathe: 1, calmLook: 1 },
+  wave: { face: { Happy: 0.55 }, mouth: 0.25 },
+  jump: { face: { Happy: 0.7 }, mouth: 0.4 },
+  run: {}, walk: {},
+  laugh: { face: { Happy: 1 }, laugh: 1 },
+};
+const LIDS = ['Blink', 'Happy', 'Sad', 'Angry', 'Half'];
+let faceOverride = null;
+const bones = {}; let lidMesh = null, simT = 0, mood = 'idle';
+const face = { Blink: 0, Happy: 0, Sad: 0, Angry: 0, Half: 0 }; let mouthNow = 0;
+let blinkAt = 2, blinkT = -1, laughT = 0, squashT = 0, calm = false, earAt = 4, earT = -1, earSide = 1;
+const look = { yaw: 0, pitch: 0, ty: 0, tp: 0, until: 0, next: 1.5 };
+const _q = new THREE.Quaternion(), _pq = new THREE.Quaternion(), _iq = new THREE.Quaternion(), _v = new THREE.Vector3(), _s = new THREE.Vector3();
+const AX = { x: new THREE.Vector3(1, 0, 0), y: new THREE.Vector3(0, 1, 0), z: new THREE.Vector3(0, 0, 1) };
+const lerp = (a, b, k) => a + (b - a) * Math.min(1, k);
+function rotWorld(bone, axis, angle) {
+  if (!bone || !angle) return;
+  bone.parent.getWorldQuaternion(_pq); _iq.copy(_pq).invert();
+  _q.setFromAxisAngle(axis, angle); _q.premultiply(_iq).multiply(_pq);
+  bone.quaternion.premultiply(_q);
+}
+function moveWorldUp(bone, dy) {
+  if (!bone || !dy) return;
+  bone.parent.getWorldQuaternion(_pq); bone.parent.getWorldScale(_s);
+  _v.set(0, dy, 0).applyQuaternion(_iq.copy(_pq).invert()).divide(_s);
+  bone.position.add(_v);
+}
+function simulate(dt) {
+  simT += dt; const t = simT;
+  const P = EXPR[laughT > 0 ? 'laugh' : mood] || EXPR.idle;
+  laughT = Math.max(0, laughT - dt); squashT = Math.max(0, squashT - dt * 3);
+  if (blinkT < 0 && t > blinkAt) { blinkT = 0; blinkAt = t + 2.2 + Math.random() * 3.5 + (Math.random() < 0.2 ? -1.8 : 0); }
+  let blink = 0;
+  if (blinkT >= 0) { blinkT += dt; blink = Math.sin(Math.min(1, blinkT / 0.17) * Math.PI); if (blinkT > 0.17) blinkT = -1; }
+  const pf = faceOverride || P.face || {};
+  for (const k of LIDS) face[k] = lerp(face[k], pf[k] || 0, dt * 12);
+  const shut = (pf.Happy || 0) > 0.5 || (pf.Blink || 0) > 0.5;
+  if (lidMesh) {
+    const d = lidMesh.morphTargetDictionary, inf = lidMesh.morphTargetInfluences;
+    for (const k of LIDS) if (d[k] !== undefined) inf[d[k]] = k === 'Blink' ? Math.max(face.Blink, shut ? 0 : blink) : face[k];
+  }
+  let mouthTarget = talking ? mouthValue(dt) : P.laugh ? 0.25 + 0.5 * (0.5 - 0.5 * Math.cos(t * 2 * Math.PI * 3.2)) : (P.mouth || 0) + manualMouth;
+  mouthNow = talking ? mouthTarget : lerp(mouthNow, mouthTarget, dt * 14);
+  if (!mouthClipActive) for (const m of mouthMeshes) m.morphTargetInfluences[m.morphTargetDictionary.MouthOpen] = Math.min(1, mouthNow);
+  if (calm) return;
+  // mirada: casi siempre de frente; a ratos mira un poco a un lado o sigue el último toque
+  if (t > look.until && t > look.next) {
+    look.next = t + 2.5 + Math.random() * 3;
+    const away = Math.random() < 0.45;
+    look.ty = away ? (Math.random() - 0.5) * 0.36 : 0; look.tp = away ? (Math.random() - 0.4) * 0.12 : 0;
+  }
+  look.yaw = lerp(look.yaw, look.ty, dt * 3); look.pitch = lerp(look.pitch, look.tp, dt * 3);
+  const H = bones.Head, B = bones.Hips;
+  if (!P.calmLook) { rotWorld(H, AX.y, look.yaw); rotWorld(H, AX.x, -look.pitch); }
+  const br = Math.sin(t * (P.breathe ? 1.3 : 2.0));
+  if (B) B.scale.multiply(_v.set(1 - 0.004 * br, 1 + (P.breathe ? 0.01 : 0.006) * br, 1 - 0.004 * br));
+  if (squashT > 0) B && B.scale.multiply(_v.set(1 + 0.05 * squashT, 1 - 0.07 * squashT, 1 + 0.05 * squashT));
+  if (P.laugh) {
+    const k = Math.min(1, laughT / 0.4);
+    const j = 0.5 - 0.5 * Math.cos(t * 2 * Math.PI * 3.2);
+    moveWorldUp(B, 0.012 * j * k);
+    rotWorld(bones.Chest || B, AX.x, -0.06 * j * k);
+    rotWorld(H, AX.z, 0.07 * Math.sin(t * 2 * Math.PI * 1.6) * k);
+  }
+  if (t > earAt) { earT = 0; earAt = t + 3 + Math.random() * 5; earSide = Math.random() < 0.5 ? 1 : -1; }
+  if (earT >= 0) {
+    earT += dt; const e = Math.sin(Math.min(1, earT / 0.35) * Math.PI);
+    rotWorld(earSide > 0 ? bones.EarL : bones.EarR, AX.z, 0.18 * e * earSide);
+    if (earT > 0.35) earT = -1;
+  }
+}
+let simBones = [];
+const simSaved = [];
+function captureRest() {
+  simBones = ['Hips', 'Chest', 'Head', 'EarL', 'EarR'].map(n => bones[n]).filter(Boolean);
+  simSaved.length = 0;
+  for (const b of simBones) simSaved.push([b, b.position.clone(), b.quaternion.clone(), b.scale.clone()]);
+}
+function saveSim() { for (const e of simSaved) { e[1].copy(e[0].position); e[2].copy(e[0].quaternion); e[3].copy(e[0].scale); } }
+function undoSim() { for (const [b, p, q, s] of simSaved) { b.position.copy(p); b.quaternion.copy(q); b.scale.copy(s); } }
+
+// ---- Carga sin superponer: cada carga lleva un número; si llega una más nueva, la vieja se descarta.
+let accMeshes = [], loadToken = 0, currentPet = '';
+const loader = new GLTFLoader();
+const texLoader = new THREE.TextureLoader();
+function disposeTree(root) {
+  root.traverse(o => { if (o.isMesh) { o.geometry?.dispose(); (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => { for (const k in m) if (m[k]?.isTexture) m[k].dispose(); m.dispose(); patched.delete(m); }); } });
+}
+const loadGltf = (url) => new Promise((ok, bad) => loader.load(url, ok, undefined, bad));
+const loadTex = (url) => new Promise((ok) => texLoader.load(url, ok, undefined, () => ok(null)));
+async function loadPet(name) {
+  const token = ++loadToken;
+  // la anterior se oculta enseguida: mientras llega la nueva, la app muestra la imagen fija de la nueva y no deben verse dos
+  if (model && currentPet !== name) model.visible = false;
+  try {
+    const [gltf, cara, extras, zmap] = await Promise.all([
+      loadGltf(`pets/${name}.glb`),
+      loadGltf(`pets/${name}_cara.glb`).catch(() => null),
+      loadGltf(`pets/${name}_extras.glb`).catch(() => null),
+      MODO.has('plano') ? Promise.resolve(null) : loadTex(`pets/${name}_zonas.png`),
+    ]);
+    if (token !== loadToken) { disposeTree(gltf.scene); return; }
+    // quitar la mascota anterior (y todo lo que colgaba de ella) antes de poner la nueva
+    if (model) { pivot.remove(model); disposeTree(model); }
+    model = null; mixer = null; current = null; currentName = ''; lidMesh = null; accMeshes = [];
+    for (const k in bones) delete bones[k];
+    currentPet = name; firstFrame = false;
+    if (zoneU.uZoneMap.value) zoneU.uZoneMap.value.dispose();
+    if (zmap) { zmap.flipY = false; zmap.colorSpace = THREE.NoColorSpace; zmap.generateMipmaps = true; zmap.minFilter = THREE.LinearMipmapLinearFilter; }
+    zoneU.uZoneMap.value = zmap; zoneU.uHasZones.value = zmap ? 1 : 0;
+    const root = gltf.scene;
+    mouthMeshes = [];
+    root.traverse(o => {
+      if (o.isMesh && o.morphTargetDictionary && 'MouthOpen' in o.morphTargetDictionary) mouthMeshes.push(o);
+      if (o.isMesh) {
+        o.frustumCulled = false;
+        const col = o.geometry.getAttribute('color');
+        if (col) { o.geometry.setAttribute('zmask', col); o.geometry.deleteAttribute('color'); }
+        else o.geometry.setAttribute('zmask', new THREE.Float32BufferAttribute(new Float32Array(o.geometry.getAttribute('position').count * 4), 4));
+        (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => {
+          m.vertexColors = false; matte(m);
+          if (m.map) m.map.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+          patchMaterial(m, true);
+        });
+      }
+      if (o.isBone) bones[o.name] = o;
+    });
+    pivot.add(root); model = root;
+    captureRest();
+    let skinned = null; root.traverse(o => { if (o.isSkinnedMesh) skinned = o; });
+    if (skinned) skinned.skeleton.pose();
+    root.updateMatrixWorld(true);
+    if (cara && bones.Head) {
+      let mesh = null; cara.scene.traverse(o => { if (o.isMesh && o.morphTargetDictionary) mesh = o; });
+      if (mesh) {
+        cara.scene.updateMatrixWorld(true);
+        mesh.frustumCulled = false;
+        (Array.isArray(mesh.material) ? mesh.material : [mesh.material]).forEach(m => matte(m, 0.75));
+        bones.Head.attach(mesh); lidMesh = mesh;
+      }
+    }
+    if (extras && bones.Head && !MODO.has('sinaccesorios')) {
+      extras.scene.updateMatrixWorld(true);
+      const list = []; extras.scene.traverse(o => { if (o.isMesh && o.name.startsWith('acc_')) list.push(o); });
+      for (const m of list) {
+        m.frustumCulled = false; m.visible = false;
+        if (m.name === 'acc_corona') { m.material.metalness = 0.55; m.material.roughness = 0.42; m.material.envMapIntensity = 0.6; }
+        else if (!m.name.endsWith('_cristal')) matte(m.material, 0.6);
+        m.userData.baseColor = m.material.color.clone();
+        bones.Head.attach(m); accMeshes.push(m);
+      }
+    }
+    applyColors();
+    mixer = new THREE.AnimationMixer(root); clips = gltf.animations;
+    mixer.addEventListener('finished', (e) => {
+      const n = e.action.getClip().name;
+      bridge()?.onClipFinished?.(n);
+      PetViewer.play(talking ? 'talk_body' : 'idle', true, 0.6);
+    });
+    PetViewer.play(q.get('clip') || 'idle', true);
+    lifeAt = simT + 5 + Math.random() * 4;
+  } catch (err) {
+    console.error(err);
+    if (token === loadToken) bridge()?.onError?.('load');
+  }
+}
+
+// ---- Qué parte se tocó: se proyectan los huesos a la pantalla y gana el más cercano.
+const _p = new THREE.Vector3();
+function partAt(x, y) {
+  if (!model) return 'cuerpo';
+  const pts = { cabeza: 'Head', mano: ['HandL', 'HandR'], panza: 'Chest', pies: ['FootL', 'FootR'], cola: 'Tail' };
+  let best = 'cuerpo', bd = 1e9;
+  for (const [part, names] of Object.entries(pts)) {
+    for (const n of [names].flat()) {
+      const b = bones[n]; if (!b) continue;
+      b.getWorldPosition(_p); if (n === 'Head') _p.y += 0.13;
+      if (n === 'Tail' && Math.cos(spin.angle) > 0.2) continue; // la cola solo cuando se ve de espalda
+      _p.project(camera);
+      const sx = (_p.x + 1) / 2, sy = (1 - _p.y) / 2;
+      const d = Math.hypot((sx - x) * camera.aspect, sy - y) / (part === 'cabeza' ? 1.6 : 1);
+      if (d < bd) { bd = d; best = part; }
+    }
+  }
+  return best;
+}
+let tapTimes = [];
+
+const PetViewer = {
+  load(name) { loadPet(name); },
+  play(name, loop = true, fade = 0.45) {
+    if (!mixer) return false;
+    const clip = THREE.AnimationClip.findByName(clips, name); if (!clip) return false;
+    const action = mixer.clipAction(clip);
+    if (current === action && loop && currentName === name) return true;
+    action.reset(); action.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity); action.clampWhenFinished = !loop;
+    action.enabled = true; action.setEffectiveWeight(1);
+    if (current && current !== action) current.crossFadeTo(action, fade, false);
+    action.play(); current = action; currentName = name; mood = name;
+    mouthClipActive = clip.tracks.some(t => t.name.endsWith('.morphTargetInfluences'));
+    return true;
+  },
+  talk(on) {
+    on = !!on; if (on === talking) return;
+    talking = on; talkT = 0;
+    if (on && (currentName === 'idle' || mouthClipActive)) PetViewer.play('talk_body', true);
+    if (!on && currentName === 'talk_body') PetViewer.play('idle', true);
+  },
+  /** Colores por zona, piezas escondidas y accesorios: {"ropa":"#FF3B30","_hide":["mochila"],"_acc":{"lentes":null}}. */
+  setColors(map) { pendingColors = Object.assign({}, map || {}); applyColors(); },
+  zones() { return (ZONES[currentPet] || []).map(z => z[0]); },
+  accessories() { return [...new Set(accMeshes.map(m => m.name.replace(/^acc_/, '').replace(/_cristal$/, '')))]; },
+  /** Toque (x, y de 0 a 1 en la vista). Cada parte responde distinto; tres toques seguidos: baila. */
+  poke(x, y) {
+    x = +x; y = +y;
+    const now = simT; tapTimes = tapTimes.filter(t => now - t < 1.2); tapTimes.push(now);
+    const part = tapTimes.length >= 3 ? 'baile' : partAt(x, y);
+    look.ty = (x - 0.5) * 0.7; look.tp = (0.5 - y) * 0.35; look.until = simT + 1.4;
+    if (part === 'baile') { tapTimes = []; PetViewer.play('dance', false); }
+    else if (part === 'cabeza') { laughT = 1.8; squashT = 0.6; }
+    else if (part === 'mano') PetViewer.play('wave', false);
+    else if (part === 'pies') PetViewer.play('jump', false);
+    else if (part === 'cola') PetViewer.play('surprised', false);
+    else { squashT = 1; PetViewer.play('happy', false); }
+    bridge()?.onPoke?.(part);
+    return part;
+  },
+  /** Arrastre horizontal (fracción del ancho de la vista): gira la mascota. */
+  drag(dx) { spin.dragging = true; const d = (+dx || 0) * Math.PI * 1.6; spin.angle += d; spin.vel = d / Math.max(1 / 60, 1 / fpsCap); },
+  release() { spin.dragging = false; spin.vel = Math.max(-8, Math.min(8, spin.vel)); },
+  /** Gira a un ángulo fijo (pruebas). */
+  spin(rad) { spin.angle = +rad || 0; spin.vel = 0; spin.idle = -1e9; pivot.rotation.y = spin.angle; },
+  look(x, y) { look.ty = (+x - 0.5) * 0.7; look.tp = (0.5 - +y) * 0.35; look.until = simT + 1.6; },
+  laugh(ms = 1800) { laughT = ms / 1000; },
+  setFace(f) { faceOverride = f || null; },
+  setCalm(c) { calm = !!c; },
+  face() { return Object.assign({ mouth: +mouthNow.toFixed(2), mood }, face); },
+  setMouth(w) { manualMouth = Math.max(0, Math.min(1, +w || 0)); },
+  dispose() {
+    paused = true; renderer.setAnimationLoop(null);
+    scene.traverse(o => { if (o.isMesh) { o.geometry?.dispose(); (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => { for (const k in m) if (m[k]?.isTexture) m[k].dispose(); m.dispose(); }); } });
+    renderer.dispose(); renderer.forceContextLoss();
+  },
+  /** Avanza un paso fijo y dibuja (para grabar cuadros exactos con el visor en pausa). */
+  advance(dt = 1 / 30) { if (!model) return; frameStep(dt); },
+  setPaused(p) { paused = !!p; if (!paused) clock.getDelta(); },
+  clips() { return clips.map(c => [c.name, +c.duration.toFixed(2)]); },
+  state() { return { pet: currentPet, clip: currentName, talking, loaded: !!model, firstFrame, models: pivot.children.length, shaderFailed, angle: +spin.angle.toFixed(2) }; },
+};
+window.PetViewer = PetViewer;
+if (q.get('pet')) PetViewer.load(q.get('pet'));
+</script></body></html>

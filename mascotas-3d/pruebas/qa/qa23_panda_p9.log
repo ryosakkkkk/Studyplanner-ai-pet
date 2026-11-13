@@ -1,0 +1,33 @@
+10:24:37 | INFO: Data are loaded, start creating Blender stuff
+10:24:37 | INFO: Blender create Mesh node panda
+10:24:38 | INFO: glTF import finished in 0.27s
+QA23 panda.glb {"vertices": 24543, "caras": 37992, "huesos": 16, "influencias_max": 4, "sin_peso": 0, "reposo_vs_malla_mm": 0.0, "materiales": ["panda_mat", "panda_escudo"], "formas": ["Basis", "MouthOpen"]}
+  angry      cuadros  61 | alarga máx   15.4 mm (p99,95   9.1) | pico   6.2 mm | vol 1.000-1.080 | brazos 1.00-1.03 / 1.00-1.02 | paso   6.8 | cierre   0.0
+      peor arista: +15.4 mm (reposo 25.1) en [-0.346, 0.025, 0.3] pesos [[('HandR', 0.84), ('ArmR', 0.16)], [('ArmR', 0.64), ('HandR', 0.36)]]
+  celebrate  cuadros  61 | alarga máx   30.5 mm (p99,95  11.6) | pico  12.1 mm | vol 1.000-1.046 | brazos 1.00-1.18 / 1.00-1.15 | paso  24.6 | cierre   0.0
+      peor arista: +30.5 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  dance      cuadros  61 | alarga máx   26.2 mm (p99,95   7.7) | pico  10.5 mm | vol 1.000-1.003 | brazos 1.00-1.14 / 1.00-1.10 | paso  22.1 | cierre   0.0
+      peor arista: +26.2 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  happy      cuadros  61 | alarga máx   22.7 mm (p99,95   9.8) | pico   9.1 mm | vol 1.000-1.046 | brazos 1.00-1.17 / 1.00-1.13 | paso  26.2 | cierre   0.0
+      peor arista: +22.7 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  idle       cuadros 121 | alarga máx    5.6 mm (p99,95   3.0) | pico   2.7 mm | vol 0.977-1.024 | brazos 0.97-1.03 / 0.98-1.02 | paso   2.6 | cierre   0.0 (ciclo)
+  jump       cuadros  37 | alarga máx   32.7 mm (p99,95   8.8) | pico  13.0 mm | vol 1.000-1.043 | brazos 1.00-1.19 / 1.00-1.14 | paso  68.8 | cierre   0.0
+      peor arista: +32.7 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  no         cuadros  37 | alarga máx   17.8 mm (p99,95  10.0) | pico   5.9 mm | vol 0.998-1.000 | brazos 1.00-1.00 / 1.00-1.00 | paso  31.3 | cierre   0.0
+      peor arista: +17.8 mm (reposo 7.3) en [-0.245, -0.087, 0.51] pesos [[('Chest', 0.66), ('Head', 0.3), ('Hips', 0.04)], [('Head', 0.57), ('Chest', 0.4), ('Hips', 0.02)]]
+  run        cuadros  19 | alarga máx   30.3 mm (p99,95  10.5) | pico  11.4 mm | vol 1.000-1.002 | brazos 1.00-1.04 / 1.00-1.02 | paso  52.3 | cierre   0.0 (ciclo)
+      peor arista: +30.3 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  sad        cuadros 121 | alarga máx   14.5 mm (p99,95   8.8) | pico   4.8 mm | vol 0.963-1.042 | brazos 0.97-1.05 / 0.96-1.04 | paso   2.2 | cierre   0.0
+  sleep      cuadros 151 | alarga máx   25.4 mm (p99,95  15.0) | pico  10.1 mm | vol 0.954-1.051 | brazos 0.96-1.06 / 0.95-1.05 | paso   1.7 | cierre   0.0 (ciclo)
+      peor arista: +25.4 mm (reposo 24.1) en [-0.089, 0.227, 0.544] pesos [[('Head', 0.54), ('Chest', 0.46)], [('Chest', 0.73), ('Head', 0.27)]]
+  surprised  cuadros  46 | alarga máx   26.8 mm (p99,95   7.6) | pico  10.5 mm | vol 1.000-1.002 | brazos 1.00-1.11 / 1.00-1.08 | paso  53.5 | cierre 112.5
+      peor arista: +26.8 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  talk       cuadros  61 | alarga máx    7.7 mm (p99,95   4.8) | pico   3.3 mm | vol 0.978-1.025 | brazos 1.00-1.06 / 0.98-1.04 | paso  10.3 | cierre   0.0
+  talk_body  cuadros  61 | alarga máx   12.4 mm (p99,95   6.0) | pico   3.6 mm | vol 0.978-1.025 | brazos 0.99-1.07 / 0.98-1.04 | paso  11.2 | cierre   0.0 (ciclo)
+  think      cuadros 121 | alarga máx   55.9 mm (p99,95  20.6) | pico  20.9 mm | vol 0.973-1.020 | brazos 0.91-1.00 / 0.94-1.00 | paso   0.7 | cierre   0.0 (ciclo)
+      peor arista: +55.9 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  walk       cuadros  31 | alarga máx   15.4 mm (p99,95   6.0) | pico   5.7 mm | vol 1.000-1.001 | brazos 1.00-1.02 / 1.00-1.01 | paso  20.3 | cierre   0.0 (ciclo)
+      peor arista: +15.4 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  wave       cuadros  73 | alarga máx   37.4 mm (p99,95  14.4) | pico  14.7 mm | vol 1.000-1.002 | brazos 1.00-1.01 / 1.00-1.10 | paso  36.6 | cierre   0.0
+      peor arista: +37.4 mm (reposo 29.0) en [-0.253, 0.079, 0.371] pesos [[('ArmR', 0.96), ('Chest', 0.04)], [('Chest', 0.72), ('ArmR', 0.28)]]
+  yes        cuadros  37 | alarga máx   10.6 mm (p99,95   6.4) | pico   4.8 mm | vol 0.998-1.001 | brazos 1.00-1.00 / 1.00-1.00 | paso  56.0 | cierre   0.0

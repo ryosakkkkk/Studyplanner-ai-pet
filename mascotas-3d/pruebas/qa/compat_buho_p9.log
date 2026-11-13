@@ -1,0 +1,19 @@
+COMPATIBILIDAD buho.glb -> /home/claude/w/rig4/glb/buho.glb
+  igual     nombres de nodos: 17 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [15] vs [15]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'buho_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'buho_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['buho']
+  igual     malla buho: primitivas y materiales: ['buho_mat', 'buho_escudo'] vs ['buho_mat', 'buho_escudo']
+  igual     malla buho: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla buho: formas (MouthOpen): ['MouthOpen']
+  igual     malla buho primitiva 0: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 40208 -> 33339 | vértices 25568 -> 22615
+  igual     malla buho primitiva 1: caja (escala y orientación): diferencia máx 14.0 mm | triángulos 620 -> 628 | vértices 413 -> 398
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '82.9 mm'), ('ArmR', '67.6 mm'), ('ArmRimL', '82.9 mm'), ('ArmRimR', '67.6 mm'), ('HandL', '85.9 mm'), ('HandR', '69.6 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible

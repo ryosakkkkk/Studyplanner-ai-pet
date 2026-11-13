@@ -1,0 +1,18 @@
+p9 zorro celebrate cuadros 42 x vistas 24 | caras traseras: máx 16 px, vistas con alguna 957 de 1008 suma 3725 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 114 | agujeros chicos máx 59 | peor cuadro 24 vista [0,0] | 53.7 s (dibujo 337 ms, medida 53158 ms)
+p9 zorro wave cuadros 48 x vistas 24 | caras traseras: máx 16 px, vistas con alguna 1092 de 1152 suma 4666 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 99 | agujeros chicos máx 51 | peor cuadro 54 vista [45,-0.45] | 56.7 s (dibujo 274 ms, medida 56324 ms)
+LISTO p9 zorro 114 s vóxeles 2481
+p9 gato celebrate cuadros 42 x vistas 24 | caras traseras: máx 18 px, vistas con alguna 988 de 1008 suma 5436 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 43 | agujeros chicos máx 27 | peor cuadro 70 vista [0,0] | 44.9 s (dibujo 281 ms, medida 44503 ms)
+p9 gato wave cuadros 48 x vistas 24 | caras traseras: máx 24 px, vistas con alguna 1127 de 1152 suma 5188 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 46 | agujeros chicos máx 38 | peor cuadro 68 vista [0,0] | 51.2 s (dibujo 290 ms, medida 50758 ms)
+LISTO p9 gato 100 s vóxeles 2303
+p9 panda celebrate cuadros 42 x vistas 24 | caras traseras: máx 15 px, vistas con alguna 887 de 1008 suma 2399 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 33 | agujeros chicos máx 2 | peor cuadro 58 vista [180,0] | 52.8 s (dibujo 341 ms, medida 52262 ms)
+p9 panda wave cuadros 48 x vistas 24 | caras traseras: máx 18 px, vistas con alguna 1059 de 1152 suma 3412 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 32 | agujeros chicos máx 12 | peor cuadro 78 vista [180,0] | 57.7 s (dibujo 266 ms, medida 57281 ms)
+LISTO p9 panda 114 s vóxeles 2160
+p9 buho celebrate cuadros 42 x vistas 24 | caras traseras: máx 32 px, vistas con alguna 986 de 1008 suma 8107 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 77 | agujeros chicos máx 41 | peor cuadro 58 vista [135,0.45] | 47.1 s (dibujo 288 ms, medida 46696 ms)
+p9 buho wave cuadros 48 x vistas 24 | caras traseras: máx 52 px, vistas con alguna 1081 de 1152 suma 12817 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 69 | agujeros chicos máx 59 | peor cuadro 36 vista [90,-0.45] | 67.0 s (dibujo 306 ms, medida 66501 ms)
+LISTO p9 buho 118 s vóxeles 2567
+p9 pinguino celebrate cuadros 42 x vistas 24 | caras traseras: máx 23 px, vistas con alguna 1002 de 1008 suma 8677 | piezas sueltas: máx 3 px en 96 vistas | rendijas máx 78 | agujeros chicos máx 40 | peor cuadro 34 vista [270,-0.45] | 77.9 s (dibujo 390 ms, medida 77284 ms)
+p9 pinguino wave cuadros 48 x vistas 24 | caras traseras: máx 29 px, vistas con alguna 1143 de 1152 suma 10623 | piezas sueltas: máx 4 px en 97 vistas | rendijas máx 75 | agujeros chicos máx 46 | peor cuadro 52 vista [135,0] | 68.8 s (dibujo 306 ms, medida 68364 ms)
+LISTO p9 pinguino 153 s vóxeles 2415
+p9 conejo celebrate cuadros 42 x vistas 24 | caras traseras: máx 115 px, vistas con alguna 1008 de 1008 suma 22965 | piezas sueltas: máx 1 px en 6 vistas | rendijas máx 49 | agujeros chicos máx 21 | peor cuadro 48 vista [315,-0.45] | 49.6 s (dibujo 331 ms, medida 49091 ms)
+p9 conejo wave cuadros 48 x vistas 24 | caras traseras: máx 129 px, vistas con alguna 1151 de 1152 suma 22058 | piezas sueltas: máx 1 px en 9 vistas | rendijas máx 50 | agujeros chicos máx 33 | peor cuadro 56 vista [135,-0.45] | 54.4 s (dibujo 276 ms, medida 53991 ms)
+LISTO p9 conejo 108 s vóxeles 2385

@@ -1,0 +1,3430 @@
+{
+ "version": 1,
+ "faces": {
+  "neutral": {},
+  "happy": {
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.0042,
+     0.0021
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.9825,
+     1.84,
+     1.1225
+    ]
+   }
+  },
+  "laugh": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "arc_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "arc_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.02,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.02,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.0108,
+     0.0054
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.955,
+     3.16,
+     1.315
+    ]
+   }
+  },
+  "wink": {
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "arc_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.02,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.005,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.0048,
+     0.0024
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.98,
+     1.96,
+     1.14
+    ]
+   }
+  },
+  "excited": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.08,
+     1.1,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.08,
+     1.1,
+     1.0
+    ]
+   },
+   "blush": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.025,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.025,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.0084,
+     0.0042
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.965,
+     2.68,
+     1.245
+    ]
+   }
+  },
+  "star": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "star": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.025,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.025,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.0096,
+     0.0048
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.96,
+     2.92,
+     1.28
+    ]
+   }
+  },
+  "love": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "heart": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "blush": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.003,
+     0.0015
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.9875,
+     1.6,
+     1.0875
+    ]
+   }
+  },
+  "surprised": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.16,
+     1.2,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.16,
+     1.2,
+     1.0
+    ]
+   },
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.045,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.045,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.02,
+     0.01
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.72,
+     2.7,
+     1.6
+    ]
+   }
+  },
+  "confused": {
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.7,
+     0.6,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.035,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -10.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.01,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -8.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.05,
+     1.08,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.95,
+     0.9,
+     1.0
+    ]
+   }
+  },
+  "worried": {
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "sweat": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -16.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     16.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.05,
+     1.05,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.05,
+     1.05,
+     1.0
+    ]
+   }
+  },
+  "sad": {
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.01,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -20.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.01,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     20.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.86,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.86,
+     1.0
+    ]
+   }
+  },
+  "cry": {
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "tear": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -22.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     22.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.8,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.8,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     -0.012,
+     0.006
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.9,
+     1.3
+    ]
+   }
+  },
+  "angry": {
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "anger": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     -0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     20.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.012,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -20.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.84,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.84,
+     1.0
+    ]
+   }
+  },
+  "sleep": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "arc_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     180.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "arc_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     180.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     -0.005,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.005,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "relaxed": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.45,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.45,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     -0.004,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.004,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "tired": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.4,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.4,
+     1.0
+    ]
+   },
+   "smile": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "frown": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.7,
+     0.5,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -10.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     10.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "focused": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.9,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     0.9,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     -0.006,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     6.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     -0.006,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -6.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "think": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.01,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.01,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.03,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "mouth": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     0.7,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "attentive": {
+   "eye_L": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.06,
+     1.06,
+     1.0
+    ]
+   },
+   "eye_R": {
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.06,
+     1.06,
+     1.0
+    ]
+   },
+   "brow_L": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     -0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "brow_R": {
+    "loc": [
+     0.0,
+     0.015,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  }
+ },
+ "emotions": {
+  "idle": {
+   "label": "Tranquilo",
+   "clip": "idle",
+   "face": "neutral",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "greet": {
+   "label": "Saludar",
+   "clip": "greet",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.25,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "listen": {
+   "label": "Escuchar",
+   "clip": "listen",
+   "face": "attentive",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sound",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.34,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "think": {
+   "label": "Pensar",
+   "clip": "think",
+   "face": "think",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "dots",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.42,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "speak": {
+   "label": "Hablar",
+   "clip": "speak",
+   "face": "neutral",
+   "props": [],
+   "blink": true,
+   "talk": true,
+   "fx": []
+  },
+  "alert": {
+   "label": "Alerta",
+   "clip": "alert",
+   "face": "surprised",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "exclaim",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.34,
+     "anim": "pop",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "rest": {
+   "label": "Descansar",
+   "clip": "rest",
+   "face": "relaxed",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "float": {
+   "label": "Flotar",
+   "clip": "float",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "happy": {
+   "label": "Feliz",
+   "clip": "happy",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.25,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.2,
+     "anim": "twinkle",
+     "phase": 0.5,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "wave": {
+   "label": "Hola",
+   "clip": "greet",
+   "face": "laugh",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "burst",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.36,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "laugh": {
+   "label": "Risa",
+   "clip": "happy",
+   "face": "laugh",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": []
+  },
+  "wink": {
+   "label": "Guiño",
+   "clip": "greet",
+   "face": "wink",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.28,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "excited": {
+   "label": "Emocionado",
+   "clip": "happy",
+   "face": "excited",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.28,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.22,
+     "anim": "twinkle",
+     "phase": 0.4,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "surprised": {
+   "label": "Sorpresa",
+   "clip": "surprised",
+   "face": "surprised",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "exclaim",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.36,
+     "anim": "pop",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "confused": {
+   "label": "Confundido",
+   "clip": "confused",
+   "face": "confused",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "question",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.39,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "worried": {
+   "label": "Preocupado",
+   "clip": "worried",
+   "face": "worried",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "sad": {
+   "label": "Triste",
+   "clip": "sad",
+   "face": "sad",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "cry": {
+   "label": "Llorar",
+   "clip": "sad",
+   "face": "cry",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "tear_drop",
+     "bone": "head",
+     "at": [
+      0.3,
+      0.4,
+      0.55
+     ],
+     "size": 0.2,
+     "anim": "fall",
+     "phase": 0.0,
+     "count": 2,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "tear_drop",
+     "bone": "head",
+     "at": [
+      -0.3,
+      0.4,
+      0.55
+     ],
+     "size": 0.2,
+     "anim": "fall",
+     "phase": 0.5,
+     "count": 2,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "angry": {
+   "label": "Enojado",
+   "clip": "angry",
+   "face": "angry",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "steam",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.34,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "steam",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.28,
+     "anim": "pulse",
+     "phase": 0.5,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "starstruck": {
+   "label": "Asombrado",
+   "clip": "happy",
+   "face": "star",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "star",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.28,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "star",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.22,
+     "anim": "twinkle",
+     "phase": 0.4,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "love": {
+   "label": "Encantado",
+   "clip": "love",
+   "face": "love",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "heart",
+     "bone": "head",
+     "at": [
+      0.45,
+      0.9,
+      0.2
+     ],
+     "size": 0.28,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "sleepy": {
+   "label": "Sueño",
+   "clip": "tired",
+   "face": "sleep",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "zzz",
+     "bone": "head",
+     "at": [
+      0.5,
+      0.85,
+      0.2
+     ],
+     "size": 0.28,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "walk": {
+   "label": "Caminar",
+   "clip": "walk",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "hurry": {
+   "label": "Apurado",
+   "clip": "run",
+   "face": "focused",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sweat_drop",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.2,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "idea": {
+   "label": "Idea",
+   "clip": "idea",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "lightbulb",
+     "bone": "head",
+     "at": [
+      0.0,
+      1.08,
+      0.2
+     ],
+     "size": 0.48,
+     "anim": "pop",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "read": {
+   "label": "Leer",
+   "clip": "read",
+   "face": "focused",
+   "props": [
+    "book"
+   ],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "laptop": {
+   "label": "Computadora",
+   "clip": "laptop",
+   "face": "focused",
+   "props": [
+    "laptop"
+   ],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "sleep_books": {
+   "label": "Dormido en los libros",
+   "clip": "sleep",
+   "face": "sleep",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "books",
+     "bone": "world",
+     "at": [
+      0.55,
+      -0.72,
+      0.35
+     ],
+     "size": 0.62,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "zzz",
+     "bone": "head",
+     "at": [
+      0.5,
+      0.7,
+      0.2
+     ],
+     "size": 0.25,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "write": {
+   "label": "Escribir",
+   "clip": "write",
+   "face": "focused",
+   "props": [
+    "pencil"
+   ],
+   "blink": true,
+   "talk": false,
+   "fx": []
+  },
+  "plan": {
+   "label": "Planificar",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "calendar",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.65,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "tasks": {
+   "label": "Tareas",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "checklist",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.65,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "present": {
+   "label": "Mi progreso",
+   "clip": "present",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "easel",
+     "bone": "world",
+     "at": [
+      0.8,
+      -0.3,
+      -0.35
+     ],
+     "size": 0.95,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "back",
+     "rot": 0.0
+    }
+   ]
+  },
+  "meditate": {
+   "label": "Calma",
+   "clip": "meditate",
+   "face": "sleep",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "platform",
+     "bone": "world",
+     "at": [
+      0.0,
+      -0.98,
+      0.0
+     ],
+     "size": 1.5,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "back",
+     "rot": 0.0
+    }
+   ]
+  },
+  "exercise": {
+   "label": "Ejercicio",
+   "clip": "exercise",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "dumbbell",
+     "bone": "hand_L",
+     "at": [
+      0.42,
+      -0.51,
+      0.1
+     ],
+     "size": 0.3,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "dumbbell",
+     "bone": "hand_R",
+     "at": [
+      -0.42,
+      -0.51,
+      0.1
+     ],
+     "size": 0.3,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "sweat_drop",
+     "bone": "head",
+     "at": [
+      0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.17,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "soccer": {
+   "label": "Fútbol",
+   "clip": "kick",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "soccer_ball",
+     "bone": "world",
+     "at": [
+      -0.32,
+      -0.84,
+      0.45
+     ],
+     "size": 0.36,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "basketball": {
+   "label": "Básquet",
+   "clip": "dribble",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "basketball",
+     "bone": "world",
+     "at": [
+      -0.5,
+      -0.7,
+      0.35
+     ],
+     "size": 0.36,
+     "anim": "bounce",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "gaming": {
+   "label": "Videojuego",
+   "clip": "gaming",
+   "face": "focused",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "controller",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.55,
+      0.55
+     ],
+     "size": 0.42,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "music": {
+   "label": "Música",
+   "clip": "dance",
+   "face": "sleep",
+   "props": [
+    "headphones"
+   ],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "music_note",
+     "bone": "head",
+     "at": [
+      0.55,
+      0.9,
+      0.2
+     ],
+     "size": 0.28,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "beanbag": {
+   "label": "Leer relajado",
+   "clip": "rest",
+   "face": "focused",
+   "props": [
+    "book"
+   ],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "beanbag",
+     "bone": "world",
+     "at": [
+      0.0,
+      -0.8,
+      -0.25
+     ],
+     "size": 1.45,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "back",
+     "rot": 0.0
+    }
+   ]
+  },
+  "sleep": {
+   "label": "Dormir",
+   "clip": "sleep",
+   "face": "sleep",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "zzz",
+     "bone": "head",
+     "at": [
+      0.5,
+      0.85,
+      0.2
+     ],
+     "size": 0.28,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "nap": {
+   "label": "Siesta",
+   "clip": "lie",
+   "face": "sleep",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "pillow",
+     "bone": "world",
+     "at": [
+      -0.72,
+      -0.8,
+      -0.2
+     ],
+     "size": 0.75,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "back",
+     "rot": 0.0
+    },
+    {
+     "sprite": "zzz",
+     "bone": "world",
+     "at": [
+      -0.35,
+      -0.15,
+      0.2
+     ],
+     "size": 0.36,
+     "anim": "float_up",
+     "phase": 0.0,
+     "count": 3,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "tired": {
+   "label": "Cansado",
+   "clip": "tired",
+   "face": "tired",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "battery_low",
+     "bone": "head",
+     "at": [
+      0.0,
+      1.12,
+      0.2
+     ],
+     "size": 0.45,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "celebrate": {
+   "label": "Celebrar",
+   "clip": "celebrate",
+   "face": "laugh",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "confetti",
+     "bone": "world",
+     "at": [
+      0.0,
+      1.0,
+      0.3
+     ],
+     "size": 0.22,
+     "anim": "fall",
+     "phase": 0.0,
+     "count": 8,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "graduate": {
+   "label": "Graduación",
+   "clip": "graduate",
+   "face": "laugh",
+   "props": [
+    "gradcap"
+   ],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "diploma",
+     "bone": "hand_R",
+     "at": [
+      -0.42,
+      -0.51,
+      0.12
+     ],
+     "size": 0.34,
+     "anim": "none",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "trophy": {
+   "label": "Logro",
+   "clip": "trophy",
+   "face": "laugh",
+   "props": [
+    "trophy"
+   ],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      -0.78,
+      0.82,
+      0.25
+     ],
+     "size": 0.28,
+     "anim": "twinkle",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    },
+    {
+     "sprite": "sparkle",
+     "bone": "head",
+     "at": [
+      0.2,
+      1.15,
+      0.3
+     ],
+     "size": 0.22,
+     "anim": "twinkle",
+     "phase": 0.5,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "tech": {
+   "label": "Tecnología",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "holo",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.6875,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "secure": {
+   "label": "Privacidad",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "shield",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.625,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "sync": {
+   "label": "Sincronizar",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "cloud_up",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.6875,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "notify": {
+   "label": "Aviso",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "bell",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.5750000000000001,
+     "anim": "shake",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "reminder": {
+   "label": "Recordatorio",
+   "clip": "hold",
+   "face": "attentive",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "alarm_clock",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.6,
+     "anim": "shake",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "location": {
+   "label": "Ubicación",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "map_pin",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.65,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "progress": {
+   "label": "Avance",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "chart_up",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.6875,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "care": {
+   "label": "Bienestar",
+   "clip": "hold",
+   "face": "laugh",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "heart",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.6,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "achievement": {
+   "label": "Estrella",
+   "clip": "hold",
+   "face": "laugh",
+   "props": [],
+   "blink": false,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "star",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.625,
+     "anim": "pulse",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "goal": {
+   "label": "Meta",
+   "clip": "hold",
+   "face": "wink",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "target",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.625,
+     "anim": "bob",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  },
+  "settings": {
+   "label": "Ajustes",
+   "clip": "hold",
+   "face": "happy",
+   "props": [],
+   "blink": true,
+   "talk": false,
+   "fx": [
+    {
+     "sprite": "gear",
+     "bone": "body",
+     "at": [
+      0.0,
+      -0.36,
+      0.5
+     ],
+     "size": 0.625,
+     "anim": "spin",
+     "phase": 0.0,
+     "count": 1,
+     "layer": "front",
+     "rot": 0.0
+    }
+   ]
+  }
+ },
+ "moods": {
+  "idle": "idle",
+  "reposo": "idle",
+  "speaking": "speak",
+  "speak": "speak",
+  "hablar": "speak",
+  "listening": "listen",
+  "listen": "listen",
+  "escuchar": "listen",
+  "thinking": "think",
+  "think": "think",
+  "pensar": "think",
+  "studying": "read",
+  "study": "read",
+  "estudiar": "read",
+  "happy": "happy",
+  "feliz": "happy",
+  "celebrate": "celebrate",
+  "celebrar": "celebrate",
+  "surprised": "surprised",
+  "sorprendido": "surprised",
+  "alert": "alert",
+  "alerta": "alert",
+  "rest": "rest",
+  "descansar": "rest",
+  "sleeping": "sleep",
+  "sleep": "sleep",
+  "dormir": "sleep",
+  "floating": "float",
+  "float": "float",
+  "flotar": "float",
+  "greet": "greet",
+  "saludar": "greet"
+ },
+ "atlas": {
+  "size": [
+   2048,
+   1024
+  ],
+  "sprites": {
+   "alarm_clock": [
+    0,
+    0,
+    192,
+    192
+   ],
+   "basketball": [
+    192,
+    0,
+    192,
+    192
+   ],
+   "battery_low": [
+    384,
+    0,
+    192,
+    192
+   ],
+   "beanbag": [
+    576,
+    0,
+    192,
+    192
+   ],
+   "bell": [
+    768,
+    0,
+    192,
+    192
+   ],
+   "books": [
+    960,
+    0,
+    192,
+    192
+   ],
+   "burst": [
+    1152,
+    0,
+    192,
+    192
+   ],
+   "calendar": [
+    1344,
+    0,
+    192,
+    192
+   ],
+   "chart_up": [
+    0,
+    192,
+    192,
+    192
+   ],
+   "checklist": [
+    192,
+    192,
+    192,
+    192
+   ],
+   "cloud_up": [
+    384,
+    192,
+    192,
+    192
+   ],
+   "confetti": [
+    576,
+    192,
+    192,
+    192
+   ],
+   "controller": [
+    768,
+    192,
+    192,
+    192
+   ],
+   "diploma": [
+    960,
+    192,
+    192,
+    192
+   ],
+   "dots": [
+    1152,
+    192,
+    192,
+    192
+   ],
+   "dumbbell": [
+    1344,
+    192,
+    192,
+    192
+   ],
+   "easel": [
+    0,
+    384,
+    192,
+    192
+   ],
+   "exclaim": [
+    192,
+    384,
+    192,
+    192
+   ],
+   "gear": [
+    384,
+    384,
+    192,
+    192
+   ],
+   "heart": [
+    576,
+    384,
+    192,
+    192
+   ],
+   "holo": [
+    768,
+    384,
+    192,
+    192
+   ],
+   "lightbulb": [
+    960,
+    384,
+    192,
+    192
+   ],
+   "map_pin": [
+    1152,
+    384,
+    192,
+    192
+   ],
+   "music_note": [
+    1344,
+    384,
+    192,
+    192
+   ],
+   "pillow": [
+    0,
+    576,
+    192,
+    192
+   ],
+   "platform": [
+    192,
+    576,
+    192,
+    192
+   ],
+   "question": [
+    384,
+    576,
+    192,
+    192
+   ],
+   "shield": [
+    576,
+    576,
+    192,
+    192
+   ],
+   "soccer_ball": [
+    768,
+    576,
+    192,
+    192
+   ],
+   "sound": [
+    960,
+    576,
+    192,
+    192
+   ],
+   "sparkle": [
+    1152,
+    576,
+    192,
+    192
+   ],
+   "star": [
+    1344,
+    576,
+    192,
+    192
+   ],
+   "steam": [
+    0,
+    768,
+    192,
+    192
+   ],
+   "sweat_drop": [
+    192,
+    768,
+    192,
+    192
+   ],
+   "target": [
+    384,
+    768,
+    192,
+    192
+   ],
+   "tear_drop": [
+    576,
+    768,
+    192,
+    192
+   ],
+   "zzz": [
+    768,
+    768,
+    192,
+    192
+   ]
+  }
+ }
+}

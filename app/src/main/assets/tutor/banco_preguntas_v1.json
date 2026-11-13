@@ -1,0 +1,2185 @@
+{
+  "version": 1,
+  "generated": "2026-10-29",
+  "license": "Contenido original del proyecto",
+  "topics": [
+    {
+      "id": "ecologia-anp-santuario-ampay",
+      "area": "ECOLOGIA",
+      "title": "Áreas naturales protegidas: el Santuario Nacional del Ampay",
+      "temario": {
+        "area": "ECOLOGÍA Y MEDIO AMBIENTE",
+        "item": 13,
+        "title": "CONSERVACIÓN DE LOS RECURSOS NATURALES. ÁREAS NATURALES PROTEGIDAS"
+      },
+      "objective": "Reconocer cómo se clasifican las áreas naturales protegidas del Perú según el uso que permiten, y ubicar el Santuario Nacional del Ampay (norma de creación, localización, extensión y objeto de conservación), distinguiendo el santuario nacional de otras categorías. Cubre el ítem 13 y la parte de áreas naturales protegidas del ítem 17 del temario.",
+      "explanation": [
+        "Las áreas naturales protegidas son espacios del territorio peruano que el Estado reconoce y resguarda para conservar la diversidad biológica y los paisajes. Todas forman parte del Sistema Nacional de Áreas Naturales Protegidas por el Estado, que administra el Servicio Nacional de Áreas Naturales Protegidas, conocido como Sernanp.",
+        "La Ley de Áreas Naturales Protegidas, número veintiséis mil ochocientos treinta y cuatro, del año mil novecientos noventa y siete, ordena las categorías según el uso que permiten. Son de uso indirecto los parques nacionales, los santuarios nacionales y los santuarios históricos: allí se admite la investigación científica que no manipula el ambiente, la recreación y el turismo en zonas designadas, pero no se extraen recursos. Son de uso directo, entre otras, las reservas nacionales, donde puede haber aprovechamiento bajo planes de manejo.",
+        "Un santuario nacional protege, de manera intangible, el hábitat de una especie o de una comunidad de flora y fauna, además de formaciones naturales de interés científico y paisajístico. Un parque nacional, en cambio, resguarda muestras representativas de la diversidad natural del país.",
+        "En Apurímac está el Santuario Nacional del Ampay. Se creó el veintitrés de julio de mil novecientos ochenta y siete mediante el Decreto Supremo cuarenta y dos guion ochenta y siete guion A G. Se ubica en el distrito de Tamburco, provincia de Abancay, y ocupa unas tres mil seiscientas treinta y cinco hectáreas, entre los dos mil novecientos y los cinco mil doscientos treinta y cinco metros de altitud. Su objetivo principal es conservar un relicto del bosque de intimpa, una conífera de nombre científico Podocarpus glomeratus, y proteger la cuenca del río Pachachaca."
+      ],
+      "questions": [
+        {
+          "id": "anp-ampay-q1",
+          "statement": "El Santuario Nacional del Ampay, en Apurímac, es un área protegida de creación relativamente antigua. ¿Con qué norma y en qué año se estableció?",
+          "options": [
+            "Con la Ley N.° 26834, de Áreas Naturales Protegidas, promulgada en 1997.",
+            "Con el Decreto Supremo N.° 042-87-AG, firmado en 1987.",
+            "Con una ordenanza del Gobierno Regional de Apurímac, aprobada en 2005.",
+            "Con el Decreto Supremo N.° 042-87-AG, firmado en 1997.",
+            "Con una resolución ministerial del sector Agricultura, emitida en 1977."
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Conviene separar dos cosas: la norma que crea un área concreta y la ley general que ordena todas las categorías de áreas protegidas.",
+            "La creación del santuario fue anterior a la ley general de 1997 y se firmó en un mes de julio.",
+            "La norma es un decreto supremo cuyo número termina en 87, igual que las dos últimas cifras del año en que se firmó."
+          ],
+          "optionFeedback": {
+            "0": "Esa ley es posterior y sirve para ordenar las categorías de todas las áreas protegidas; no creó el Santuario del Ampay, que ya existía desde hacía diez años.",
+            "2": "El Ampay es un área protegida de nivel nacional. Se creó por un decreto supremo firmado por el presidente de la República y el ministro de Agricultura, no por una ordenanza regional.",
+            "3": "El número de la norma es correcto, pero el año no: el decreto se firmó el 23 de julio de 1987. El año 1997 corresponde a la Ley de Áreas Naturales Protegidas.",
+            "4": "La norma de creación es un decreto supremo, no una resolución ministerial, y se firmó en 1987, no en 1977."
+          },
+          "explanation": "El Santuario Nacional del Ampay se creó el 23 de julio de 1987 mediante el Decreto Supremo N.° 042-87-AG, firmado por el presidente Alan García Pérez y el ministro de Agricultura Remigio Morales Bermúdez Pedraglio. La Ley N.° 26834 se promulgó diez años después, en 1997, y regula las categorías de las áreas protegidas, pero no creó este santuario.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Decreto Supremo N.° 042-87-AG, creación del Santuario Nacional de Ampay (23-07-1987)",
+              "publisher": "Presidencia de la República y Ministerio de Agricultura del Perú (copia en legislacionanp.org.pe)",
+              "url": "https://legislacionanp.org.pe/wp-content/uploads/1987/08/Decreto-Supremo-No-042-87-AG.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ley N.° 26834, Ley de Áreas Naturales Protegidas (texto, arts. 21 y 22)",
+              "publisher": "Congreso de la República del Perú (copia en Biblioteca de Derechos Humanos, Univ. de Minnesota)",
+              "url": "https://humanrts.umn.edu/research/Peru-Ley%2026834.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "anp-ampay-q2",
+          "statement": "¿En qué distrito y provincia se encuentra el Santuario Nacional del Ampay?",
+          "options": [
+            "Distrito de Chalhuanca, provincia de Aymaraes",
+            "Distrito de Tambobamba, provincia de Cotabambas",
+            "Distrito de Curahuasi, provincia de Abancay",
+            "Distrito de Tamburco, provincia de Abancay",
+            "Distrito de Chincheros, provincia de Chincheros"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Para ubicar un área protegida se indica el distrito y la provincia donde está su territorio, no solo el departamento.",
+            "El santuario queda a pocos kilómetros de la ciudad de Abancay, así que pertenece a la provincia de la capital departamental.",
+            "Dentro de la provincia de Abancay hay dos distritos entre las opciones; el santuario está en el que no es Curahuasi."
+          ],
+          "optionFeedback": {
+            "0": "Chalhuanca es la capital de la provincia de Aymaraes. El santuario no está allí, sino a pocos kilómetros de la ciudad de Abancay.",
+            "1": "Tambobamba es la capital de Cotabambas, otra provincia distinta. El Ampay está en la provincia de la capital departamental.",
+            "2": "Curahuasi sí es un distrito de la provincia de Abancay, pero no es el distrito donde se encuentra el santuario.",
+            "4": "Chincheros es otra provincia de Apurímac. El Ampay no se ubica allí, sino en la provincia de Abancay."
+          },
+          "explanation": "SERNANP y el decreto de creación ubican el santuario en el distrito de Tamburco, provincia de Abancay, departamento de Apurímac, a pocos kilómetros de la ciudad de Abancay.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Supremo N.° 042-87-AG, creación del Santuario Nacional de Ampay (23-07-1987)",
+              "publisher": "Presidencia de la República y Ministerio de Agricultura del Perú (copia en legislacionanp.org.pe)",
+              "url": "https://legislacionanp.org.pe/wp-content/uploads/1987/08/Decreto-Supremo-No-042-87-AG.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Directorio de municipalidades de Apurímac",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www.congreso.gob.pe/Docs/Otamdegrl/files/directorio_apurimac_202.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "anp-ampay-q3",
+          "statement": "El Santuario Nacional del Ampay se creó, sobre todo, para conservar de forma intangible un relicto de bosque de una especie. ¿De cuál se trata?",
+          "options": [
+            "La vicuña, camélido de los pastizales altoandinos",
+            "El puma",
+            "La quina o cinchona, árbol nacional del Perú",
+            "La taruca",
+            "El bosque de intimpa (Podocarpus glomeratus)"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Un santuario nacional protege el hábitat de una especie o de una comunidad de flora y fauna; hay que averiguar cuál fue la protagonista en este caso.",
+            "Un relicto es un resto de un ecosistema que antes ocupaba más superficie; aquí se trata de un bosque, es decir, de árboles y no de un animal.",
+            "El árbol es una conífera andina de la familia Podocarpaceae, distinta de la quina y de los animales de la lista."
+          ],
+          "optionFeedback": {
+            "0": "La vicuña es un símbolo nacional y un animal muy valioso, pero el objeto principal de conservación del Ampay no es un camélido sino un bosque.",
+            "1": "SERNANP menciona al puma entre las especies en peligro de extinción presentes en el santuario, pero no es su objeto principal de conservación.",
+            "2": "La quina es el árbol nacional y figura en el escudo, pero no es la especie que motivó la creación del Ampay.",
+            "3": "SERNANP también la menciona como especie amenazada del santuario, pero su protección no fue la razón principal de su creación."
+          },
+          "explanation": "El decreto de creación y SERNANP coinciden: el objetivo principal es conservar, con carácter intangible, el bosque de intimpa (Podocarpus glomeratus), una conífera de la familia Podocarpaceae; SERNANP lo describe como un «relicto de intimpa». El objetivo incluye también la cuenca del río Pachachaca. La taruca y el puma son fauna que SERNANP destaca en el santuario, pero no su razón principal de creación.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Supremo N.° 042-87-AG, creación del Santuario Nacional de Ampay (23-07-1987)",
+              "publisher": "Presidencia de la República y Ministerio de Agricultura del Perú (copia en legislacionanp.org.pe)",
+              "url": "https://legislacionanp.org.pe/wp-content/uploads/1987/08/Decreto-Supremo-No-042-87-AG.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Podocarpus glomeratus - Threatened Conifers of the World",
+              "publisher": "Royal Botanic Garden Edinburgh",
+              "url": "https://threatenedconifers.rbge.org.uk/conifers/podocarpus-glomeratus",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Animales y plantas como símbolos patrios (vicuña, quina, cantuta)",
+              "publisher": "Actualidad Ambiental (SPDA)",
+              "url": "https://www.actualidadambiental.pe/?p=48360",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "anp-ampay-q4",
+          "statement": "Un grupo de especialistas propone proteger, de manera intangible, el hábitat de un bosque relicto formado por una sola especie de árbol, como ocurre en el Ampay. Según la Ley de Áreas Naturales Protegidas, ¿qué categoría describe mejor esa finalidad?",
+          "options": [
+            "Reserva nacional",
+            "Coto de caza",
+            "Santuario nacional",
+            "Parque nacional",
+            "Reserva comunal"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Fíjate en dos expresiones de la definición legal: carácter intangible y hábitat de una especie.",
+            "Descarta las categorías de uso directo, donde se aprovechan recursos; la respuesta está entre las de uso indirecto.",
+            "Entre las categorías de uso indirecto, el parque protege ecosistemas representativos y el santuario histórico protege sitios con valor histórico; falta la que se centra en una especie o comunidad."
+          ],
+          "optionFeedback": {
+            "0": "Las reservas nacionales conservan la diversidad biológica y permiten el aprovechamiento comercial de recursos bajo planes de manejo aprobados. Aquí se pide una protección intangible de un hábitat concreto.",
+            "1": "Los cotos de caza se destinan al aprovechamiento de la fauna mediante la caza deportiva regulada, algo opuesto a una protección intangible.",
+            "3": "Los parques nacionales resguardan muestras representativas de la diversidad natural del país y de sus grandes unidades ecológicas, es decir, ecosistemas amplios y no el hábitat de una sola especie.",
+            "4": "Las reservas comunales conservan flora y fauna en beneficio de poblaciones rurales vecinas, que usan los recursos con planes de manejo; no son de protección intangible."
+          },
+          "explanation": "La ley define el santuario nacional como el área donde se protege, con carácter intangible, el hábitat de una especie o de una comunidad de flora y fauna, junto con formaciones naturales de interés científico y paisajístico. Es una categoría de uso indirecto. Por eso encaja con el caso del Ampay, creado para resguardar el bosque de intimpa.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Ley N.° 26834, Ley de Áreas Naturales Protegidas (texto, arts. 21 y 22)",
+              "publisher": "Congreso de la República del Perú (copia en Biblioteca de Derechos Humanos, Univ. de Minnesota)",
+              "url": "https://humanrts.umn.edu/research/Peru-Ley%2026834.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Sistema Nacional de Áreas Naturales Protegidas por el Estado (categorías)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/campa%C3%B1as/4340-sistema-nacional-de-areas-naturales-protegidas-por-el-estado",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "anp-ampay-q5",
+          "statement": "El Santuario Nacional del Ampay es un área de uso indirecto. ¿Qué actividad es compatible con esa condición?",
+          "options": [
+            "Realizar investigación científica sin manipular el ambiente natural",
+            "Talar árboles para vender la madera",
+            "Abrir una cantera para extraer piedra",
+            "Practicar la caza deportiva regulada",
+            "Sembrar papa en parcelas dentro del bosque"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "En las áreas de uso indirecto no se extraen recursos ni se transforma el ambiente natural.",
+            "La ley menciona como actividades compatibles la investigación, la recreación y el turismo, siempre en zonas designadas y manejadas para ello.",
+            "Busca la opción que consiste en estudiar sin retirar, cazar, talar ni cultivar nada."
+          ],
+          "optionFeedback": {
+            "1": "Es extracción de recursos naturales, que la ley no permite en las áreas de uso indirecto.",
+            "2": "Además de extraer recursos, transformaría el ambiente natural; ambas cosas están prohibidas en las áreas de uso indirecto.",
+            "3": "La caza deportiva regulada corresponde a los cotos de caza, una categoría de uso directo; no se permite en un santuario nacional.",
+            "4": "Convertir el bosque en chacras sería modificar y transformar el ambiente natural, algo que no se permite en estas áreas."
+          },
+          "explanation": "Según la Ley N.° 26834, en las áreas de uso indirecto se permite la investigación científica no manipulativa, la recreación y el turismo en zonas apropiadas, y no se permite la extracción de recursos ni las modificaciones del ambiente natural. Parques nacionales, santuarios nacionales y santuarios históricos pertenecen a este grupo.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Ley N.° 26834, Ley de Áreas Naturales Protegidas (texto, arts. 21 y 22)",
+              "publisher": "Congreso de la República del Perú (copia en Biblioteca de Derechos Humanos, Univ. de Minnesota)",
+              "url": "https://humanrts.umn.edu/research/Peru-Ley%2026834.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Sistema Nacional de Áreas Naturales Protegidas por el Estado (categorías)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/campa%C3%B1as/4340-sistema-nacional-de-areas-naturales-protegidas-por-el-estado",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "anp-ampay-q6",
+          "statement": "El decreto de creación del Ampay indica una extensión cercana a 3635 hectáreas. ¿A cuántos kilómetros cuadrados equivale, aproximadamente?",
+          "options": [
+            "Cerca de 3,6 kilómetros cuadrados",
+            "Cerca de 36 kilómetros cuadrados",
+            "Cerca de 363 kilómetros cuadrados",
+            "Cerca de 3635 kilómetros cuadrados",
+            "Cerca de 0,36 kilómetros cuadrados"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Recuerda que una hectárea es un cuadrado de cien metros por cien metros, y un kilómetro cuadrado es un cuadrado de mil metros por mil metros.",
+            "En un kilómetro cuadrado caben cien hectáreas.",
+            "Divide 3635 entre cien: el resultado queda entre 35 y 37."
+          ],
+          "optionFeedback": {
+            "0": "Resulta de dividir entre mil, pero un kilómetro cuadrado equivale a cien hectáreas, no a mil.",
+            "2": "Se obtiene al dividir entre diez, pero hay que dividir entre cien.",
+            "3": "Esa cifra repite el número de hectáreas sin convertir la unidad; un kilómetro cuadrado es mucho mayor que una hectárea.",
+            "4": "Resulta de dividir entre diez mil, una conversión excesiva: un kilómetro cuadrado equivale a cien hectáreas."
+          },
+          "explanation": "El decreto fija unas 3635 hectáreas (SERNANP indica 3635,50). Como un kilómetro cuadrado tiene cien hectáreas, la extensión equivale a unos 36 kilómetros cuadrados.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Decreto Supremo N.° 042-87-AG, creación del Santuario Nacional de Ampay (23-07-1987)",
+              "publisher": "Presidencia de la República y Ministerio de Agricultura del Perú (copia en legislacionanp.org.pe)",
+              "url": "https://legislacionanp.org.pe/wp-content/uploads/1987/08/Decreto-Supremo-No-042-87-AG.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ecologia-contaminacion-agua-aire",
+      "area": "ECOLOGIA",
+      "title": "Contaminación del agua y del aire",
+      "temario": {
+        "area": "ECOLOGÍA Y MEDIO AMBIENTE",
+        "item": 14,
+        "title": "CONTAMINACIÓN AMBIENTAL DEL AGUA Y AIRE"
+      },
+      "objective": "Identificar contaminantes comunes del aire y del agua, sus fuentes y sus efectos, y distinguir los dos instrumentos de control ambiental que usa el Perú: los Estándares de Calidad Ambiental y los Límites Máximos Permisibles.",
+      "explanation": [
+        "Hay contaminación cuando sustancias o formas de energía llegan al aire, al agua o al suelo en cantidades que dañan la salud de las personas o alteran los ecosistemas. En los casos que veremos, la causa principal es la actividad humana: quema de combustibles, minería y agricultura.",
+        "En el aire preocupan los óxidos de carbono, azufre y nitrógeno y las partículas finas. El monóxido de carbono se forma cuando la combustión es incompleta y reduce el oxígeno que la sangre lleva a los órganos. El dióxido de azufre y los óxidos de nitrógeno salen al quemar combustibles fósiles y originan la lluvia ácida. Las partículas finas, de dos coma cinco micrómetros o menos, llegan hasta los pulmones.",
+        "En el agua, el exceso de nitrógeno y fósforo, por ejemplo el que arrastra la agricultura, hace que las algas crezcan sin control. Al reducirse el oxígeno, los peces pueden morir. Otro caso es el mercurio, peligroso cuando se usa en la minería artesanal de oro: unas bacterias lo transforman en metilmercurio, que se acumula en los peces y llega a quienes los consumen.",
+        "En el Perú, la Ley General del Ambiente distingue dos herramientas. Los Estándares de Calidad Ambiental indican cuánto de una sustancia puede haber en el aire, el agua o el suelo sin riesgo significativo. Los Límites Máximos Permisibles, en cambio, controlan lo que una actividad emite o vierte desde su fuente."
+      ],
+      "questions": [
+        {
+          "id": "contam-q1",
+          "statement": "¿Qué par de contaminantes, emitidos sobre todo al quemar combustibles fósiles, es el principal responsable de la lluvia ácida?",
+          "options": [
+            "Dióxido de carbono y metano",
+            "Ozono a nivel del suelo y partículas finas",
+            "Dióxido de azufre y óxidos de nitrógeno",
+            "Monóxido de carbono y mercurio",
+            "Nitrógeno y fósforo en exceso"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "La lluvia ácida se origina a partir de gases que provienen sobre todo de quemar carbón, petróleo y sus derivados.",
+            "Ninguno de los dos gases buscados es un óxido de carbono.",
+            "Uno de ellos contiene azufre y el otro, nitrógeno; centrales eléctricas, industrias y vehículos los emiten."
+          ],
+          "optionFeedback": {
+            "0": "Son gases de efecto invernadero: atrapan calor en la atmósfera. No son los causantes principales de la acidez de la lluvia.",
+            "1": "Son contaminantes importantes para la salud, según la OMS, pero la lluvia ácida se debe sobre todo a otros gases.",
+            "3": "El monóxido de carbono es un gas tóxico de la combustión incompleta y el mercurio es un metal que se acumula en los peces; ninguno de los dos es la causa principal de la lluvia ácida.",
+            "4": "Esa pareja de nutrientes provoca el crecimiento descontrolado de algas en el agua. Los gases que acidifican la lluvia son óxidos de azufre y de nitrógeno emitidos al aire."
+          },
+          "explanation": "Según la EPA y Britannica, la lluvia ácida se produce principalmente cuando el dióxido de azufre y los óxidos de nitrógeno se liberan a la atmósfera, en su mayoría por la quema de combustibles fósiles en centrales eléctricas, industrias y vehículos.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "What is Acid Rain?",
+              "publisher": "U.S. Environmental Protection Agency (EPA)",
+              "url": "https://www.epa.gov/acidrain/what-acid-rain",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Acid rain",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/science/acid-rain",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Overview of Greenhouse Gases",
+              "publisher": "U.S. Environmental Protection Agency (EPA)",
+              "url": "https://www.epa.gov/ghgemissions/overview-greenhouse-gases",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ambient (outdoor) air pollution (fact sheet)",
+              "publisher": "Organización Mundial de la Salud (OMS/WHO)",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "contam-q2",
+          "statement": "En los reportes de calidad del aire aparece la sigla «PM2.5». ¿Qué indica ese número?",
+          "options": [
+            "Partículas inhalables finas, de 2,5 micrómetros de diámetro o menos",
+            "Una concentración de 2,5 partes por millón de monóxido de carbono",
+            "Partículas cuyo diámetro mínimo es de 2,5 milímetros",
+            "Un pH promedio de 2,5 en el agua de lluvia",
+            "Que 2,5 de cada cien partículas del aire son tóxicas"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "La sigla PM viene del inglés particulate matter: mezcla de sólidos y gotitas diminutas suspendidos en el aire.",
+            "El número se refiere al tamaño, medido como diámetro en micrómetros, la milésima parte de un milímetro.",
+            "El valor señala un límite superior: cuanto más pequeña es la partícula, más profundo puede llegar a los pulmones."
+          ],
+          "optionFeedback": {
+            "1": "La sigla PM no se refiere a un gas sino a material particulado: sólidos y gotitas muy pequeñas suspendidos en el aire.",
+            "2": "La unidad es el micrómetro, la milésima parte de un milímetro. Además el número marca un tamaño máximo, no mínimo.",
+            "3": "El pH mide acidez y se relaciona con la lluvia ácida; PM2.5 en cambio describe el tamaño de las partículas del aire.",
+            "4": "El número no es un porcentaje: indica el diámetro de las partículas, no cuántas son tóxicas."
+          },
+          "explanation": "La EPA define las PM2.5 como partículas finas inhalables con diámetros generalmente de 2,5 micrómetros o menos. Por su tamaño llegan hasta el fondo de los pulmones y son las de mayor riesgo para la salud entre las partículas descritas.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Particulate Matter (PM) Basics",
+              "publisher": "U.S. Environmental Protection Agency (EPA)",
+              "url": "https://www.epa.gov/pm-pollution/particulate-matter-pm-basics",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ambient (outdoor) air pollution (fact sheet)",
+              "publisher": "Organización Mundial de la Salud (OMS/WHO)",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "contam-q3",
+          "statement": "Un taxi con el motor mal regulado quema el combustible de forma incompleta y emite un gas tóxico que, al respirarlo, disminuye el oxígeno que la sangre lleva al corazón y al cerebro. ¿Cuál es ese gas?",
+          "options": [
+            "Dióxido de carbono",
+            "Dióxido de azufre",
+            "Ozono",
+            "Monóxido de carbono",
+            "Dióxido de nitrógeno"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Cuando la combustión es incompleta, el carbono del combustible no llega a convertirse del todo en dióxido de carbono.",
+            "El gas buscado es un óxido de carbono, distinto del que exhalamos al respirar.",
+            "Los glóbulos rojos lo captan con preferencia sobre el oxígeno, por eso es muy peligroso en espacios cerrados con estufas sin ventilación."
+          ],
+          "optionFeedback": {
+            "0": "Es el producto de la conversión completa del carbono del combustible; el gas tóxico del enunciado aparece cuando esa conversión queda incompleta.",
+            "1": "Se produce al quemar carbón y petróleo o al fundir minerales con azufre, y contribuye a la lluvia ácida; no es el gas que desplaza al oxígeno en la sangre.",
+            "2": "A nivel del suelo es un componente del smog que se forma por reacciones de gases con la luz solar; no se origina por combustión incompleta.",
+            "4": "Se libera sobre todo por la combustión en el transporte y la industria, pero no es el gas que reduce el oxígeno transportado por la sangre."
+          },
+          "explanation": "El monóxido de carbono aparece cuando el carbono de un combustible no se convierte por completo en dióxido de carbono. Su toxicidad se debe a que los glóbulos rojos lo absorben con preferencia sobre el oxígeno, de modo que los órganos reciben menos oxígeno.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Carbon monoxide",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/science/carbon-monoxide",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Basic Information about Carbon Monoxide (CO) Outdoor Air Pollution",
+              "publisher": "U.S. Environmental Protection Agency (EPA)",
+              "url": "https://www.epa.gov/co-pollution/basic-information-about-carbon-monoxide-co-outdoor-air-pollution",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ambient (outdoor) air pollution (fact sheet)",
+              "publisher": "Organización Mundial de la Salud (OMS/WHO)",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "contam-q4",
+          "statement": "Después de las lluvias, el agua que escurre de campos muy fertilizados llega a una laguna. Semanas más tarde aparecen manchas verdes de algas y mueren muchos peces. ¿Qué explica mejor lo ocurrido?",
+          "options": [
+            "El monóxido de carbono del aire se disolvió en la laguna y envenenó a los peces.",
+            "El exceso de nitrógeno y fósforo favoreció la proliferación de algas y la pérdida de oxígeno asfixió a los peces.",
+            "El fertilizante aumentó el oxígeno disuelto y los peces murieron por exceso de oxígeno.",
+            "La lluvia ácida destruyó las algas y por eso murieron los peces.",
+            "El mercurio de la lluvia se acumuló en las algas y mató a los peces de inmediato."
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Los fertilizantes aportan nutrientes; en el agua, demasiados nutrientes alteran el equilibrio de la vida acuática.",
+            "Las algas necesitan nutrientes para crecer rápido; después, al descomponerse, se consume el oxígeno disuelto.",
+            "Elige la opción que une el aumento de algas con la caída del oxígeno, no con gases del aire."
+          ],
+          "optionFeedback": {
+            "0": "El escenario no menciona combustión ni emisiones al aire; las manchas de algas indican un exceso de nutrientes en el agua.",
+            "2": "Ocurre lo contrario: las floraciones de algas pueden reducir o eliminar el oxígeno del agua.",
+            "3": "La lluvia ácida se debe a gases de azufre y nitrógeno emitidos al aire, y no explica un aumento de algas. Aquí las algas crecieron en exceso por los nutrientes.",
+            "4": "El mercurio es un problema de bioacumulación que actúa a lo largo del tiempo y se asocia con otras fuentes, como la minería de oro; no explica las manchas de algas tras fertilizar campos."
+          },
+          "explanation": "La EPA explica que el exceso de nitrógeno y fósforo hace crecer algas más rápido de lo que el ecosistema puede manejar, y que esas floraciones pueden reducir o eliminar el oxígeno del agua, con mortandad de peces. Es la llamada contaminación por nutrientes, una forma de eutrofización.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "The Problem (Nutrient Pollution)",
+              "publisher": "U.S. Environmental Protection Agency (EPA)",
+              "url": "https://www.epa.gov/nutrientpollution/problem",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Mercury and health (fact sheet)",
+              "publisher": "Organización Mundial de la Salud (OMS/WHO)",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/mercury-and-health",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "contam-q5",
+          "statement": "En la normativa ambiental peruana se distingue entre el Estándar de Calidad Ambiental (ECA) y el Límite Máximo Permisible (LMP). ¿Qué afirmación los diferencia correctamente?",
+          "options": [
+            "El ECA se aplica a lo que sale de la chimenea de una fábrica; el LMP, a la calidad del agua de un río.",
+            "Son dos nombres distintos para el mismo concepto y solo cambia la sigla según el sector.",
+            "El ECA es exclusivo para el suelo y el LMP es exclusivo para el aire.",
+            "El ECA fija el máximo de residuos por habitante; el LMP fija el máximo de visitantes por área protegida.",
+            "El ECA mide la calidad del aire, el agua o el suelo como ambiente receptor; el LMP controla lo que una actividad emite o vierte."
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Piensa en dos lugares distintos: el ambiente que recibe la contaminación y la fuente que la produce.",
+            "Uno de los instrumentos describe cuánta cantidad de una sustancia puede haber en el aire, el agua o el suelo sin riesgo significativo para la salud ni el ambiente.",
+            "El otro instrumento se mide en la salida: en la emisión o el efluente de una actividad, y si se supera puede causar daño."
+          ],
+          "optionFeedback": {
+            "0": "Está invertido: el ECA se refiere al ambiente que recibe la contaminación, y el LMP, a la emisión o el efluente de la actividad.",
+            "1": "No son sinónimos: el ECA fija niveles seguros en el ambiente y el LMP fija el máximo de lo que puede emitir o verter una fuente.",
+            "2": "El ECA se define para aire, agua o suelo, y los LMP se establecen para emisiones y efluentes de actividades concretas, como la industria de harina y aceite de pescado.",
+            "3": "Ninguno trata de residuos por habitante ni de visitantes: son medidas de concentración de sustancias, una en el ambiente receptor y otra en la fuente."
+          },
+          "explanation": "Según la Ley General del Ambiente (artículo 31, citado en normas del MINAM), el ECA es la medida del nivel de concentración de elementos, sustancias o parámetros presentes en el aire, agua o suelo, como cuerpo receptor, que no representa riesgo significativo para la salud ni el ambiente. El LMP, en cambio, caracteriza una emisión o un efluente y, si se excede, causa o puede causar daños.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Decreto Supremo N.° 002-2013-MINAM, ECA para Suelo (considerandos citan el art. 31 de la Ley 28611)",
+              "publisher": "Ministerio del Ambiente (MINAM)",
+              "url": "https://www.minam.gob.pe/calidadambiental/wp-content/uploads/sites/22/2013/10/D-S-N-002-2013-MINAM.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Supremo N.° 011-2009-MINAM, LMP para harina y aceite de pescado (art. 2.10 y considerandos sobre el art. 32 de la Ley 28611)",
+              "publisher": "Ministerio del Ambiente (MINAM) - InfoAire Perú",
+              "url": "https://infoaireperu.minam.gob.pe/wp-content/uploads/2017/12/DS_011-2009-MINAM_LMP_Harina_y_aceite_de_pescado-1.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "contam-q6",
+          "statement": "En ríos donde hay minería artesanal de oro se encuentran niveles altos de mercurio sobre todo en peces grandes y depredadores. ¿Qué proceso explica que tengan más mercurio que los peces pequeños?",
+          "options": [
+            "Los peces grandes beben más agua y absorben el mercurio directamente por la boca.",
+            "El mercurio se evapora de los peces pequeños y se deposita en los grandes.",
+            "El mercurio, convertido en metilmercurio por bacterias, se acumula en los peces, y los depredadores comen muchos peces pequeños.",
+            "Los peces grandes fabrican mercurio en su propio metabolismo.",
+            "La lluvia ácida deposita mercurio únicamente en los peces de mayor tamaño."
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Algunos contaminantes no se eliminan fácilmente del cuerpo y se van acumulando en los organismos.",
+            "Piensa en la cadena alimentaria: quién come a quién y cuánto.",
+            "Un depredador grande consume muchos peces pequeños, y cada uno aporta algo de mercurio."
+          ],
+          "optionFeedback": {
+            "0": "La acumulación no depende de cuánta agua beben, sino de lo que comen a lo largo de la cadena alimentaria.",
+            "1": "No hay transferencia por evaporación entre peces: el mercurio pasa de presa a depredador al alimentarse.",
+            "3": "El mercurio es un elemento químico que llega desde el ambiente; ningún pez lo produce.",
+            "4": "La lluvia ácida se asocia con óxidos de azufre y de nitrógeno, y no reparte el mercurio según el tamaño de los peces."
+          },
+          "explanation": "La OMS explica que ciertas bacterias convierten el mercurio ambiental en metilmercurio, que se acumula en peces y mariscos; los grandes depredadores tienden a tener más porque comen muchos peces más pequeños. La OMS señala además que el uso de mercurio en la minería artesanal de oro es particularmente peligroso.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Mercury and health (fact sheet)",
+              "publisher": "Organización Mundial de la Salud (OMS/WHO)",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/mercury-and-health",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geografia-espacio-geografico-apurimac",
+      "area": "GEOGRAFIA",
+      "title": "Espacio geográfico de Apurímac",
+      "temario": {
+        "area": "GEOGRAFÍA DEL PERÚ Y DEL MUNDO",
+        "item": 9,
+        "title": "ESPACIO GEOGRÁFICO DE APURÍMAC"
+      },
+      "objective": "Ubicar el departamento de Apurímac y describir su organización política: departamentos vecinos, provincias y capitales, distritos de la provincia de Abancay y población por provincias, además de reconocer el papel del río Apurímac en la hidrografía regional.",
+      "explanation": [
+        "Apurímac es un departamento de la sierra sur del Perú, en la vertiente oriental de los Andes. Su capital es la ciudad de Abancay, situada a unos dos mil trescientos setenta y ocho metros de altitud. Fue creado por una ley del veintiocho de abril de mil ochocientos setenta y tres, que le dio a Abancay la condición de capital.",
+        "Tiene una superficie de unos veinte mil ochocientos noventa y cinco kilómetros cuadrados, cerca del uno coma seis por ciento del territorio nacional. Limita con tres departamentos: Cusco, Ayacucho y Arequipa.",
+        "Se divide en siete provincias: Abancay, Andahuaylas, Antabamba, Aymaraes, Chincheros, Cotabambas y Grau. Las capitales de Aymaraes, Cotabambas y Grau son Chalhuanca, Tambobamba y Chuquibambilla. La provincia de Abancay tiene nueve distritos: Abancay, Chacoche, Circa, Curahuasi, Huanipaca, Lambrama, Pichirhua, San Pedro de Cachora y Tamburco. Las fuentes oficiales consultadas dan cifras distintas para el total de distritos del departamento, por eso este banco no lo pregunta.",
+        "Según el censo de dos mil diecisiete del INEI, Apurímac tenía cuatrocientos cinco mil setecientos cincuenta y nueve habitantes. Andahuaylas es la provincia más poblada y Aymaraes, la más extensa.",
+        "Sus ríos principales son el Apurímac, el Pampas y el Pachachaca. El Apurímac nace en el monte Mismi, en Arequipa, y por la longitud de su recorrido andino se le considera la fuente más lejana del Amazonas. El clima cambia con la altitud, y en las zonas altas del departamento ocurren heladas."
+      ],
+      "questions": [
+        {
+          "id": "apurimac-q1",
+          "statement": "El departamento de Apurímac está dividido en siete provincias. ¿Cuál de las siguientes NO pertenece a Apurímac?",
+          "options": [
+            "Aymaraes",
+            "Anta",
+            "Cotabambas",
+            "Chincheros",
+            "Grau"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Se trata de reconocer qué opción no figura en el mapa político de Apurímac, aunque su nombre suene parecido al de alguna provincia apurimeña.",
+            "Una de las opciones es una provincia del departamento vecino de Cusco.",
+            "Esa provincia se formó en 1839, cuando la antigua provincia de Abancay se dividió en dos: una conservó su nombre y la otra recibió el suyo, que hoy pertenece a Cusco."
+          ],
+          "optionFeedback": {
+            "0": "Es una de las siete provincias de Apurímac; su capital es Chalhuanca.",
+            "2": "Es una de las siete provincias de Apurímac; su capital es Tambobamba.",
+            "3": "Es una de las siete provincias de Apurímac, y su capital lleva el mismo nombre.",
+            "4": "Es una de las siete provincias de Apurímac; su capital es Chuquibambilla."
+          },
+          "explanation": "Las siete provincias de Apurímac son Abancay, Andahuaylas, Antabamba, Aymaraes, Chincheros, Cotabambas y Grau. Anta es una provincia del departamento de Cusco: nació en 1839, cuando la antigua provincia de Abancay, que entonces no pertenecía a Apurímac, se dividió en dos.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Departamento de Apurímac (compendio estadístico INEI, datos de 1998)",
+              "publisher": "Instituto Nacional de Estadística e Informática (INEI)",
+              "url": "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib0011/est_apu.htm",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ficha regional de Apurímac (dossier, datos INEI 2017, SERNANP 2020)",
+              "publisher": "Ministerio del Ambiente (MINAM) - SINIA",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/dossier_apurimac_jun20.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Demarcación territorial: Abancay (Ley de creación del departamento de Apurímac, 28-04-1873)",
+              "publisher": "Biblioteca del Congreso de la República del Perú",
+              "url": "https://www3.congreso.gob.pe/biblioteca/demarcacion1832-apurimac/abancay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Cusco Region (provincias y departamentos vecinos)",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Cusco_Region",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "apurimac-q2",
+          "statement": "Apurímac limita con tres departamentos. ¿Cuáles son?",
+          "options": [
+            "Cusco, Puno y Arequipa",
+            "Ayacucho, Huancavelica y Cusco",
+            "Cusco, Ayacucho y Arequipa",
+            "Arequipa, Moquegua y Ayacucho",
+            "Cusco, Madre de Dios y Puno"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Los límites se nombran con departamentos del sur andino; Apurímac está rodeado por tres de ellos.",
+            "Uno de los tres vecinos es el departamento donde se ubica la ciudad del Cusco, capital del Tahuantinsuyo.",
+            "Otro lleva el nombre de la batalla de 1824 que selló la independencia de Sudamérica."
+          ],
+          "optionFeedback": {
+            "0": "Puno no limita con Apurímac; los documentos oficiales consultados solo mencionan a Cusco, Ayacucho y Arequipa como vecinos.",
+            "1": "Huancavelica no aparece como vecino en ninguno de los documentos oficiales consultados; los vecinos de Apurímac son Cusco, Ayacucho y Arequipa.",
+            "3": "Moquegua no figura entre los vecinos de Apurímac en los documentos oficiales consultados. Además falta Cusco, que sí limita con Apurímac.",
+            "4": "Madre de Dios y Puno limitan con Cusco, pero no con Apurímac."
+          },
+          "explanation": "Los documentos del INGEMMET, del Gobierno Regional de Apurímac y del Comité Regional de Defensa Civil coinciden en que los vecinos de Apurímac son Cusco, Ayacucho y Arequipa. Las descripciones de qué vecino queda en cada punto cardinal no coinciden del todo entre documentos, por eso aquí solo se pregunta por el conjunto de los tres.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Memoria descriptiva: Geología económica de Apurímac (2011)",
+              "publisher": "INGEMMET - Gobierno del Perú",
+              "url": "https://portal.ingemmet.gob.pe/documents/73138/468768/2011_GE33_Memoria_Geologia_Economica_Apurimac.pdf/c4172945-19dd-4e6f-9ae1-d31b42034162",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Escenarios de riesgos a heladas de la región Apurímac (2016)",
+              "publisher": "Gobierno Regional de Apurímac, Subgerencia de Planeamiento y Acondicionamiento Territorial (en CENEPRED-SIGRID)",
+              "url": "https://sigrid.cenepred.gob.pe/sigridv3/documento/3621/descargar",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Plan Regional de Prevención y Atención de Desastres de Apurímac",
+              "publisher": "Comité Regional de Defensa Civil de Apurímac (en SINIA-MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/siar-apurimac/archivos/public/docs/598.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Cusco Region (provincias y departamentos vecinos)",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Cusco_Region",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "apurimac-q3",
+          "statement": "¿Qué pareja de provincia y capital provincial de Apurímac es correcta?",
+          "options": [
+            "Cotabambas – Chalhuanca",
+            "Grau – Tambobamba",
+            "Antabamba – Chuquibambilla",
+            "Chincheros – Andahuaylas",
+            "Aymaraes – Chalhuanca"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "La capital de una provincia es la ciudad donde funciona su municipalidad provincial.",
+            "Las provincias de Antabamba, Andahuaylas y Chincheros tienen capitales con el mismo nombre que ellas.",
+            "Chuquibambilla pertenece a Grau y Tambobamba a Cotabambas; queda una capital con nombre distinto del de su provincia."
+          ],
+          "optionFeedback": {
+            "0": "Chalhuanca es la capital de Aymaraes; la capital de Cotabambas es Tambobamba.",
+            "1": "Tambobamba es la capital de Cotabambas; la capital de Grau es Chuquibambilla.",
+            "2": "Chuquibambilla es la capital de Grau; la capital de Antabamba lleva el mismo nombre que la provincia.",
+            "3": "Andahuaylas es capital de su propia provincia; la capital de Chincheros lleva el nombre de la provincia."
+          },
+          "explanation": "Las municipalidades provinciales de Apurímac se ubican en Abancay, Andahuaylas, Antabamba, Chalhuanca (Aymaraes), Tambobamba (Cotabambas), Chincheros y Chuquibambilla (Grau). Tres capitales llevan un nombre distinto del de su provincia.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Directorio de municipalidades de Apurímac",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www.congreso.gob.pe/Docs/Otamdegrl/files/directorio_apurimac_202.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ficha regional de Apurímac (dossier, datos INEI 2017, SERNANP 2020)",
+              "publisher": "Ministerio del Ambiente (MINAM) - SINIA",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/dossier_apurimac_jun20.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "apurimac-q4",
+          "statement": "La provincia de Abancay, donde está la capital departamental, tiene nueve distritos. ¿Cuál de los siguientes es uno de ellos?",
+          "options": [
+            "Curahuasi",
+            "Chalhuanca",
+            "Tambobamba",
+            "Chuquibambilla",
+            "Antabamba"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Hay que distinguir entre los distritos de la provincia de Abancay y las ciudades capitales de otras provincias.",
+            "Tres de las opciones son capitales de las provincias de Aymaraes, Cotabambas y Grau.",
+            "De las dos restantes, una es capital de su propia provincia; la otra es un distrito de la provincia de Abancay."
+          ],
+          "optionFeedback": {
+            "1": "Es la capital de la provincia de Aymaraes, no un distrito de Abancay.",
+            "2": "Es la capital de la provincia de Cotabambas.",
+            "3": "Es la capital de la provincia de Grau.",
+            "4": "Es la capital de la provincia del mismo nombre, no un distrito de la provincia de Abancay."
+          },
+          "explanation": "Los distritos de la provincia de Abancay son Abancay, Chacoche, Circa, Curahuasi, Huanipaca, Lambrama, Pichirhua, San Pedro de Cachora y Tamburco. Las otras opciones son capitales de otras provincias de Apurímac.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Directorio de municipalidades de Apurímac",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www.congreso.gob.pe/Docs/Otamdegrl/files/directorio_apurimac_202.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Abancay (provincia): distritos y población, Censo 2017",
+              "publisher": "citypopulation.de (compilación de datos del INEI)",
+              "url": "https://www.citypopulation.de/en/peru/apurimac/admin/0301__abancay/",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "apurimac-q5",
+          "statement": "Según el censo nacional de 2017 del INEI, ¿qué provincia de Apurímac concentra más habitantes?",
+          "options": [
+            "Abancay",
+            "Chincheros",
+            "Cotabambas",
+            "Andahuaylas",
+            "Aymaraes"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Mayor extensión no significa mayor población, y la provincia de la capital no siempre es la más poblada.",
+            "El censo de 2017 contó más de 140 mil personas en la provincia ganadora, bastante por encima de la provincia de Abancay, con unas 110 mil.",
+            "Esa provincia concentra más de un tercio de la población de todo el departamento."
+          ],
+          "optionFeedback": {
+            "0": "Es la provincia de la capital departamental y la segunda en población, con unos 110 mil habitantes, pero no la primera.",
+            "1": "Tuvo unos 45 mil habitantes, bastante menos que la provincia más poblada.",
+            "2": "Tuvo unos 50 mil habitantes en 2017, muy por debajo de la primera.",
+            "4": "Es la provincia más extensa (más de 4 mil kilómetros cuadrados), pero tenía solo unos 24 mil habitantes."
+          },
+          "explanation": "En 2017, Andahuaylas tuvo 142477 habitantes (35,11 % del departamento) y Abancay, 110520 (27,24 %). Aymaraes, con 4213 kilómetros cuadrados, es la más extensa, pero solo tenía 24307 habitantes. Estas cifras corresponden al censo de 2017.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Ficha regional de Apurímac (dossier, datos INEI 2017, SERNANP 2020)",
+              "publisher": "Ministerio del Ambiente (MINAM) - SINIA",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/dossier_apurimac_jun20.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "apurimac-q6",
+          "statement": "Sobre el río Apurímac, que da nombre al departamento, ¿qué afirmación es correcta?",
+          "options": [
+            "Nace en los nevados cercanos a Abancay y desemboca en el lago Titicaca.",
+            "Nace en el monte Mismi, en Arequipa, y por la longitud de su curso andino se le considera la fuente más lejana del Amazonas.",
+            "Es un río de la vertiente del Pacífico que cruza la costa de Ica.",
+            "Se forma dentro de Apurímac por la unión de los ríos Pachachaca y Pampas.",
+            "Es un afluente del río Rímac, en la cuenca del Pacífico."
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Un río puede llamarse igual que un departamento sin haber nacido dentro de él; conviene comprobar su origen.",
+            "Corre hacia el noroeste por cañones muy profundos y sus aguas terminan en el sistema del Amazonas.",
+            "Nace en una montaña de un departamento vecino del sur, a unos 5200 metros de altitud."
+          ],
+          "optionFeedback": {
+            "0": "El Apurímac no nace cerca de Abancay ni llega al Titicaca; su curso se dirige hacia el noroeste, hacia el sistema del Amazonas.",
+            "2": "El Apurímac corre por cañones andinos y termina en el sistema amazónico, no en el Pacífico.",
+            "3": "Pachachaca y Pampas son ríos importantes del departamento que confluyen hacia la cuenca del Apurímac, pero no lo originan: este nace mucho más al sur, en el Mismi.",
+            "4": "El Rímac es otro río, de la vertiente del Pacífico. El Apurímac pertenece al sistema del Amazonas."
+          },
+          "explanation": "Según Britannica, el Apurímac nace por el deshielo del monte Mismi, en Arequipa, a unos 5200 metros, y recorre cerca de 700 kilómetros en gran parte por cañones estrechos. Por la longitud de su recorrido andino se le considera la fuente más lejana del Amazonas. En Apurímac, los ríos Pampas y Pachachaca, junto con el propio Apurímac, son los más voluminosos del departamento.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Apurímac River",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/place/Apurimac-River",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Plan Regional de Prevención y Atención de Desastres de Apurímac",
+              "publisher": "Comité Regional de Defensa Civil de Apurímac (en SINIA-MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/siar-apurimac/archivos/public/docs/598.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Memoria descriptiva: Geología económica de Apurímac (2011)",
+              "publisher": "INGEMMET - Gobierno del Perú",
+              "url": "https://portal.ingemmet.gob.pe/documents/73138/468768/2011_GE33_Memoria_Geologia_Economica_Apurimac.pdf/c4172945-19dd-4e6f-9ae1-d31b42034162",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geografia-regiones-naturales-pulgar-vidal",
+      "area": "GEOGRAFIA",
+      "title": "Las ocho regiones naturales del Perú (Pulgar Vidal)",
+      "temario": {
+        "area": "GEOGRAFÍA DEL PERÚ Y DEL MUNDO",
+        "item": 2,
+        "title": "ESPACIO PERUANO, MORFOLOGÍA Y CLIMA"
+      },
+      "objective": "Reconocer las ocho regiones naturales propuestas por Javier Pulgar Vidal, su ubicación según la altitud y sus rasgos principales, y aplicarlas a lugares conocidos de Apurímac. Corresponde al tema «El clima y las regiones naturales» del ítem 2 del temario.",
+      "explanation": [
+        "El geógrafo peruano Javier Pulgar Vidal propuso, a mediados del siglo veinte, dividir el territorio del Perú en ocho regiones naturales, tomando en cuenta la altitud, el clima, el relieve, la flora y la fauna. Su propuesta refinó la división tradicional en costa, sierra y selva.",
+        "Siguiendo la altitud, desde el mar hacia las cumbres, se encuentran la Chala o costa, que llega hasta unos quinientos metros; la Yunga, hasta unos dos mil trescientos; la Quechua, de dos mil trescientos a tres mil quinientos; la Suni o Jalca; la Puna; y la Janca o cordillera, por encima de unos cuatro mil ochocientos metros. Hacia la vertiente amazónica están la Rupa Rupa, o selva alta, y la Omagua, o selva baja.",
+        "Los límites exactos varían un poco según el autor y la edición. Por eso conviene recordar sobre todo el orden de las regiones y los valores más repetidos, como los dos mil trescientos y los tres mil quinientos metros de la Quechua, o los cuatro mil ochocientos de la Janca.",
+        "La Puna es la región de mesetas altoandinas, con lagunas, pastizales de ichu y camélidos. La Janca es la región de los nevados, siempre helada y sin aptitud agrícola. La Omagua es la llanura amazónica, la más calurosa y húmeda del país.",
+        "La ciudad de Abancay está a dos mil trescientos setenta y ocho metros, y el Santuario Nacional del Ampay sube desde los dos mil novecientos hasta los cinco mil doscientos treinta y cinco metros, de modo que recorre varias regiones, desde la Quechua hasta la Janca."
+      ],
+      "questions": [
+        {
+          "id": "regiones-q1",
+          "statement": "El geógrafo Javier Pulgar Vidal propuso una clasificación del territorio peruano por pisos altitudinales. ¿Cuántas regiones naturales reconoce?",
+          "options": [
+            "Tres",
+            "Cuatro",
+            "Cinco",
+            "Ocho",
+            "Once"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Su propuesta refinó la división tradicional en costa, sierra y selva, que tiene solo tres partes.",
+            "La suma de las regiones de la costa, de la sierra y de la selva da una cantidad par, mayor que cinco y menor que diez.",
+            "Si cuentas Chala, Yunga, Quechua, Suni, Puna, Janca y las dos selvas (Rupa Rupa y Omagua), obtienes el total."
+          ],
+          "optionFeedback": {
+            "0": "Tres son las regiones de la división tradicional (costa, sierra y selva), que Pulgar Vidal refinó.",
+            "1": "No coincide con su clasificación, que distingue más pisos altitudinales dentro de la costa, la sierra y la selva.",
+            "2": "Esa cifra no corresponde a su clasificación, que es más detallada.",
+            "4": "Esa cifra no coincide con la clasificación de Pulgar Vidal, que es de menos regiones."
+          },
+          "explanation": "Pulgar Vidal identificó ocho regiones: Chala, Yunga, Quechua, Suni (o Jalca), Puna, Janca, Rupa Rupa (selva alta) y Omagua (selva baja). Así lo recogen Canal IPe, una revista universitaria y las referencias contrastadas.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Life zones of Peru (ocho regiones de Pulgar Vidal)",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Life_zones_of_Peru",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "regiones-q2",
+          "statement": "La ciudad de Abancay se encuentra a unos 2378 metros sobre el nivel del mar. ¿En qué región natural de Pulgar Vidal se ubica?",
+          "options": [
+            "Quechua",
+            "Yunga",
+            "Chala",
+            "Suni",
+            "Puna"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Compara la altitud con los límites entre regiones: cada una ocupa un tramo de metros sobre el nivel del mar.",
+            "La ciudad está justo por encima del límite de 2300 metros que separa dos regiones vecinas.",
+            "Esta región de valles interandinos templados, aptos para la agricultura y la ganadería, llega hasta unos 3500 metros."
+          ],
+          "optionFeedback": {
+            "1": "La Yunga llega hasta unos 2300 metros; Abancay está algo por encima de ese límite.",
+            "2": "La Chala es la franja costera, que llega hasta unos 500 metros de altitud.",
+            "3": "La Suni comienza hacia los 3500 metros, bastante más arriba que Abancay.",
+            "4": "La Puna está por encima de unos 4000 metros, muy por encima de la altitud de Abancay."
+          },
+          "explanation": "La región de Pulgar Vidal que va aproximadamente de 2300 a 3500 metros es la Quechua. Abancay, a 2378 metros, está en ella. Algunos documentos regionales, como la caracterización agroclimática del SENAMHI, dan 2500 metros como límite inferior de la Quechua; por eso conviene usar los valores de la clasificación original, como los de Canal IPe y la revista Pueblo Continente.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Caracterización agroclimática de la región Apurímac (PACC)",
+              "publisher": "SENAMHI - Programa de Adaptación al Cambio Climático (en SINIA-MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/siar-apurimac/archivos/public/docs/463.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Plan Regional de Prevención y Atención de Desastres de Apurímac",
+              "publisher": "Comité Regional de Defensa Civil de Apurímac (en SINIA-MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/siar-apurimac/archivos/public/docs/598.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "regiones-q3",
+          "statement": "Una región de la Amazonía peruana, llana, muy calurosa y húmeda, situada por debajo de los 400 metros de altitud, recibe en la clasificación de Pulgar Vidal el nombre de:",
+          "options": [
+            "Rupa Rupa",
+            "Omagua",
+            "Yunga",
+            "Chala",
+            "Janca"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "La selva se divide en dos regiones: una alta, de valles y montañas escarpadas, y otra baja, de llanura.",
+            "Su nombre significa, según una traducción, región de peces de agua dulce.",
+            "No es la selva que comienza con la letra R: es la otra, la de menor altitud, que va de unos 80 a 400 metros."
+          ],
+          "optionFeedback": {
+            "0": "Es la selva alta, de valles amazónicos y montañas escarpadas, ubicada por encima de la selva baja.",
+            "2": "Es una región de valles cálidos y estrechos de los flancos andinos, no la llanura amazónica.",
+            "3": "Es la franja costera del Pacífico, no la selva.",
+            "4": "Es la región de los nevados, la más alta del país."
+          },
+          "explanation": "La selva baja o llanura amazónica, entre unos 80 y 400 metros, es la Omagua. La Rupa Rupa es la selva alta, entre unos 400 y 1000 metros.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "regiones-q4",
+          "statement": "Un guía describe una región de mesetas altoandinas con lagunas, sin árboles, de clima frío y con pastizales de ichu donde pastan camélidos. ¿A qué región corresponde?",
+          "options": [
+            "Quechua",
+            "Janca",
+            "Suni",
+            "Yunga",
+            "Puna"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Observa la altitud: se trata de una región alta, pero todavía con pastos, por debajo del límite de las nieves permanentes.",
+            "Está por encima de la región donde empiezan las heladas y por debajo de los nevados.",
+            "Es la región de los pastizales de ichu y de los camélidos; en la clasificación más difundida se ubica entre unos 4000 y 4800 metros."
+          ],
+          "optionFeedback": {
+            "0": "Es una región de valles templados y buena para la agricultura, mucho más baja.",
+            "1": "Es la región más alta, de nevados y cumbres siempre heladas; los pastizales de ichu y los camélidos corresponden a un piso más bajo.",
+            "2": "Es una región más baja, de relieve rocoso e inclinado, donde empiezan las heladas.",
+            "3": "Es de valles cálidos y estrechos; no tiene mesetas frías ni lagunas altoandinas."
+          },
+          "explanation": "La Puna comprende mesetas altoandinas con lagunas, clima frío, pastizales de ichu y camélidos sudamericanos, y no tiene árboles. Canal IPe la ubica entre unos 4000 y 4800 metros; otras fuentes dan límites algo distintos, pero ninguna la confunde con otra región de la lista.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "regiones-q5",
+          "statement": "¿Qué descripción corresponde a la región natural Janca de Pulgar Vidal?",
+          "options": [
+            "Franja litoral árida y cálida que llega hasta unos 500 metros de altitud",
+            "Valles cálidos y estrechos entre unos 500 y 2300 metros de altitud",
+            "Región siempre helada de nevados y cumbres, por encima de unos 4800 metros y sin aptitud agrícola",
+            "Valles interandinos templados entre 2300 y 3500 metros, aptos para la agricultura",
+            "Llanura amazónica muy calurosa y húmeda por debajo de los 400 metros"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Su nombre quechua alude a un color asociado con la nieve.",
+            "Es la región más alta del territorio, siempre helada y sin condiciones para sembrar.",
+            "Comienza alrededor de los 4800 metros de altitud y llega hasta las cumbres más altas."
+          ],
+          "optionFeedback": {
+            "0": "Describe la Chala, la región de la costa.",
+            "1": "Describe la Yunga, no la región de las nieves permanentes.",
+            "3": "Describe la Quechua, que es mucho más baja que la Janca.",
+            "4": "Describe la Omagua o selva baja."
+          },
+          "explanation": "Janca significa blanco. Es la región más alta, que empieza hacia los 4800 metros: siempre helada, con nevados y cumbres, y sin condiciones favorables para la agricultura (Canal IPe y la revista Pueblo Continente).",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "regiones-q6",
+          "statement": "El Santuario Nacional del Ampay abarca altitudes entre 2900 y 5235 metros. Según las regiones naturales de Pulgar Vidal, ¿cuáles recorre?",
+          "options": [
+            "Solo la Quechua y la Suni",
+            "Desde la Yunga hasta la Puna",
+            "Solo la Puna y la Janca",
+            "Desde la Quechua hasta la Janca, pasando por la Suni y la Puna",
+            "Desde la Chala hasta la Quechua"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Compara los dos extremos del rango del santuario con los límites de las regiones: el piso más bajo y el más alto.",
+            "El punto más bajo, 2900 metros, ya supera el límite que separa la región de los valles cálidos de la región templada.",
+            "El punto más alto supera los 4800 metros, donde empiezan las nieves permanentes; entre ambos extremos hay dos regiones intermedias."
+          ],
+          "optionFeedback": {
+            "0": "Se queda corta: el santuario llega a más de 5000 metros, donde ya están la Puna y la Janca.",
+            "1": "Parte de 2900 metros, que ya está por encima de la Yunga, y su cima supera los 4800 metros, de modo que llega hasta la Janca.",
+            "2": "El punto más bajo del santuario, a 2900 metros, corresponde a la Quechua, no a la Puna.",
+            "4": "La Chala es la costa, muy lejos de la altitud del santuario, que comienza a 2900 metros."
+          },
+          "explanation": "A 2900 metros se está en la Quechua (2300 a 3500). Hacia arriba se cruza la Suni y la Puna, y por encima de unos 4800 metros comienza la Janca, que alcanza el techo del santuario a 5235 metros. Las pequeñas diferencias entre autores sobre el límite entre Suni y Puna no cambian el resultado.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "¿Cuáles son las Ocho Regiones Naturales del Perú?",
+              "publisher": "Canal IPe - Instituto de Radio y Televisión del Perú (gob.pe)",
+              "url": "https://www.canalipe.gob.pe/blog/television/cuales-son-las-ocho-regiones-naturales-del-peru",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Zonas agroecológicas de las cuencas hidrográficas del Perú (Vejarano y Morales, 2007)",
+              "publisher": "Revista Pueblo Continente, Universidad Privada Antenor Orrego",
+              "url": "https://journal.upao.edu.pe/index.php/PuebloContinente/article/download/615/576/2302",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia-tupac-amaru-micaela-bastidas",
+      "area": "HISTORIA",
+      "title": "La rebelión de Túpac Amaru II y el papel de Micaela Bastidas",
+      "temario": {
+        "area": "HISTORIA DEL PERÚ EN EL CONTEXTO MUNDIAL",
+        "item": 19,
+        "title": "EUROPA, AMÉRICA Y EL PERÚ EN EL SIGLO XVIII"
+      },
+      "objective": "Explicar las causas, el inicio y el desarrollo de la rebelión de 1780 encabezada por Túpac Amaru II, reconocer el papel de Micaela Bastidas y ubicar los hechos clave en el tiempo y el espacio, distinguiendo los datos bien documentados de los que las fuentes discuten.",
+      "explanation": [
+        "En el siglo dieciocho, la monarquía española aplicó las reformas borbónicas para centralizar la administración y recaudar más en sus colonias. En los Andes esto significó mayor presión sobre la población, como la subida de la alcabala y de las aduanas, además del trabajo forzado en las minas, conocido como mita.",
+        "José Gabriel Condorcanqui, descendiente del último gobernante inca y cacique en la región de Tinta, en el Cusco, tomó el nombre de Túpac Amaru II. El cuatro de noviembre de mil setecientos ochenta apresó al corregidor Antonio de Arriaga, que luego fue ejecutado, y así comenzó el mayor levantamiento indígena contra el virreinato en el Perú.",
+        "El dieciocho de noviembre, sus fuerzas vencieron en Sangarará. Después hubo un debate sobre marchar al Cusco: Micaela Bastidas fue una de las más convencidas de hacerlo, pero su esposo no aceptó esa propuesta en ese momento.",
+        "Micaela Bastidas, esposa de Túpac Amaru II, fue mucho más que una acompañante. Mientras él avanzaba hacia el sur, ella asumió la dirección administrativa y política en Tungasuca: daba órdenes, otorgaba salvoconductos, escribía a los caciques y enviaba expediciones para reclutar gente. No sabía leer ni escribir; dictaba sus cartas y firmaba su nombre.",
+        "Capturados en 1781, los dos fueron ejecutados en la Plaza de Armas del Cusco. Un dato que las fuentes discuten es el lugar de nacimiento de Micaela: unas indican Pampamarca, en Tinta, y otras Tamburco, en Abancay. Como el debate sigue abierto, este banco no formula preguntas sobre ese punto."
+      ],
+      "questions": [
+        {
+          "id": "tupac-q1",
+          "statement": "¿Qué suceso inició la gran rebelión de 1780 encabezada por Túpac Amaru II?",
+          "options": [
+            "La victoria rebelde en la batalla de Sangarará",
+            "La captura del corregidor de Tinta, Antonio de Arriaga",
+            "El cerco al Cusco",
+            "La captura de Túpac Amaru II en Langui",
+            "La sentencia de muerte contra Túpac Amaru II y su familia"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Pregunta qué ocurrió primero: la rebelión empezó con una acción contra una autoridad local española.",
+            "Ocurrió el 4 de noviembre de 1780, antes de cualquier batalla importante.",
+            "Esa autoridad fue ejecutada por los rebeldes pocos días después."
+          ],
+          "optionFeedback": {
+            "0": "Sangarará ocurrió el 18 de noviembre de 1780, días después del inicio; fue la primera gran victoria rebelde, no el hecho que dio comienzo al levantamiento.",
+            "2": "Fue una operación militar posterior, a comienzos de 1781 según la cronología publicada, y no el inicio de la rebelión.",
+            "3": "Esa captura, tras una traición, ocurrió casi al final del levantamiento, ya en 1781.",
+            "4": "La sentencia se dictó el 15 de mayo de 1781, cerca del desenlace de la rebelión."
+          },
+          "explanation": "La Biblioteca Nacional del Perú fecha el inicio de la rebelión el 4 de noviembre de 1780, cuando Túpac Amaru II y sus seguidores capturaron al corregidor Antonio de Arriaga y luego lo ejecutaron. Los demás hechos de la lista, como Sangarará, el cerco al Cusco, la captura y la sentencia, ocurrieron después.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Nota institucional sobre la rebelión de Túpac Amaru II (4-11-2023)",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://www.bnp.gob.pe/?p=31103",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 17",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/17/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Túpac Amaru II",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/biography/Tupac-Amaru-II",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Rebellion of Túpac Amaru II (cronología)",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Rebellion_of_T%C3%BApac_Amaru_II",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tupac-q2",
+          "statement": "¿Cuál de los siguientes factores formó parte de las causas de la rebelión de Túpac Amaru II en 1780?",
+          "options": [
+            "La batalla de Ayacucho, que consolidó la independencia",
+            "La Guerra del Pacífico contra Chile",
+            "El aumento de impuestos, como la alcabala, y el trabajo forzado en las minas conocido como mita",
+            "La Guerra Peninsular, iniciada con la invasión napoleónica de España",
+            "La Revolución Francesa"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Una causa debe ser anterior al hecho que explica; revisa las fechas de cada opción.",
+            "Cuatro de las opciones corresponden a hechos ocurridos después de 1780.",
+            "La causa correcta se relaciona con la carga económica sobre la población indígena: tributos y servicio obligatorio en minas."
+          ],
+          "optionFeedback": {
+            "0": "Ayacucho ocurrió el 9 de diciembre de 1824, más de cuarenta años después; un hecho posterior no puede ser causa de una rebelión anterior.",
+            "1": "Se libró entre 1879 y 1883, un siglo después de 1780; no pudo causar la rebelión.",
+            "3": "Comenzó en 1808, veintiocho años después de la rebelión de Túpac Amaru II.",
+            "4": "Se desarrolló desde 1787 y tuvo su primer punto culminante en 1789, es decir, después del estallido de la rebelión en 1780."
+          },
+          "explanation": "Las reformas borbónicas elevaron la presión fiscal, con el alza de la alcabala y de las aduanas, y persistía el trabajo forzado en las minas (mita). La Biblioteca Nacional del Perú resume las causas como oposición al cobro de impuestos y al trabajo forzado en las minas. Los demás hechos de la lista son posteriores a 1780.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Nota institucional sobre la rebelión de Túpac Amaru II (4-11-2023)",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://www.bnp.gob.pe/?p=31103",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "El fantasma del criollismo después de la rebelión de Túpac Amaru (Bunster y Lorandi, 2006)",
+              "publisher": "Histórica XXX.1 (revista académica)",
+              "url": "https://revistas.pucp.edu.pe/index.php/historica/article/download/66/67",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Repartimiento",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.Britannica.Com/topic/repartimiento",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Battle of Ayacucho",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/event/Battle-of-Ayacucho",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "War of the Pacific",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/event/War-of-the-Pacific",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Peninsular War",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/event/Peninsular-War",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "French Revolution",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/event/French-Revolution",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tupac-q3",
+          "statement": "¿Cuál de las siguientes afirmaciones sobre el papel de Micaela Bastidas en la rebelión de 1780 está respaldada por fuentes históricas?",
+          "options": [
+            "Se mantuvo al margen del levantamiento y solo se ocupó de cuidar a sus hijos.",
+            "Escribía de su puño y letra todas las cartas que enviaba a su esposo.",
+            "Aconsejó a Túpac Amaru II rendirse después de la victoria de Sangarará.",
+            "Asumió tareas de gobierno y logística en Tungasuca: daba órdenes, otorgaba salvoconductos y organizaba el reclutamiento.",
+            "Dejó el gobierno de Tungasuca en manos de un corregidor español de su confianza."
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Busca la opción que muestre a Micaela como una dirigente activa y no como una figura pasiva.",
+            "Cuando Túpac Amaru II avanzaba hacia el sur, ella quedó al frente del centro de operaciones en Tungasuca.",
+            "Sus tareas incluían dar órdenes, entregar permisos de paso y enviar partidas a reclutar gente, todo mediante cartas dictadas."
+          ],
+          "optionFeedback": {
+            "0": "Las fuentes la muestran activa: asumió la dirección administrativa y mantuvo una intensa correspondencia con su esposo y con los caciques.",
+            "1": "Micaela no sabía leer ni escribir: dictaba sus cartas y solo firmaba su nombre.",
+            "2": "Ocurrió lo contrario: tras Sangarará fue una de las más convencidas de marchar sobre el Cusco.",
+            "4": "Durante la ausencia de su esposo, ella misma tomó la dirección administrativa y política de Tungasuca."
+          },
+          "explanation": "La publicación digital de la Biblioteca Nacional del Perú describe que, entre fines de noviembre y diciembre de 1780, Micaela asumió la dirección administrativa y política en Tungasuca: emitió órdenes, salvoconductos y edictos y despachó expedientes de reclutamiento. Además, no sabía leer ni escribir y dictaba sus cartas, y tras Sangarará apoyó marchar sobre el Cusco.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 17",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/17/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 18",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/18/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 19",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/19/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 21",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/21/",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tupac-q4",
+          "statement": "¿Cómo se llama la batalla del 18 de noviembre de 1780 que dio a los rebeldes de Túpac Amaru II su primera gran victoria?",
+          "options": [
+            "Sangarará",
+            "Ayacucho",
+            "Pucacasa",
+            "Combapata",
+            "Langui"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Fue la primera gran victoria de los rebeldes, pocos días después de iniciado el levantamiento.",
+            "Ocurrió dos semanas después de la captura de Arriaga, en la madrugada del 18 de noviembre.",
+            "En esta batalla el ejército realista se rindió por primera vez ante el avance rebelde; el nombre empieza con «San»."
+          ],
+          "optionFeedback": {
+            "1": "Esa batalla se libró el 9 de diciembre de 1824, durante la guerra de independencia.",
+            "2": "Fue un ataque rebelde de marzo de 1781, es decir, varios meses después de noviembre de 1780.",
+            "3": "Los combates de Combapata fueron en abril de 1781, cerca del final del levantamiento.",
+            "4": "Es el lugar donde Túpac Amaru II fue capturado tras ser traicionado, no el escenario de la primera victoria."
+          },
+          "explanation": "La publicación de la Biblioteca Nacional del Perú sitúa el choque en la madrugada del 18 de noviembre de 1780, en Sangarará, donde el ejército español se rindió por primera vez ante el avance rebelde. Los otros nombres corresponden a hechos posteriores.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 18",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/18/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Battle of Sangarará",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Battle_of_Sangarar%C3%A1",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Rebellion of Túpac Amaru II (cronología)",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Rebellion_of_T%C3%BApac_Amaru_II",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Battle of Ayacucho",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/event/Battle-of-Ayacucho",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tupac-q5",
+          "statement": "Antes de encabezar la rebelión, José Gabriel Condorcanqui, Túpac Amaru II, ocupaba un lugar particular en la sociedad colonial. ¿Cuál era?",
+          "options": [
+            "Corregidor español de la provincia de Tinta",
+            "Virrey del Perú",
+            "Cacique de la región de Tinta y descendiente del último gobernante inca",
+            "Alto funcionario enviado desde España para reorganizar el cobro de impuestos",
+            "Oficial del ejército realista en el Cusco"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Hay que ubicarlo en la sociedad colonial: no pertenecía a la administración española, sino a la jerarquía indígena.",
+            "Su cargo era hereditario y le daba autoridad sobre varios pueblos de Tinta, en el Cusco.",
+            "Se identificaba como descendiente de Túpac Amaru, el último gobernante inca, de quien tomó el nombre."
+          ],
+          "optionFeedback": {
+            "0": "El corregidor era Antonio de Arriaga, a quien Túpac Amaru II apresó al iniciar la rebelión.",
+            "1": "El virrey era una autoridad española; Condorcanqui pertenecía a la jerarquía indígena.",
+            "3": "Eso describe a funcionarios de la administración española; Condorcanqui era un cacique indígena, y los tributos que rechazaba recaían sobre su pueblo.",
+            "4": "No: era un cacique indígena que luego se enfrentó a las fuerzas realistas."
+          },
+          "explanation": "Según Britannica, Condorcanqui era un cacique, es decir, un jefe hereditario, de la región de Tinta, y descendiente del último gobernante inca. La Biblioteca Nacional del Perú añade que su padre fue curaca de tres pueblos de Tinta.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Túpac Amaru II",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/biography/Tupac-Amaru-II",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Nota institucional sobre la rebelión de Túpac Amaru II (4-11-2023)",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://www.bnp.gob.pe/?p=31103",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tupac-q6",
+          "statement": "¿Dónde y en qué año fueron ejecutados Túpac Amaru II y Micaela Bastidas?",
+          "options": [
+            "En la Plaza Mayor de Lima, en 1780",
+            "En la plaza de Tinta, en 1780",
+            "En la Plaza de Armas de Abancay, en 1781",
+            "En Sangarará, en 1781",
+            "En la Plaza de Armas del Cusco, en 1781"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Las ejecuciones fueron públicas y se hicieron en una plaza principal.",
+            "Se hicieron en la antigua capital del Tahuantinsuyo, hacia donde Micaela quería dirigir el ataque rebelde.",
+            "El año es el siguiente al de la captura del corregidor Arriaga."
+          ],
+          "optionFeedback": {
+            "0": "La sentencia se cumplió en el Cusco, no en Lima, y 1780 es el año en que comenzó la rebelión.",
+            "1": "Tinta es la región de origen del líder, donde se apresó a Arriaga en 1780; las ejecuciones de los líderes ocurrieron en el Cusco, en 1781.",
+            "2": "El año es correcto, pero el lugar no: la ejecución fue en el Cusco.",
+            "3": "Sangarará fue el escenario de una victoria rebelde en 1780; la ejecución fue en el Cusco."
+          },
+          "explanation": "Túpac Amaru II y Micaela Bastidas fueron ejecutados en 1781 en la Plaza de Armas del Cusco, tras ser capturados y sentenciados. Las fuentes consultadas difieren en el día exacto (17 o 18 de mayo), por eso solo se pregunta el año y el lugar.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Nota institucional sobre la rebelión de Túpac Amaru II (4-11-2023)",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://www.bnp.gob.pe/?p=31103",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Túpac Amaru II",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/biography/Tupac-Amaru-II",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas",
+              "publisher": "Wikipedia (contraste secundario)",
+              "url": "https://en.wikipedia.org/wiki/Micaela_Bastidas",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Micaela Bastidas (publicación digital), p. 18",
+              "publisher": "Biblioteca Nacional del Perú",
+              "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/micaela-bastidas/18/",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia-tahuantinsuyo-apurimac",
+      "area": "HISTORIA",
+      "title": "El Tahuantinsuyo y su huella en Apurímac",
+      "temario": {
+        "area": "HISTORIA DEL PERÚ EN EL CONTEXTO MUNDIAL",
+        "item": 11,
+        "title": "EL HORIZONTE TARDÍO: El imperio del Tahuantinsuyo"
+      },
+      "objective": "Reconocer rasgos básicos del estado inca (nombre, suyos, capital, caminos, quipus) y vincularlos con Apurímac: el territorio de los chankas, el Sóndor Raymi y el puente Q'eswachaka sobre el río Apurímac.",
+      "explanation": [
+        "El Tahuantinsuyo fue el estado inca. Su nombre quechua significa las cuatro regiones juntas, porque reunía cuatro suyos o partes: Chinchaysuyo, Antisuyo, Contisuyo y Collasuyo. Su capital estaba en el Cusco.",
+        "Los incas se expandieron desde comienzos del siglo quince y, en unos cien años, controlaron a unos doce millones de habitantes, desde el norte del actual Ecuador hasta el río Maule, en Chile central.",
+        "Para unir ese territorio se apoyaron en el Qhapaq Ñan, un sistema de caminos con puentes, depósitos y estaciones. Desde la plaza central del Cusco partían cuatro rutas principales. La UNESCO lo declaró patrimonio mundial, compartido por seis países. Para registrar cantidades y mensajes usaban los quipus, cuerdas con nudos de colores.",
+        "En Apurímac vivían los chankas, rivales de los incas. Según los cronistas, el inca Pachacútec los persiguió hasta Andahuaylas y los derrotó allí. Hoy, el Sóndor Raymi recuerda ese enfrentamiento en el complejo arqueológico de Sóndor, en el distrito de Pacucha.",
+        "El puente Q'eswachaka, sobre el río Apurímac, se renueva cada año con sogas de paja trenzadas por comunidades quechuas, con técnicas incaicas. La UNESCO lo reconoció como patrimonio cultural inmaterial en dos mil trece."
+      ],
+      "questions": [
+        {
+          "id": "tahuantinsuyo-q1",
+          "statement": "¿Qué significa el nombre quechua Tahuantinsuyo?",
+          "options": [
+            "El camino real del Inca",
+            "La tierra de los cuatro ríos",
+            "Los hijos del Sol reunidos",
+            "Las cuatro regiones juntas",
+            "Las cuatro fiestas del año"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "El nombre combina una palabra que indica cuatro unidos con suyu, que significa región.",
+            "Los suyos eran las grandes divisiones del estado: Chinchaysuyo, Antisuyo, Contisuyo y Collasuyo.",
+            "Piensa en cuántos eran los suyos y en lo que implica que estuvieran reunidos bajo un mismo estado."
+          ],
+          "optionFeedback": {
+            "0": "Esa expresión se parece al nombre del sistema de caminos, el Qhapaq Ñan; el nombre del estado se refiere a sus cuatro partes.",
+            "1": "No es el significado del nombre; este alude a cuatro regiones o suyos reunidos.",
+            "2": "No es el significado del nombre; este se refiere a las cuatro regiones del estado inca unidas.",
+            "4": "No se refiere a un calendario, sino a una división territorial en cuatro partes."
+          },
+          "explanation": "El Museo Nacional del Indígena Americano del Smithsonian explica que los incas llamaban a su imperio Tawantinsuyu, «las cuatro regiones juntas», formado por los suyos Antisuyu, Chinchaysuyu, Contisuyu y Collasuyu.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Tawantinsuyu's Four Suyus (Inka Road)",
+              "publisher": "Smithsonian National Museum of the American Indian",
+              "url": "https://americanindian.si.edu/inkaroad/engineering/activity/four-suyus.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Inca",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/topic/Inca",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tahuantinsuyo-q2",
+          "statement": "Una de las cuatro regiones del Tahuantinsuyo se asocia con la selva alta amazónica. ¿Cuál es?",
+          "options": [
+            "Antisuyo",
+            "Collasuyo",
+            "Chinchaysuyo",
+            "Contisuyo",
+            "Qhapaq Ñan"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Los cuatro suyos abarcaban paisajes muy distintos, entre ellos zonas con salida al mar y zonas de bosque tropical.",
+            "Collasuyo se extendía hacia el sur y Contisuyo tenía acceso a recursos marinos.",
+            "Chinchaysuyo abarcaba gran parte del actual Perú, Ecuador y parte de Colombia; entre las opciones de suyos, solo queda uno."
+          ],
+          "optionFeedback": {
+            "1": "Abarcaba el sur del actual Perú y partes de Bolivia, Argentina y Chile.",
+            "2": "Abarcaba gran parte del actual Perú, Ecuador y parte de Colombia.",
+            "3": "Era la región con acceso a recursos del mar, con pendientes desde el nivel del mar hasta unos 5800 metros.",
+            "4": "No es un suyo, sino el sistema de caminos que integraba las cuatro regiones del estado inca."
+          },
+          "explanation": "Según el Smithsonian, Antisuyu correspondía a la selva alta amazónica; Chinchaysuyu a gran parte del actual Perú, Ecuador y parte de Colombia; Contisuyu a una región con recursos marinos y fuertes pendientes; y Collasuyu al sur del Perú y partes de Bolivia, Argentina y Chile.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Tawantinsuyu's Four Suyus (Inka Road)",
+              "publisher": "Smithsonian National Museum of the American Indian",
+              "url": "https://americanindian.si.edu/inkaroad/engineering/activity/four-suyus.html",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tahuantinsuyo-q3",
+          "statement": "Según la UNESCO, ¿desde qué lugar partían las cuatro rutas principales del sistema vial inca llamado Qhapaq Ñan?",
+          "options": [
+            "Machu Picchu",
+            "Chan Chan",
+            "La plaza central del Cusco",
+            "La plaza principal de Abancay",
+            "Vilcabamba"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Un sistema vial estatal se organiza desde un centro; en el Tahuantinsuyo ese centro era la capital.",
+            "La UNESCO precisa que las rutas salían de la plaza principal de la capital, no de una ciudad provincial.",
+            "Esa capital, escrita a veces Cuzco, fue establecida por los incas en el siglo doce, según Britannica."
+          ],
+          "optionFeedback": {
+            "0": "La UNESCO identifica otro lugar como punto de partida de las cuatro rutas principales.",
+            "1": "Chan Chan fue la capital del reino Chimú, no del estado inca.",
+            "3": "Abancay es hoy la capital de Apurímac; la UNESCO sitúa el punto de partida en la capital del Tahuantinsuyo.",
+            "4": "La UNESCO no la menciona como punto de partida; las rutas principales salían de la capital del estado inca."
+          },
+          "explanation": "La UNESCO explica que cuatro rutas principales parten de la plaza central del Cusco, capital del Tawantinsuyu, y se conectan con redes viales de menor nivel. El conjunto supera los treinta mil kilómetros y es patrimonio compartido por seis países.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Qhapaq Ñan, Andean Road System",
+              "publisher": "UNESCO - Centro del Patrimonio Mundial",
+              "url": "https://whc.unesco.org/en/list/1459/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Inca",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/topic/Inca",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tahuantinsuyo-q4",
+          "statement": "¿Qué era un quipu?",
+          "options": [
+            "Un puente colgante hecho con paja trenzada",
+            "Un instrumento musical de viento",
+            "Un calendario esculpido en piedra",
+            "Una unidad de medida para la longitud de los caminos",
+            "Un conjunto de cuerdas con nudos de colores usado para registrar información y cantidades"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "El nombre procede del quechua y describe su apariencia.",
+            "Se hacía con hilos o cuerdas de fibras como el pelo de llama, de varios colores.",
+            "Su nombre en quechua significa «nudo»."
+          ],
+          "optionFeedback": {
+            "0": "Esa descripción corresponde a puentes como el Q'eswachaka; el quipu era un instrumento de registro.",
+            "1": "No: era un dispositivo para registrar datos, no para hacer música.",
+            "2": "No era de piedra: era de cuerdas y servía para registrar información.",
+            "3": "No era una medida de longitud: servía para registrar información y cantidades."
+          },
+          "explanation": "El Smithsonian describe los quipus como dispositivos de registro del imperio inca, hechos de hilos o cuerdas de colores, generalmente de pelo de llama. Se usaban para llevar registros y enviar mensajes por mensajeros. El nombre viene de la palabra quechua para nudo.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Quipu, AD 1400-1532",
+              "publisher": "Smithsonian Institution (Smithsonian Insider)",
+              "url": "https://insider.si.edu/2011/11/quipu-ad-1400-1532",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tahuantinsuyo-q5",
+          "statement": "Según la tradición recogida por los cronistas y analizada en un estudio de la Universidad Nacional Mayor de San Marcos, el inca Pachacútec persiguió a los chankas y los derrotó finalmente en:",
+          "options": [
+            "La zona de Ayacucho",
+            "Cajamarca",
+            "Andahuaylas",
+            "Abancay",
+            "Vilcabamba"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Los chankas eran un grupo rival de los incas; localiza su territorio en el mapa actual.",
+            "Una investigación de la Universidad Nacional Mayor de San Marcos concluye que su territorio fue una provincia actual de Apurímac y no la región de Ayacucho.",
+            "Esa provincia celebra cada año su aniversario político con una fiesta llamada Sóndor Raymi."
+          ],
+          "optionFeedback": {
+            "0": "Muchos asocian a los chankas con Ayacucho, pero el estudio concluye que su territorio fue la actual provincia de Andahuaylas y no la región de Ayacucho.",
+            "1": "Queda en el norte del país, lejos del territorio chanka descrito en el estudio.",
+            "3": "Está en Apurímac, pero el relato recogido sitúa la derrota final en otra provincia del departamento.",
+            "4": "Vilcabamba se asocia con la resistencia inca posterior a la llegada de los españoles, no con la guerra contra los chankas."
+          },
+          "explanation": "El estudio de Pieter van Dalen concluye que el territorio de desarrollo de los chankas fue la actual provincia de Andahuaylas y no la región de Ayacucho, y recoge que Pachacútec los persiguió hasta Andahuaylas, donde los derrotó. Es una tradición de cronistas; los detalles se discuten.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "La problemática chanka: análisis sociopolítico de las sociedades tardías de la sierra centro sur andina (van Dalen, 2016)",
+              "publisher": "Arqueología y Sociedad N.° 32, Universidad Nacional Mayor de San Marcos",
+              "url": "https://core.ac.uk/download/304901762.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Sondor Raymi: así se conmemoró en Apurímac la decisiva batalla entre chankas e incas",
+              "publisher": "Agencia Andina (agencia de noticias del Estado peruano)",
+              "url": "https://andina.pe/ingles/noticia-sondor-raymi-asi-se-conmemoro-apurimac-decisiva-batalla-entre-chankas-e-incas-758120.aspx",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "tahuantinsuyo-q6",
+          "statement": "El puente Q'eswachaka, tendido sobre el río Apurímac, fue reconocido por la UNESCO como patrimonio cultural inmaterial en 2013. ¿Qué caracteriza a este puente?",
+          "options": [
+            "Es un puente de piedra tallada construido por los incas y nunca restaurado.",
+            "Se renueva cada año con sogas de paja trenzadas por comunidades quechuas, con técnicas heredadas de los incas.",
+            "Es un puente de acero inaugurado en 2013 para unir Cusco con Abancay.",
+            "Se reconstruye cada cien años con madera de intimpa.",
+            "Es un puente flotante de totora que se arma en el lago Titicaca."
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "La UNESCO reconoce prácticas vivas, no solo edificios: lo valioso es el conocimiento que se transmite.",
+            "El puente se rehace cada año y el trabajo dura tres días.",
+            "Se emplea un material vegetal que las familias cortan y retuercen para formar cuerdas."
+          ],
+          "optionFeedback": {
+            "0": "No es de piedra: es un puente de cuerdas de paja que se rehace cada año; solo sus bases son antiguas y de piedra.",
+            "2": "2013 es el año de su inscripción en la lista de la UNESCO, no el de una obra moderna; el puente se renueva con técnicas tradicionales.",
+            "3": "Se renueva cada año, no cada cien, y con paja, no con madera.",
+            "4": "No está en el Titicaca sino en una garganta del río Apurímac, y se hace con paja trenzada."
+          },
+          "explanation": "Según la UNESCO, comunidades campesinas quechuahablantes renuevan cada año el puente Q'eswachaka, en una garganta del río Apurímac, durante tres días. Con paja que las familias cortan y retuercen forman sogas cada vez más gruesas y seis grandes cuerdas trenzadas, atadas a bases de piedra antiguas, con técnicas incaicas.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Knowledge, skills and rituals related to the annual renewal of the Q'eswachaka bridge",
+              "publisher": "UNESCO - Patrimonio Cultural Inmaterial",
+              "url": "https://ich.unesco.org/en/RL/knowledge-skills-and-rituals-related-to-the-annual-renewal-of-the-qeswachaka-bridge-00594",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biologia-niveles-organizacion-seres-vivos",
+      "area": "BIOLOGIA",
+      "title": "Características de los seres vivos y niveles de organización",
+      "temario": {
+        "area": "BIOLOGÍA",
+        "item": 1,
+        "title": "ORIGEN Y NIVELES DE ORGANIZACIÓN DE LA VIDA"
+      },
+      "objective": "Reconocer las propiedades que comparten los seres vivos y ordenar los niveles de organización, desde la célula hasta la biósfera, aplicándolos a ejemplos del Santuario Nacional del Ampay.",
+      "explanation": [
+        "Los seres vivos comparten ciertas propiedades. Están formados por una o más células y tienen cierto orden. Responden a estímulos, se reproducen y transmiten su material genético, muestran adaptaciones a su ambiente, crecen y se desarrollan según instrucciones de sus genes, mantienen un medio interno relativamente estable, lo que se llama homeostasis, y usan energía para sus procesos metabólicos.",
+        "La vida se organiza en niveles cada vez más amplios. Los átomos forman moléculas; las moléculas forman orgánulos; y los orgánulos forman células, la unidad básica de estructura y función. Las células semejantes forman tejidos, los tejidos forman órganos y los órganos que trabajan juntos forman sistemas de órganos. Un organismo es un individuo completo.",
+        "Por encima del organismo están la población, que reúne a los individuos de una especie en un área; la comunidad, que reúne a las poblaciones de ese lugar; el ecosistema, que añade los componentes no vivos como el suelo, el agua y el clima; y la biósfera, que es el conjunto de todos los ecosistemas.",
+        "Un ejemplo cercano: todas las intimpas del Santuario Nacional del Ampay forman una población. Junto con las demás poblaciones de plantas, animales y otros organismos del lugar forman una comunidad. Si se suman el suelo, el agua y el clima, se tiene un ecosistema."
+      ],
+      "questions": [
+        {
+          "id": "niveles-q1",
+          "statement": "¿Cuál es la secuencia correcta de los niveles de organización, de menor a mayor complejidad?",
+          "options": [
+            "Célula, órgano, tejido, sistema de órganos, organismo",
+            "Tejido, célula, órgano, organismo, sistema de órganos",
+            "Célula, tejido, órgano, sistema de órganos, organismo",
+            "Órgano, tejido, célula, organismo, sistema de órganos",
+            "Célula, tejido, sistema de órganos, órgano, organismo"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Cada nivel se forma por la unión de unidades del nivel anterior.",
+            "Las células semejantes que cumplen la misma función se agrupan antes de formar estructuras mayores.",
+            "Los órganos, al trabajar juntos, forman sistemas; el individuo completo es lo último de esta serie."
+          ],
+          "optionFeedback": {
+            "0": "Invierte tejido y órgano: primero se agrupan células semejantes en tejidos y después varios tejidos forman un órgano.",
+            "1": "La célula es anterior al tejido, y el sistema de órganos va antes del organismo completo.",
+            "3": "Está casi al revés: comienza por el más complejo de los tres primeros niveles.",
+            "4": "Un sistema de órganos reúne varios órganos, así que el órgano debe ir antes."
+          },
+          "explanation": "Según OpenStax, la jerarquía va de la célula al tejido (células semejantes con la misma función), al órgano (tejidos agrupados por una función común), al sistema de órganos (órganos relacionados) y al organismo, el individuo completo.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "niveles-q2",
+          "statement": "En el Santuario Nacional del Ampay, el conjunto de todos los individuos de intimpa que viven en el bosque constituye:",
+          "options": [
+            "Una comunidad",
+            "Una población",
+            "Un ecosistema",
+            "Un organismo",
+            "La biósfera"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Distingue entre agrupar individuos de la misma especie y agrupar individuos de especies distintas.",
+            "Aquí todos los individuos pertenecen a una sola especie y viven en una misma área.",
+            "Si se sumaran tarucas, aves y otras plantas, se llegaría al nivel siguiente."
+          ],
+          "optionFeedback": {
+            "0": "La comunidad reúne poblaciones de varias especies; aquí todos los individuos son de una sola especie.",
+            "2": "El ecosistema incluye, además de los seres vivos, los componentes no vivos como el suelo y el agua.",
+            "3": "Un organismo es un solo individuo; aquí se habla de todos los individuos de la especie.",
+            "4": "La biósfera es el conjunto de todos los ecosistemas del planeta."
+          },
+          "explanation": "Una población es el conjunto de todos los individuos de una especie que viven en un área determinada. Las intimpas del Ampay forman una población; si se agregan las poblaciones de otras especies, se obtiene una comunidad.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "niveles-q3",
+          "statement": "Un equipo estudia una laguna de altura: los organismos que viven en ella, junto con el agua, los minerales, la luz y la temperatura. ¿Qué nivel de organización están estudiando?",
+          "options": [
+            "Una población",
+            "Una comunidad",
+            "La biósfera",
+            "Un organismo",
+            "Un ecosistema"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Fíjate en que el estudio incluye seres vivos y elementos sin vida.",
+            "El nivel que reúne solo a las poblaciones de un lugar es la comunidad; aquí se añade algo más.",
+            "Es un nivel menor que la biósfera, que reúne a todos los de este tipo."
+          ],
+          "optionFeedback": {
+            "0": "Una población incluye solo individuos de una especie, sin las demás especies ni los factores no vivos.",
+            "1": "La comunidad abarca solo a los seres vivos de varias especies; aquí se incluyen además el agua, los minerales, la luz y la temperatura.",
+            "2": "La biósfera es el conjunto de todos los ecosistemas de la Tierra, no el de una sola laguna.",
+            "3": "Un organismo es un individuo; aquí se estudian muchos organismos y su entorno."
+          },
+          "explanation": "El ecosistema abarca a todos los seres vivos de un área junto con sus componentes no vivos, como el suelo, el agua o la luz. La comunidad es solo la parte viva, y la biósfera es el conjunto de todos los ecosistemas.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "niveles-q4",
+          "statement": "En una mañana helada en Abancay, el cuerpo de una persona mantiene su temperatura interna casi constante pese al frío exterior. ¿Qué propiedad de los seres vivos ilustra esto?",
+          "options": [
+            "Reproducción",
+            "Crecimiento y desarrollo",
+            "Adaptación por selección natural",
+            "Homeostasis o regulación del medio interno",
+            "Orden celular"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "La propiedad buscada tiene que ver con conservar un medio interno estable aunque cambie el externo.",
+            "No son cambios que ocurren a lo largo de generaciones, sino ajustes dentro del mismo individuo.",
+            "La palabra buscada designa el ambiente interno relativamente estable que los organismos necesitan para seguir vivos."
+          ],
+          "optionFeedback": {
+            "0": "Consiste en transmitir material genético a los descendientes; el ejemplo trata de mantener estable la temperatura del propio individuo.",
+            "1": "Se refiere a los cambios del organismo según sus genes, no al mantenimiento de un equilibrio interno.",
+            "2": "Es un ajuste que se da en las poblaciones a lo largo de generaciones; aquí el ajuste ocurre dentro de un mismo individuo.",
+            "4": "Es una característica sobre la organización en células; no explica por qué la temperatura se mantiene estable."
+          },
+          "explanation": "La regulación u homeostasis es la propiedad por la cual un organismo mantiene un ambiente interno relativamente estable, necesario para la vida. Mantener casi constante la temperatura corporal ante el frío es un ejemplo.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "niveles-q5",
+          "statement": "¿Cuál de las siguientes NO es una propiedad que compartan todos los seres vivos?",
+          "options": [
+            "Responder a estímulos del ambiente",
+            "Reproducirse y transmitir material genético",
+            "Desplazarse de un lugar a otro por sí mismos",
+            "Usar energía para sus procesos metabólicos",
+            "Estar formados por una o más células"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Una propiedad común se cumple en todos los organismos, desde las bacterias hasta los árboles.",
+            "Piensa en una intimpa o en una seta: ¿cumplen todas las opciones?",
+            "Una opción describe una capacidad que muchos animales tienen, pero que las plantas no necesitan para estar vivas."
+          ],
+          "optionFeedback": {
+            "0": "Sí es común: incluso las plantas responden, por ejemplo al inclinarse hacia la luz.",
+            "1": "Sí es común: los organismos transmiten su ADN a sus descendientes.",
+            "3": "Sí es común: todos los organismos necesitan una fuente de energía.",
+            "4": "Sí es común: todos los seres vivos tienen organización celular."
+          },
+          "explanation": "OpenStax enumera ocho propiedades de la vida: orden, respuesta a estímulos, reproducción, adaptación, crecimiento y desarrollo, regulación u homeostasis, procesamiento de energía y evolución. El desplazamiento no figura entre ellas: muchos animales se mueven, pero un árbol como la intimpa está vivo sin cambiar de lugar.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Features of the Animal Kingdom (General Biology, sec. 27.1)",
+              "publisher": "OpenStax (publicado en Biology LibreTexts)",
+              "url": "https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/General_Biology_1e_(OpenStax)/5%3A_Biological_Diversity/27%3A_Introduction_to_Animal_Diversity/27.1%3A_Features_of_the_Animal_Kingdom",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "niveles-q6",
+          "statement": "El estómago está formado por varios tejidos que cooperan para digerir los alimentos. ¿Qué nivel de organización representa el estómago?",
+          "options": [
+            "Órgano",
+            "Tejido",
+            "Célula",
+            "Sistema de órganos",
+            "Organismo"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Piensa en el orden: células, tejidos y luego estructuras formadas por varios tejidos.",
+            "Esta estructura forma parte de un sistema, el digestivo, junto con otras similares.",
+            "Es el nivel inmediatamente anterior a los sistemas de órganos."
+          ],
+          "optionFeedback": {
+            "1": "Un tejido es un grupo de células semejantes con la misma función; el estómago reúne varios tejidos.",
+            "2": "La célula es la unidad básica de estructura y función; el estómago está formado por muchas células.",
+            "3": "Un sistema reúne varios órganos relacionados; el estómago es uno de los órganos del sistema digestivo.",
+            "4": "El organismo es el individuo completo, no una de sus partes."
+          },
+          "explanation": "Un órgano es una agrupación de tejidos organizada para una función común. El estómago, formado por varios tejidos, es un órgano que, junto con otros, integra el sistema digestivo.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Themes and Concepts of Biology (Concepts of Biology, sec. 1.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/concepts-biology/pages/1-1-themes-and-concepts-of-biology",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biologia-reinos-biodiversidad-peru",
+      "area": "BIOLOGIA",
+      "title": "Los cinco reinos y la biodiversidad del Perú",
+      "temario": {
+        "area": "BIOLOGÍA",
+        "item": 9,
+        "title": "TAXONOMÍA"
+      },
+      "objective": "Reconocer los cinco reinos del sistema de Whittaker que usa el temario y sus rasgos distintivos, aplicarlos a especies del Santuario Nacional del Ampay, y comprender qué significan la megadiversidad del Perú y el término endémico.",
+      "explanation": [
+        "Para ordenar la enorme variedad de seres vivos, la biología los agrupa en categorías. En el sistema de cinco reinos, propuesto por el biólogo estadounidense Robert Whittaker en la década de mil novecientos sesenta, los reinos son Monera, Protista, Fungi, Plantae y Animalia. El temario de admisión menciona los reinos monera, protista, fungi, animal y vegetal. En los años setenta se propuso dividir Monera en dos reinos, Bacteria y Archaea, pero el sistema de cinco reinos es el que pide el temario.",
+        "Monera reúne a los procariotas, cuyas células no tienen núcleo ni orgánulos con membrana. Protista incluye sobre todo protozoos y algas. Fungi agrupa a mohos, levaduras y setas: son eucariotas que absorben nutrientes y tienen pared de quitina. Plantae reúne a los eucariotas con cloroplastos. Animalia agrupa a eucariotas multicelulares que ingieren su alimento y no tienen pared celular.",
+        "El Perú es uno de los diez países megadiversos del mundo. El Ministerio del Ambiente indica que posee ochenta y cuatro zonas de vida y veintiocho tipos de clima. Los documentos oficiales dan cifras distintas para el total mundial de zonas de vida, por eso aquí solo se usa la cifra peruana, que coincide en todos.",
+        "En el Santuario Nacional del Ampay, la intimpa, un árbol conífero, pertenece al reino Plantae; la taruca y el puma, al reino Animalia. La colaespina, un ave que en inglés se llama Apurimac Spinetail, tiene según BirdLife una distribución confinada a las laderas de un solo macizo montañoso de Apurímac. A una especie cuya distribución está confinada a un área así se la llama endémica."
+      ],
+      "questions": [
+        {
+          "id": "reinos-q1",
+          "statement": "¿Qué lista contiene los cinco reinos del sistema propuesto por Robert Whittaker?",
+          "options": [
+            "Bacteria, Archaea, Protista, Plantae y Animalia",
+            "Monera, Algae, Fungi, Plantae y Animalia",
+            "Monera, Protozoa, Fungi, Plantae y Animalia",
+            "Monera, Protista, Fungi, Plantae y Mineralia",
+            "Monera, Protista, Fungi, Plantae y Animalia"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Whittaker agrupó a los seres vivos en cinco grandes reinos; es el sistema que menciona el temario.",
+            "Un reino reúne a los procariotas; otro, a mohos, levaduras y setas; otro, a protozoos y algas.",
+            "Los minerales no son seres vivos, así que ningún reino los incluye; y en la lista correcta el segundo reino empieza con «Pro»."
+          ],
+          "optionFeedback": {
+            "0": "Bacteria y Archaea surgen al dividir Monera, una propuesta posterior a la de Whittaker. En el sistema de cinco reinos los procariotas forman un solo reino, Monera, y además esta lista omite a los hongos.",
+            "1": "Las algas no forman un reino en este sistema: Britannica las ubica sobre todo dentro de Protista.",
+            "2": "Los protozoos forman parte del reino Protista; no constituyen un reino aparte.",
+            "3": "Los minerales no son seres vivos; los reinos biológicos solo agrupan organismos, y el último reino de la lista correcta es Animalia."
+          },
+          "explanation": "Britannica Kids indica que Whittaker propuso en los años sesenta cinco reinos: Monera (procariotas), Protista (sobre todo protozoos y algas), Fungi (mohos, levaduras y setas), Plantae y Animalia. En los años setenta Monera se dividió en dos reinos, Bacteria y Archaea, pero eso ya no forma parte del sistema original de cinco reinos.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Five kingdoms (Whittaker)",
+              "publisher": "Britannica Kids",
+              "url": "https://kids.britannica.com/students/assembly/view/195075",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "reinos-q2",
+          "statement": "Una bacteria del suelo no tiene núcleo definido ni orgánulos rodeados de membrana. ¿En qué reino del sistema de cinco reinos se ubica?",
+          "options": [
+            "Protista",
+            "Fungi",
+            "Monera",
+            "Plantae",
+            "Animalia"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Las células sin núcleo ni orgánulos con membrana se llaman procariotas.",
+            "En el sistema de cinco reinos, solo uno agrupa a los procariotas; los otros cuatro reúnen eucariotas.",
+            "Es el primer reino de la lista del temario y reúne a los procariotas, entre ellos las bacterias."
+          ],
+          "optionFeedback": {
+            "0": "Es un reino de eucariotas que incluye sobre todo protozoos y algas; sus células sí tienen núcleo.",
+            "1": "Los hongos son eucariotas: sus células sí tienen núcleo y orgánulos con membrana.",
+            "3": "Las plantas son eucariotas con cloroplastos y pared de celulosa.",
+            "4": "Los animales son eucariotas multicelulares, sin pared celular."
+          },
+          "explanation": "Las bacterias son procariotas: su ADN está en una región llamada nucleoide y no tienen núcleo ni orgánulos con membrana. En el sistema de cinco reinos, los procariotas forman el reino Monera.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Prokaryotic Cells (Biology 2e, sec. 4.2)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Five kingdoms (Whittaker)",
+              "publisher": "Britannica Kids",
+              "url": "https://kids.britannica.com/students/assembly/view/195075",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "reinos-q3",
+          "statement": "Un organismo eucariota no hace fotosíntesis, vive sobre madera en descomposición, libera enzimas al exterior y absorbe los nutrientes ya digeridos; su pared celular es de quitina. ¿A qué reino pertenece?",
+          "options": [
+            "Plantae",
+            "Monera",
+            "Animalia",
+            "Fungi",
+            "Protista"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Fíjate en cómo obtiene su alimento: ni lo fabrica ni lo ingiere.",
+            "Su pared celular está hecha del mismo material que el exoesqueleto de los artrópodos.",
+            "A este reino pertenecen las setas, las levaduras y los mohos."
+          ],
+          "optionFeedback": {
+            "0": "Las plantas fabrican su propio alimento por fotosíntesis y su pared celular es de celulosa.",
+            "1": "El enunciado dice que el organismo es eucariota; Monera reúne a los procariotas.",
+            "2": "Los animales ingieren su alimento y sus células no tienen pared celular.",
+            "4": "Britannica asocia este reino sobre todo con protozoos y algas; la pared de quitina y la digestión externa son rasgos característicos de los hongos."
+          },
+          "explanation": "Los hongos son eucariotas heterótrofos: liberan enzimas al exterior y absorben los nutrientes resultantes, suelen ser descomponedores, no tienen cloroplastos y su pared celular es de quitina.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Characteristics of Fungi (Biology 2e, sec. 24.1)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/biology-2e/pages/24-1-characteristics-of-fungi",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Eukaryotic Cells (Biology 2e, sec. 4.3)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Features of the Animal Kingdom (General Biology, sec. 27.1)",
+              "publisher": "OpenStax (publicado en Biology LibreTexts)",
+              "url": "https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/General_Biology_1e_(OpenStax)/5%3A_Biological_Diversity/27%3A_Introduction_to_Animal_Diversity/27.1%3A_Features_of_the_Animal_Kingdom",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Five kingdoms (Whittaker)",
+              "publisher": "Britannica Kids",
+              "url": "https://kids.britannica.com/students/assembly/view/195075",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "reinos-q4",
+          "statement": "En el Santuario Nacional del Ampay viven la intimpa, un árbol, y la taruca, un animal. ¿A qué reinos pertenecen, respectivamente?",
+          "options": [
+            "Fungi y Animalia",
+            "Plantae y Animalia",
+            "Plantae y Protista",
+            "Animalia y Plantae",
+            "Monera y Animalia"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Los árboles pertenecen al reino que reúne a los eucariotas con cloroplastos que hacen fotosíntesis.",
+            "Una especie es un árbol conífero y la otra es un animal.",
+            "El árbol es una conífera de la familia Podocarpaceae."
+          ],
+          "optionFeedback": {
+            "0": "La intimpa es un árbol conífero, no un hongo.",
+            "2": "La taruca es un animal, no un protista.",
+            "3": "Están invertidos: el árbol es una planta y la taruca es un animal.",
+            "4": "La intimpa es un árbol, un eucariota multicelular con cloroplastos; no es una bacteria."
+          },
+          "explanation": "La intimpa (Podocarpus glomeratus) es una conífera de la familia Podocarpaceae, es decir, una planta (reino Plantae). La taruca es una de las especies de fauna que menciona SERNANP en el santuario, un animal (reino Animalia).",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Podocarpus glomeratus - Threatened Conifers of the World",
+              "publisher": "Royal Botanic Garden Edinburgh",
+              "url": "https://threatenedconifers.rbge.org.uk/conifers/podocarpus-glomeratus",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Eukaryotic Cells (Biology 2e, sec. 4.3)",
+              "publisher": "OpenStax, Rice University",
+              "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Features of the Animal Kingdom (General Biology, sec. 27.1)",
+              "publisher": "OpenStax (publicado en Biology LibreTexts)",
+              "url": "https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/General_Biology_1e_(OpenStax)/5%3A_Biological_Diversity/27%3A_Introduction_to_Animal_Diversity/27.1%3A_Features_of_the_Animal_Kingdom",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "reinos-q5",
+          "statement": "Según el Ministerio del Ambiente, ¿cuántas zonas de vida del mundo se encuentran en el Perú?",
+          "options": [
+            "24",
+            "44",
+            "64",
+            "84",
+            "94"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Las zonas de vida resultan de combinar altitud, temperatura y lluvia; el Perú tiene muchísimas por su relieve tan variado.",
+            "La cifra está entre 70 y 90.",
+            "Supera las ochenta zonas de vida."
+          ],
+          "optionFeedback": {
+            "0": "Es una cifra muy baja: el Perú destaca precisamente por tener una cantidad muy alta de zonas de vida.",
+            "1": "Queda por debajo de la cifra oficial; el MINAM habla de más de ochenta zonas de vida.",
+            "2": "Queda por debajo de la cifra oficial indicada por el MINAM.",
+            "4": "Supera la cifra oficial que publican el MINAM y la Comisión Nacional de Diversidad Biológica."
+          },
+          "explanation": "El MINAM (2018) señala que el Perú posee 84 de las 104 zonas de vida del mundo y 28 de los 32 tipos de clima. Una ficha de la Comisión Nacional de Diversidad Biológica también habla de 84 zonas de vida, aunque da dos totales mundiales distintos (117 y 104). Como el total mundial varía, solo se pregunta por la cifra peruana.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Perú. Conectados con la naturaleza (2018)",
+              "publisher": "Ministerio del Ambiente (MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/siar-puno/archivos/public/docs/peru_conectados_con_la_naturaleza.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Diversidad biológica del Perú (ficha de la Comisión Nacional de Diversidad Biológica)",
+              "publisher": "CONAM / Comisión Nacional de Diversidad Biológica (en SINIA-MINAM)",
+              "url": "https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/147.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "reinos-q6",
+          "statement": "La colaespina (Synallaxis courseni) es un ave que, según BirdLife, está confinada a las laderas de un solo macizo montañoso de Apurímac, al norte de Abancay. ¿Cómo se llama una especie cuya distribución está limitada a un área concreta y que no vive en ningún otro lugar del mundo?",
+          "options": [
+            "Cosmopolita",
+            "Endémica",
+            "Migratoria",
+            "Introducida",
+            "Invasora"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "El término se refiere a la distribución geográfica de una especie, no a su alimentación ni a su tamaño.",
+            "Algunas especies viven en casi todo el planeta; otras, solo en una zona muy reducida.",
+            "Se aplica a especies que viven solo en una isla, en un lago o en una cordillera."
+          ],
+          "optionFeedback": {
+            "0": "Una especie cosmopolita se distribuye por amplias regiones del mundo, lo contrario de una distribución restringida.",
+            "2": "Una especie migratoria se desplaza estacionalmente entre regiones; el término no describe una distribución confinada.",
+            "3": "Una especie introducida llegó a un lugar donde no era nativa; la colaespina es nativa de Apurímac.",
+            "4": "Una especie invasora es una especie introducida que se expande y causa daño; no es el caso de una especie nativa de rango muy reducido."
+          },
+          "explanation": "Britannica define una especie endémica como aquella cuyo rango de distribución está confinado a una única área dada, que puede ser una isla, una montaña o una cordillera. BirdLife describe a la colaespina (Apurimac Spinetail) como confinada a las laderas de un solo macizo montañoso de Apurímac, al norte de Abancay.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Endemic species",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/science/endemic-species",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Apurimac Spinetail (Synallaxis courseni), ficha de especie",
+              "publisher": "BirdLife International",
+              "url": "https://datazone.birdlife.org/userfiles/file/Species/AmRDBPDFs/Synallaxis_courseni_eng.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Santuario Nacional de Ampay (ficha informativa)",
+              "publisher": "SERNANP - Gobierno del Perú (gob.pe)",
+              "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1928581-santuario-nacional-de-ampay",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

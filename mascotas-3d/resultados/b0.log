@@ -1,0 +1,18 @@
+b0 zorro celebrate cuadros 42 x vistas 24 | caras traseras: máx 351 px, vistas con alguna 1008 de 1008 suma 58515 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 104 | agujeros chicos máx 71 | peor cuadro 54 vista [45,0] | 75.8 s (dibujo 636 ms, medida 74917 ms)
+b0 zorro wave cuadros 48 x vistas 24 | caras traseras: máx 303 px, vistas con alguna 1152 de 1152 suma 63211 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 100 | agujeros chicos máx 55 | peor cuadro 54 vista [45,-0.45] | 74.5 s (dibujo 459 ms, medida 73923 ms)
+LISTO b0 zorro 156 s vóxeles 7967
+b0 gato celebrate cuadros 42 x vistas 24 | caras traseras: máx 224 px, vistas con alguna 1008 de 1008 suma 37138 | piezas sueltas: máx 3 px en 38 vistas | rendijas máx 67 | agujeros chicos máx 48 | peor cuadro 18 vista [0,0] | 64.1 s (dibujo 628 ms, medida 63216 ms)
+b0 gato wave cuadros 48 x vistas 24 | caras traseras: máx 58 px, vistas con alguna 1152 de 1152 suma 22325 | piezas sueltas: máx 3 px en 44 vistas | rendijas máx 61 | agujeros chicos máx 39 | peor cuadro 12 vista [270,0] | 71.3 s (dibujo 408 ms, medida 70734 ms)
+LISTO b0 gato 141 s vóxeles 6672
+b0 panda celebrate cuadros 42 x vistas 24 | caras traseras: máx 90 px, vistas con alguna 1008 de 1008 suma 24021 | piezas sueltas: máx 1752 px en 43 vistas | rendijas máx 71 | agujeros chicos máx 33 | peor cuadro 16 vista [315,0] | 60.8 s (dibujo 419 ms, medida 60211 ms)
+b0 panda wave cuadros 48 x vistas 24 | caras traseras: máx 72 px, vistas con alguna 1152 de 1152 suma 21915 | piezas sueltas: máx 0 px en 0 vistas | rendijas máx 68 | agujeros chicos máx 44 | peor cuadro 20 vista [315,0.45] | 68.8 s (dibujo 371 ms, medida 68221 ms)
+LISTO b0 panda 135 s vóxeles 6165
+b0 buho celebrate cuadros 42 x vistas 24 | caras traseras: máx 213 px, vistas con alguna 1008 de 1008 suma 40879 | piezas sueltas: máx 1 px en 2 vistas | rendijas máx 77 | agujeros chicos máx 71 | peor cuadro 42 vista [315,0] | 84.8 s (dibujo 856 ms, medida 83719 ms)
+b0 buho wave cuadros 48 x vistas 24 | caras traseras: máx 237 px, vistas con alguna 1152 de 1152 suma 66241 | piezas sueltas: máx 1 px en 1 vistas | rendijas máx 70 | agujeros chicos máx 70 | peor cuadro 36 vista [315,0] | 92.0 s (dibujo 444 ms, medida 91382 ms)
+LISTO b0 buho 182 s vóxeles 8567
+b0 pinguino celebrate cuadros 42 x vistas 24 | caras traseras: máx 2130 px, vistas con alguna 1008 de 1008 suma 414167 | piezas sueltas: máx 2209 px en 192 vistas | rendijas máx 106 | agujeros chicos máx 69 | peor cuadro 58 vista [90,-0.45] | 76.1 s (dibujo 624 ms, medida 75261 ms)
+b0 pinguino wave cuadros 48 x vistas 24 | caras traseras: máx 2086 px, vistas con alguna 1152 de 1152 suma 464082 | piezas sueltas: máx 2140 px en 176 vistas | rendijas máx 74 | agujeros chicos máx 45 | peor cuadro 86 vista [90,-0.45] | 89.7 s (dibujo 659 ms, medida 88756 ms)
+LISTO b0 pinguino 171 s vóxeles 7342
+b0 conejo celebrate cuadros 42 x vistas 24 | caras traseras: máx 577 px, vistas con alguna 1008 de 1008 suma 165884 | piezas sueltas: máx 3 px en 35 vistas | rendijas máx 69 | agujeros chicos máx 52 | peor cuadro 30 vista [135,-0.45] | 54.2 s (dibujo 388 ms, medida 53549 ms)
+b0 conejo wave cuadros 48 x vistas 24 | caras traseras: máx 576 px, vistas con alguna 1152 de 1152 suma 172537 | piezas sueltas: máx 3 px en 48 vistas | rendijas máx 50 | agujeros chicos máx 41 | peor cuadro 0 vista [135,-0.45] | 65.8 s (dibujo 602 ms, medida 65041 ms)
+LISTO b0 conejo 125 s vóxeles 5816

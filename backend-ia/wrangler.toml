@@ -1,0 +1,45 @@
+name = "studyplanner-ia"
+main = "src/worker.mjs"
+compatibility_date = "2026-10-26"
+workers_dev = true
+
+# IA gratuita de Cloudflare (Workers AI): no requiere clave de otro proveedor.
+[ai]
+binding = "AI"
+
+[vars]
+# GPT-5 mini de OpenAI: se usa cuando existe el secreto OPENAI_API_KEY (PONER_CLAVE_OPENAI.bat).
+# OpenAI anunció que gpt-5-mini se retira el 11/12/2026; desde esa fecha cambia esta línea a "gpt-5.6-terra".
+OPENAI_MODEL = "gpt-5-mini"
+OPENAI_REASONING = "minimal"
+# Gemini (nivel gratuito de Google AI Studio): se usa cuando existe el secreto GEMINI_API_KEY (PONER_CLAVE_GEMINI.bat).
+# Si Gemini llega a su límite o falla, responde la IA gratuita de Cloudflare.
+GEMINI_MODEL = "gemini-flash-latest"
+# Groq (gratis, sin tarjeta): respaldo cuando Gemini llega a su límite. Se usa si existe el secreto GROQ_API_KEY (PONER_CLAVE_GROQ.bat).
+GROQ_MODEL = "openai/gpt-oss-120b"
+# Sin claves se usa la IA gratuita de Cloudflare (Workers AI):
+AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+DAILY_LIMIT = "500"
+MINUTE_LIMIT = "12"
+
+[[durable_objects.bindings]]
+name = "BUDGET"
+class_name = "RequestBudget"
+
+[[durable_objects.bindings]]
+name = "CUENTAS"
+class_name = "Cuenta"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RequestBudget"]
+
+# Cuentas y copia en la nube (una por correo). Usa el almacenamiento SQLite gratuito de Durable Objects.
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Cuenta"]
+
+[observability]
+enabled = false
+
+# Secretos (nunca en este archivo ni en la app): APP_TOKEN (ACTIVAR_IA.bat lo crea solo) OPENAI_API_KEY (PONER_CLAVE_OPENAI.bat), GEMINI_API_KEY (PONER_CLAVE_GEMINI.bat) y GROQ_API_KEY (PONER_CLAVE_GROQ.bat).

@@ -1,0 +1,19 @@
+COMPATIBILIDAD gato.glb -> /home/claude/w/rig4/glb/gato.glb
+  igual     nombres de nodos: 21 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [19] vs [19]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'gato_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'gato_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['gato']
+  igual     malla gato: primitivas y materiales: ['gato_mat', 'gato_escudo'] vs ['gato_mat', 'gato_escudo']
+  igual     malla gato: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla gato: formas (MouthOpen): ['MouthOpen']
+  igual     malla gato primitiva 0: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 33358 -> 33997 | vértices 21400 -> 22806
+  igual     malla gato primitiva 1: caja (escala y orientación): diferencia máx 13.3 mm | triángulos 762 -> 1163 | vértices 455 -> 689
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '34.0 mm'), ('ArmR', '34.0 mm'), ('ArmRimL', '34.0 mm'), ('ArmRimR', '34.0 mm'), ('HandL', '27.2 mm'), ('HandR', '29.7 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible

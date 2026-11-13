@@ -1,0 +1,19 @@
+COMPATIBILIDAD conejo.glb -> /home/claude/w/rig4/glb/conejo.glb
+  igual     nombres de nodos: 18 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [16] vs [16]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'conejo_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'conejo_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['gato']
+  igual     malla gato: primitivas y materiales: ['conejo_mat', 'conejo_escudo'] vs ['conejo_mat', 'conejo_escudo']
+  igual     malla gato: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla gato: formas (MouthOpen): ['MouthOpen']
+  igual     malla gato primitiva 0: caja (escala y orientación): diferencia máx 1.5 mm | triángulos 31770 -> 37656 | vértices 20503 -> 25942
+  igual     malla gato primitiva 1: caja (escala y orientación): diferencia máx 15.0 mm | triángulos 760 -> 1187 | vértices 485 -> 727
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '30.0 mm'), ('ArmR', '30.0 mm'), ('ArmRimL', '30.0 mm'), ('ArmRimR', '30.0 mm'), ('HandL', '22.9 mm'), ('HandR', '25.0 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible

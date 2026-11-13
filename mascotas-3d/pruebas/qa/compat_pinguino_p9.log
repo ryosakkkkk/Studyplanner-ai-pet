@@ -1,0 +1,19 @@
+COMPATIBILIDAD pinguino.glb -> /home/claude/w/rig4/glb/pinguino.glb
+  igual     nombres de nodos: 17 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [15] vs [15]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'pinguino_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'pinguino_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['pinguino']
+  igual     malla pinguino: primitivas y materiales: ['pinguino_mat', 'pinguino_escudo'] vs ['pinguino_mat', 'pinguino_escudo']
+  igual     malla pinguino: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla pinguino: formas (MouthOpen): ['MouthOpen']
+  igual     malla pinguino primitiva 0: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 37255 -> 37285 | vértices 23623 -> 24628
+  igual     malla pinguino primitiva 1: caja (escala y orientación): diferencia máx 8.2 mm | triángulos 870 -> 1317 | vértices 506 -> 763
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '46.4 mm'), ('ArmR', '86.1 mm'), ('ArmRimL', '46.4 mm'), ('ArmRimR', '86.1 mm'), ('HandL', '7.8 mm'), ('HandR', '6.5 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible

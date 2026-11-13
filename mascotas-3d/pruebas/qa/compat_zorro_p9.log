@@ -1,0 +1,19 @@
+COMPATIBILIDAD zorro.glb -> /home/claude/w/rig4/glb/zorro.glb
+  igual     nombres de nodos: 21 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [19] vs [19]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'zorro_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'zorro_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['zorro']
+  igual     malla zorro: primitivas y materiales: ['zorro_mat', 'zorro_escudo'] vs ['zorro_mat', 'zorro_escudo']
+  igual     malla zorro: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla zorro: formas (MouthOpen): ['MouthOpen']
+  igual     malla zorro primitiva 0: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 35124 -> 36092 | vértices 23254 -> 25207
+  igual     malla zorro primitiva 1: caja (escala y orientación): diferencia máx 2.0 mm | triángulos 963 -> 1387 | vértices 592 -> 783
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '111.2 mm'), ('ArmR', '33.9 mm'), ('ArmRimL', '111.2 mm'), ('ArmRimR', '33.9 mm'), ('HandL', '42.1 mm'), ('HandR', '36.5 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible

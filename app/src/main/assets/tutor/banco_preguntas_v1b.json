@@ -1,0 +1,1783 @@
+{
+  "version": 1,
+  "generated": "2026-10-29",
+  "license": "Contenido original del proyecto",
+  "topics": [
+    {
+      "id": "fisica-cinematica-mru-mruv",
+      "area": "FISICA",
+      "title": "Cinemática: MRU, MRUV y lanzamiento vertical",
+      "temario": {
+        "area": "FISICA",
+        "item": 4,
+        "title": "CINEMÁTICA EN UNA Y DOS DIMENSIONES"
+      },
+      "objective": "Resolver problemas de movimiento rectilíneo uniforme, de movimiento rectilíneo uniformemente variado y de lanzamiento vertical, usando unidades del Sistema Internacional y las ecuaciones de la cinemática con aceleración constante.",
+      "explanation": [
+        "La cinemática describe cómo se mueve un cuerpo sin preguntarse por qué se mueve. Sus magnitudes básicas son la posición, el desplazamiento, la velocidad y la aceleración. Antes de calcular, conviene escribir todos los datos con unidades coherentes del Sistema Internacional: metros, segundos y metros por segundo.",
+        "En el movimiento rectilíneo uniforme la velocidad no cambia, la aceleración es cero y la distancia recorrida es la velocidad multiplicada por el tiempo. Para pasar de kilómetros por hora a metros por segundo se divide entre tres coma seis, porque un kilómetro son mil metros y una hora son tres mil seiscientos segundos. Cuando dos móviles se acercan en línea recta, sus rapideces se suman para hallar el tiempo de encuentro.",
+        "En el movimiento rectilíneo uniformemente variado la aceleración es constante, y se calcula como el cambio de velocidad dividido entre el tiempo. Si el móvil frena, la aceleración tiene sentido contrario al movimiento.",
+        "Tres ecuaciones resuelven casi todos los problemas. La velocidad final es la inicial más la aceleración por el tiempo. El desplazamiento es la velocidad inicial por el tiempo, más la mitad de la aceleración por el tiempo al cuadrado. Y el cuadrado de la velocidad final es el cuadrado de la inicial más dos veces la aceleración por el desplazamiento.",
+        "El lanzamiento vertical es un caso con aceleración constante dirigida hacia abajo, la de la gravedad. El valor estándar es nueve coma ocho cero seis seis cinco metros por segundo al cuadrado, y muchos problemas escolares lo redondean a diez; el enunciado debe indicarlo. Al subir, la velocidad disminuye hasta hacerse cero en el punto más alto, pero la aceleración sigue siendo la de la gravedad."
+      ],
+      "questions": [
+        {
+          "id": "fis-cin-01",
+          "statement": "Un autobús viaja en línea recta con velocidad constante de 72 km/h. ¿Qué distancia recorre en 25 segundos?",
+          "options": [
+            "250 m",
+            "6 480 m",
+            "500 m",
+            "20 m",
+            "1 800 m"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "El enunciado dice velocidad constante: es un movimiento rectilíneo uniforme, donde la distancia depende solo de la rapidez y del tiempo.",
+            "El tiempo está en segundos, pero la rapidez está en kilómetros por hora. Antes de multiplicar, conviene expresar todo en metros y segundos.",
+            "Para pasar de kilómetros por hora a metros por segundo se divide entre 3,6. Con esa velocidad ya en metros por segundo, multiplica por los 25 segundos."
+          ],
+          "optionFeedback": {
+            "0": "Equivale a tomar la mitad de la velocidad por el tiempo, como si el autobús acelerara desde el reposo. Aquí la velocidad es constante y no hay factor un medio.",
+            "1": "Se multiplicó por 3,6 en lugar de dividir. Al pasar de kilómetros por hora a metros por segundo, el número debe hacerse más pequeño.",
+            "3": "Veinte es la rapidez en metros por segundo. Falta multiplicarla por el tiempo para obtener una distancia.",
+            "4": "Resulta de multiplicar 72 por 25 sin convertir unidades. Los 72 están en kilómetros por hora, no en metros por segundo, así que ese producto no da metros."
+          },
+          "explanation": "72 km/h equivale a 72 dividido entre 3,6, es decir, 20 m/s. En un movimiento rectilíneo uniforme, d = v · t = 20 m/s × 25 s = 500 m.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "NIST Guide to the SI, Appendix B.8: Factors for units listed by kind of quantity or field of science (km/h a m/s; aceleración estándar de caída libre)",
+              "publisher": "NIST (U.S. Department of Commerce)",
+              "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "NIST Guide to the SI, Chapter 5: Units Outside the SI (Table 6: 1 h = 3600 s)",
+              "publisher": "NIST (U.S. Department of Commerce)",
+              "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "fis-cin-02",
+          "statement": "La rapidez de un ciclista aumenta de 2 m/s a 14 m/s en 6 s, con aceleración constante. ¿Cuál es el valor de su aceleración?",
+          "options": [
+            "2 m/s²",
+            "2,33 m/s²",
+            "2,67 m/s²",
+            "0,5 m/s²",
+            "12 m/s²"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "La aceleración mide qué tan rápido cambia la velocidad en cada segundo.",
+            "Necesitas el cambio de velocidad, es decir, la velocidad final menos la inicial, no solo uno de los dos valores.",
+            "Divide ese cambio de velocidad entre el tiempo empleado; el resultado se expresa en metros por segundo cada segundo."
+          ],
+          "optionFeedback": {
+            "1": "Sale de dividir solo la velocidad final entre el tiempo. La aceleración depende del cambio de velocidad, y el ciclista ya tenía 2 m/s al comenzar.",
+            "2": "Se sumaron las velocidades (2 + 14) en vez de restarlas. Lo que importa es cuánto cambió la velocidad.",
+            "3": "Se invirtió el cociente: 6 dividido entre 12. La aceleración es el cambio de velocidad entre el tiempo, no el tiempo entre el cambio de velocidad.",
+            "4": "Doce es el cambio de velocidad (14 menos 2), pero falta dividirlo entre los 6 segundos; sin dividir, sus unidades serían m/s y no m/s²."
+          },
+          "explanation": "a = (v − v₀)/t = (14 − 2)/6 = 2 m/s². Cada segundo, la rapidez del ciclista aumenta 2 m/s.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.4 Motion with Constant Acceleration",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "fis-cin-03",
+          "statement": "Dos autos están separados 300 m en una carretera recta. Parten al mismo tiempo uno hacia el otro, con rapideces constantes de 20 m/s y 10 m/s. ¿Después de cuántos segundos se encuentran?",
+          "options": [
+            "15 s",
+            "30 s",
+            "1,5 s",
+            "10 s",
+            "20 s"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Ambos se mueven con velocidad constante, y cada uno cubre una parte distinta de los 300 metros.",
+            "Cuando dos móviles se acercan, la separación disminuye con una rapidez que combina los movimientos de los dos.",
+            "Suma las rapideces para obtener la rapidez de acercamiento y divide la separación inicial entre esa suma."
+          ],
+          "optionFeedback": {
+            "0": "Sale de dividir 300 entre 20, como si solo se moviera el auto más rápido y el otro estuviera detenido.",
+            "1": "Resulta de usar solo la rapidez del auto más lento, o de restar las rapideces. Restar sirve cuando un móvil persigue a otro en el mismo sentido; aquí se acercan de frente y las rapideces se suman.",
+            "2": "Se multiplicaron las rapideces (20 × 10 = 200) y luego se dividió 300 entre 200. Esa operación no tiene sentido físico; las rapideces de acercamiento se suman.",
+            "4": "Se promedió las dos rapideces (15 m/s) y se dividió 300 entre 15. Los autos no recorren la misma distancia, así que el promedio no representa lo que ocurre: la rapidez de acercamiento es la suma."
+          },
+          "explanation": "La rapidez de acercamiento es 20 + 10 = 30 m/s. El tiempo de encuentro es 300 m ÷ 30 m/s = 10 s. Comprobación: en 10 s el primero recorre 200 m y el segundo 100 m, que suman 300 m.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "fis-cin-04",
+          "statement": "Un móvil con movimiento rectilíneo uniformemente variado pasa por un punto con velocidad de 4 m/s y acelera a razón de 3 m/s² durante 6 s en línea recta. ¿Qué distancia recorre en esos 6 s?",
+          "options": [
+            "24 m",
+            "78 m",
+            "54 m",
+            "132 m",
+            "66 m"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "La aceleración es constante, así que corresponde la ecuación del desplazamiento del movimiento uniformemente variado, que tiene dos sumandos.",
+            "Un sumando es lo que recorrería si no acelerara; el otro es el aporte de la aceleración, que lleva un factor un medio y el tiempo elevado al cuadrado.",
+            "Calcula por separado la velocidad inicial por el tiempo, y un medio de la aceleración por el tiempo al cuadrado; luego suma ambos resultados."
+          ],
+          "optionFeedback": {
+            "0": "Es solo la velocidad inicial por el tiempo. Falta el desplazamiento adicional que produce la aceleración.",
+            "2": "Es solo el aporte de la aceleración (½ · 3 · 36). Falta sumar lo que recorrería a la velocidad inicial: 4 m/s durante 6 s.",
+            "3": "Se omitió el factor un medio del término de aceleración, o se usó la velocidad final (22 m/s) como si fuera constante. La velocidad no fue siempre 22 m/s: creció desde 4 m/s.",
+            "4": "Es la mitad de 22 por 6, resultado válido solo si el móvil partiera del reposo y alcanzara 22 m/s. Aquí ya llevaba 4 m/s al comenzar."
+          },
+          "explanation": "x = v₀t + ½at² = 4 · 6 + ½ · 3 · 6² = 24 + 54 = 78 m. Verificación con la velocidad media: la velocidad final es 4 + 3 · 6 = 22 m/s, la media es (4 + 22)/2 = 13 m/s y 13 · 6 = 78 m.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.4 Motion with Constant Acceleration",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "fis-cin-05",
+          "statement": "Un auto avanza a 20 m/s y el conductor frena de modo que la aceleración es constante, de 5 m/s² en sentido contrario al movimiento, hasta detenerse. ¿Qué distancia recorre mientras frena?",
+          "options": [
+            "80 m",
+            "400 m",
+            "100 m",
+            "4 m",
+            "40 m"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "No se da el tiempo de frenado, pero sí la velocidad inicial, la final (que vale cero) y la aceleración.",
+            "Hay una ecuación del movimiento uniformemente variado que relaciona velocidades, aceleración y desplazamiento sin necesidad del tiempo.",
+            "Con velocidad final cero, el desplazamiento es el cuadrado de la velocidad inicial dividido entre dos veces el valor de la aceleración."
+          ],
+          "optionFeedback": {
+            "0": "Falta el 2 del denominador (400 dividido entre 5). También sale 80 si se supone que el auto mantiene 20 m/s durante los 4 s de frenado, pero su velocidad va disminuyendo.",
+            "1": "Es el cuadrado de la velocidad inicial. Falta dividirlo entre dos veces la aceleración.",
+            "2": "Se multiplicó la velocidad por la aceleración (20 × 5). Esa operación no corresponde a una distancia.",
+            "3": "Cuatro segundos es el tiempo que tarda en detenerse (20 ÷ 5); es un tiempo, no una distancia."
+          },
+          "explanation": "De v² = v₀² + 2ax con v = 0 y a = −5 m/s²: 0 = 400 − 10x, de donde x = 40 m. Otra forma: tarda 4 s en detenerse y su velocidad media es 10 m/s, así que recorre 10 · 4 = 40 m.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.4 Motion with Constant Acceleration",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "fis-cin-06",
+          "statement": "Una piedra se lanza verticalmente hacia arriba con rapidez inicial de 30 m/s. Considera g = 10 m/s² y desprecia la resistencia del aire. ¿Qué altura máxima alcanza respecto del punto de lanzamiento?",
+          "options": [
+            "90 m",
+            "300 m",
+            "45 m",
+            "180 m",
+            "30 m"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "En el punto más alto la velocidad vertical se anula, aunque la gravedad sigue actuando sobre la piedra.",
+            "Puedes usar la ecuación que relaciona velocidades con el desplazamiento; durante la subida la aceleración tiene sentido contrario al movimiento.",
+            "La altura máxima es el cuadrado de la rapidez inicial dividido entre el doble de g."
+          ],
+          "optionFeedback": {
+            "0": "Falta el 2 del denominador: se dividió el cuadrado de la velocidad solo entre g. También sale 90 al suponer 30 m/s constantes durante los 3 s de subida, pero la rapidez baja hasta cero.",
+            "1": "Es el producto 30 × 10, que no representa una altura.",
+            "3": "Se usó el tiempo total de vuelo (6 s) en ½gt², pero el ascenso dura solo la mitad: 3 s.",
+            "4": "Que el número coincida con la rapidez inicial es una casualidad errónea: altura y rapidez tienen unidades distintas y se relacionan mediante v² = 2gh."
+          },
+          "explanation": "En el punto más alto v = 0. De 0 = v₀² − 2gh se obtiene h = v₀²/(2g) = 900/20 = 45 m. El ascenso dura 3 s; como comprobación, ½ · 10 · 3² = 45 m es la caída desde ese punto hasta el nivel de lanzamiento.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "University Physics Volume 1, 3.5 Free Fall",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/university-physics-volume-1/pages/3-5-free-fall",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "NIST Guide to the SI, Appendix B.8: Factors for units listed by kind of quantity or field of science (km/h a m/s; aceleración estándar de caída libre)",
+              "publisher": "NIST (U.S. Department of Commerce)",
+              "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quimica-estructura-atomica",
+      "area": "QUIMICA",
+      "title": "Estructura atómica: nucleidos, iones, números cuánticos y configuración electrónica",
+      "temario": {
+        "area": "QUIMICA",
+        "item": 3,
+        "title": "ESTRUCTURA ATÓMICA"
+      },
+      "objective": "Determinar protones, neutrones y electrones a partir del número atómico, el número de masa y la carga; distinguir isótopos, isóbaros y especies isoelectrónicas; aplicar las reglas de los números cuánticos y escribir configuraciones electrónicas de átomos neutros e iones.",
+      "explanation": [
+        "El átomo tiene un núcleo, formado por protones y neutrones, y una envoltura de electrones. El número atómico, que se representa con la letra Z, es la cantidad de protones y es lo que define al elemento. El número de masa, representado por A, suma protones y neutrones, de modo que los neutrones se obtienen restando: A menos Z.",
+        "Un átomo neutro tiene tantos electrones como protones. Si gana electrones forma un anión; si los pierde, un catión. La carga es la diferencia entre protones y electrones. Los isótopos tienen el mismo Z y distinto A; los isóbaros tienen el mismo A y distinto Z; y las especies isoelectrónicas tienen la misma cantidad de electrones.",
+        "Cada electrón se describe con cuatro números cuánticos. El principal, n, toma valores enteros desde uno. El secundario, l, va desde cero hasta n menos uno. El magnético va desde menos l hasta más l. El de espín solo puede ser más un medio o menos un medio. Dos electrones de un mismo átomo no pueden tener los cuatro números iguales.",
+        "Para escribir una configuración electrónica se llenan los subniveles de menor a mayor energía, respetando su capacidad: dos electrones en un subnivel s, seis en un p y diez en un d.",
+        "Al formar cationes de metales de transición, los electrones salen primero del subnivel s de mayor n y después del d. Por eso el hierro, que termina con dos electrones en el subnivel 4s y seis en el 3d, al perder tres electrones queda con cinco electrones en el 3d. Existen excepciones conocidas, como el cromo y el cobre."
+      ],
+      "questions": [
+        {
+          "id": "qui-est-01",
+          "statement": "El hierro-56 tiene número atómico 26 y número de masa 56. ¿Cuántos neutrones tiene un átomo de este nucleido?",
+          "options": [
+            "26 neutrones",
+            "30 neutrones",
+            "28 neutrones",
+            "82 neutrones",
+            "56 neutrones"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "El número de masa cuenta las partículas del núcleo: protones y neutrones juntos.",
+            "El número atómico indica cuántas de esas partículas son protones.",
+            "Resta el número atómico al número de masa para obtener solo los neutrones."
+          ],
+          "optionFeedback": {
+            "0": "Veintiséis es el número de protones (Z), no de neutrones.",
+            "2": "Resulta de repartir A en dos mitades iguales, suponiendo tantos neutrones como protones. En el hierro-56 los neutrones superan a los protones; hay que restar Z a A.",
+            "3": "Se sumaron A y Z (56 + 26). Para hallar los neutrones se resta, porque A ya incluye a los protones.",
+            "4": "Cincuenta y seis es el número de masa: cuenta protones y neutrones juntos."
+          },
+          "explanation": "Neutrones = A − Z = 56 − 26 = 30. Un átomo neutro de este nucleido tiene además 26 protones y 26 electrones.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Chemistry 2e, 2.3 Atomic Structure and Symbolism",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Iron: periodic table (Z = 26, [Ar] 3d⁶ 4s², isótopos)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/26/iron",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "qui-est-02",
+          "statement": "El ion Al³⁺ (Z = 13) es isoelectrónico con una de las siguientes especies. ¿Con cuál?",
+          "options": [
+            "K⁺ (Z = 19)",
+            "Li⁺ (Z = 3)",
+            "Ar, átomo neutro (Z = 18)",
+            "O²⁻ (Z = 8)",
+            "Na, átomo neutro (Z = 11)"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Isoelectrónico significa «mismo número de electrones», sin importar el elemento ni la carga.",
+            "Primero calcula los electrones del Al³⁺: parte de sus protones y ajusta según la carga positiva.",
+            "Después halla los electrones de cada opción: un catión pierde tantos electrones como indica su carga y un anión gana tantos como indica la suya."
+          ],
+          "optionFeedback": {
+            "0": "El K⁺ tiene 19 − 1 = 18 electrones; es isoelectrónico con el argón, no con el Al³⁺.",
+            "1": "El Li⁺ tiene 3 − 1 = 2 electrones, solo los del subnivel 1s.",
+            "2": "El argón neutro tiene 18 electrones; el Al³⁺ tiene 10.",
+            "4": "El sodio neutro tiene 11 electrones, uno más que el Al³⁺ (que tiene 10). Se confunde con el ion Na⁺, que sí tendría 10."
+          },
+          "explanation": "El Al³⁺ tiene 13 − 3 = 10 electrones. El O²⁻ tiene 8 + 2 = 10, así que ambos comparten la configuración 1s² 2s² 2p⁶, la del neón.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Chemistry 2e, 6.5 Periodic Variations in Element Properties (especies isoelectrónicas, configuración de cationes)",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Aluminium: periodic table (Z = 13, [Ne] 3s² 3p¹)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/13/aluminium",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Oxygen: periodic table ([He] 2s² 2p⁴)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/8/oxygen",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Potassium: periodic table (Z = 19)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/19/potassium",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "qui-est-03",
+          "statement": "¿Cuál de los siguientes pares de nucleidos corresponde a isóbaros? (Z: C = 6, N = 7, Na = 11, Mg = 12, Cl = 17, Fe = 26.)",
+          "options": [
+            "¹⁴C y ¹⁴N",
+            "³⁵Cl y ³⁷Cl",
+            "¹²C y ¹⁴C",
+            "⁵⁶Fe y ⁵⁷Fe",
+            "²³Na y ²⁴Mg"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Fíjate en dos datos de cada nucleido: el número de masa (el que acompaña al símbolo) y el elemento, que determina Z.",
+            "En los isóbaros el número de masa es el mismo, pero los elementos son diferentes.",
+            "Busca el par cuyos dos números de masa son iguales mientras los símbolos químicos son distintos."
+          ],
+          "optionFeedback": {
+            "1": "Mismo elemento (Z = 17) y distinto número de masa: son isótopos.",
+            "2": "Mismo elemento (Z = 6) y distinto número de masa: son isótopos, no isóbaros.",
+            "3": "Mismo elemento (Z = 26) y distinto número de masa: son isótopos.",
+            "4": "Ni Z (11 y 12) ni A (23 y 24) coinciden, por lo que no son isóbaros ni isótopos."
+          },
+          "explanation": "El carbono-14 (Z = 6) y el nitrógeno-14 (Z = 7) tienen ambos A = 14: son isóbaros. Tienen 8 y 7 neutrones, respectivamente. Los otros pares con el mismo elemento son isótopos.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "IUPAC Gold Book: isobars (different nuclides of equal mass number)",
+              "publisher": "IUPAC",
+              "url": "https://mail.goldbook.iupac.org/terms/view/I03263/plain",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "IUPAC Gold Book: isotopes (nuclides having the same atomic number but different mass numbers)",
+              "publisher": "IUPAC",
+              "url": "https://goldbook.iupac.org/terms/view/I03331/plain",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Carbon: periodic table (isótopos 12C, 13C, 14C)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/6/carbon",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Nitrogen (Z = 7)",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/science/nitrogen",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Nitrogen: isotopic composition (14N, 15N)",
+              "publisher": "IUPAC CIAAW",
+              "url": "https://ciaaw.org/nitrogen.htm",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "qui-est-04",
+          "statement": "¿Cuántos electrones de valencia, es decir, de la capa más externa, tiene un átomo neutro de cloro (Z = 17)?",
+          "options": [
+            "17 electrones",
+            "5 electrones",
+            "2 electrones",
+            "8 electrones",
+            "7 electrones"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Escribe la configuración electrónica del cloro llenando los subniveles en orden de energía.",
+            "Los electrones de valencia son los del nivel con el mayor valor de n, sumando todos sus subniveles.",
+            "El tercer nivel del cloro contiene los subniveles 3s y 3p; suma los electrones de ambos."
+          ],
+          "optionFeedback": {
+            "0": "Diecisiete es el total de electrones del átomo, no los de la capa externa.",
+            "1": "Cinco son los electrones del subnivel 3p solamente; falta sumar los dos del 3s.",
+            "2": "Dos son los electrones del subnivel 3s únicamente.",
+            "3": "Ocho sería un octeto completo, como el del argón; el cloro necesita ganar un electrón para alcanzarlo."
+          },
+          "explanation": "Cl: 1s² 2s² 2p⁶ 3s² 3p⁵, es decir, [Ne] 3s² 3p⁵. La capa más externa (n = 3) tiene 2 + 5 = 7 electrones. Por eso el cloro tiende a ganar un electrón y formar el ion Cl⁻.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Chlorine: periodic table (Z = 17, [Ne] 3s² 3p⁵)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/17/chlorine",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "qui-est-05",
+          "statement": "¿Cuál de los siguientes conjuntos de números cuánticos (n, l, mₗ, mₛ) es posible para un electrón de un átomo?",
+          "options": [
+            "(3, 1, +2, +½)",
+            "(2, 2, 0, −½)",
+            "(3, 2, −2, +½)",
+            "(1, 0, 0, +1)",
+            "(4, −1, 0, −½)"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Cada número cuántico tiene un rango permitido que depende del anterior.",
+            "El número l va de cero hasta n − 1; el número magnético va desde −l hasta +l; el espín solo toma dos valores, +½ o −½.",
+            "Revisa opción por opción y descarta las que tengan l igual o mayor que n, un número magnético fuera del rango −l a +l, un espín distinto de ±½ o un l negativo."
+          ],
+          "optionFeedback": {
+            "0": "Con l = 1, el número magnético solo puede ser −1, 0 o +1; el valor +2 queda fuera del rango.",
+            "1": "Para n = 2, el número l solo puede valer 0 o 1. Un valor l = 2 es imposible.",
+            "3": "El espín solo puede ser +½ o −½, nunca +1.",
+            "4": "El número l no puede ser negativo; sus valores son 0, 1, 2, …, n − 1."
+          },
+          "explanation": "Para n = 3, l puede ser 0, 1 o 2. Con l = 2 (subnivel d), mₗ va de −2 a +2, y −2 es válido; el espín +½ también. Corresponde a un electrón del subnivel 3d.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Chemistry 2e, 6.3 Development of Quantum Theory (números cuánticos)",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "qui-est-06",
+          "statement": "¿Cuál es la configuración electrónica del ion Fe³⁺ (Z = 26)?",
+          "options": [
+            "[Ar] 3d⁵",
+            "[Ar] 4s² 3d³",
+            "[Ar] 4s¹ 3d⁵",
+            "[Ar] 3d⁶",
+            "[Ar] 3d⁴ 4s¹"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Primero calcula cuántos electrones tiene el ion: parte de Z y descuenta la carga.",
+            "Escribe la configuración del átomo neutro de hierro, que termina en los subniveles 4s y 3d.",
+            "Al formarse un catión de un metal de transición, los electrones salen primero del subnivel de mayor n (el 4s) y después del 3d."
+          ],
+          "optionFeedback": {
+            "1": "Tiene 23 electrones, pero se retiraron del 3d y se dejaron los 4s. En los metales de transición los electrones del subnivel ns se pierden antes que los (n − 1)d.",
+            "2": "Suma 24 electrones, no 23; además, es la distribución del cromo neutro, no de un ion de hierro.",
+            "3": "Es la configuración del Fe²⁺ (24 electrones). Al Fe³⁺ le falta perder un electrón más.",
+            "4": "Tiene 23 electrones, pero la distribución no es la correcta: se retiran primero los dos electrones 4s y luego uno del 3d, no uno del 4s y dos del 3d."
+          },
+          "explanation": "Fe: [Ar] 4s² 3d⁶ (26 electrones). El Fe³⁺ tiene 23 electrones: pierde los dos 4s y uno del 3d, y queda [Ar] 3d⁵, con el subnivel 3d semilleno.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Chemistry 2e, 6.5 Periodic Variations in Element Properties (especies isoelectrónicas, configuración de cationes)",
+              "publisher": "OpenStax (Rice University)",
+              "url": "https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Iron: periodic table (Z = 26, [Ar] 3d⁶ 4s², isótopos)",
+              "publisher": "Royal Society of Chemistry",
+              "url": "https://www.rsc.org/periodic-table/element/26/iron",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zoologia-platelmintos-fasciola-taenia",
+      "area": "ZOOLOGIA",
+      "title": "Platelmintos parásitos: Fasciola hepatica y Taenia solium",
+      "temario": {
+        "area": "ZOOLOGIA",
+        "item": 4,
+        "title": "EUMETAZOOS ACELOMADOS"
+      },
+      "objective": "Reconocer las características de los platelmintos acelomados y explicar los ciclos biológicos de Fasciola hepatica y Taenia solium: hospederos, forma infectante y modo de contagio.",
+      "explanation": [
+        "Los platelmintos o gusanos planos son animales de simetría bilateral, con el cuerpo aplanado y sin cavidad corporal verdadera; por eso se llaman acelomados. Se agrupan en clases como Turbellaria, formada sobre todo por especies de vida libre, y las clases parásitas Trematoda y Cestoda.",
+        "Los trematodos o duelas tienen un intestino ciego, sin ano. Fasciola hepatica es la duela del hígado: el adulto vive en los conductos biliares de rumiantes y de otros mamíferos, incluido el ser humano. Sus huevos salen con las heces y, en el agua, liberan una larva llamada miracidio que penetra en un caracol de la familia Lymnaeidae.",
+        "Dentro del caracol, la larva se transforma en esporocisto, redia y cercaria. La cercaria sale al agua y se enquista como metacercaria sobre plantas acuáticas, como el berro. Quien come esa vegetación cruda ingiere la forma infectante, que atraviesa la pared del intestino, llega al hígado y madura en los conductos biliares. En los Andes del Perú, la fasciolosis es un problema de salud pública y de ganadería.",
+        "Los cestodos o tenias no tienen aparato digestivo: absorben los nutrientes a través de la pared del cuerpo. Taenia solium, llamada tenia armada, tiene en la cabeza, o escólex, cuatro ventosas y un rostelo con dos filas de ganchos. El adulto vive en el intestino delgado humano y libera segmentos llenos de huevos, las proglótidas, que salen con las heces.",
+        "El cerdo es el hospedero intermediario: al ingerir huevos, desarrolla larvas llamadas cisticercos en sus músculos. Las personas adquieren la tenia adulta al comer carne de cerdo cruda o mal cocida con cisticercos. Si en cambio tragan huevos, desarrollan cisticercosis, y los cisticercos pueden alojarse en el cerebro, los ojos o los músculos. Por eso son medidas distintas cocinar bien la carne y mantener la higiene de manos y alimentos."
+      ],
+      "questions": [
+        {
+          "id": "zoo-pla-01",
+          "statement": "¿Qué opción asocia correctamente cada parásito con la clase de platelminto a la que pertenece?",
+          "options": [
+            "Fasciola hepatica: Cestoda; Taenia solium: Trematoda",
+            "Fasciola hepatica: Trematoda; Taenia solium: Cestoda",
+            "Fasciola hepatica: Nematoda; Taenia solium: Trematoda",
+            "Fasciola hepatica: Trematoda; Taenia solium: Nematoda",
+            "Fasciola hepatica: Turbellaria; Taenia solium: Cestoda"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Las dos clases parásitas más importantes de platelmintos reúnen a las duelas y a las tenias o solitarias.",
+            "Las duelas tienen un intestino ciego; las tenias carecen de aparato digestivo y su cuerpo se divide en segmentos llamados proglótidas.",
+            "Una clase agrupa a las duelas, de cuerpo aplanado en forma de hoja; la otra, a las tenias, de cuerpo en forma de cinta. Relaciona cada parásito con su aspecto."
+          ],
+          "optionFeedback": {
+            "0": "Está invertido: la duela del hígado es un trematodo y la solitaria es un cestodo.",
+            "2": "Ambos pares están mal: Fasciola no es un nematodo y Taenia no es un trematodo.",
+            "3": "Los nematodos son otro filo (gusanos redondos, como Ascaris). La tenia pertenece a los platelmintos, en la clase Cestoda.",
+            "4": "Turbellaria agrupa gusanos planos mayormente de vida libre, como las planarias. La duela del hígado es parásita y pertenece a otra clase."
+          },
+          "explanation": "El filo Platyhelminthes incluye la clase Trematoda (duelas, como Fasciola hepatica) y la clase Cestoda (tenias, como Taenia solium). Los nematodos, como Ascaris, son gusanos redondos de otro filo.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Flatworm",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/animal/flatworm",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Fascioliasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/fascioliasis/index.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Taeniasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/taeniasis/index.html",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "zoo-pla-02",
+          "statement": "Los platelmintos se describen como animales acelomados. ¿Qué significa esta característica?",
+          "options": [
+            "Son siempre de vida libre",
+            "No tienen simetría y su cuerpo es irregular",
+            "Su cuerpo es cilíndrico y no aplanado",
+            "No tienen una cavidad corporal verdadera (celoma)",
+            "Ninguna de sus clases tiene intestino"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "El prefijo a- indica ausencia, y «celoma» se refiere a la cavidad corporal.",
+            "Piensa en el espacio entre la pared del cuerpo y el tubo digestivo: ¿existe una cavidad verdadera en ese lugar?",
+            "Acelomado se refiere a una cavidad, no a la simetría, a la forma del cuerpo ni a si el animal es parásito."
+          ],
+          "optionFeedback": {
+            "0": "Alrededor del ochenta por ciento de los platelmintos son parásitos, aunque hay clases de vida libre como los turbelarios. «Acelomado» no describe la forma de vida.",
+            "1": "Los platelmintos tienen simetría bilateral; «acelomado» no se refiere a la simetría.",
+            "2": "El cuerpo de los platelmintos es aplanado, como una hoja o una cinta. Además, «acelomado» alude a la cavidad corporal, no a la forma.",
+            "4": "Los trematodos sí tienen intestino, aunque ciego y sin ano; solo los cestodos carecen de él."
+          },
+          "explanation": "El celoma es una cavidad corporal verdadera. Los platelmintos carecen de ella, por eso son acelomados. Además, su cuerpo es aplanado y tiene simetría bilateral.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Flatworm",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/animal/flatworm",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "zoo-pla-03",
+          "statement": "En el ciclo biológico de Fasciola hepatica, ¿qué hospedero intermediario permite el desarrollo de las larvas antes de que infecten al ganado y a las personas?",
+          "options": [
+            "Un caracol de agua dulce de la familia Lymnaeidae",
+            "Un pez de río",
+            "Un mosquito del género Anopheles",
+            "La lombriz de tierra",
+            "El cerdo doméstico"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Los huevos salen en las heces y deben llegar al agua, donde nace una larva nadadora que busca a su hospedero.",
+            "Este hospedero es un animal pequeño, de cuerpo blando y con concha, que vive en charcos, canales y acequias.",
+            "Es un molusco gasterópodo de agua dulce, con concha en espiral."
+          ],
+          "optionFeedback": {
+            "1": "Ningún pez interviene en el ciclo de Fasciola; la larva se enquista sobre plantas acuáticas, no en peces.",
+            "2": "Los mosquitos no participan en el ciclo de la duela del hígado; la infección se adquiere por ingestión.",
+            "3": "La lombriz de tierra es un anélido y no participa en el ciclo de la duela del hígado.",
+            "4": "El cerdo es el hospedero intermediario de Taenia solium, no de Fasciola; la duela usa un caracol."
+          },
+          "explanation": "El miracidio penetra en caracoles de la familia Lymnaeidae. Dentro de ellos pasa por esporocisto, redia y cercaria. Luego la cercaria sale del caracol y forma metacercarias sobre la vegetación acuática.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Fascioliasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/fascioliasis/index.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Fasciolosis humana y animal en el Perú: impacto en la economía de las zonas endémicas. Rev Peru Med Exp Salud Publica 2010;27(4):604-12",
+              "publisher": "Instituto Nacional de Salud (Perú) / SciELO",
+              "url": "https://scielosp.org/pdf/rpmesp/2010.v27n4/604-612/es",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "zoo-pla-04",
+          "statement": "Una persona se infecta con Fasciola hepatica en una zona andina. ¿Cuál es la forma más frecuente de contagio?",
+          "options": [
+            "Caminar descalzo en el barro, donde las larvas atraviesan la piel",
+            "Llevarse a la boca manos contaminadas con heces de una persona infectada",
+            "Recibir la picadura de un insecto que lleva cercarias",
+            "Comer carne de cerdo mal cocida con cisticercos",
+            "Comer vegetales acuáticos crudos, como el berro, con metacercarias adheridas"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "La forma infectante no entra por la piel ni por una picadura: llega al tubo digestivo.",
+            "La larva que sale del caracol se enquista sobre una superficie en el agua y espera allí a ser tragada.",
+            "Piensa en alimentos de origen vegetal que crecen en el agua o en bordes húmedos y que a veces se consumen sin cocer, como en ensaladas."
+          ],
+          "optionFeedback": {
+            "0": "Las larvas de Fasciola no atraviesan la piel: la metacercaria debe ser ingerida y libera la duela joven en el duodeno.",
+            "1": "Es la vía de la cisticercosis por huevos de Taenia solium. Los huevos de Fasciola necesitan pasar por el caracol antes de poder infectar.",
+            "2": "El ciclo de la duela del hígado no involucra insectos; la infección se adquiere comiendo la forma enquistada.",
+            "3": "Ese es el mecanismo de la teniasis por Taenia solium, no de la fasciolosis."
+          },
+          "explanation": "La metacercaria enquistada sobre plantas acuáticas es la forma infectante. Al ingerirla, se libera en el duodeno, atraviesa la pared intestinal y migra por el hígado hasta los conductos biliares, donde madura; en humanos esto toma unos tres a cuatro meses.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Fascioliasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/fascioliasis/index.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Fasciolosis humana y animal en el Perú: impacto en la economía de las zonas endémicas. Rev Peru Med Exp Salud Publica 2010;27(4):604-12",
+              "publisher": "Instituto Nacional de Salud (Perú) / SciELO",
+              "url": "https://scielosp.org/pdf/rpmesp/2010.v27n4/604-612/es",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "zoo-pla-05",
+          "statement": "¿Cómo adquiere una persona la tenia adulta de Taenia solium en su intestino (teniasis)?",
+          "options": [
+            "Por contacto con la saliva de un perro",
+            "Comiendo plantas acuáticas con metacercarias",
+            "Comiendo carne de cerdo cruda o mal cocida que contiene cisticercos",
+            "Tragando huevos de la tenia presentes en agua o alimentos contaminados",
+            "Por la picadura de un mosquito infectado"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Se trata de la fase adulta de la tenia, que vive en el intestino delgado de la persona.",
+            "Antes de ser adulta, la tenia pasó por una fase larvaria en el cuerpo de otro animal.",
+            "Esa fase larvaria, llamada cisticerco, se encuentra en la carne del hospedero intermediario; el contagio ocurre al consumir esa carne sin cocción suficiente."
+          ],
+          "optionFeedback": {
+            "0": "La saliva de los perros no transmite Taenia solium; el ciclo se mantiene entre humanos (hospedero definitivo) y cerdos (hospedero intermediario).",
+            "1": "Ese es el mecanismo de Fasciola hepatica, no de Taenia solium.",
+            "3": "Tragar huevos provoca cisticercosis (larvas en los tejidos), no la tenia adulta en el intestino.",
+            "4": "Los mosquitos no participan en el ciclo de Taenia solium."
+          },
+          "explanation": "El ser humano es el único hospedero definitivo de Taenia solium. Al comer carne de cerdo con cisticercos mal cocida, el cisticerco se fija con su escólex en el intestino delgado y, en alrededor de dos meses, se convierte en tenia adulta.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Taeniasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/taeniasis/index.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Taeniasis/cysticercosis (hoja informativa)",
+              "publisher": "Organización Mundial de la Salud",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/taeniasis-cysticercosis",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "zoo-pla-06",
+          "statement": "Un paciente con convulsiones tiene quistes en el cerebro causados por Taenia solium (neurocisticercosis). ¿Cuál es el origen de esta infección?",
+          "options": [
+            "Haber comido berros crudos con metacercarias",
+            "Haber ingerido huevos de Taenia solium por vía fecal-oral",
+            "Haber recibido la picadura de un insecto que transmite la larva",
+            "Haber comido carne de cerdo mal cocida con cisticercos",
+            "Haber comido carne de res cruda con cisticercos de otra tenia"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "La neurocisticercosis no es la tenia adulta: son larvas que se alojan en el sistema nervioso.",
+            "Para que esas larvas lleguen a los tejidos, la persona debe haberse comportado como si fuera el hospedero intermediario, no el definitivo.",
+            "Los hospederos intermediarios se infectan al tragar huevos; piensa en cómo pudieron llegar huevos de un portador de la tenia hasta la boca del paciente."
+          ],
+          "optionFeedback": {
+            "0": "Los berros se relacionan con Fasciola hepatica, que no forma quistes en el cerebro.",
+            "2": "No existe transmisión de cisticercos por picadura de insectos; el contagio es por ingestión de huevos.",
+            "3": "Comer cisticercos produce la tenia adulta en el intestino (teniasis); la neurocisticercosis exige tragar huevos.",
+            "4": "Comer cisticercos produce teniasis intestinal, no quistes en el cerebro. La cisticercosis humana se relaciona con los huevos de Taenia solium."
+          },
+          "explanation": "La cisticercosis ocurre cuando una persona ingiere huevos de Taenia solium, con frecuencia por la vía fecal-oral desde un portador de la tenia. Los huevos liberan larvas que forman quistes en músculos, ojos o cerebro. Cuando están en el cerebro se llama neurocisticercosis, una causa importante de epilepsia en zonas endémicas.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Taeniasis/cysticercosis (hoja informativa)",
+              "publisher": "Organización Mundial de la Salud",
+              "url": "https://www.who.int/news-room/fact-sheets/detail/taeniasis-cysticercosis",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Taeniasis (DPDx: Laboratory Identification of Parasites of Public Health Concern)",
+              "publisher": "CDC (Centers for Disease Control and Prevention)",
+              "url": "https://www.cdc.gov/dpdx/taeniasis/index.html",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "civica-constitucion-estado-peruano",
+      "area": "CIVICA",
+      "title": "Constitución de 1993 y organización del Estado peruano",
+      "temario": {
+        "area": "CIVICA",
+        "item": 15,
+        "title": "CONSTITUCIÓN POLÍTICA DEL PERÚ Y EL ESTADO PERUANO"
+      },
+      "objective": "Identificar la forma de gobierno del Perú, la función del Poder Judicial, la regla sobre el mandato presidencial y las atribuciones del Ministerio Público, la Defensoría del Pueblo y los organismos del sistema electoral.",
+      "explanation": [
+        "La Constitución Política del Perú de 1993 es la norma de mayor jerarquía del Estado. Su artículo cuarenta y tres dice que la República es democrática, social, independiente y soberana, que el Estado es uno e indivisible, y que su gobierno es unitario, representativo y descentralizado, organizado según el principio de separación de poderes.",
+        "La separación de poderes reparte el poder entre el Legislativo, el Ejecutivo y el Judicial, para que se controlen entre sí. La potestad de administrar justicia emana del pueblo y la ejerce el Poder Judicial a través de sus órganos jerárquicos.",
+        "El Presidente de la República es jefe de Estado y se elige por sufragio directo: gana quien obtiene más de la mitad de los votos, sin contar los votos nulos ni en blanco; si nadie lo logra, hay una segunda elección entre los dos más votados. Su mandato dura cinco años y no hay reelección inmediata.",
+        "Además de los poderes clásicos, la Constitución crea organismos autónomos. El Ministerio Público defiende la legalidad, conduce desde su inicio la investigación del delito y ejerce la acción penal. La Defensoría del Pueblo defiende los derechos constitucionales y fundamentales de la persona y de la comunidad, y supervisa a la administración estatal y la prestación de los servicios públicos.",
+        "El sistema electoral está formado por tres organismos autónomos. El Jurado Nacional de Elecciones imparte justicia electoral y fiscaliza la legalidad del sufragio. La Oficina Nacional de Procesos Electorales organiza las elecciones. Y el Registro Nacional de Identificación y Estado Civil mantiene el padrón electoral. Ten presente que el texto constitucional ha cambiado: desde la Ley treinta mil novecientos cuatro, la Junta Nacional de Justicia reemplaza al Consejo Nacional de la Magistratura, y desde la Ley treinta y un mil novecientos ochenta y ocho el Congreso vuelve a tener dos cámaras."
+      ],
+      "questions": [
+        {
+          "id": "civ-con-01",
+          "statement": "Según el artículo 43 de la Constitución Política del Perú, el gobierno de la República se organiza según el principio de:",
+          "options": [
+            "la separación de poderes",
+            "la unión de las funciones legislativa y judicial en un solo órgano",
+            "la concentración del poder en el Poder Ejecutivo",
+            "la soberanía propia de cada región para dictar su Constitución",
+            "el federalismo entre las regiones"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "El artículo 43 describe a la República y luego caracteriza su gobierno con tres adjetivos y un principio de organización.",
+            "El principio buscado explica por qué existen un Congreso, un Ejecutivo y un Poder Judicial como órganos distintos.",
+            "El principio consiste en repartir el poder entre varios órganos para que ninguno lo concentre y puedan controlarse entre sí."
+          ],
+          "optionFeedback": {
+            "1": "Unir funciones en un solo órgano es lo contrario de la separación de poderes.",
+            "2": "Eso contradice el artículo 43: el poder no se concentra en el Ejecutivo, sino que se reparte entre varios órganos.",
+            "3": "El gobierno es unitario y descentralizado: las regiones tienen autonomía en lo que la ley establece, pero no soberanía propia ni Constitución propia.",
+            "4": "El artículo 43 declara que el Estado es uno e indivisible y que su gobierno es unitario y descentralizado; no es federal."
+          },
+          "explanation": "El artículo 43 establece que la República del Perú es democrática, social, independiente y soberana; que el Estado es uno e indivisible; y que su gobierno es unitario, representativo y descentralizado, y se organiza según el principio de la separación de poderes.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Artículo 43 de la Constitución Política del Perú (Título II, Capítulo I)",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www.congreso.gob.pe/Docs/DGP/DIDP/files/descentralizacion/a-43.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "civ-con-02",
+          "statement": "Según el artículo 138 de la Constitución, ¿qué poder del Estado ejerce, por regla general, la potestad de administrar justicia, que emana del pueblo?",
+          "options": [
+            "El Congreso de la República",
+            "La Defensoría del Pueblo",
+            "El Poder Judicial",
+            "El Presidente de la República y sus ministros",
+            "El Ministerio Público"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "El artículo 138 afirma que esa potestad emana del pueblo y se ejerce mediante órganos jerárquicos, como juzgados y cortes.",
+            "Entre los tres poderes clásicos, uno es el encargado de resolver conflictos y aplicar la ley mediante jueces.",
+            "Los juzgados, las cortes superiores y la Corte Suprema forman parte de ese poder."
+          ],
+          "optionFeedback": {
+            "0": "El Congreso legisla, representa a la ciudadanía y fiscaliza; no imparte justicia como función general.",
+            "1": "Defiende derechos y supervisa a la administración, pero no resuelve juicios ni dicta sentencias.",
+            "3": "Ejercen la función ejecutiva; no administran justicia.",
+            "4": "Promueve la acción de la justicia y conduce la investigación del delito, pero quien juzga y sentencia es el Poder Judicial."
+          },
+          "explanation": "El artículo 138 dispone que la potestad de administrar justicia emana del pueblo y se ejerce por el Poder Judicial a través de sus órganos jerárquicos, con arreglo a la Constitución y a las leyes. Se dice «por regla general» porque este poder concentra la función de juzgar, mientras que otros organismos tienen funciones distintas.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título IV, Capítulo VIII (Poder Judicial, art. 138)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-viii",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "civ-con-03",
+          "statement": "Según la Constitución, ¿cuánto dura el mandato presidencial y qué regla rige para la reelección?",
+          "options": [
+            "Seis años; no hay reelección inmediata, y el expresidente no puede volver a postular nunca más",
+            "Cinco años; se permite una reelección inmediata por un solo período más",
+            "Cinco años; la reelección inmediata procede si el Congreso la aprueba por mayoría",
+            "Cinco años; no hay reelección inmediata, y el expresidente puede volver a postular tras otro período constitucional",
+            "Cuatro años; no hay reelección inmediata, y el expresidente puede volver a postular tras otro período constitucional"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "El artículo 112 trata dos temas: la duración del mandato y qué ocurre si el presidente quiere volver a postular.",
+            "La Constitución impide que quien termina su mandato sea elegido de inmediato en la siguiente elección, pero no lo veta para siempre.",
+            "Para volver a postular debe transcurrir, como mínimo, un período constitucional completo después de su mandato."
+          ],
+          "optionFeedback": {
+            "0": "El mandato no dura seis años, y la prohibición no es perpetua: después de otro período constitucional puede volver a postular.",
+            "1": "La Constitución prohíbe la reelección inmediata del Presidente de la República.",
+            "2": "No existe esa posibilidad por simple acuerdo del Congreso. La prohibición está en el texto constitucional y solo cambia mediante una reforma de la Constitución.",
+            "4": "La regla de reelección es correcta, pero el mandato presidencial dura cinco años, no cuatro."
+          },
+          "explanation": "El artículo 112 dice que el mandato presidencial es de cinco años y que no hay reelección inmediata. Transcurrido otro período constitucional, como mínimo, el expresidente puede volver a postular, sujeto a las mismas condiciones. Una reforma de 2021 añadió una regla sobre la permanencia en el territorio nacional después del mandato, sin cambiar la duración ni la regla de reelección.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título IV, Capítulo IV (Poder Ejecutivo, arts. 110-112)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-iv",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Constitución Política del Perú de 1993 (PDF; art. 112: «El mandato presidencial es de cinco años, no hay reelección inmediata»)",
+              "publisher": "SENASA (gob.pe)",
+              "url": "https://www.senasa.gob.pe/senasa/wp-content/uploads/2017/09/CONSTITUCION-POLITICA-DEL-PERU-DE-1993.pdf",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Pleno aprueba dictamen de reforma constitucional que establece régimen temporal del expresidente de la República (modificación del art. 112)",
+              "publisher": "Congreso de la República del Perú (Comunicaciones)",
+              "url": "https://comunicaciones.congreso.gob.pe/noticias/pleno-aprueba-dictamen-de-reforma-constitucional-que-establece-regimen-temporal-del-expresidente-de-la-republica",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "civ-con-04",
+          "statement": "¿Cuál es una atribución propia de la Defensoría del Pueblo según el artículo 162 de la Constitución?",
+          "options": [
+            "Proclamar a los candidatos elegidos y entregarles sus credenciales de autoridad",
+            "Dictar sentencias y resolver los juicios civiles y penales de las personas",
+            "Conducir desde su inicio la investigación del delito y ejercer la acción penal",
+            "Organizar los procesos electorales y diseñar la cédula de sufragio de cada elección",
+            "Defender los derechos constitucionales y fundamentales de la persona y de la comunidad, y supervisar a la administración estatal"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "La Defensoría del Pueblo es un organismo autónomo cuyo titular, el Defensor, es elegido por el Congreso.",
+            "Su nombre indica su misión: defender, en este caso, a las personas frente a posibles abusos o deficiencias del Estado.",
+            "Descarta las funciones de investigar delitos, organizar elecciones, juzgar y proclamar resultados: pertenecen a otros organismos. Queda la que protege derechos y vigila a la administración."
+          ],
+          "optionFeedback": {
+            "0": "Proclamar a los candidatos elegidos y expedir sus credenciales es atribución del Jurado Nacional de Elecciones (artículo 178).",
+            "1": "Juzgar y sentenciar corresponde al Poder Judicial (artículo 138).",
+            "2": "Conducir la investigación del delito y ejercer la acción penal corresponde al Ministerio Público (artículo 159).",
+            "3": "Organizar los procesos electorales es función de la Oficina Nacional de Procesos Electorales (artículo 182)."
+          },
+          "explanation": "El artículo 162 le encarga defender los derechos constitucionales y fundamentales de la persona y de la comunidad, y supervisar el cumplimiento de los deberes de la administración estatal y la prestación de los servicios públicos. Según su ley orgánica, el Defensor es designado por el Congreso con el voto de los dos tercios de su número legal y ejerce por cinco años.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título IV, Capítulo XI (Defensoría del Pueblo, arts. 161-162)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xi",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ley Orgánica de la Defensoría del Pueblo (Ley 26520)",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www3.congreso.gob.pe/Docs/sites/webs/cip/materiales/djoven/Ley_Organica_Defensoria_del_Pueblo.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "civ-con-05",
+          "statement": "¿Qué organismo constitucional conduce desde su inicio la investigación del delito y ejerce la acción penal?",
+          "options": [
+            "El Ministerio Público",
+            "La Defensoría del Pueblo",
+            "El Jurado Nacional de Elecciones",
+            "La Contraloría General de la República",
+            "La Policía Nacional, de manera independiente del fiscal"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "La persona que conduce esta investigación y ejerce la acción penal en nombre de la sociedad se conoce como fiscal.",
+            "Los fiscales forman parte de un organismo autónomo, distinto del Poder Judicial, que también defiende la legalidad y representa a la sociedad en los procesos.",
+            "El organismo buscado interviene antes de que haya un juicio: reúne elementos sobre el hecho y decide si presenta una acusación ante los jueces."
+          ],
+          "optionFeedback": {
+            "1": "Defiende derechos y supervisa a la administración; no ejerce la acción penal.",
+            "2": "Imparte justicia electoral y fiscaliza el sufragio; no conduce investigaciones penales.",
+            "3": "Supervisa la legalidad de la ejecución del presupuesto y de las operaciones de la deuda pública; no ejerce la acción penal.",
+            "4": "La Policía investiga, pero el artículo 159 la obliga a cumplir los mandatos del Ministerio Público en el ámbito de su función; la conducción de la investigación corresponde al fiscal."
+          },
+          "explanation": "Según el artículo 159, al Ministerio Público le corresponde, entre otras atribuciones, promover la acción judicial en defensa de la legalidad, velar por la recta administración de justicia, representar a la sociedad en los procesos, conducir desde su inicio la investigación del delito (con la Policía Nacional obligada a cumplir sus mandatos) y ejercitar la acción penal de oficio o a petición de parte.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Artículo 159 [Atribuciones del Ministerio Público]",
+              "publisher": "LP Derecho (portal jurídico)",
+              "url": "https://lpderecho.pe/articulo-159-constitucion-politica-peru-atribuciones-ministerio-publico/",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "La autonomía constitucional del Ministerio Público y los límites de las facultades de investigación del Congreso (cita el art. 159)",
+              "publisher": "IUS360 (Ius et Veritas, PUCP)",
+              "url": "https://ius360.com/la-autonomia-constitucional-del-ministerio-publico-y-los-limites-de-las-facultades-de-investigacion-del-congreso-de-la-republica-en-el-peru/",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "civ-con-06",
+          "statement": "Según la Constitución, ¿qué organismo del sistema electoral prepara y mantiene actualizado el padrón electoral?",
+          "options": [
+            "El Poder Judicial",
+            "El Registro Nacional de Identificación y Estado Civil (RENIEC)",
+            "La Defensoría del Pueblo",
+            "El Jurado Nacional de Elecciones (JNE)",
+            "La Oficina Nacional de Procesos Electorales (ONPE)"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "El sistema electoral tiene tres organismos autónomos; cada uno cumple una función distinta.",
+            "Uno organiza las votaciones, otro imparte justicia electoral y fiscaliza la legalidad, y el tercero registra la identidad y el estado civil de las personas.",
+            "El padrón electoral lista a los ciudadanos con derecho a voto y se elabora a partir del registro de identidad de las personas."
+          ],
+          "optionFeedback": {
+            "0": "No forma parte del sistema electoral (artículo 177) y no elabora el padrón.",
+            "2": "No forma parte del sistema electoral, que está integrado por JNE, ONPE y RENIEC (artículo 177).",
+            "3": "El JNE fiscaliza la legalidad de la elaboración de los padrones electorales (artículo 178), pero no los prepara: fiscalizar es supervisar.",
+            "4": "La ONPE organiza los procesos electorales y diseña la cédula de sufragio; el padrón lo prepara otro organismo."
+          },
+          "explanation": "El artículo 177 señala que el sistema electoral está conformado por el JNE, la ONPE y el RENIEC. Según el artículo 183, el RENIEC inscribe los nacimientos, matrimonios, divorcios, defunciones y otros actos que modifican el estado civil, prepara y mantiene actualizado el padrón electoral y proporciona información al JNE y a la ONPE. Su ley orgánica añade que lo hace en coordinación con la ONPE.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título IV, Capítulo XIII (Sistema electoral, arts. 177-183)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Ley Orgánica del Registro Nacional de Identificación y Estado Civil (Ley 26497), art. 7",
+              "publisher": "Congreso de la República del Perú",
+              "url": "https://www.congreso.gob.pe/Docs/GrupoTrabajo2016/Constitucion_ReformaElectoral/files/baselegal/26497-reniec.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "economia-bcrp-sistema-financiero-sector-externo",
+      "area": "ECONOMIA",
+      "title": "Banco Central de Reserva, supervisión financiera, balanza comercial e inflación",
+      "temario": {
+        "area": "ECONOMIA",
+        "item": 6,
+        "title": "EL SISTEMA FINANCIERO Y EL SECTOR EXTERNO"
+      },
+      "objective": "Explicar la finalidad, las funciones y las limitaciones del Banco Central de Reserva del Perú, distinguir su papel del de la SBS, y calcular e interpretar la balanza comercial y la tasa de inflación.",
+      "explanation": [
+        "El sistema financiero reúne a las instituciones que captan ahorro y lo canalizan hacia el crédito, además de los organismos que las regulan y supervisan. En el Perú, la Constitución trata la moneda y la banca en los artículos ochenta y tres al ochenta y siete.",
+        "El Banco Central de Reserva del Perú tiene como finalidad preservar la estabilidad monetaria. Para lograrla regula la moneda y el crédito, administra las reservas internacionales, emite billetes y monedas, e informa al país sobre las finanzas nacionales. La Constitución le prohíbe conceder financiamiento al erario, salvo la compra, en el mercado secundario, de valores del Tesoro Público dentro del límite que fija su ley orgánica.",
+        "Las empresas bancarias, de seguros y de fondos de pensiones son controladas por la Superintendencia de Banca, Seguros y AFP. Por su parte, la SUNAT administra los tributos internos y los derechos arancelarios del Gobierno Central.",
+        "El sector externo se resume en la balanza de pagos. Una de sus partes es la balanza comercial, que compara el valor de las exportaciones con el de las importaciones de bienes: si las exportaciones superan a las importaciones hay superávit comercial, y si ocurre lo contrario, déficit. Las divisas son monedas extranjeras vistas desde la moneda del país; para el Perú, por ejemplo, el dólar o el euro.",
+        "La inflación es la elevación del nivel general de precios. Se mide con el índice de precios al consumidor, y la tasa de inflación es la variación porcentual de ese índice en un período, normalmente doce meses. Para calcularla se divide el índice final entre el inicial, se resta uno y se multiplica por cien."
+      ],
+      "questions": [
+        {
+          "id": "eco-sis-01",
+          "statement": "Según la Constitución del Perú, ¿cuál es la finalidad del Banco Central de Reserva?",
+          "options": [
+            "Cobrar los impuestos y los derechos de aduana",
+            "Financiar el déficit del Tesoro Público",
+            "Maximizar las ganancias de los bancos comerciales",
+            "Preservar la estabilidad monetaria",
+            "Fijar el precio de los productos de primera necesidad"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "La finalidad es el objetivo central que la Constitución asigna al Banco: una sola idea relacionada con la moneda.",
+            "Se relaciona con evitar que el valor de la moneda se deteriore, por ejemplo, por una inflación elevada.",
+            "La palabra clave que completa «preservar la estabilidad…» tiene que ver con la moneda."
+          ],
+          "optionFeedback": {
+            "0": "Administrar tributos y derechos arancelarios es tarea de la SUNAT.",
+            "1": "El artículo 84 prohíbe al Banco conceder financiamiento al erario, con una excepción acotada.",
+            "2": "El Banco Central no busca el lucro de los bancos comerciales; su objetivo es la estabilidad de la moneda.",
+            "4": "Fijar precios no es función del Banco Central; este influye en la inflación mediante su política monetaria."
+          },
+          "explanation": "El artículo 84 de la Constitución establece que la finalidad del Banco Central es preservar la estabilidad monetaria. Su Ley Orgánica repite la misma idea en su artículo 2.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título III, Capítulo V (De la moneda y la banca, arts. 83-87)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iii/capitulo-v",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Ley 26123, Ley Orgánica del Banco Central de Reserva del Perú (arts. 2, 61 y 77)",
+              "publisher": "vLex Perú (texto de la norma)",
+              "url": "https://vlex.com.pe/vid/29904845",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Informe temático: elección y ratificación de los directores del BCR (cita el art. 84 y el D. Ley 26123)",
+              "publisher": "Congreso de la República del Perú (Departamento de Investigación y Documentación Parlamentaria)",
+              "url": "https://www.congreso.gob.pe/Docs/DGP/DIDP/files/informes-tem-22-23/it-107-elecc-y-ratific-d-ls-direc-del-bcr.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "eco-sis-02",
+          "statement": "¿Cuál de las siguientes es una función del Banco Central de Reserva del Perú?",
+          "options": [
+            "Emitir billetes y monedas",
+            "Aprobar anualmente la Ley de Presupuesto",
+            "Controlar a las empresas bancarias, de seguros y de fondos de pensiones",
+            "Administrar el impuesto general a las ventas",
+            "Supervisar la legalidad de la ejecución del Presupuesto del Estado"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Piensa en qué institución es la que pone en circulación el dinero en efectivo del país.",
+            "Las demás opciones son tareas de supervisores, recaudadores y órganos de control; busca la que tiene que ver con la moneda.",
+            "Las opciones incorrectas son tareas de la SBS, de la SUNAT, del Congreso y de la Contraloría; la correcta pertenece a la institución que pone en circulación el dinero físico."
+          ],
+          "optionFeedback": {
+            "1": "La Ley de Presupuesto la aprueba el Congreso (artículo 77).",
+            "2": "Ese control lo ejerce la Superintendencia de Banca, Seguros y AFP (artículo 87).",
+            "3": "Los tributos internos del Gobierno Central, como el IGV, los administra la SUNAT.",
+            "4": "Esa supervisión corresponde a la Contraloría General de la República (artículo 82)."
+          },
+          "explanation": "El Banco Central regula la moneda y el crédito, administra las reservas internacionales, emite billetes y monedas e informa al país sobre las finanzas nacionales (artículo 84 de la Constitución y artículo 2 de su Ley Orgánica). La Constitución señala además que la emisión de billetes y monedas es facultad exclusiva del Estado.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título III, Capítulo V (De la moneda y la banca, arts. 83-87)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iii/capitulo-v",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Ley 26123, Ley Orgánica del Banco Central de Reserva del Perú (arts. 2, 61 y 77)",
+              "publisher": "vLex Perú (texto de la norma)",
+              "url": "https://vlex.com.pe/vid/29904845",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Quiénes somos: tributos que administra la SUNAT",
+              "publisher": "SUNAT",
+              "url": "https://www.sunat.gob.pe/institucional/quienessomos/tributosadministra.html",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Constitución Política del Perú de 1993, Título III, Capítulo IV (Régimen tributario y presupuestal, arts. 77 y 82)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iii/capitulo-iv",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "eco-sis-03",
+          "statement": "¿Qué entidad ejerce, según la Constitución, el control de las empresas bancarias, de seguros y de administración de fondos de pensiones?",
+          "options": [
+            "El Ministerio de Economía y Finanzas",
+            "La Contraloría General de la República",
+            "La Superintendencia de Banca, Seguros y AFP (SBS)",
+            "El Banco Central de Reserva del Perú",
+            "La SUNAT"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "La Constitución reserva a un organismo especializado el control de las entidades que captan ahorro o administran fondos de terceros.",
+            "No es el emisor de moneda; es un organismo distinto, cuyo titular es designado por el Ejecutivo y ratificado por el Congreso.",
+            "Descarta al emisor de moneda, al recaudador de tributos y al órgano de control del gasto público; queda un organismo especializado en supervisar empresas del sistema financiero."
+          ],
+          "optionFeedback": {
+            "0": "La Constitución no le asigna el control de bancos y aseguradoras; ese control corresponde a la SBS (artículo 87).",
+            "1": "Supervisa la legalidad de la ejecución del presupuesto y de las operaciones de la deuda pública.",
+            "3": "El Banco Central regula la moneda y el crédito, pero el control de las empresas bancarias y de seguros lo ejerce la SBS.",
+            "4": "La SUNAT administra tributos internos y derechos arancelarios; no controla bancos ni aseguradoras."
+          },
+          "explanation": "El artículo 87 de la Constitución dispone que la Superintendencia de Banca, Seguros y AFP ejerce el control de las empresas bancarias, de seguros, de administración de fondos de pensiones y de las demás que reciben depósitos del público o que operan en actividades conexas. El Poder Ejecutivo designa al superintendente y el Congreso lo ratifica.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título III, Capítulo V (De la moneda y la banca, arts. 83-87)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iii/capitulo-v",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Compendio de la SBS (nombre oficial y rol de supervisión del sistema financiero, de seguros y de pensiones)",
+              "publisher": "Superintendencia de Banca, Seguros y AFP (documento alojado por Cooperación Suiza en el Perú)",
+              "url": "https://www.cooperacionsuiza.pe/wp-content/uploads/2016/06/compendio_sbs.pdf",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "eco-sis-04",
+          "statement": "En un año, un país exportó bienes por US$ 64 mil millones e importó bienes por US$ 52 mil millones. ¿Cuál fue su balanza comercial?",
+          "options": [
+            "Déficit de US$ 116 mil millones",
+            "Superávit de US$ 116 mil millones",
+            "Equilibrio: exportaciones e importaciones iguales",
+            "Déficit de US$ 12 mil millones",
+            "Superávit de US$ 12 mil millones"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "La balanza comercial compara dos flujos: lo que el país vende al exterior y lo que compra al exterior.",
+            "Se calcula restando; hay que decidir cuál valor va primero según la definición.",
+            "Si lo que se vende supera a lo que se compra, el saldo es favorable (positivo)."
+          ],
+          "optionFeedback": {
+            "0": "Combina dos errores: sumar los valores y asignar el signo equivocado.",
+            "1": "Sumar exportaciones e importaciones (64 + 52) mide el comercio total, no el saldo de la balanza.",
+            "2": "Solo habría equilibrio si exportaciones e importaciones tuvieran el mismo valor.",
+            "3": "Se restó en el orden contrario (importaciones menos exportaciones). Como las exportaciones son mayores, el saldo es positivo."
+          },
+          "explanation": "Balanza comercial = exportaciones − importaciones = 64 − 52 = +12 mil millones de dólares. Como las exportaciones superan a las importaciones, hay superávit comercial.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Balance of trade",
+              "publisher": "Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/money/balance-of-trade",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "eco-sis-05",
+          "statement": "El índice de precios al consumidor de una ciudad pasó de 125,0 a 130,0 en doce meses. ¿Cuál fue la tasa de inflación anual?",
+          "options": [
+            "5,0 %",
+            "4,0 %",
+            "104 %",
+            "3,8 %",
+            "0,4 %"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "La inflación anual es una variación porcentual del índice, no la diferencia en puntos.",
+            "El cambio porcentual se calcula dividiendo el cambio del índice entre el valor inicial, el de hace doce meses.",
+            "Divide el aumento del índice entre el valor del año anterior y multiplica por cien para expresarlo en porcentaje."
+          ],
+          "optionFeedback": {
+            "0": "Cinco es la diferencia en puntos del índice, no un porcentaje. Hay que dividirla entre el valor inicial.",
+            "2": "Es el cociente 130/125 expresado en porcentaje del índice inicial, no el aumento. Hay que restar el 100 % de partida.",
+            "3": "Resulta de dividir los 5 puntos entre el índice final (130). La base de comparación debe ser el valor inicial, el de hace doce meses.",
+            "4": "Se leyó 0,04 como 0,4 %. Al expresar 0,04 como porcentaje se multiplica por cien y resulta 4 %."
+          },
+          "explanation": "Inflación = (130 − 125)/125 = 0,04, es decir, 4 %. Se divide entre el valor inicial porque la tasa compara el cambio con el punto de partida.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "Back to Basics: Inflation (Finance & Development)",
+              "publisher": "Fondo Monetario Internacional",
+              "url": "https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/Inflation",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "inflación (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/inflaci%C3%B3n",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "eco-sis-06",
+          "statement": "Según la Constitución, ¿cuál de las siguientes acciones tiene prohibida el Banco Central de Reserva?",
+          "options": [
+            "Regular la moneda y el crédito del sistema financiero",
+            "Informar al país, exacta y periódicamente, sobre el estado de las finanzas nacionales",
+            "Comprar, en el mercado secundario, valores emitidos por el Tesoro Público dentro del límite que fija su ley orgánica",
+            "Conceder financiamiento al erario",
+            "Administrar las reservas internacionales a su cargo"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Se trata de una limitación pensada para proteger la autonomía del Banco y su objetivo de estabilidad monetaria.",
+            "Tres de las opciones son funciones que el artículo 84 le encomienda; una es una excepción que la propia norma permite, y solo una está prohibida.",
+            "Fíjate en la palabra «erario»: la prohibición se refiere a la relación entre el Banco y el Tesoro del Estado. Compara cuál opción describe esa relación sin ser una excepción permitida."
+          ],
+          "optionFeedback": {
+            "0": "Es una de las funciones del Banco según el artículo 84.",
+            "1": "Es una obligación del Banco según el artículo 84.",
+            "2": "Está expresamente permitido por el artículo 84; es la excepción a la prohibición, y la ley orgánica fija un tope.",
+            "4": "Es una de las funciones que el artículo 84 encomienda al Banco."
+          },
+          "explanation": "El artículo 84 dice que el Banco está prohibido de conceder financiamiento al erario, salvo la compra, en el mercado secundario, de valores emitidos por el Tesoro Público, dentro del límite que señala su Ley Orgánica. La Ley Orgánica repite la prohibición en su artículo 77 y fija el tope de la excepción en su artículo 61.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "Constitución Política del Perú de 1993, Título III, Capítulo V (De la moneda y la banca, arts. 83-87)",
+              "publisher": "Justia Perú (recopilación del texto constitucional)",
+              "url": "https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iii/capitulo-v",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "Decreto Ley 26123, Ley Orgánica del Banco Central de Reserva del Perú (arts. 2, 61 y 77)",
+              "publisher": "vLex Perú (texto de la norma)",
+              "url": "https://vlex.com.pe/vid/29904845",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comunicacion-acentuacion-tilde",
+      "area": "COMUNICACION",
+      "title": "Acentuación: tilde general, hiatos, adverbios en -mente y tilde diacrítica",
+      "temario": {
+        "area": "COMUNICACION",
+        "item": 7,
+        "title": "ORTOGRAFÍA"
+      },
+      "objective": "Aplicar las reglas de tildación de palabras agudas, llanas y esdrújulas, los hiatos, los adverbios terminados en -mente y la tilde diacrítica, según la ortografía vigente de la Real Academia Española y la Asociación de Academias de la Lengua Española.",
+      "explanation": [
+        "La acentuación gráfica consiste en escribir la tilde, el signo que se coloca sobre la vocal de la sílaba tónica en ciertos casos. Para decidir si una palabra lleva tilde, primero se busca la sílaba tónica y luego se clasifica la palabra según su posición: es aguda si la fuerza recae en la última sílaba, llana si recae en la penúltima, esdrújula si recae en la antepenúltima y sobresdrújula si recae antes de la antepenúltima.",
+        "Las palabras agudas llevan tilde si terminan en vocal, en n o en s que no vaya precedida de otra consonante, como café, camión y compás. Las llanas llevan tilde si terminan en una consonante distinta de n y s, como césped, o en más de una consonante, como bíceps. Las esdrújulas y las sobresdrújulas siempre llevan tilde, como teléfono y cómpramelo.",
+        "Cuando una vocal cerrada tónica, es decir, i o u, va junto a una vocal abierta, se forma un hiato y la tilde se escribe sobre la vocal cerrada, como en María, río o país, sin importar la regla general. Los adverbios terminados en -mente conservan la tilde del adjetivo del que derivan, si este la tiene: fácilmente y rápidamente la llevan, pero cordialmente y felizmente no.",
+        "La tilde diacrítica distingue palabras iguales con funciones distintas: tú, pronombre, frente a tu, posesivo; té, sustantivo, frente a te, pronombre; él, pronombre, frente a el, artículo; más, cantidad, frente a mas, conjunción. También se tildan los interrogativos y exclamativos, directos o indirectos, como qué, cómo, cuándo y dónde, a diferencia de las mismas palabras usadas como relativos o conjunciones, que no la llevan."
+      ],
+      "questions": [
+        {
+          "id": "com-ace-01",
+          "statement": "La palabra «césped» lleva tilde. ¿Qué regla lo explica?",
+          "options": [
+            "Es un monosílabo que necesita tilde para distinguirse de otro igual",
+            "Es una palabra llana que termina en una consonante distinta de n y s",
+            "Es una palabra esdrújula, con acento en la antepenúltima sílaba",
+            "Es una palabra aguda terminada en vocal, en n o en s",
+            "Tiene un hiato formado por una vocal cerrada tónica y una abierta"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Separa la palabra en sílabas e identifica en cuál recae la mayor fuerza al pronunciarla.",
+            "Cuenta desde el final: ¿la sílaba fuerte es la última, la penúltima o la antepenúltima?",
+            "Con la clasificación ya definida, observa cómo termina la palabra: la regla de las llanas depende de la letra final."
+          ],
+          "optionFeedback": {
+            "0": "«Césped» tiene dos sílabas; no es monosílabo.",
+            "2": "Tiene solo dos sílabas; las esdrújulas tienen acento en la antepenúltima y, por tanto, al menos tres sílabas.",
+            "3": "No es aguda: la fuerza recae en la penúltima sílaba (cés-ped), no en la última.",
+            "4": "En «césped» no hay vocales contiguas que formen hiato; la tilde se explica por la posición del acento y por la letra final."
+          },
+          "explanation": "Cés-ped es llana (el acento recae en la penúltima sílaba) y termina en d, una consonante distinta de n y s; las llanas con esa terminación llevan tilde. En cambio, «joven» (llana terminada en n) y «lunes» (llana terminada en s) no la llevan.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "césped (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/c%C3%A9sped",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "com-ace-02",
+          "statement": "Las siguientes palabras aparecen escritas sin tilde. ¿Cuál de ellas debe llevarla según las reglas generales de acentuación?",
+          "options": [
+            "feliz",
+            "reloj",
+            "papel",
+            "comer",
+            "camion"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Todas son palabras agudas: la sílaba fuerte es la última.",
+            "Las agudas solo se tildan según la letra con que terminan.",
+            "Se tildan las agudas terminadas en vocal, en n o en s (sin otra consonante antes); comprueba cuál de las cinco cumple eso."
+          ],
+          "optionFeedback": {
+            "0": "Es aguda y termina en z: una aguda terminada en z no lleva tilde.",
+            "1": "Es aguda y termina en j: no lleva tilde.",
+            "2": "Es aguda y termina en l: no lleva tilde.",
+            "3": "Es aguda y termina en r: no lleva tilde."
+          },
+          "explanation": "«Camión» (ca-mión) es aguda y termina en n, por lo que se escribe con tilde. «Feliz», «comer», «reloj» y «papel» son agudas terminadas en consonantes distintas de n y s, y se escriben sin tilde.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "com-ace-03",
+          "statement": "¿En cuál de las siguientes palabras la tilde se escribe porque hay un hiato con vocal cerrada tónica?",
+          "options": [
+            "murciélago",
+            "canción",
+            "María",
+            "huésped",
+            "lápiz"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Un hiato son dos vocales juntas que se pronuncian en sílabas distintas.",
+            "En las otras palabras, las vocales juntas forman diptongo (una sola sílaba), y su tilde se explica por las reglas generales de agudas, llanas o esdrújulas.",
+            "Busca la palabra en la que, al separar en sílabas, una vocal cerrada (i o u) con acento queda separada de la vocal abierta que la acompaña."
+          ],
+          "optionFeedback": {
+            "0": "«ié» forma diptongo; la tilde se debe a que es esdrújula, y las esdrújulas siempre la llevan.",
+            "1": "Aquí «ió» es un diptongo (una sola sílaba). La tilde se debe a que es una aguda terminada en n.",
+            "3": "«ué» forma diptongo; la tilde se debe a que es una llana terminada en d.",
+            "4": "No hay hiato: es una llana terminada en z y por eso se tilda."
+          },
+          "explanation": "En Ma-rí-a, la i cerrada es tónica y está junto a la a abierta; se pronuncian en sílabas distintas (hiato). La tilde sobre la i se escribe siempre en este caso, aunque por las reglas generales una llana terminada en vocal no se tildaría.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "hiato (Diccionario panhispánico de dudas)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/hiato",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "com-ace-04",
+          "statement": "¿Cuál de las siguientes oraciones está escrita correctamente en cuanto al uso de la tilde diacrítica?",
+          "options": [
+            "Tú sabes que tu hermano prefiere el té.",
+            "Tú sabes que tu hermano prefiere el te.",
+            "Tu sabes que tu hermano prefiere el té.",
+            "Tú sabes que tú hermano prefiere el té.",
+            "Tu sabes que tú hermano prefiere el te."
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Hay tres palabras que pueden llevar tilde diacrítica: la que se refiere a la persona con quien se habla, la que indica posesión y la que nombra una bebida.",
+            "El pronombre personal de segunda persona se tilda; el posesivo, que acompaña a un sustantivo, no; el sustantivo que nombra la infusión se tilda, mientras que el pronombre átono no.",
+            "Revisa cada oración con estas preguntas: ¿el sujeto de «sabes» lleva tilde?, ¿el posesivo ante «hermano» está sin tilde?, ¿la bebida lleva tilde?"
+          ],
+          "optionFeedback": {
+            "1": "«El té» nombra la bebida y lleva tilde; «te» es el pronombre átono.",
+            "2": "Falta la tilde en «tú», que aquí es el pronombre sujeto.",
+            "3": "«Tu hermano» lleva el posesivo, que no se tilda; «tú hermano» es incorrecto.",
+            "4": "Hay tres errores: «tu» debería ser «tú» (pronombre), «tú» debería ser «tu» (posesivo) y «te» debería ser «té» (bebida)."
+          },
+          "explanation": "En «Tú sabes» el pronombre lleva tilde; en «tu hermano», el posesivo no; y en «el té», que es un sustantivo, sí.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "com-ace-05",
+          "statement": "Los adverbios terminados en -mente conservan la tilde del adjetivo del que derivan, si este la tiene. ¿Cuál de los siguientes adverbios NO debe llevar tilde?",
+          "options": [
+            "fácilmente",
+            "tímidamente",
+            "rápidamente",
+            "felizmente",
+            "difícilmente"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "Estos adverbios tienen dos sílabas fuertes, pero su tilde no sigue las reglas generales de agudas, llanas y esdrújulas.",
+            "Para decidir, quita -mente y revisa el adjetivo en femenino: ¿ese adjetivo llevaba tilde?",
+            "Cuatro adjetivos de base llevan tilde por sí mismos; solo uno no la lleva, y su adverbio tampoco."
+          ],
+          "optionFeedback": {
+            "0": "El adjetivo «fácil» lleva tilde (llana terminada en l), por lo que el adverbio la conserva.",
+            "1": "El adjetivo «tímido» lleva tilde (esdrújula), y el adverbio la conserva.",
+            "2": "El adjetivo «rápido» lleva tilde (esdrújula), y el adverbio la conserva.",
+            "4": "El adjetivo «difícil» lleva tilde, y el adverbio la conserva."
+          },
+          "explanation": "«Felizmente» deriva de «feliz», una aguda terminada en z que no lleva tilde. Los demás adverbios conservan la tilde de fácil, rápido, difícil y tímido.",
+          "difficulty": 3,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "felizmente (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/felizmente",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "com-ace-06",
+          "statement": "En una de estas oraciones, la palabra entre corchetes debe llevar tilde. ¿En cuál?",
+          "options": [
+            "Me quedaré aquí [porque] está lloviendo.",
+            "¿[Donde] estacionaste el auto?",
+            "Esa es la casa [donde] nací.",
+            "Iré a verte [cuando] termine la clase.",
+            "Lo hizo [como] su profesor le había enseñado."
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Las palabras qué, cómo, cuándo, dónde y similares llevan tilde cuando preguntan o exclaman.",
+            "En las demás oraciones, estas palabras solo unen o enlazan partes de la oración: son conjunciones o relativos.",
+            "Busca la oración que formula una pregunta de manera directa; los signos de interrogación son una pista."
+          ],
+          "optionFeedback": {
+            "0": "«Porque» es una conjunción causal y se escribe sin tilde; la forma que pregunta se escribe en dos palabras: «por qué».",
+            "2": "Aquí «donde» es relativo (se refiere a «la casa»), por lo que se escribe sin tilde.",
+            "3": "«Cuando» introduce una oración temporal; no pregunta ni exclama, y no lleva tilde.",
+            "4": "Aquí «como» expresa modo y funciona como relativo o conjunción; no lleva tilde."
+          },
+          "explanation": "Los interrogativos y exclamativos llevan tilde, tanto en preguntas directas (¿Dónde estacionaste el auto?) como en indirectas (Averigua cuándo llega el bus). Las mismas palabras sin valor interrogativo o exclamativo no la llevan.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "tilde (Diccionario panhispánico de dudas, 2.ª ed., versión provisional)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/tilde",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "dónde (Diccionario panhispánico de dudas)",
+              "publisher": "RAE y ASALE",
+              "url": "https://www.rae.es/dpd/d%C3%B3nde",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "raz-verbal-sinonimia-contextual",
+      "area": "RAZ_VERBAL",
+      "title": "Sinonimia: sinónimo contextual y pares de palabras",
+      "temario": {
+        "area": "RAZ_VERBAL",
+        "item": 3,
+        "title": "SINONIMIA"
+      },
+      "objective": "Reconocer el sinónimo adecuado de una palabra según su significado en el contexto y distinguir pares sinónimos de pares antónimos, con apoyo del Diccionario de la lengua española.",
+      "explanation": [
+        "La sinonimia es la relación entre palabras que tienen un significado idéntico o muy próximo. Según el Diccionario de la lengua española, es la condición de ser sinónimo; y en retórica, el uso deliberado de palabras de igual o parecido significado para reforzar una idea.",
+        "En los exámenes se pide casi siempre un sinónimo contextual: la palabra que puede reemplazar a otra en la oración sin cambiar su sentido. Por eso hay que atender al contexto, porque muchas palabras tienen varias acepciones. Locuaz, por ejemplo, significa que habla mucho; pero en México también se usa de forma coloquial con otro sentido.",
+        "Una estrategia útil es sustituir la palabra por cada alternativa y comprobar si la oración conserva su significado. Conviene descartar primero los antónimos, que suelen colocarse como distractores, y después las palabras que solo tienen relación temática con la original.",
+        "Para estudiar, forma parejas de palabras y revisa su definición en el diccionario: incólume e ileso, austero y sobrio, inicuo e injusto, efímero y pasajero, locuaz y hablador."
+      ],
+      "questions": [
+        {
+          "id": "rv-sin-01",
+          "statement": "¿Qué describe mejor la sinonimia?",
+          "options": [
+            "La relación entre una palabra general y otras más específicas que la incluyen",
+            "La relación entre palabras de forma parecida que se confunden fácilmente",
+            "La relación entre palabras de significado idéntico o muy parecido",
+            "La relación entre palabras de significados opuestos",
+            "La relación entre palabras que se escriben o suenan igual pero significan cosas distintas"
+          ],
+          "correctIndex": 2,
+          "hints": [
+            "Piensa en la palabra «sinónimo»: busca la relación que permitiría usar una palabra en lugar de otra.",
+            "Las otras opciones describen antonimia, homonimia, hiperonimia/hiponimia y paronimia; descarta las que no se refieren al significado igual o parecido.",
+            "La relación correcta se basa en la semejanza de significado, no en la forma de las palabras ni en la oposición."
+          ],
+          "optionFeedback": {
+            "0": "Es la relación entre hiperónimo e hipónimo, por ejemplo, «animal» y «perro».",
+            "1": "Es la paronimia, por ejemplo, «absorber» y «absolver».",
+            "3": "Eso describe la antonimia, no la sinonimia.",
+            "4": "Eso es la homonimia: igual forma y distinto significado, como el «vino» de venir y el «vino» que se bebe."
+          },
+          "explanation": "El DLE presenta la sinonimia, en retórica, como el uso intencionado de palabras con igual o parecido significado. En la práctica casi siempre se trata de semejanza, y la sustitución depende del contexto.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "sinonimia (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/sinonimia",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "rv-sin-02",
+          "statement": "Marcos es tan locuaz que, en la reunión, habló casi todo el tiempo. ¿Cuál es el sinónimo contextual de «locuaz»?",
+          "options": [
+            "hablador",
+            "ocurrente",
+            "callado",
+            "cortés",
+            "sociable"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "El contexto dice que Marcos habló casi todo el tiempo.",
+            "El sinónimo debe expresar la cualidad de hablar mucho.",
+            "Descarta la opción que significa lo contrario y las que indican otras cualidades de carácter, como el ingenio, el trato amable o la educación."
+          ],
+          "optionFeedback": {
+            "1": "Describe a quien tiene ideas o respuestas ingeniosas; se puede ser ocurrente sin hablar mucho.",
+            "2": "Es un antónimo: significa que habla poco.",
+            "3": "Se refiere a la buena educación, no a la cantidad de palabras.",
+            "4": "Alude a quien se relaciona con facilidad con los demás; no equivale a hablar mucho."
+          },
+          "explanation": "Locuaz describe a quien habla mucho, incluso en exceso, y el DLE da hablador entre sus sinónimos.",
+          "difficulty": 1,
+          "sources": [
+            {
+              "title": "locuaz (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/locuaz",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "rv-sin-03",
+          "statement": "La fama de aquel cantante resultó efímera. ¿Qué palabra puede sustituir a «efímera» sin cambiar el sentido de la oración?",
+          "options": [
+            "repentina",
+            "duradera",
+            "merecida",
+            "escandalosa",
+            "pasajera"
+          ],
+          "correctIndex": 4,
+          "hints": [
+            "Piensa en cuánto tiempo dura algo efímero.",
+            "Lo efímero dura poco; busca la alternativa que exprese corta duración.",
+            "Descarta la que expresa lo contrario, la larga duración, y las que hablan de mérito, escándalo o rapidez de aparición."
+          ],
+          "optionFeedback": {
+            "0": "Indica que algo ocurre de pronto, no que dure poco.",
+            "1": "Es un antónimo: expresa larga duración.",
+            "2": "Habla de justicia, no de duración.",
+            "3": "Califica el comportamiento, no cuánto dura."
+          },
+          "explanation": "El DLE incluye efímero entre los sinónimos de «pasajero» en su primera acepción: algo que pasa pronto o dura poco.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "pasajero (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/pasajero",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "rv-sin-04",
+          "statement": "El conductor salió incólume del choque. ¿Qué palabra tiene un significado equivalente a «incólume» en esta oración?",
+          "options": [
+            "apenado",
+            "ileso",
+            "herido",
+            "veloz",
+            "aturdido"
+          ],
+          "correctIndex": 1,
+          "hints": [
+            "Piensa en la idea de salir de un accidente sin sufrir daño.",
+            "Incólume se aplica a lo que no ha sufrido lesión ni menoscabo.",
+            "Descarta la que indica lo contrario, la que indica un estado emocional o mental, y la que se refiere a la rapidez."
+          ],
+          "optionFeedback": {
+            "0": "Expresa tristeza o vergüenza; no alude a la ausencia de lesión.",
+            "2": "Es un antónimo: expresa que sufrió daño.",
+            "3": "Se refiere a la rapidez, no al estado físico.",
+            "4": "Describe una confusión mental momentánea, no la ausencia de lesión."
+          },
+          "explanation": "El DLE describe lo incólume como lo que se mantiene sano, sin lesión ni deterioro, y da ileso entre sus sinónimos.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "incólume (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/inc%C3%B3lume",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "rv-sin-05",
+          "statement": "A pesar de su gran fortuna, el empresario llevaba una vida austera. ¿Qué palabra se acerca más al sentido de «austera» en esta oración?",
+          "options": [
+            "afable",
+            "bulliciosa",
+            "ostentosa",
+            "sobria",
+            "derrochadora"
+          ],
+          "correctIndex": 3,
+          "hints": [
+            "El contexto contrasta una gran fortuna con una forma de vivir.",
+            "Entre los sentidos de «austera», este corresponde al de quien actúa con moderación, sin excesos.",
+            "Descarta las alternativas que indican lujo o gasto excesivo y las que se refieren al ruido o al trato amable, que no se mencionan."
+          ],
+          "optionFeedback": {
+            "0": "Describe un trato amable; el contexto no habla de amabilidad.",
+            "1": "Se refiere al ruido y al alboroto; el texto habla de sencillez, no de ruido.",
+            "2": "Es un antónimo: alude a mostrar lujo o riqueza.",
+            "4": "Gasta en exceso; es lo contrario de lo que sugiere el contexto."
+          },
+          "explanation": "En su segunda acepción, austero equivale a sobrio y moderado, sin excesos. El DLE lista como antónimos ostentoso y lujoso.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "austero (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/austero",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "sobrio (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/sobrio",
+              "accessed": "2026-10-29"
+            }
+          ]
+        },
+        {
+          "id": "rv-sin-06",
+          "statement": "¿En cuál de los siguientes pares de palabras NO hay relación de sinonimia?",
+          "options": [
+            "locuaz – callado",
+            "incólume – intacto",
+            "inicuo – injusto",
+            "austero – frugal",
+            "pasajero – transitorio"
+          ],
+          "correctIndex": 0,
+          "hints": [
+            "Hay que buscar el par cuyas palabras expresan ideas opuestas, no semejantes.",
+            "En cuatro de los pares, ambas palabras pueden sustituirse en un mismo contexto; en el otro, una niega a la otra.",
+            "Piensa en cómo se describe a quien habla mucho y qué cualidad opuesta se atribuye a quien habla poco."
+          ],
+          "optionFeedback": {
+            "1": "Incólume (que se mantiene sano, sin lesión) e intacto aparecen como sinónimos en el DLE.",
+            "2": "Inicuo (contrario a lo equitativo) e injusto son sinónimos en el DLE.",
+            "3": "Austero, en el sentido de sobrio y moderado, tiene frugal entre sus sinónimos.",
+            "4": "Pasajero (que dura poco) y transitorio son sinónimos en el DLE."
+          },
+          "explanation": "Locuaz describe a quien habla mucho y callado figura como su antónimo; los otros cuatro pares aparecen como sinónimos en el DLE.",
+          "difficulty": 2,
+          "sources": [
+            {
+              "title": "locuaz (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/locuaz",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "inicuo (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/inicuo",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "incólume (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/inc%C3%B3lume",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "austero (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/austero",
+              "accessed": "2026-10-29"
+            },
+            {
+              "title": "pasajero (DLE)",
+              "publisher": "RAE y ASALE",
+              "url": "https://dle.rae.es/pasajero",
+              "accessed": "2026-10-29"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

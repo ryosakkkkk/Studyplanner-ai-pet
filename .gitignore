@@ -1,0 +1,30 @@
+# Compilación
+build/
+.gradle/
+.kotlin/
+.idea/
+*.iml
+captures/
+
+# Datos locales y privados: NUNCA subir
+local.properties
+ia_local.properties
+*.keystore
+*.jks
+.dev.vars
+.env
+.env.*
+
+# APK: llevan dentro la conexión de IA (BuildConfig)
+*.apk
+*.aab
+
+# Pruebas web
+pruebas-web/node_modules/
+pruebas-web/cap/*.png
+node_modules/
+backend-ia/.wrangler/
+
+# Resultados de las pruebas en la PC
+prueba_tutor_ia.txt
+prueba_servidor_ia.txt

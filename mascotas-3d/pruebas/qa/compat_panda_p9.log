@@ -1,0 +1,19 @@
+COMPATIBILIDAD panda.glb -> /home/claude/w/rig4/glb/panda.glb
+  igual     nombres de nodos: 18 nodos
+  igual     jerarquía (padre de cada nodo): []
+  igual     orden de articulaciones de la piel: [16] vs [16]
+  igual     nombres de clips: 17 clips
+  igual     duración de cada clip: []
+  igual     canales animados por clip (hueso y propiedad): []
+  igual     materiales (nombre, doble cara, alfa, texturas): {'panda_mat': {'doble': False, 'alfa': 'OPAQUE', 'base': True, 'normal': True}, 'panda_escudo': {'doble': True, 'alfa': 'OPAQUE', 'base': True, 'normal': False}}
+  igual     nombres de mallas: ['panda']
+  igual     malla panda: primitivas y materiales: ['panda_mat', 'panda_escudo'] vs ['panda_mat', 'panda_escudo']
+  igual     malla panda: atributos: [['COLOR_0', 'JOINTS_0', 'NORMAL', 'POSITION', 'TEXCOORD_0', 'WEIGHTS_0']]
+  igual     malla panda: formas (MouthOpen): ['MouthOpen']
+  igual     malla panda primitiva 0: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 35089 -> 36970 | vértices 21775 -> 23897
+  igual     malla panda primitiva 1: caja (escala y orientación): diferencia máx 0.0 mm | triángulos 740 -> 1022 | vértices 504 -> 646
+  igual     influencias por vértice: {'max_no_cero': 4, 'tiene_WEIGHTS_1': False}
+  igual     extensiones glTF: []
+  reposo de huesos de brazo distinto (esperado: el pivote va al arranque del brazo): [('ArmL', '75.6 mm'), ('ArmR', '75.6 mm'), ('ArmRimL', '75.6 mm'), ('ArmRimR', '75.6 mm'), ('HandL', '14.6 mm'), ('HandR', '11.7 mm')]
+  igual     reposo del resto de nodos: []
+RESULTADO compatible
