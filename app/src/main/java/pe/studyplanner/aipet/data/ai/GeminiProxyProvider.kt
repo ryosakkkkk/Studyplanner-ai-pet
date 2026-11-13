@@ -40,7 +40,7 @@ class GeminiProxyClient(private val store:AiConnectionStore):AiTransport {
             connection.outputStream.use{it.write(payload.toString().toByteArray(Charsets.UTF_8))}
             coroutineContext.ensureActive()
             val code=connection.responseCode
-            check(code==200){when(code){401,403->"El código de acceso no es válido. Revisa Conectar IA.";429->"Se alcanzó el límite de uso. Puedes continuar con los comandos locales.";503->"La IA aún no está configurada en tu servidor.";else->"La IA no respondió (HTTP $code). No se aplicó ningún cambio."}}
+            check(code==200){when(code){401,403->"El servidor de la IA no aceptó el acceso.";429->"La IA en línea llegó a su límite por hoy.";503->"La IA aún no está configurada en el servidor.";else->"La IA no respondió (HTTP $code)."}}
             val buffer=java.io.ByteArrayOutputStream()
             connection.inputStream.use {input->val chunk=ByteArray(2048);while(true){coroutineContext.ensureActive();val n=input.read(chunk);if(n<0)break;check(buffer.size()+n<=24_000){"Respuesta demasiado grande."};buffer.write(chunk,0,n)}}
             JSONObject(buffer.toString("UTF-8"))
@@ -48,13 +48,31 @@ class GeminiProxyClient(private val store:AiConnectionStore):AiTransport {
     }
 }
 
-/** The provider cannot save data: commands return through the existing local validation and confirmation. */
-class GeminiProxyProvider(private val store:AiConnectionStore,private val client:AiTransport=GeminiProxyClient(store)):AgentProvider {
+/**
+ * Quién responde en «Hablar», en este orden: 1) las órdenes de la agenda (reglas locales); 2) saludos y cuentas
+ * rápidas; 3) lo que la mascota sabe sin Internet ([StudyKnowledge]); 4) solo si nada de eso alcanza y hay conexión,
+ * la IA del servidor (Gemini). Sin Internet la app sigue respondiendo con lo que tiene guardado.
+ * The provider cannot save data: commands return through the existing local validation and confirmation.
+ */
+class GeminiProxyProvider(private val store:AiConnectionStore,private val client:AiTransport=GeminiProxyClient(store),
+    private val knowledge:()->pe.studyplanner.aipet.domain.knowledge.StudyKnowledge? = {null}):AgentProvider {
     private val local=LocalRulesFallback()
     override val mode:String get()=if(store.state.value.enabled)"IA_OPCIONAL" else "DEMO_SIN_IA"
     override suspend fun interpret(text:String,context:AgentContext):AgentInterpretation {
         val initial=local.interpret(text,context)
-        if(initial !is AgentInterpretation.Clarification || !store.state.value.enabled || context.snapshot.scope==DatasetScope.DEMO || text.isBlank() || text.length>4000 || text.any{Character.isISOControl(it)})return initial
+        if(initial !is AgentInterpretation.Clarification || text.isBlank() || text.length>4000 || text.any{Character.isISOControl(it)})return initial
+        // Una orden de agenda reconocida pero incompleta conserva su aclaración; el texto libre va a lo que sabe la mascota.
+        val freeText=initial.message.startsWith(OfflineAnswers.NOT_A_COMMAND)
+        var offline:AgentInterpretation=initial
+        if(freeText) {
+            OfflineAnswers.smallTalk(text)?.let{return AgentInterpretation.Answer(it)}
+            pe.studyplanner.aipet.domain.knowledge.QuickMath.answer(text)?.let{return AgentInterpretation.Answer(it)}
+            val base=runCatching{knowledge()}.getOrNull()
+            val hit=base?.best(text)
+            if(base!=null && hit!=null && hit.strong)return AgentInterpretation.Answer(base.reply(hit))
+            offline=if(base!=null && hit!=null)AgentInterpretation.Answer(OfflineAnswers.CLOSEST+base.reply(hit)) else AgentInterpretation.Clarification(OfflineAnswers.UNKNOWN)
+        }
+        if(!store.state.value.enabled || context.snapshot.scope==DatasetScope.DEMO)return offline
         return try {
             val reply=client.chat(text,context)
             when(reply.kind) {
@@ -66,6 +84,28 @@ class GeminiProxyProvider(private val store:AiConnectionStore,private val client
                 else->AgentInterpretation.Answer("IA: ${reply.text}")
             }
         } catch(e:CancellationException){throw e}
-        catch(e:Exception){AgentInterpretation.Clarification("${if(e is IllegalStateException)e.message else "No se pudo conectar con la IA. Revisa tu conexión y el servidor."} Los comandos locales siguen disponibles; por ejemplo: mis pendientes.")}
+        // Sin conexión (o el servidor falló): se responde con lo guardado, sin errores técnicos.
+        catch(_:Exception){offline}
+    }
+}
+
+/** Respuestas que no necesitan Internet ni la base: saludos, gracias y el aviso cuando no hay ficha. */
+object OfflineAnswers {
+    /** Inicio de la aclaración de [LocalRulesFallback] cuando el texto no es ninguna orden de la agenda. */
+    const val NOT_A_COMMAND="Modo DEMO_SIN_IA"
+    const val UNKNOWN="Todavía no tengo ese tema guardado. Prueba con otras palabras, por ejemplo: «¿qué es la fotosíntesis?» o «regla de tres»."
+    const val CLOSEST="No lo tengo exacto; lo más cercano que sé: "
+    private fun plain(text:String)=java.text.Normalizer.normalize(text.lowercase(java.util.Locale.ROOT),java.text.Normalizer.Form.NFD)
+        .replace(Regex("\\p{M}+"),"").replace(Regex("[^a-z ]")," ").replace(Regex("\\s+")," ").trim()
+    fun smallTalk(text:String):String? {
+        val t=plain(text)
+        return when {
+            t.matches(Regex("(hola|holi|buenas|buenos dias|buenas tardes|buenas noches|hey|que tal|como estas|hola como estas)( kiro| amigo| amiga)?")) ->
+                "¡Hola! Pregúntame un tema del examen, por ejemplo «¿qué es la mitosis?», o dime «agéndame estudiar mañana»."
+            t.matches(Regex("(gracias|muchas gracias|gracias kiro|ok gracias|chevere|genial)")) -> "¡De nada! Cuando quieras seguimos estudiando."
+            t.matches(Regex("(que sabes|que puedes hacer|ayuda|que temas sabes|en que me ayudas)")) ->
+                "Sé los temas del examen de admisión: pregúntame «qué es…» o «explícame…». También hago cuentas («cuánto es 15 % de 80») y organizo tu agenda («agéndame…»)."
+            else -> null
+        }
     }
 }

@@ -197,9 +197,10 @@ class SpeechFaceTest {
         states += session.toGuided()
         states += session.requestHint()
         states += session.answer(wrongOf(session.state))
+        session.retry()
         states += session.answer(correctOf(session.state))
         states += session.playPerfect().last()
-        assertEquals(setOf(TutorScreen.EXPLANATION, TutorScreen.QUESTION, TutorScreen.HINT, TutorScreen.WRONG_ANSWER, TutorScreen.CORRECT, TutorScreen.SUMMARY), states.map { it.screen }.toSet())
+        assertEquals(setOf(TutorScreen.EXPLANATION, TutorScreen.QUESTION, TutorScreen.HINT, TutorScreen.SOLUTION, TutorScreen.CORRECT, TutorScreen.SUMMARY), states.map { it.screen }.toSet())
         for (state in states) {
             val expected = PetFeedback.signalFor(state)
             val restored = SpeechFace.restoreSignal(state)
@@ -217,6 +218,7 @@ class SpeechFaceTest {
         assertTrue(question.text.startsWith("Ejercicio 1 de "))
         assertEquals(PetExpression.PENSAR, SpeechFace.restoreSignal(session.requestHint()).expression)
         assertEquals(PetExpression.ALERTA, SpeechFace.restoreSignal(session.answer(wrongOf(session.state))).expression)
+        session.retry()
         assertEquals(PetSignal(PetExpression.FELIZ, "¡Correcto!"), SpeechFace.restoreSignal(session.answer(correctOf(session.state))))
         assertEquals(PetSignal(PetExpression.CELEBRAR, "¡Lo lograste!"), SpeechFace.restoreSignal(newSession().playPerfect().last()))
     }
@@ -229,10 +231,9 @@ class SpeechFaceTest {
         states += session.answer(wrongOf(session.state))
         states += session.answer(correctOf(session.state))
         states += newSession().playPerfect()
-        val stuck = newSession()
-        stuck.toGuided()
-        repeat(3) { stuck.answer(wrongOf(stuck.state)) }
-        states += stuck.answer(wrongOf(stuck.state))
+        val asked = newSession()
+        asked.toGuided()
+        states += asked.showSolution()
         assertTrue(states.any { it.screen == TutorScreen.SOLUTION })
         for (state in states) {
             assertTrue("${state.screen} deja la boca en movimiento", SpeechFace.restoreSignal(state).expression != PetExpression.HABLAR)

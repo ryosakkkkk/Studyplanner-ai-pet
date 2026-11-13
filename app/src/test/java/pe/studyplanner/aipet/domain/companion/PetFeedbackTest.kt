@@ -62,10 +62,10 @@ class PetFeedbackTest {
         assertEquals(TutorScreen.HINT, hint.screen)
         assertEquals(PetSignal(PetExpression.PENSAR, "Pista 1 de 3", PetSound.PISTA), PetFeedback.signalFor(hint))
 
-        val stuck = newSession()
-        stuck.toGuided()
-        repeat(3) { stuck.answer(wrongOf(stuck.state)) }
-        val solution = stuck.answer(wrongOf(stuck.state))
+        // Pedir la solución: cara tranquila y sin sonido.
+        val asked = newSession()
+        asked.toGuided()
+        val solution = asked.showSolution()
         assertEquals(TutorScreen.SOLUTION, solution.screen)
         assertEquals(PetSignal(PetExpression.IDLE, "Mira la solución"), PetFeedback.signalFor(solution))
     }
@@ -99,12 +99,15 @@ class PetFeedbackTest {
         assertEquals("Pista 1 de 3", hint.text)
         assertEquals(PetSound.PISTA, hint.sound)
 
+        // Un error muestra la solución en el acto, con la cara de ánimo y el sonido de error.
         state = session.answer(wrongOf(state))
-        assertEquals(TutorScreen.WRONG_ANSWER, state.screen)
+        assertEquals(TutorScreen.SOLUTION, state.screen)
         val wrong = PetFeedback.signalFor(state)
         assertEquals(PetExpression.ALERTA, wrong.expression)
+        assertEquals("Mira la solución", wrong.text)
         assertEquals(PetSound.ERROR, wrong.sound)
 
+        state = session.retry()
         state = session.answer(correctOf(state))
         val right = PetFeedback.signalFor(state)
         assertEquals(PetExpression.FELIZ, right.expression)

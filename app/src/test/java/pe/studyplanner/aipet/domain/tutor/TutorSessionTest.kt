@@ -100,7 +100,8 @@ class TutorSessionTest {
         assertEquals(Exercise.OPTION_COUNT, view.options.size)
         assertTrue(TutorAction.ANSWER in st.actions)
         assertTrue(TutorAction.REQUEST_HINT in st.actions)
-        assertFalse(TutorAction.SHOW_SOLUTION in st.actions)
+        // «Ver la solución» está siempre a la mano en la práctica.
+        assertTrue(TutorAction.SHOW_SOLUTION in st.actions)
         assertFalse(TutorAction.DONT_KNOW in st.actions)
         assertFalse(st.text.contains("Pista 1"))
     }
@@ -127,67 +128,66 @@ class TutorSessionTest {
     }
 
     @Test
-    fun cadaRespuestaIncorrectaRevelaLaSiguientePistaYLaRetroalimentacionDeEsaOpcion() {
+    fun unErrorMuestraEnSeguidaPorQueNoEsYLaSolucionCompleta() {
         val s = newSession()
         s.toGuided()
         val e = exerciseOf(s.state)
-        for (k in 1..3) {
-            val wrong = wrongOf(s.state)
-            val st = s.answer(wrong)
-            assertEquals(TutorScreen.WRONG_ANSWER, st.screen)
-            assertEquals(PetCue.ENCOURAGE, st.cue)
-            val view = checkNotNull(st.exercise)
-            assertEquals(e.hints.take(k), view.hintsShown)
-            assertTrue(wrong in view.eliminated)
-            assertEquals(k, view.eliminated.size)
-            assertTrue(st.text.contains(e.optionFeedback.getValue(wrong)))
-            assertTrue(st.text.contains(e.hints[k - 1]))
-            assertNull(view.correctIndex)
-            assertTrue(view.solutionSteps.isEmpty())
-        }
-        assertEquals(listOf(0, 1, 2), s.attempts.map { it.hintsShownBefore })
-    }
-
-    @Test
-    fun conLasTresPistasOtraRespuestaIncorrectaMuestraLaSolucionYNoCuentaComoResuelto() {
-        val s = newSession()
-        s.toGuided()
-        val e = exerciseOf(s.state)
-        repeat(3) { s.answer(wrongOf(s.state)) }
-        val st = s.answer(wrongOf(s.state))
+        val wrong = wrongOf(s.state)
+        val st = s.answer(wrong)
+        // Respuesta inmediata: retroalimentación de ESA alternativa más la solución paso a paso (ejemplo resuelto).
         assertEquals(TutorScreen.SOLUTION, st.screen)
-        assertEquals(PetCue.EXPLAIN, st.cue)
+        assertEquals(PetCue.ENCOURAGE, st.cue)
         val view = checkNotNull(st.exercise)
+        assertTrue(st.text.contains(e.optionFeedback.getValue(wrong)))
         assertEquals(e.solutionSteps, view.solutionSteps)
         assertEquals(e.correctIndex, view.correctIndex)
+        assertTrue(wrong in view.eliminated)
+        assertTrue(view.hintsShown.isEmpty())
         assertTrue(TutorAction.RETRY in st.actions)
         assertTrue(TutorAction.NEXT in st.actions)
         assertFalse(TutorAction.ANSWER in st.actions)
-        assertEquals(4, s.attempts.size)
-        assertTrue(s.attempts.none { it.correct })
-        assertEquals(listOf(0, 1, 2, 3), s.attempts.map { it.hintsShownBefore })
+        assertFalse(TutorAction.REQUEST_HINT in st.actions)
+        assertEquals(1, s.attempts.size)
+        assertFalse(s.attempts.single().correct)
+        assertEquals(0, s.attempts.single().hintsShownBefore)
+        // Con la solución a la vista ya no se puede responder ese ejercicio.
+        assertEquals(st, s.answer(correctOf(st)))
+    }
+
+    @Test
+    fun conPistasPedidasUnErrorTambienMuestraLaSolucionYNoCuentaComoResuelto() {
+        val s = newSession()
+        s.toGuided()
+        val e = exerciseOf(s.state)
+        repeat(2) { s.requestHint() }
+        val st = s.answer(wrongOf(s.state))
+        assertEquals(TutorScreen.SOLUTION, st.screen)
+        assertEquals(e.solutionSteps, checkNotNull(st.exercise).solutionSteps)
+        assertEquals(listOf(2), s.attempts.map { it.hintsShownBefore })
 
         // Salta el resto de los guiados sin resolverlos: el resumen no los cuenta como resueltos.
         s.next()
-        repeat(2) { s.answer(wrongOf(s.state)); repeat(3) { s.answer(wrongOf(s.state)) }; s.next() }
+        repeat(2) { s.answer(wrongOf(s.state)); s.next() }
         val summary = checkNotNull(s.runUnaided(listOf(true, true)).summary)
         assertEquals(0, summary.guidedSolved)
         assertEquals(3, summary.guidedTotal)
     }
 
     @Test
-    fun laSolucionSePuedePedirDespuesDeLasTresPistas() {
+    fun laSolucionSePuedePedirEnCualquierMomento() {
         val s = newSession()
         s.toGuided()
         val e = exerciseOf(s.state)
-        assertEquals(TutorScreen.QUESTION, s.showSolution().screen)
-        repeat(2) { s.requestHint() }
-        assertEquals(TutorScreen.HINT, s.showSolution().screen)
-        s.requestHint()
         val st = s.showSolution()
         assertEquals(TutorScreen.SOLUTION, st.screen)
+        assertEquals(PetCue.EXPLAIN, st.cue)
         assertEquals(e.solutionSteps, checkNotNull(st.exercise).solutionSteps)
         assertTrue(s.attempts.isEmpty())
+        // También después de una pista.
+        val t = newSession()
+        t.toGuided()
+        t.requestHint()
+        assertEquals(TutorScreen.SOLUTION, t.showSolution().screen)
     }
 
     @Test
@@ -196,7 +196,7 @@ class TutorSessionTest {
         s.toGuided()
         val first = exerciseOf(s.state)
         val before = s.state.progress
-        repeat(4) { s.answer(wrongOf(s.state)) }
+        s.answer(wrongOf(s.state))
         assertEquals(TutorScreen.SOLUTION, s.state.screen)
         val st = s.retry()
         assertEquals(TutorScreen.QUESTION, st.screen)
@@ -239,14 +239,16 @@ class TutorSessionTest {
     }
 
     @Test
-    fun acertarDespuesDeUnErrorTambienAvanza() {
+    fun trasUnErrorUnoParecidoBienResueltoTambienAvanza() {
         val s = newSession()
         s.toGuided()
         s.answer(wrongOf(s.state))
+        s.retry()
         val st = s.answer(correctOf(s.state))
         assertEquals(TutorScreen.CORRECT, st.screen)
         assertEquals(PetCue.CORRECT, st.cue)
         assertEquals(listOf(false, true), s.attempts.map { it.correct })
+        assertEquals(Progress(Phase.GUIDED_PRACTICE, 2, 3), s.next().progress)
     }
 
     @Test
@@ -276,7 +278,6 @@ class TutorSessionTest {
         assertEquals(question, s.back())
         assertEquals(question, s.skipLearn())
         assertEquals(question, s.dontKnow())
-        assertEquals(question, s.showSolution())
         assertEquals(question, s.retry())
         assertTrue(s.attempts.isEmpty())
     }
@@ -480,7 +481,9 @@ class TutorSessionTest {
         s.toGuided()
         clock.advance(4_000)
         s.answer(wrongOf(s.state))
+        s.retry()
         clock.advance(6_000)
+        s.requestHint()
         s.answer(correctOf(s.state))
         val (first, second) = s.attempts
         assertEquals(FakeClock.START + 4_000, first.timestampMillis)
@@ -489,7 +492,8 @@ class TutorSessionTest {
         assertFalse(first.correct)
         assertEquals(AttemptMode.GUIDED, first.mode)
         assertEquals(FakeClock.START + 10_000, second.timestampMillis)
-        assertEquals(10_000L, second.elapsedMs)
+        // El tiempo del parecido cuenta desde que se mostró (al reintentar).
+        assertEquals(6_000L, second.elapsedMs)
         assertEquals(1, second.hintsShownBefore)
         assertTrue(second.correct)
         assertEquals("ecuaciones-lineales", first.topicId)
@@ -648,59 +652,15 @@ class TutorSessionTest {
         }
     }
 
-    // ---- material para el tutor con IA ----
-
-    @Test
-    fun elTutorRecibeLaPreguntaAbiertaSoloEnLaPracticaGuiada() {
-        val s = newSession()
-        s.start()
-        assertNull(s.tutorBrief()) // en la explicación no hay ejercicio
-
-        val question = s.toGuided()
-        val exercise = exerciseOf(question)
-        val open = checkNotNull(s.tutorBrief())
-        assertEquals(exercise.statement, open.statement)
-        assertEquals(exercise.options, open.options)
-        assertEquals(exercise.correctIndex, open.correctIndex)
-        assertEquals(exercise.solutionSteps, open.solutionSteps)
-        assertEquals("Álgebra", open.course)
-        assertEquals(s.topic.title, open.topic)
-        assertFalse(open.answerVisible)
-        // Pedir el material no cambia lo que ve el estudiante: la respuesta sigue oculta.
-        assertNull(checkNotNull(s.state.exercise).correctIndex)
-        assertEquals(question, s.state)
-
-        s.answer(wrongOf(s.state))
-        assertFalse(checkNotNull(s.tutorBrief()).answerVisible)
-        s.answer(correctOf(s.state))
-        assertTrue(checkNotNull(s.tutorBrief()).answerVisible)
-
-        // El JSON es el que lee la página del tutor.
-        @Suppress("UNCHECKED_CAST")
-        val json = pe.studyplanner.aipet.domain.json.MiniJson.parse(open.toJson()) as Map<String, Any?>
-        assertEquals(setOf("curso", "tema", "e", "o", "c", "sol", "visto"), json.keys)
-        assertEquals(exercise.statement, json["e"])
-        assertEquals(exercise.options, json["o"])
-        assertEquals(exercise.correctIndex.toLong(), json["c"])
-        assertEquals(false, json["visto"])
-    }
-
-    @Test
-    fun enLaComprobacionSinAyudaNoHayTutor() {
-        val s = newSession()
-        s.finishGuidedCorrectly()
-        s.next()
-        assertEquals(Phase.UNAIDED_CHECK, s.state.phase)
-        assertNotNull(s.state.exercise)
-        assertNull(s.tutorBrief())
-    }
-
-    /** Estados de un recorrido con errores: pistas, retroalimentación y solución. */
+    /** Estados de un recorrido con errores: pista pedida, error con solución, uno parecido y solución pedida. */
     private fun wrongPath(topicId: String): List<TutorState> {
         val s = newSession(topicId, SessionConfig(seed = 31L))
         val seen = mutableListOf<TutorState>()
         seen += s.toGuided()
-        repeat(4) { seen += s.answer(wrongOf(s.state)) }
+        seen += s.requestHint()
+        seen += s.answer(wrongOf(s.state))
+        seen += s.retry()
+        seen += s.showSolution()
         return seen
     }
 }

@@ -2,11 +2,33 @@
 
 App Android para postulantes a la UNAMBA (Abancay, Perú): agenda de estudio, mascota 3D con voz, práctica por temas
 y «Camino UNAMBA» (ruta personalizada por grupo A, B o C). Proyecto de feria FERCYT, categoría E (artículo + diseño).
-**Presentación con la APK: 13 de noviembre de 2026.** Versión actual: 0.24.2 (versionCode 41).
+**Presentación con la APK: 13 de noviembre de 2026.** Versión actual: 0.25.0 (versionCode 42).
 
 Historial, qué está probado y qué falta: `docs/ESTADO.md`. Detalle del módulo web del camino: `docs/CAMINO.md`.
 
-## Dónde está cada cosa (esta PC, usuario USER)
+## PC desktop-8sqpasg (usuario Usuario)
+
+| Qué | Dónde |
+|---|---|
+| El proyecto (clon de GitHub) | `C:\Users\Usuario\Documents\studyplanner-ai-pet` (trabajar siempre aquí; `Documents\ChatGPT\FERCYT 2\android-app` es la copia vieja 0.23.0) |
+| JDK 17 | `C:\Program Files\Java\jdk-17` |
+| Android SDK (adb, emulador) | `D:\StudyPlanner-Android-Toolchain\sdk` (`local.properties`: `sdk.dir=D\:/StudyPlanner-Android-Toolchain/sdk`) |
+| Emulador | AVD `StudyPlanner35` en `D:\StudyPlanner-Android-Toolchain\avd`; arranca mejor sin ventana: `-no-window -gpu auto` |
+| Caché de Gradle | `D:\StudyPlanner-Android-Toolchain\gradle-home` (compila con `--offline`) |
+| Servidor de IA desplegado | `C:\Users\Usuario\Documents\ChatGPT\FERCYT 2\backend-ia` (con `wrangler`) |
+| Node | `D:\Universidad Nacional Micaela Batidas\node.exe` (no está en el PATH). Python: Anaconda. |
+
+Aquí sí hay `gradlew` (Gradle 9.6.0). El disco C: tiene poco espacio: no descargar nada grande sin preguntar.
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-17"
+$env:ANDROID_HOME = "D:\StudyPlanner-Android-Toolchain\sdk"; $env:ANDROID_SDK_ROOT = $env:ANDROID_HOME
+$env:ANDROID_AVD_HOME = "D:\StudyPlanner-Android-Toolchain\avd"
+$env:GRADLE_USER_HOME = "D:\StudyPlanner-Android-Toolchain\gradle-home"
+.\gradlew.bat --offline --no-daemon --console=plain :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
+```
+
+## Dónde está cada cosa (PC desktop-1n2njj8, usuario USER)
 
 | Carpeta | Qué es |
 |---|---|
@@ -35,12 +57,12 @@ $b = "$env:USERPROFILE\studyplanner-build"
 $env:JAVA_HOME = "$b\herramientas\jdk"; $env:ANDROID_HOME = "$b\herramientas\sdk"; $env:GRADLE_USER_HOME = "$b\gradle-home"
 $g = "$b\herramientas\gradle-9.6.0\bin\gradle.bat"
 & $g --no-daemon --console=plain :app:assembleDebug                      # APK (unos 40 s)
-& $g --no-daemon --console=plain :app:testDebugUnitTest :app:lintDebug   # 563 pruebas + lint (1,5 min)
+& $g --no-daemon --console=plain :app:testDebugUnitTest :app:lintDebug   # 554 pruebas + lint (1,5 min)
 & $g --no-daemon --console=plain :app:testDebugUnitTest --tests "pe.studyplanner.aipet.data.tutor.CaminoStoreTest"
 ```
 
 - APK: `app\build\outputs\apk\debug\app-debug.apk`. Informes: `app\build\reports\` y `app\build\test-results\`.
-- El lint corta la compilación si hay errores (`abortOnError = true`). Hoy: 0 errores, 58 avisos de estilo.
+- El lint corta la compilación si hay errores (`abortOnError = true`). Hoy (0.25.0): 0 errores, 48 avisos de estilo.
 - `local.properties` debe decir `sdk.dir=C\:/Users/USER/studyplanner-build/herramientas/sdk` (con `C\:`).
 - Otra forma: doble clic en `CONSTRUIR_APK.bat`. Compila, copia la APK a Descargas y deja `construir_log.txt`,
   `errores_compilacion.txt`, `resumen_pruebas.txt` y `lint_<versión>.txt`. Si hay un `parche.zip` a su lado, antes
@@ -59,19 +81,23 @@ Las pantallas con matemática o 3D son páginas locales en un WebView, servidas 
 ## Código (`app/src/main/java/pe/studyplanner/aipet`)
 
 - `domain/` — Kotlin puro, sin Android, todo con pruebas. `domain/tutor` es el motor de práctica: `TutorSession`
-  (máquina de estados: aprender → práctica guiada con 3 pistas → comprobación sin ayuda → resumen), generadores de
-  ejercicios, banco de preguntas, `MasteryPolicy`. También agenda, planificador, agente, estados de la mascota y
-  `json/MiniJson` (JSON sin `org.json`).
-- `data/` — Room (`academic`), cuenta en la nube (`account`), IA (`ai/GeminiProxyProvider.kt`: `AiTransport`,
-  `GeminiProxyClient`), tutor (`tutor/CaminoStore.kt`: estado del camino, `CaminoAiPrompt`, `CaminoHandoff`).
+  (máquina de estados: aprender → práctica con respuesta inmediata → comprobación sin ayuda → resumen), generadores de
+  ejercicios, banco de preguntas, `MasteryPolicy`. `domain/knowledge`: `StudyKnowledge` (lo que la mascota sabe sin
+  Internet, búsqueda BM25) y `QuickMath` (cuentas rápidas). También agenda, planificador, agente, estados de la mascota
+  y `json/MiniJson` (JSON sin `org.json`).
+- `data/` — Room (`academic`), cuenta en la nube (`account`), IA (`ai/GeminiProxyProvider.kt`: orden de respuesta de
+  «Hablar», `AiTransport`, `GeminiProxyClient`, `OfflineAnswers`), tutor (`tutor/CaminoStore.kt`: estado del camino).
 - `platform/` — servicios Android: alarmas, mascota flotante (`overlay`), visor 3D (`pet3d`), voz, BLE (`companion`).
 - `ui/` — Compose. `StudyPlannerApp.kt` tiene el `NavHost` (rutas `camino`, `tutor/{topicId}`, `calendar`…).
   `ui/tutor`: `TutorScreen` + `TutorCoordinator` (práctica de los 52 temas de la app), `CaminoScreen` (WebView del
-  camino y su puente), `TutorTopicsScreen`. Tres pestañas: Hoy, Estudiar, Agenda.
+  camino, su puente y la voz de la mascota), `TutorTopicsScreen`. Tres pestañas: Hoy, Estudiar, Agenda.
+- `app/src/main/assets/conocimiento/base.json` — lo que sabe la mascota sin Internet (776 fichas). Se genera con
+  `node herramientas/conocimiento/genera_base.js` desde `herramientas/conocimiento/glosario.json` (glosario propio),
+  la idea clave y las preguntas fijas del Camino y los bancos de `assets/tutor`. Volver a generarlo si cambian.
 - `app/src/main/assets/web/camino` — Camino UNAMBA (HTML + JS + KaTeX). Ver `docs/CAMINO.md`.
 - `app/src/main/assets/web/pets` + `pet-viewer.html` + `three/` — seis mascotas GLB (búho, conejo, gato, panda,
   pingüino, zorro) con 17 animaciones, cara, accesorios y máscara de zonas; visor con three.js.
-- `app/src/test` — 57 archivos, 563 pruebas de JVM. `app/src/androidTest` — 22 archivos, **desactualizados**
+- `app/src/test` — 57 archivos, 554 pruebas de JVM (0.25.0). `app/src/androidTest` — 22 archivos, **desactualizados**
   (textos de la versión 0.15); no se ejecutan en la compilación.
 
 Algunos archivos antiguos (`StudyPlannerApp.kt`, `GeminiProxyProvider.kt`) están escritos muy compactos: al tocarlos,
@@ -87,13 +113,16 @@ Workers AI.
 
 - La dirección y el código de acceso están en `ia_local.properties` (claves `endpoint` y `token`) y pasan a
   `BuildConfig.AI_ENDPOINT` y `AI_TOKEN` al compilar.
-- **Pendiente importante:** el servidor responde bien pero tarda de 15 a 24 s por mensaje (medido el 11 nov;
-  `/health` y `/check` tardan menos de medio segundo). La causa está entre el Worker y el proveedor; hay que mirar
-  su registro (`wrangler tail`) en la PC que tiene `backend-ia`. La app espera hasta 45 s.
-- Tutor del camino: la página arma la petición completa (pregunta, alternativas, respuesta correcta, solución,
-  últimos turnos y reglas socráticas) y Kotlin solo la reenvía (`CaminoBridge.tutorIA` → `AiTransport.chat`).
-- `PROBAR_TUTOR_IA.bat` y `PROBAR_SERVIDOR_IA.bat` (en `studyplanner_0230`) prueban el servidor real sin mostrar
-  la conexión; gastan 5 y 3 peticiones del día.
+- **Sin Internet primero (desde la 0.25.0):** en «Hablar» responden, en este orden, las órdenes de agenda, los saludos
+  y cuentas rápidas (`QuickMath`), lo que la mascota sabe (`StudyKnowledge` con `base.json`) y, solo si nada de eso
+  alcanza y hay conexión, el servidor (Gemini). Si el servidor falla, se responde con lo más cercano que haya.
+  La IA ya no está en ningún otro lugar de la app (se quitaron «Otra explicación (IA)», «Preguntarle al tutor», la
+  conversación del Camino y la pantalla «Conectar IA»).
+- **Pendiente:** el servidor responde bien pero tarda de 15 a 24 s por mensaje (medido el 11 nov). En el código,
+  `askGemini` espera 20 s antes de pasar a Workers AI y ya pide `thinkingBudget: 0`: lo más probable es que el modelo
+  `gemini-flash-latest` agote esos 20 s o no acepte apagar el razonamiento. Mirar `wrangler tail` y probar un modelo
+  Flash-Lite y una espera menor (8 s). Desplegar solo con permiso del usuario.
+- `PROBAR_SERVIDOR_IA.bat` prueba el servidor real sin mostrar la conexión; gasta 3 peticiones del día.
 
 ## Reglas del proyecto (las pidió el usuario; no negociables)
 
@@ -105,8 +134,11 @@ Workers AI.
 3. **Preguntas de admisión:** siempre propias. Los exámenes se leen solo para saber qué tipo de pregunta sale y
    cuánto pesa cada curso; no se copian enunciados (son de la universidad y los «TOMO» son de un tercero). Mismo
    tipo y dificultad, datos distintos, respuesta calculada o verificada y explicación.
-4. **Método socrático en toda la práctica:** si el estudiante falla o no sabe, no se le da la respuesta de frente;
-   primero preguntas o pistas, y «Ver la solución» siempre disponible.
+4. **Método de práctica (desde el 13 nov reemplaza al socrático, por pedido del usuario):** práctica de recuperación con
+   respuesta inmediata. El estudiante responde primero; al comprobar ve al instante si acertó y la explicación paso a
+   paso (al fallar, como ejemplo resuelto); lo que falla vuelve al final de la lección con datos nuevos o «uno
+   parecido»; cada tema regresa en el repaso espaciado (1, 3, 7, 14 y 30 días) mezclado con otros. «Ver la solución»
+   siempre disponible; las pistas solo si las pide. Ver «Método» en `docs/CAMINO.md`.
 5. **Honestidad al informar:** no digas que algo se probó en teléfono o emulador si no se hizo. Di qué se verificó,
    cómo y qué quedó sin probar.
 6. **3D (Blender):** no arreglar con transparencia, doble cara, suavizado ni más polígonos; conservar nombres,
@@ -132,8 +164,10 @@ Con Claude Code ya no hace falta el parche: se edita y se compila directamente e
 
 ## Pendiente (lo más urgente primero)
 
-- Probar la 0.24.2 en un teléfono: camino, guía socrática, tutor con IA y «Preguntarle al tutor» desde un tema.
-- Averiguar y corregir la demora del servidor de IA.
-- Actualizar el artículo de la feria a la versión 0.24.2.
-- Después de la feria: simulacro con tiempo, copia en la nube del avance del camino, más preguntas de Biología y
-  Química teórica, poner al día `androidTest`.
+- Probar la 0.25.0 en un teléfono real: voz en el Camino (leer y responder «la B»), «Hablar» sin Internet y con
+  Internet, repaso de hoy.
+- Averiguar y corregir la demora del servidor de IA (ver arriba).
+- Actualizar el artículo de la feria a la versión 0.25.0 (método, voz, conocimiento sin Internet).
+- Después de la feria: simulacro con tiempo (15–20 preguntas mezcladas y luego 60 con el tiempo oficial), copia en la
+  nube del avance del camino, más preguntas de Biología y Química teórica, correr las pruebas de pantallas de
+  `pruebas-web` (Playwright), poner al día `androidTest`.

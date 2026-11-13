@@ -70,7 +70,6 @@ p { margin: 0 0 10px; }
 .opc.bien { border-color: var(--ok); background: var(--ok-c); color: var(--sobre-ok-c); } .opc.bien .l { background: var(--ok); color: #fff; }
 .opc.malo { border-color: var(--mal); background: var(--mal-c); color: var(--sobre-mal-c); } .opc.malo .l { background: var(--mal); color: #fff; }
 .opc[disabled] { cursor: default; opacity: 1; }
-.veredicto { font-size: 18px; font-weight: 700; margin: 14px 4px 8px; } .veredicto.ok { color: var(--ok); } .veredicto.no { color: var(--mal); }
 /* explicación paso a paso */
 .pasos { counter-reset: paso; list-style: none; margin: 0; padding: 0; }
 .pasos li { position: relative; padding: 2px 0 14px 40px; font-size: 16px; line-height: 25px; min-height: 30px; }
@@ -101,31 +100,37 @@ summary { list-style: none; display: flex; gap: 10px; align-items: flex-start; p
 summary .marca { flex: none; width: 24px; height: 24px; border-radius: 50%; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
 summary .marca.ok { background: var(--ok); } summary .marca.no { background: var(--mal); } summary .t { flex: 1; min-width: 0; font-size: 15px; line-height: 22px; }
 details .dentro { padding: 0 0 14px; }
-.ia { white-space: pre-wrap; font-size: 15px; line-height: 23px; } .ia-rot { font-size: 12px; color: var(--suave); margin-bottom: 6px; }
 .oculto { display: none !important; }
 @media (prefers-reduced-motion: no-preference) { .barra i { transition: width .35s ease; } }
-/* guía socrática: la pregunta del tutor va antes de cada paso */
-.veredicto.guia { color: var(--nar); font-size: 16px; line-height: 24px; }
-.guia .gq { position: relative; padding: 10px 12px 10px 42px; margin-bottom: 8px; border-radius: 14px; background: var(--pri-c); color: var(--sobre-pri-c); font-size: 16px; line-height: 24px; font-weight: 500; }
-.guia .gq::before { content: "?"; position: absolute; left: 10px; top: 11px; width: 22px; height: 22px; border-radius: 50%; background: var(--pri); color: var(--sobre-pri); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.guia .gq.hecha { background: var(--hundido); color: var(--suave); font-weight: 400; } .guia .gq.hecha::before { background: var(--suave); color: var(--tarjeta); }
-.guia .gp { padding: 2px 4px 12px 42px; font-size: 16px; line-height: 25px; }
-.guia .gq:last-child { margin-bottom: 0; } .guia #vp { margin: 4px 0 0 42px; }
-/* conversación con el tutor */
-.hilo { display: flex; flex-direction: column; gap: 8px; } .hilo:not(:empty) { margin-bottom: 12px; }
-.bur { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 16px; line-height: 24px; white-space: pre-wrap; overflow-wrap: break-word; }
-.bur.yo { align-self: flex-end; background: var(--pri); color: var(--sobre-pri); border-bottom-right-radius: 6px; }
-.bur.tu { align-self: flex-start; background: var(--hundido); border-bottom-left-radius: 6px; }
-.bur.err { background: var(--nar-c); color: var(--sobre-nar-c); } .bur.esp { color: var(--suave); }
-.msg { display: flex; gap: 8px; align-items: flex-end; }
-.msg textarea { flex: 1; min-width: 0; min-height: 52px; resize: none; padding: 12px 14px; border: 2px solid var(--linea); border-radius: 16px; background: var(--tarjeta); color: var(--tinta); font: inherit; }
-.msg textarea:focus { outline: none; border-color: var(--pri); } .msg textarea::placeholder { color: var(--suave); }
-
-/* Pregunta que llega desde la práctica de la app: texto simple, alternativas solo para leer */
-.enun.plano { white-space: pre-line; }
-.alts { padding: 6px 16px; }
-.alts .alt { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--linea); line-height: 1.4; }
-.alts .alt:last-child { border-bottom: 0; }
-.alts .alt b { flex: none; width: 20px; color: var(--suave); }
-.alts .alt.bien { color: var(--ok); font-weight: 600; }
-.alts .alt.bien b { color: var(--ok); }
+/* práctica con respuesta inmediata: veredicto de color, como en las apps de idiomas */
+.veredicto { margin: 14px 0 10px; padding: 14px 16px; border-radius: 18px; }
+.veredicto.ok { background: var(--ok-c); color: var(--sobre-ok-c); } .veredicto.no { background: var(--mal-c); color: var(--sobre-mal-c); }
+.veredicto.nose { background: var(--nar-c); color: var(--sobre-nar-c); }
+.veredicto .vt { font-size: 22px; line-height: 28px; font-weight: 800; } .veredicto .vn { font-size: 14px; line-height: 20px; margin-top: 2px; opacity: .9; }
+@media (prefers-reduced-motion: no-preference) { .veredicto { animation: sube .22s ease-out; } .opc.bien { animation: late .3s ease-out; } }
+@keyframes sube { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes late { 50% { transform: scale(1.03); } }
+details.porque summary { color: var(--pri); font-weight: 600; min-height: 40px; padding: 0; align-items: center; }
+details.porque[open] summary { margin-bottom: 8px; }
+.btn.ok { background: var(--ok); color: #fff; } [data-tema="oscuro"] .btn.ok { color: #08240f; }
+.btn.nar { background: var(--nar); color: #fff; } [data-tema="oscuro"] .btn.nar { color: #3a1d00; }
+.chip.nar { background: var(--nar-c); color: var(--sobre-nar-c); }
+.tarjeta .tit { font-size: 18px; line-height: 24px; font-weight: 700; }
+.tarjeta.repaso { border: 2px solid var(--nar); }
+.fila-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 6px 0 4px; min-height: 40px; }
+/* voz de la mascota: escuchar y responder hablando */
+.vozb { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 14px; border: 0; border-radius: 99px; background: var(--pri-c); color: var(--sobre-pri-c); font: 600 14px/1 inherit; font-family: inherit; cursor: pointer; }
+.vozb.mic { display: flex; width: 100%; justify-content: center; min-height: 48px; margin: 4px 0 2px; background: var(--hundido); color: var(--tinta); }
+.vozb.mic.on { background: var(--mal-c); color: var(--sobre-mal-c); } .vozb[disabled] { cursor: default; }
+@media (prefers-reduced-motion: no-preference) { .vozb.mic.on svg { animation: late 1s ease-in-out infinite; } }
+#expl { margin: 0 0 4px; }
+.oido { color: var(--suave); font-size: 14px; line-height: 20px; margin: 6px 4px 0; }
+/* resultados */
+.centro { text-align: center; } .grande { font-size: 28px; line-height: 34px; font-weight: 800; }
+.datos { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; margin-top: 8px; color: var(--suave); font-size: 14px; }
+.puntos { display: flex; gap: 6px; margin: 0 4px 12px; } .puntos i { width: 12px; height: 12px; border-radius: 50%; background: var(--mal); } .puntos i.ok { background: var(--ok); }
+.confeti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 8; }
+.confeti i { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; animation: cae 2.2s linear forwards; }
+.confeti i.c0 { background: #3A5BF0; } .confeti i.c1 { background: #5E5CE6; } .confeti i.c2 { background: #FF9F0A; } .confeti i.c3 { background: #34C759; } .confeti i.c4 { background: #FF375F; }
+@keyframes cae { to { transform: translateY(105vh) rotate(540deg); opacity: .2; } }
+@media (prefers-reduced-motion: reduce) { .confeti { display: none; } }

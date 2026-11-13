@@ -10,7 +10,8 @@ const { chromium } = require('playwright'); const fs = require('fs');
   await p.waitForTimeout(200); await p.screenshot({ path: `${out}/${tema}_10_camino.png`, fullPage: true });
   await p.evaluate(() => caminoIr('tema', 'alg-funciones')); await p.waitForTimeout(150); await p.screenshot({ path: `${out}/${tema}_11_tema.png`, fullPage: true });
   await p.click('#pr');
-  for (let i = 0; i < 5; i++) { await p.waitForTimeout(80); const ok = await p.evaluate(() => caminoEstado().ses.q.c); await p.click('.opc >> nth=' + (i === 2 ? (ok + 1) % 5 : ok)); await p.click('#resp'); await p.waitForTimeout(120); if (i === 2) { await p.screenshot({ path: `${out}/${tema}_12_guia.png`, fullPage: true }); await p.click('#vp'); await p.waitForTimeout(80); await p.screenshot({ path: `${out}/${tema}_12b_guia_paso.png`, fullPage: true }); await p.click('#sol'); await p.waitForTimeout(80); await p.screenshot({ path: `${out}/${tema}_12c_solucion.png`, fullPage: true }); } await p.click('#sig'); }
+  // cinco nuevas (falla la tercera) y la fallada otra vez al final
+  for (let i = 0; i < 6; i++) { await p.waitForTimeout(80); const ok = await p.evaluate(() => caminoEstado().ses.q.c); await p.click('.opc >> nth=' + (i === 2 ? (ok + 1) % 5 : ok)); await p.click('#resp'); await p.waitForTimeout(120); if (i === 2) await p.screenshot({ path: `${out}/${tema}_12_error_con_solucion.png`, fullPage: true }); if (i === 5) await p.screenshot({ path: `${out}/${tema}_12b_corregida.png`, fullPage: true }); await p.click('#sig'); }
   await p.waitForTimeout(150); await p.screenshot({ path: `${out}/${tema}_13_fin.png`, fullPage: true });
   await p.evaluate(() => caminoIr('tema', 'lit-peruana')); await p.click('#pr'); await p.waitForTimeout(80); await p.click('.opc >> nth=1'); await p.click('#resp'); await p.waitForTimeout(150); await p.screenshot({ path: `${out}/${tema}_14_fija.png`, fullPage: true });
   console.log('errores', errs.length, errs.slice(0, 5)); await b.close();

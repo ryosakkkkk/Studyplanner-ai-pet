@@ -8,12 +8,12 @@ package pe.studyplanner.aipet.domain.tutor
  * [start], [next], [back], [skipLearn], [answer], [requestHint], [showSolution], [retry] y [dontKnow].
  * Una acción no válida en ese momento se ignora y devuelve el estado actual sin cambios.
  *
- * Reglas de la práctica guiada:
- * - No se muestra ninguna pista antes del primer intento, salvo que el estudiante la pida ([requestHint]).
- * - Cada respuesta incorrecta revela la siguiente pista junto con la retroalimentación de ESA alternativa.
- * - Con las 3 pistas ya mostradas, otra respuesta incorrecta muestra la solución paso a paso: el ejercicio
- *   queda como no resuelto y se permite [retry] con un ejercicio parecido. Con las 3 pistas mostradas también se
- *   puede pedir la solución sin responder ([showSolution]).
+ * Reglas de la práctica (práctica de recuperación con respuesta inmediata):
+ * - El estudiante responde primero. No se muestra ninguna pista salvo que la pida ([requestHint], hasta 3).
+ * - Una respuesta incorrecta muestra enseguida por qué esa alternativa no es (retroalimentación de ESA alternativa)
+ *   y la solución paso a paso, como ejemplo resuelto: el ejercicio queda como no resuelto y se ofrece [retry] con
+ *   uno parecido (misma dificultad, otros datos) para aplicar lo que acaba de ver.
+ * - La solución se puede pedir en cualquier momento sin responder ([showSolution]).
  *
  * Reglas de la comprobación sin ayuda: sin pistas, sin retroalimentación y sin saber si acertó hasta el
  * resumen. «No sé» ([dontKnow]) cuenta como incorrecta.
@@ -153,10 +153,10 @@ class TutorSession(
         return state
     }
 
-    /** Muestra la solución paso a paso. Solo en práctica guiada y con las 3 pistas ya mostradas. */
+    /** Muestra la solución paso a paso. En la práctica guiada, en cualquier momento antes de resolver el ejercicio. */
     fun showSolution(): TutorState {
         val current = open
-        if (current != null && canAskForHelp(current) && current.hintsShown == Exercise.HINT_COUNT) {
+        if (current != null && canAskForHelp(current)) {
             reveal(current, TutorTexts.solutionOnRequest(current.exercise))
         }
         return state
@@ -255,21 +255,16 @@ class TutorSession(
         }
     }
 
+    /** Error: se explica esa alternativa y se muestra la solución completa en el acto (ejemplo resuelto). */
     private fun handleWrongGuided(current: Open, index: Int) {
         val feedback = current.exercise.optionFeedback.getValue(index)
-        if (current.hintsShown < Exercise.HINT_COUNT) {
-            val hint = current.exercise.hints[current.hintsShown]
-            current.hintsShown++
-            val message = TutorTexts.wrongWithHint(current.wrongCount, feedback, current.hintsShown, hint)
-            show(TutorScreen.WRONG_ANSWER, message, PetCue.ENCOURAGE)
-        } else {
-            reveal(current, TutorTexts.wrongThenSolution(current.wrongCount, feedback, current.exercise))
-        }
+        reveal(current, TutorTexts.wrongThenSolution(current.wrongCount, feedback, current.exercise), PetCue.ENCOURAGE)
     }
 
-    private fun reveal(current: Open, message: String) {
+    /** Solución a la vista. Tras un error la mascota anima ([PetCue.ENCOURAGE]); pedida, explica ([PetCue.EXPLAIN]). */
+    private fun reveal(current: Open, message: String, cue: PetCue = PetCue.EXPLAIN) {
         current.solutionRevealed = true
-        show(TutorScreen.SOLUTION, message, PetCue.EXPLAIN)
+        show(TutorScreen.SOLUTION, message, cue)
     }
 
     // ---- fase UNAIDED_CHECK ----
@@ -387,20 +382,8 @@ class TutorSession(
             result += TutorAction.DONT_KNOW
         } else if (current != null) {
             if (current.hintsShown < Exercise.HINT_COUNT) result += TutorAction.REQUEST_HINT
-            if (current.hintsShown == Exercise.HINT_COUNT) result += TutorAction.SHOW_SOLUTION
+            result += TutorAction.SHOW_SOLUTION
         }
-    }
-
-    /**
-     * Material para conversar con el tutor sobre el ejercicio abierto. Solo existe en la práctica guiada: en la
-     * comprobación sin ayuda no hay tutor, así que devuelve `null`.
-     */
-    fun tutorBrief(): TutorBrief? {
-        val current = open ?: return null
-        if (phase != Phase.GUIDED_PRACTICE) return null
-        val e = current.exercise
-        val revealed = screen == TutorScreen.CORRECT || screen == TutorScreen.SOLUTION
-        return TutorBrief(topic.area.label, topic.title, e.statement, e.options, e.correctIndex, e.solutionSteps, revealed)
     }
 
     private fun exerciseView(): ExerciseView? {

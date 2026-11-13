@@ -23,9 +23,6 @@ import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import pe.studyplanner.aipet.data.ai.AiTransport
-import pe.studyplanner.aipet.data.ai.ProxyReply
-import pe.studyplanner.aipet.data.tutor.TutorAiExplainer
 import pe.studyplanner.aipet.data.tutor.TutorAttemptStore
 import pe.studyplanner.aipet.data.tutor.TutorHistory
 import pe.studyplanner.aipet.domain.academic.AcademicActivity
@@ -131,7 +128,6 @@ class TutorCoordinatorTest {
     private fun coordinator(
         link: PetLink = FakePetLink(),
         academic: AcademicRepository? = FakeAcademic(),
-        ai: TutorAiExplainer? = null,
         speechDebounceMillis: Long = 0L,
     ) = TutorCoordinator(
         topicId = topicId,
@@ -139,7 +135,6 @@ class TutorCoordinatorTest {
         history = history,
         petLink = link,
         academic = academic,
-        ai = ai,
         zoneId = "America/Lima",
         clock = FakeClock(),
         today = { today },
@@ -172,7 +167,6 @@ class TutorCoordinatorTest {
         assertEquals(TutorScreen.EXPLANATION, state.screen)
         assertEquals(listOf(PetExpression.IDLE to "Vamos a aprender"), link.faces)
         assertTrue(link.sounds.isEmpty())
-        assertEquals(AiUi.Unavailable, c.ui.value.ai)
         assertEquals(ReviewUi.None, c.ui.value.review)
     }
 
@@ -180,9 +174,11 @@ class TutorCoordinatorTest {
         val c = coordinator()
         c.skipLearn()
         c.answer(wrongOf(c.tutor()))
-        assertEquals(TutorScreen.WRONG_ANSWER, c.tutor().screen)
+        // Respuesta inmediata: el error muestra la solución en el acto.
+        assertEquals(TutorScreen.SOLUTION, c.tutor().screen)
         assertEquals(1, history.state.value.attempts.size)
         assertEquals(AttemptMode.GUIDED, history.state.value.attempts.single().mode)
+        c.retry()
         c.answer(correctOf(c.tutor()))
         assertEquals(TutorScreen.CORRECT, c.tutor().screen)
         assertEquals(2, history.state.value.attempts.size)
@@ -194,9 +190,20 @@ class TutorCoordinatorTest {
         c.skipLearn()
         c.requestHint()
         c.answer(wrongOf(c.tutor()))
+        assertEquals(PetExpression.ALERTA to "Mira la solución", link.faces.last())
+        c.retry()
         c.answer(correctOf(c.tutor()))
         assertEquals(listOf(PetSound.PISTA, PetSound.ERROR, PetSound.CORRECTO), link.sounds)
         assertEquals(PetExpression.FELIZ to "¡Correcto!", link.faces.last())
+    }
+
+    @Test fun askingForTheSolutionMakesNoErrorSound() {
+        val link = FakePetLink()
+        val c = coordinator(link)
+        c.skipLearn()
+        c.showSolution()
+        assertEquals(TutorScreen.SOLUTION, c.tutor().screen)
+        assertTrue(PetSound.ERROR !in link.sounds)
     }
 
     @Test fun hintsAreCountedOncePerExercise() {
@@ -206,10 +213,11 @@ class TutorCoordinatorTest {
         c.requestHint()
         assertEquals(2, c.ui.value.hintsUsed)
         c.answer(wrongOf(c.tutor()))
-        assertEquals(3, c.ui.value.hintsUsed)
-        c.answer(correctOf(c.tutor()))
+        assertEquals(2, c.ui.value.hintsUsed)
         c.next()
-        c.answer(wrongOf(c.tutor()))
+        c.requestHint()
+        assertEquals(3, c.ui.value.hintsUsed)
+        c.requestHint()
         assertEquals(4, c.ui.value.hintsUsed)
     }
 
@@ -494,34 +502,6 @@ class TutorCoordinatorTest {
         assertEquals(count, link.faces.size)
     }
 
-    @Test fun aiExplanationIsOptionalAndLabelledByTheScreen() {
-        assertEquals(AiUi.Unavailable, coordinator(ai = null).ui.value.ai)
-        val c = coordinator()
-        c.requestAiExplanation()
-        assertEquals(AiUi.Unavailable, c.ui.value.ai)
-
-        val transport = object : AiTransport {
-            override suspend fun check() = "ok"
-            override suspend fun chat(text: String, context: AgentContext) = ProxyReply("answer", "Imagina una balanza en equilibrio.")
-        }
-        val withAi = coordinator(ai = TutorAiExplainer(transport))
-        assertEquals(AiUi.Idle, withAi.ui.value.ai)
-        withAi.requestAiExplanation()
-        assertEquals(AiUi.Ready("Imagina una balanza en equilibrio."), withAi.ui.value.ai)
-    }
-
-    @Test fun aFailingAiLeavesTheLocalPracticeUntouched() {
-        val transport = object : AiTransport {
-            override suspend fun check() = "ok"
-            override suspend fun chat(text: String, context: AgentContext): ProxyReply = throw RuntimeException("sin red")
-        }
-        val c = coordinator(ai = TutorAiExplainer(transport))
-        c.requestAiExplanation()
-        assertEquals(AiUi.Failed(TutorAiExplainer.GENERIC), c.ui.value.ai)
-        c.skipLearn()
-        assertEquals(Phase.GUIDED_PRACTICE, c.tutor().phase)
-    }
-
     @Test fun anUnknownTimeZoneFallsBackToThePhoneDateInsteadOfFailing() {
         // Si la zona del perfil no se reconociera, el resumen no debe cerrar la app.
         val today = TutorCoordinator.todayIn("Zona/Inexistente")
@@ -537,7 +517,6 @@ class TutorCoordinatorTest {
             history = history,
             petLink = FakePetLink(),
             academic = FakeAcademic(),
-            ai = null,
             zoneId = "America/Lima",
             clock = FakeClock(),
             today = { today },

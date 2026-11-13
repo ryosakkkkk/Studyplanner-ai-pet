@@ -27,28 +27,25 @@ const NUEVOS = ['eco-niveles', 'eco-energia', 'eco-global', 'len-lengua', 'len-f
     const total = await p.evaluate(g => Object.values(DATOS.grupos[g].cursos).reduce((a, b) => a + b, 0), g); ok(total === 60, 'el grupo ' + g + ' suma ' + total);
     await p.context().close();
   }
-  // cada tema nuevo: idea, cinco preguntas con guía y solución
+  // cada tema nuevo: idea, cinco preguntas con respuesta inmediata y, al final, las que falló otra vez
   const p = await abre('C'); let vistas = 0;
   for (const id of NUEVOS) {
     await p.evaluate(id => caminoIr('tema', id), id); await p.waitForTimeout(40);
     ok(!!(await p.$('.idea')) && (await p.$$('.idea p')).length >= 2, id + ': sin idea clave');
     if (id === 'eco-niveles') await p.screenshot({ path: `${out}/nue_${tema}_tema.png`, fullPage: true });
     await p.click('#pr'); await p.waitForTimeout(40);
-    for (let k = 0; k < 5; k++) {
+    for (let k = 0; k < 12 && !(await p.$('.nota')); k++) {
       const q = await p.evaluate(() => { const q = caminoEstado().ses.q; return { c: q.c, n: q.o.length, e: q.e, x: q.pasos[0], ref: q.ref }; });
       ok(q.n === 5 && q.e.length > 8 && q.x.length > 20 && q.ref.includes('2025 y 2026'), id + ': pregunta incompleta');
-      if (k % 2 === 0) {   // falla una vez: guía de dos preguntas, sin la respuesta a la vista
+      if (k < 5 && k % 2 === 0) {   // falla: ve al instante la correcta y la explicación; la pregunta vuelve al final
         await p.click('.opc >> nth=' + ((q.c + 1) % 5)); await p.click('#resp'); await p.waitForTimeout(40);
-        ok((await p.$$('.guia .gq')).length === 1 && !(await p.$('.opc.bien')), id + ': la guía no aparece tras el error');
-        if (id === 'his-origen' && k === 0) await p.screenshot({ path: `${out}/nue_${tema}_guia.png`, fullPage: true });
-        await p.click('.opc >> nth=' + q.c); await p.click('#resp'); await p.waitForTimeout(40);
-        ok((await p.textContent('.veredicto')).includes('Llegaste con la guía'), id + ': no reconoce el acierto con guía');
-      } else { await p.click('.opc >> nth=' + q.c); await p.click('#resp'); await p.waitForTimeout(40); }
-      ok(!!(await p.$('.uno')) && (await p.textContent('.ref')).includes('Tipo de pregunta'), id + ': falta la explicación o la referencia');
+        ok((await p.textContent('.veredicto')).includes('Era la') && !!(await p.$('.opc.bien')) && !!(await p.$('.tarjeta .uno, .tarjeta .pasos')), id + ': el error no muestra la respuesta y su explicación');
+        if (id === 'his-origen' && k === 0) await p.screenshot({ path: `${out}/nue_${tema}_error.png`, fullPage: true });
+      } else { await p.click('.opc >> nth=' + q.c); await p.click('#resp'); await p.waitForTimeout(40); ok(!!(await p.$('.veredicto.ok')), id + ': no marca el acierto'); }
       const w = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth })); ok(w.sw <= w.cw + 1, id + ': desborde horizontal');
       vistas++; await p.click('#sig'); await p.waitForTimeout(40);
     }
-    ok((await p.textContent('#app')).includes('de 5 a la primera'), id + ': no llegó al resumen');
+    ok((await p.textContent('#app')).includes('de 5 a la primera') && (await p.textContent('#app')).includes('Corregiste 3'), id + ': no llegó al resumen con las 3 corregidas');
     await p.evaluate(() => { while (caminoAtras()) { const s = document.querySelector('[data-a="si"]'); if (s) s.click(); } });
   }
   console.log('temas nuevos', NUEVOS.length, '| preguntas vistas', vistas, '| errores de página', errs.length, errs.slice(0, 3));

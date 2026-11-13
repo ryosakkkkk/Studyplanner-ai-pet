@@ -125,7 +125,7 @@ internal object TalkReplies {
     private val alertReceipt = Regex("^Aviso [0-9a-fA-F-]{8,}: .*Estado actual: ([A-Z_]+)\\.?$", RegexOption.DOT_MATCHES_ALL)
 
     fun friendly(text: String): String = when {
-        text.startsWith("Modo DEMO_SIN_IA") -> "Sin IA externa entiendo órdenes cortas. Prueba: «¿qué tengo hoy?», «mis tareas» o «recuérdame estudiar en 30 minutos»."
+        text.startsWith("Modo DEMO_SIN_IA") -> "Sin Internet entiendo órdenes cortas y los temas que tengo guardados. Prueba: «¿qué tengo hoy?», «¿qué es la mitosis?» o «recuérdame estudiar en 30 minutos»."
         // Comprobante de un aviso: se dice si quedó programado y qué falta, sin ID ni estados internos.
         alertReceipt.matches(text.trim()) -> when (alertReceipt.find(text.trim())?.groupValues?.get(1)) {
             "EXACT", "FLEXIBLE", "PENDING" -> "Recordatorio guardado. Te avisaré a esa hora."
@@ -234,13 +234,10 @@ fun TalkScreen(
     val phase = voiceState?.phase ?: VoicePhase.IDLE
     val listening = phase in setOf(VoicePhase.REQUESTING, VoicePhase.LISTENING, VoicePhase.TRANSCRIBING)
     val speaking = phase in setOf(VoicePhase.PREPARING_SPEECH, VoicePhase.SPEAKING)
-    val aiStore = app?.aiConnection
-    val ai = aiStore?.state?.collectAsStateWithLifecycle()?.value
 
     val prefs = remember { appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE) }
     var noticeAccepted by remember { mutableStateOf(prefs.getBoolean("notice", false)) }
     var muted by remember { mutableStateOf(prefs.getBoolean("muted", false)) }
-    var aiCardHidden by remember { mutableStateOf(prefs.getBoolean("ai_card_hidden", false)) }
     var showNotice by remember { mutableStateOf(false) }
     var hint by remember { mutableStateOf("") }
     var draft by rememberSaveable { mutableStateOf("") }
@@ -396,7 +393,11 @@ fun TalkScreen(
         else -> ""
     }
     val welcome = (if (profile.studentName.isBlank()) "¡Hola!" else "¡Hola, ${profile.studentName}!") +
-        " Soy ${profile.petName}. Escríbeme o toca «Hablar»."
+        " Soy ${profile.petName}. Pregúntame un tema del examen. Funciono sin Internet."
+    // Dos temas al azar de lo que sabe la mascota: un toque y lo explica (sin Internet).
+    val suggestions = remember {
+        app?.studyKnowledge?.entries?.filter { it.id.startsWith("g-") && it.title.length <= 26 }?.shuffled()?.take(2)?.map { it.title }.orEmpty()
+    }
     val bubble = when {
         listening -> voiceState?.partial?.takeIf { it.isNotBlank() }?.let { "«$it…»" } ?: "Te escucho…"
         state.busy && state.ready -> "Déjame pensar…"
@@ -501,21 +502,13 @@ fun TalkScreen(
                 }),
                 onCancel = { model.discard() })
 
-            if (!imeVisible && proposal == null && ai != null && ai.endpoint.isNotBlank() && ai.hasToken && !ai.enabled && !aiCardHidden) {
-                OutlinedCard(Modifier.fillMaxWidth()) {
-                    Row(Modifier.padding(horizontal = 14.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text("Respuestas con IA para preguntas libres. Solo se envía tu pregunta.", Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
-                        TextButton(onClick = { aiStore?.save(ai.endpoint, "", true) }, modifier = Modifier.heightIn(min = 48.dp)) { Text("Activar") }
-                        TextButton(onClick = { aiCardHidden = true; prefs.edit().putBoolean("ai_card_hidden", true).apply() }, modifier = Modifier.heightIn(min = 48.dp)) { Text("Ahora no") }
-                    }
-                }
-            }
-
             if (!imeVisible && proposal == null) {
                 Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    SuggestionChip(onClick = onOpenPractice, label = { Text("Explícame un tema") }, modifier = Modifier.heightIn(min = 48.dp))
-                    SuggestionChip(onClick = onOpenReview, label = { Text("Repasar") }, modifier = Modifier.heightIn(min = 48.dp))
+                    suggestions.forEach { title ->
+                        SuggestionChip(onClick = { send(title) }, enabled = canSend, label = { Text(title, maxLines = 1) }, modifier = Modifier.heightIn(min = 48.dp))
+                    }
                     SuggestionChip(onClick = { send("muestra mi agenda hoy") }, enabled = canSend, label = { Text("Mi día") }, modifier = Modifier.heightIn(min = 48.dp))
+                    SuggestionChip(onClick = onOpenReview, label = { Text("Practicar") }, modifier = Modifier.heightIn(min = 48.dp))
                 }
             }
 

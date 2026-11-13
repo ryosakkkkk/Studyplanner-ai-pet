@@ -44,7 +44,6 @@ fun ProfileHubScreen(
     onAppearance:()->Unit,
     onPrivacy:()->Unit = {},
     onNavigate:((AppSection)->Unit)? = null,
-    onAiSettings:(()->Unit)? = null,
     onPhysicalPet:(()->Unit)? = null,
     onAccount:(()->Unit)? = null,
 ) {
@@ -52,15 +51,6 @@ fun ProfileHubScreen(
     val context = LocalContext.current
     val prefs = remember { context.applicationContext.getSharedPreferences("talk_v1", Context.MODE_PRIVATE) }
     var voiceOn by remember { mutableStateOf(!prefs.getBoolean("muted", false)) }
-    val app = context.applicationContext as? pe.studyplanner.aipet.StudyPlannerApplication
-    val ai = app?.aiConnection?.state?.collectAsStateWithLifecycle()?.value
-    val aiStatus = when {
-        ai == null -> "No disponible en esta versión"
-        ai.enabled && ai.hasToken && ai.endpoint.isNotBlank() -> "Activada"
-        ai.endpoint.isBlank() || !ai.hasToken -> "Sin configurar"
-        else -> "Desactivada"
-    }
-    val aiBuiltIn = ai?.builtIn == true
     val account = pe.studyplanner.aipet.ui.account.rememberCloudAccount()
     val accountState = account?.state?.collectAsStateWithLifecycle()?.value
     Scaffold(topBar={TopAppBar(title={Text("Perfil",style=MaterialTheme.typography.titleLarge)},navigationIcon={
@@ -105,17 +95,12 @@ fun ProfileHubScreen(
             }
             Group("Tus datos") {
                 ProfileMenuRow("Privacidad","seguridad",profile,"",{privacy=true;onPrivacy()})
-                // Con la IA incluida en la app no hay nada que configurar: la fila solo aparece en versiones sin servidor.
-                if(onAiSettings!=null && !aiBuiltIn) {
-                    Divider()
-                    ProfileMenuRow("IA externa","idea",profile,aiStatus,onAiSettings)
-                }
             }
             Text(if(accountState?.signedIn==true) "Copia en la nube activada · ${profile.zoneId}" else "Tus datos se guardan en este teléfono · ${profile.zoneId}",
                 style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant,modifier=Modifier.padding(horizontal=4.dp,vertical=4.dp))
         }
     }
-    if(privacy)AlertDialog(onDismissRequest={privacy=false},title={Text("Tú tienes el control")},text={Text("Tu perfil y agenda se guardan en este dispositivo. El micrófono solo se enciende cuando tocas «Hablar». El servicio de voz del teléfono puede necesitar Internet; StudyPlanner no guarda audio. La mascota flotante requiere un permiso separado y no escucha. Las preguntas que la app no resuelve sola se envían a su servidor para que la IA responda. No se envían la agenda ni el historial.",Modifier.verticalScroll(rememberScrollState()))},confirmButton={TextButton(onClick={privacy=false}){Text("Entendido")}})
+    if(privacy)AlertDialog(onDismissRequest={privacy=false},title={Text("Tú tienes el control")},text={Text("Todo se guarda en este teléfono y funciona sin Internet. El micrófono solo se enciende cuando lo tocas; no se guarda audio. Si una pregunta no está en lo que la mascota sabe y tienes Internet, se envía solo esa pregunta al servidor de la app para que responda la IA. La agenda y tu historial no se envían.",Modifier.verticalScroll(rememberScrollState()))},confirmButton={TextButton(onClick={privacy=false}){Text("Entendido")}})
 }
 
 @Composable

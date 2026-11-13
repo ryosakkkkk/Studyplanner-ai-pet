@@ -1,6 +1,5 @@
 package pe.studyplanner.aipet.domain.tutor
 
-import pe.studyplanner.aipet.domain.json.MiniJson
 
 /** Fases de una sesión de tutoría, en orden. */
 enum class Phase {
@@ -186,29 +185,4 @@ fun interface TutorClock {
         /** Reloj del sistema. */
         val SYSTEM: TutorClock = TutorClock { System.currentTimeMillis() }
     }
-}
-
-/**
- * Lo que el tutor con IA necesita para conversar sobre el ejercicio abierto de la práctica guiada. Lleva la respuesta
- * y la solución aunque el estudiante todavía no las vea: es material para el tutor (para que guíe sin equivocarse) y
- * la interfaz no debe dibujarlo.
- *
- * @property answerVisible `true` si el estudiante ya acertó o ya vio la solución; entonces el tutor puede explicarla.
- */
-data class TutorBrief(
-    val course: String,
-    val topic: String,
-    val statement: String,
-    val options: List<String>,
-    val correctIndex: Int,
-    val solutionSteps: List<String>,
-    val answerVisible: Boolean,
-) {
-    /** JSON que lee la página del tutor (`assets/web/camino`): curso, tema, e, o, c, sol y visto. */
-    fun toJson(): String = MiniJson.write(
-        linkedMapOf(
-            "curso" to course, "tema" to topic, "e" to statement, "o" to options, "c" to correctIndex,
-            "sol" to solutionSteps, "visto" to answerVisible,
-        ),
-    )
 }

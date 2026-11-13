@@ -26,27 +26,26 @@ class TutorPresentationTest {
     @Test fun guidedLabelAndFractionAdvanceWithTheExercises() {
         val session = newSession()
         var state = session.toGuided()
-        assertEquals("Práctica guiada · ejercicio 1 de 3", TutorPresentation.phaseLabel(state))
+        assertEquals("Práctica · 1 de 3", TutorPresentation.phaseLabel(state))
         assertEquals(0f, TutorPresentation.phaseFraction(state), 0.0001f)
         state = session.answer(correctOf(state))
         assertEquals(1f / 3f, TutorPresentation.phaseFraction(state), 0.0001f)
         state = session.next()
-        assertEquals("Práctica guiada · ejercicio 2 de 3", TutorPresentation.phaseLabel(state))
+        assertEquals("Práctica · 2 de 3", TutorPresentation.phaseLabel(state))
     }
 
-    @Test fun wrongAnswerShowsTheFeedbackWithoutRepeatingTheHint() {
+    @Test fun wrongAnswerShowsTheFeedbackAndTheSolutionAtOnce() {
         val session = newSession()
         val first = session.toGuided()
         val state = session.answer(wrongOf(first))
-        assertEquals(TutorScreen.WRONG_ANSWER, state.screen)
-        val hints = TutorPresentation.visibleHints(state)
-        assertEquals(1, hints.size)
+        assertEquals(TutorScreen.SOLUTION, state.screen)
+        assertTrue(TutorPresentation.visibleHints(state).isEmpty())
         val message = TutorPresentation.message(state)
         assertTrue(message.isNotBlank())
-        assertFalse("la pista ya está en su tarjeta", message.contains(hints.single()))
-        assertFalse(message.contains("Pista 1 de 3"))
-        // El texto original del motor sí traía la pista: la pantalla es quien la separa.
-        assertTrue(state.text.contains(hints.single()))
+        assertTrue(message.contains("Así se resuelve"))
+        assertFalse(TutorPresentation.canAnswer(state))
+        assertEquals("Siguiente ejercicio", TutorPresentation.nextLabel(state))
+        assertTrue(TutorAction.RETRY in state.actions)
     }
 
     @Test fun requestedHintsAreCardsAndLeaveNoDuplicatedMessage() {

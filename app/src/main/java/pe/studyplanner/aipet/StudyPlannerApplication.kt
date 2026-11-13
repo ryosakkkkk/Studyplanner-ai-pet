@@ -25,7 +25,18 @@ class StudyPlannerApplication : Application() {
     val alertPlatform by lazy { AndroidAlertPlatform(this) }
     val alertService by lazy { AlertService(academicDatabase,alertPlatform) }
     val aiConnection by lazy { pe.studyplanner.aipet.data.ai.AiConnectionStore(this) }
-    val agentService by lazy { pe.studyplanner.aipet.data.academic.AgentService(academicDatabase,alertService,pe.studyplanner.aipet.data.ai.GeminiProxyProvider(aiConnection)) }
+    /**
+     * Lo que la mascota sabe sin Internet («Hablar»): `assets/conocimiento/base.json` (glosario propio, Camino y bancos)
+     * más los temas de la app que no están ahí. Se arma una vez, en segundo plano al abrir la app.
+     */
+    val studyKnowledge: pe.studyplanner.aipet.domain.knowledge.StudyKnowledge by lazy {
+        val (entries,courses)=runCatching {
+            pe.studyplanner.aipet.domain.knowledge.StudyKnowledge.parse(assets.open("conocimiento/base.json").bufferedReader(Charsets.UTF_8).use{it.readText()})
+        }.getOrElse { android.util.Log.e("StudyPlannerSaber","No se pudo leer la base de conocimiento",it); emptyList<pe.studyplanner.aipet.domain.knowledge.KnowledgeEntry>() to emptyMap() }
+        val known=entries.mapTo(HashSet()){it.topicId}
+        pe.studyplanner.aipet.domain.knowledge.StudyKnowledge(entries+pe.studyplanner.aipet.domain.knowledge.StudyKnowledge.fromTopics(pe.studyplanner.aipet.domain.tutor.TutorContent.catalog.topics,known),courses)
+    }
+    val agentService by lazy { pe.studyplanner.aipet.data.academic.AgentService(academicDatabase,alertService,pe.studyplanner.aipet.data.ai.GeminiProxyProvider(aiConnection,knowledge={studyKnowledge})) }
     private val applicationScope=CoroutineScope(SupervisorJob()+Dispatchers.IO)
     /** Historial de práctica de matemática: `filesDir/tutor/intentos.csv`, sin datos personales. */
     val tutorHistory by lazy { pe.studyplanner.aipet.data.tutor.TutorHistory(pe.studyplanner.aipet.data.tutor.TutorAttemptStore(java.io.File(filesDir,"tutor/intentos.csv")),applicationScope) }
@@ -43,6 +54,8 @@ class StudyPlannerApplication : Application() {
         AlertJobs.install(this)
         installTutorBanks()
         tutorHistory.start()
+        // Se arma el índice de lo que sabe la mascota antes de la primera pregunta (no bloquea la pantalla).
+        applicationScope.launch { runCatching { studyKnowledge.entries.size } }
         applicationScope.launch {
             try {
                 alertService.reconcile(true)

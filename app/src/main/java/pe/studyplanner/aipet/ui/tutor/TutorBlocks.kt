@@ -42,7 +42,6 @@ import androidx.compose.ui.unit.dp
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
-import pe.studyplanner.aipet.data.tutor.TutorAiPrompt
 import pe.studyplanner.aipet.domain.tutor.SessionSummary
 import pe.studyplanner.aipet.domain.tutor.TutorReviewPlanner
 import pe.studyplanner.aipet.domain.tutor.UnaidedReviewItem
@@ -184,44 +183,6 @@ internal fun OptionButton(
             border = border,
         ) {
             Box(Modifier.padding(horizontal = 14.dp, vertical = 10.dp), contentAlignment = Alignment.CenterStart) { label() }
-        }
-    }
-}
-
-/** Otra explicación por IA (solo si la conexión está configurada). Siempre lleva el rótulo de contenido generado. */
-@Composable
-internal fun AiExplanationBlock(state: AiUi, onRequest: () -> Unit, modifier: Modifier = Modifier) {
-    when (state) {
-        AiUi.Unavailable -> Unit
-        AiUi.Idle -> Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            OutlinedButton(
-                onClick = onRequest,
-                modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp).testTag("tutor_ai_button"),
-            ) { Text("Otra explicación (IA)") }
-            Text(
-                "Se envía a tu servidor de IA el título del tema y su explicación; no tus respuestas ni tu agenda.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        AiUi.Loading -> Row(modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            CircularProgressIndicator(Modifier.size(24.dp), strokeWidth = 3.dp)
-            Text("Pidiendo otra explicación…", Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-        }
-        is AiUi.Ready -> Card(
-            modifier = modifier.fillMaxWidth().testTag("tutor_ai_result"),
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
-        ) {
-            Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(TutorAiPrompt.LABEL, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-                Text(state.text, style = MaterialTheme.typography.bodyMedium)
-                TextButton(onClick = onRequest) { Text("Pedir otra versión") }
-            }
-        }
-        is AiUi.Failed -> Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(state.message, Modifier.semantics { liveRegion = LiveRegionMode.Polite }, color = MaterialTheme.colorScheme.error)
-            OutlinedButton(onClick = onRequest, modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp)) { Text("Reintentar") }
         }
     }
 }

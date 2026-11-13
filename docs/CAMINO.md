@@ -9,9 +9,10 @@ app muestra en `ui/tutor/CaminoScreen.kt`. Se hizo como página porque las expli
 1. El postulante elige su grupo: A Ingenierías, B Biomédicas, C Sociales.
 2. Diagnóstico de 12 preguntas: una por curso del examen y dos en los cursos que pesan 9 o más.
 3. Camino ordenado por lo que más pesa en el examen del grupo y lo que más le falta.
-4. Práctica de 5 preguntas por tema con método socrático; el tema queda dominado con 4 aciertos **a la primera**
-   en las últimas 5 respuestas.
-5. Con Internet y la IA activa: conversación con el tutor.
+4. Práctica de 5 preguntas por tema con respuesta inmediata (ver «Método»); el tema queda dominado con 4 aciertos
+   **a la primera** en las últimas 5 respuestas.
+5. «Repaso de hoy»: cada tema practicado vuelve cuando toca (cajas de Leitner) en una sesión mezclada.
+6. La mascota lee la pregunta y la explicación y se puede responder diciendo «la B». Todo funciona sin Internet.
 
 Distribución de cursos (60 preguntas), tomada de los exámenes CPU y ordinario de 2025 y 2026:
 
@@ -34,9 +35,8 @@ preguntas fijas.
 | `nativo.js` | Títulos de los 52 temas de la app. Lo genera `tools/nativo.py`; no editar a mano. |
 | `datos.js` | Cursos, grupos, lista de temas, idea clave y preguntas fijas (primera tanda). |
 | `datos2.js` | Distribución 2025–2026, curso Zoología y los 18 temas agregados con «examenes 2». |
-| `plan.js` | Lógica sin interfaz: `Plan.diagnostico`, `dominio`, `camino`, `avance`, `anotar`, `pregunta`. |
-| `guia.js` | Preguntas de guía del método socrático: `Guia.de(id, pregunta)`. |
-| `app.js` | Pantallas, navegación, puente con la app y conversación con el tutor. |
+| `plan.js` | Lógica sin interfaz: `Plan.diagnostico`, `dominio`, `camino`, `avance`, `anotar`, `pregunta` y el repaso espaciado (`programar`, `vencidos`, `repaso`, `diasParaRepaso`). |
+| `app.js` | Pantallas, navegación, práctica con respuesta inmediata, repaso, voz y puente con la app. |
 | `camino.css` | Estilos, tema claro y oscuro (`?tema=oscuro`). |
 
 ## Formatos
@@ -54,26 +54,32 @@ la página baraja las alternativas al mostrar.
 
 1. En `datos2.js`: `tema(id, curso, peso, título, R('Curso'), [idea clave…], [preguntas…])`. Mínimo 6 preguntas,
    5 alternativas distintas, explicación de 20 caracteres o más.
-2. En `guia.js`, objeto `F`: dos preguntas de guía que sirvan para todas las preguntas del tema.
-3. Correr `plan_test`, `guia_test` y `nuevos_test` (agregar el id a su lista).
+2. Correr `plan_test` y `nuevos_test` (agregar el id a su lista) y volver a generar la base de «Hablar»
+   (`node herramientas/conocimiento/genera_base.js`).
 
 ### Agregar un generador
 
 1. En `gen4.js` (o un `gen5.js` nuevo, cargado en `index.html`): `G['id'] = (R, dif) => armar(...)`. La respuesta se
    calcula; los distractores salen de errores típicos. Ver un generador vecino como modelo.
 2. En `datos2.js`: añadirlo a la lista con su título e idea clave.
-3. En `guia.js`, objeto `R`: una pregunta de guía por cada paso menos el último, con una regla por tipo de
-   enunciado (`[expresión regular | null, [preguntas…]]`).
-4. Correr `gen_test` (120 semillas por dificultad) y `guia_test` (ninguna pregunta puede caer en la guía genérica).
+3. Correr `gen_test` (120 semillas por dificultad).
 
-## Método socrático (en `app.js`, `V.practica`)
+## Método: práctica de recuperación con respuesta inmediata (en `app.js`, `V.practica`)
 
-- El primer intento es el que se anota para el dominio (`Plan.anotar`).
-- Si falla o marca «No lo sé»: no se muestra la respuesta; se descarta la alternativa fallada y aparece «Tu tutor
-  pregunta». En temas con pasos, cada paso se revela con «Ya lo pensé: ver este paso». En temas de explicación
-  única salen hasta dos preguntas de guía, una por intento.
-- Al tercer error o al agotar la guía se muestra la respuesta. «Ver la solución» está siempre.
-- El resumen separa «N de 5 a la primera» de las que salieron con la guía.
+Reemplaza al método socrático desde la versión 0.25.0 (pedido del usuario el 13 nov). Se apoya en la evidencia sobre
+práctica de recuperación, retroalimentación explicativa, ejemplos resueltos, repaso espaciado e intercalado
+(Dunlosky 2013; Butler y Roediger 2008; van Gog 2011; Rohrer 2020; Cepeda 2008).
+
+- El estudiante responde primero («Comprobar»). El primer intento es el que se anota para el dominio (`Plan.anotar`).
+- Acierta: «¡Bien!» en verde y «Ver por qué» (explicación plegada). A partir de 3 seguidas se muestra la racha.
+- Falla: «Era la C» en rojo, la alternativa correcta marcada y la solución paso a paso a la vista (ejemplo resuelto).
+  La pregunta vuelve al final de la lección: con datos nuevos si el tema tiene generador; la misma, con las
+  alternativas en otro orden, si es de preguntas fijas. «No lo sé» muestra «Así se resuelve» y también vuelve.
+- Lo que vuelve al final no cuenta para el dominio (ya contó el primer intento); el resumen dice «Corregiste N».
+- Al terminar, `Plan.programar` mueve el tema de caja: 4 o 5 de 5 sube (1, 3, 7, 14 y 30 días), 3 de 5 se queda y
+  2 o menos vuelve a mañana. «Repaso de hoy» junta los temas vencidos y pregunta uno de cada tema, en rueda.
+- La mascota dice el veredicto corto (si la voz no está silenciada en Perfil); «Escuchar» lee la pregunta,
+  «Explicar con voz» lee la solución y «Responder con voz» marca la alternativa dictada (no responde sola).
 
 ## Puente con Kotlin
 
@@ -84,28 +90,22 @@ la página baraja las alternativas al mostrar.
 | `cargar()` / `guardar(estado, resumen)` | Estado del camino en `SharedPreferences` (`CaminoStore`). `resumen` es `{g,n,h,t,s,c,d}` para la tarjeta de Estudiar. |
 | `dominio()` | JSON con el dominio de los temas de la app, por id. |
 | `cabecera(título, fracción)` | Título y barra de avance de la pantalla (-1 la oculta). |
-| `evento(tipo)` | `correcta`, `incorrecta`, `duda`, `guiada`, `logro`: mueven la mascota y cuentan para la racha. |
+| `evento(tipo)` | `correcta`, `incorrecta`, `duda`, `corregida`, `racha`, `logro`: mueven la mascota; las tres primeras cuentan para la racha y la meta del día. |
 | `abrirTema(id)` | Abre un tema de la app en su pantalla nativa. |
-| `iaDisponible()` | Si la IA está activa. Sin ella no aparece la conversación. |
-| `tutorIA(id, petición)` | Envía la petición al servidor. La respuesta vuelve con `caminoTutor(id, ok, texto)`. |
-| `pendiente()` | Pregunta que llega desde la práctica nativa (JSON de `TutorBrief.toJson()`), una sola vez. |
-| `cerrar()` | «Volver a mi práctica». |
+| `vozDisponible()`, `escuchaDisponible()`, `silencio()` | Si hay motor de lectura, si hay reconocimiento de voz y si el estudiante silenció la voz en Perfil. |
+| `hablar(texto)`, `callar()` | Lee en voz alta (texto simple; la página convierte el LaTeX con `paraVoz`) o corta la lectura. |
+| `escuchar()` | Dicta una alternativa; vuelve con `caminoOido(índice, texto)` (índice −1 si no se entendió). |
 
 Kotlin llama a la página con `caminoAtras()` (botón atrás; devuelve `false` cuando hay que salir), `caminoVolver()`
-(al regresar de un tema nativo) y `caminoTutor(...)`.
+(al regresar de un tema nativo) y `caminoOido(...)`.
 
-En un navegador, sin `AndroidCamino`, la página guarda en `localStorage`: así se prueba.
+En un navegador, sin `AndroidCamino`, la página guarda en `localStorage` y no muestra los botones de voz: así se
+prueba.
 
-## Tutor con IA
-
-`app.js` arma una sola línea de hasta 3400 caracteres: quién es el tutor, curso y tema, pregunta, alternativas,
-respuesta correcta, solución de referencia, los últimos 6 turnos, lo que dice el estudiante y las reglas. Hay dos
-juegos de reglas: `R_ABIERTA` (todavía no resuelve: no decir la respuesta ni la letra, una sola pregunta por turno,
-máximo 70 palabras) y `R_VISTA` (ya vio la solución: explicar su duda y terminar con una pregunta).
-Kotlin limpia la petición (`CaminoAiPrompt.relay`), la envía y traduce los fallos (`failureText`).
-A los 9 s sin respuesta la página muestra «Sigo pensando…» y a los 60 s da por perdida la petición.
+La conversación con un tutor con IA dentro del camino se quitó en la 0.25.0: la IA en línea queda solo en «Hablar»,
+como respaldo de lo que la mascota sabe sin Internet.
 
 ## Pruebas
 
-En `pruebas-web/` (ver su `LEEME.md`). `gen_test`, `plan_test` y `guia_test` solo necesitan Node. Las demás usan
+En `pruebas-web/` (ver su `LEEME.md`). `gen_test`, `plan_test` y `repaso_test` solo necesitan Node. Las demás usan
 Playwright contra la página servida en el puerto 8771 y dejan capturas en `pruebas-web/cap`.

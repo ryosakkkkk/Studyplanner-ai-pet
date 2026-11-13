@@ -13,8 +13,12 @@ const { chromium } = require('playwright');
       cabecera: (t, f) => { L.push(['cabecera', t, f, typeof t, typeof f]); },
       evento: t => { L.push(['evento', t]); },
       abrirTema: id => { L.push(['abrirTema', id]); },
-      iaDisponible: () => true,
-      tutorIA: (id, pet) => { L.push(['tutorIA', id, pet, typeof id, typeof pet]); },
+      vozDisponible: () => true,
+      escuchaDisponible: () => true,
+      silencio: () => false,
+      hablar: t => { L.push(['hablar', t, typeof t]); },
+      callar: () => { L.push(['callar']); },
+      escuchar: () => { L.push(['escuchar']); setTimeout(() => window.caminoOido(1, 'la be'), 50); },
     };
   });
   const fallas = []; const ok = (c, m) => { if (!c) fallas.push(m); };
@@ -62,29 +66,24 @@ const { chromium } = require('playwright');
   await p.click('.opc >> nth=' + c); await p.click('#resp'); await p.waitForTimeout(200);
   L = await p.evaluate(() => window.__llamadas);
   ok(L.some(x => x[0] === 'evento' && x[1] === 'correcta'), 'sin evento correcta');
-  const hayIA = await p.$('#ab');
-  ok(!!hayIA, 'no aparece la entrada al tutor con la IA disponible');
-  if (hayIA) {
-    await p.click('#ab'); await p.fill('#msg', '¿por qué sale esa proporción?'); await p.click('#env'); await p.waitForTimeout(80);
-    L = await p.evaluate(() => window.__llamadas);
-    const e = L.find(x => x[0] === 'tutorIA');
-    // lo que CaminoBridge.tutorIA y CaminoAiPrompt.relay esperan: dos textos, identificador de letras y números, una línea, menos de 3800
-    ok(e && e[3] === 'string' && e[4] === 'string' && /^[a-zA-Z0-9]{1,24}$/.test(e[1]) && e[2].length > 200 && e[2].length <= 3800 && !/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(e[2]), 'tutorIA con argumentos malos ' + JSON.stringify(e).slice(0, 200));
-    console.log('tutorIA', e[1], e[2].length, 'caracteres:', e[2].slice(0, 230) + ' … ' + e[2].slice(-150));
-    await p.evaluate(id => caminoTutor(id, true, 'Texto de prueba de la IA.'), e[1]); await p.waitForTimeout(80);
-    const t = await p.evaluate(() => document.body.innerText);
-    ok(t.includes('Texto de prueba de la IA.') && t.includes('Responde una IA y puede equivocarse'), 'la respuesta de la IA no se muestra con su aviso');
-  }
+  // voz: tras acertar la mascota dice el veredicto corto; «Explicar con voz» lee la solución en texto simple
+  ok(L.some(x => x[0] === 'hablar' && x[2] === 'string' && x[1].length < 40), 'la mascota no dijo el veredicto');
+  await p.click('#expl'); await p.waitForTimeout(80);
+  L = await p.evaluate(() => window.__llamadas);
+  const leida = L.filter(x => x[0] === 'hablar').pop();
+  ok(leida && leida[1].length > 20 && !/[$\\<>]/.test(leida[1]), 'la explicación hablada trae LaTeX o etiquetas: ' + (leida && leida[1].slice(0, 120)));
   await p.click('#sig'); await p.waitForTimeout(80);
+  // responder con la voz: «la be» marca la B, pero no responde sola
+  await p.click('#mic'); await p.waitForTimeout(200);
+  ok((await p.evaluate(() => caminoEstado().ses.sel)) === 1 && !(await p.evaluate(() => caminoEstado().ses.visto)), 'el dictado no marcó la B o respondió solo');
   const w = await p.evaluate(() => caminoEstado().ses.q.c);
   await p.click('.opc >> nth=' + ((w + 1) % 5)); await p.click('#resp'); await p.waitForTimeout(200);
-  await p.click('.opc >> nth=' + w); await p.click('#resp'); await p.waitForTimeout(100);
   await p.click('#sig'); await p.waitForTimeout(80); await p.click('#ns'); await p.waitForTimeout(80);
   L = await p.evaluate(() => window.__llamadas);
   const evs = L.filter(x => x[0] === 'evento').map(x => x[1]);
-  ok(['incorrecta', 'guiada', 'duda'].every(x => evs.includes(x)), 'faltan eventos de la guía: ' + JSON.stringify(evs));
+  ok(['incorrecta', 'duda'].every(x => evs.includes(x)), 'faltan eventos: ' + JSON.stringify(evs));
   // los mismos nombres que atiende onEvent en CaminoScreen.kt
-  ok(evs.every(x => ['correcta', 'incorrecta', 'duda', 'guiada', 'logro'].includes(x)), 'evento desconocido');
+  ok(evs.every(x => ['correcta', 'incorrecta', 'duda', 'corregida', 'racha', 'logro'].includes(x)), 'evento desconocido');
   // «atrás» dentro de la práctica: la página lo maneja (devuelve true)
   ok((await p.evaluate(() => caminoAtras())) === true, 'caminoAtras en la práctica debe devolver true');
   console.log('llamadas', L.length, 'eventos', JSON.stringify(L.filter(x => x[0] === 'evento').map(x => x[1])));

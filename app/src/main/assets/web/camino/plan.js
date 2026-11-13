@@ -107,5 +107,44 @@
     if (i != null) { r.v.push(i); if (r.v.length > 4) r.v.shift(); }
     S.ult = id;
   }
-  root.Plan = { temas, tema, temasDe, temasCurso, pregunta, diagnostico, dominio, estado, nivelCurso, camino, avance, anotar, tieneFuente };
+
+  // ---------- repaso espaciado (cajas de Leitner): cada tema practicado vuelve cuando toca, no antes
+  // Caja 1 = mañana, 2 = en 3 días, 3 = en 7, 4 = en 14, 5 = en 30. Acertar sube de caja; fallar la devuelve a la 1.
+  const INTERVALOS = [0, 1, 3, 7, 14, 30];
+  const dos = n => (n < 10 ? '0' : '') + n;
+  const fechaISO = d => d.getFullYear() + '-' + dos(d.getMonth() + 1) + '-' + dos(d.getDate());
+  const hoy = () => fechaISO(new Date());
+  function sumarDias(iso, n) { const p = String(iso).split('-').map(Number); return fechaISO(new Date(p[0], p[1] - 1, p[2] + n)); }
+  // resultado de una sesión (o de una pregunta de repaso) en un tema: mueve su caja y fija el próximo repaso
+  function programar(S, id, aciertos, total, dia) {
+    S.rep = S.rep || {}; const r = S.rep[id] = S.rep[id] || { c: 1, p: dia };
+    const f = total > 0 ? aciertos / total : 0;
+    r.c = f >= 0.8 ? Math.min(5, r.c + 1) : f >= 0.5 ? Math.max(1, r.c) : 1;
+    r.p = sumarDias(dia, INTERVALOS[r.c]);
+    return r;
+  }
+  // días que faltan para el repaso de un tema (0 = hoy o ya venció; null = nunca practicado)
+  function diasParaRepaso(S, id, dia) {
+    const r = (S.rep || {})[id]; if (!r) return null;
+    const a = String(dia).split('-').map(Number), b = String(r.p).split('-').map(Number);
+    return Math.max(0, Math.round((new Date(b[0], b[1] - 1, b[2]) - new Date(a[0], a[1] - 1, a[2])) / 86400000));
+  }
+  // temas del grupo (de la página, no los de la app) con el repaso vencido, el más atrasado primero
+  function vencidos(S, dia) {
+    if (!S.grupo || !S.rep) return [];
+    return temasDe(S.grupo).filter(t => !t.nat && tieneFuente(t) && S.rep[t.id] && S.rep[t.id].p <= dia)
+      .sort((a, b) => (S.rep[a.id].p < S.rep[b.id].p ? -1 : S.rep[a.id].p > S.rep[b.id].p ? 1 : 0));
+  }
+  // preguntas del repaso de hoy: intercaladas (un tema distinto en cada una, en rueda), máximo n
+  function repaso(S, dia, semilla, n) {
+    const ts = vencidos(S, dia).slice(0, 6); if (!ts.length) return [];
+    const R = GEN().rng(semilla), out = [], cant = Math.min(n || 6, Math.max(3, ts.length));
+    for (let k = 0; out.length < cant && k < cant * 3; k++) {
+      const t = ts[k % ts.length], q = pregunta(t, R.int(1, 2000000000), 2, ((S.t || {})[t.id] || {}).v);
+      if (q) out.push(q);
+    }
+    return out;
+  }
+  root.Plan = { temas, tema, temasDe, temasCurso, pregunta, diagnostico, dominio, estado, nivelCurso, camino, avance, anotar, tieneFuente,
+    INTERVALOS, hoy, sumarDias, programar, diasParaRepaso, vencidos, repaso };
 })(typeof window !== 'undefined' ? window : globalThis);

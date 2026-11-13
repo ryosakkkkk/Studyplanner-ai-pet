@@ -58,7 +58,9 @@ object PetFeedback {
                 PetSignal(PetExpression.PENSAR, "Pista $shown de ${Exercise.HINT_COUNT}", PetSound.PISTA)
             }
             TutorScreen.WRONG_ANSWER -> PetSignal(expressionFor(state.cue), "Intenta otra vez", PetSound.ERROR)
-            TutorScreen.SOLUTION -> PetSignal(expressionFor(state.cue), "Mira la solución")
+            // Tras un error (la mascota anima) suena el aviso de error; si la pidió, solo cambia la cara.
+            TutorScreen.SOLUTION -> PetSignal(expressionFor(state.cue), "Mira la solución",
+                if (state.cue == PetCue.ENCOURAGE) PetSound.ERROR else null)
             TutorScreen.CORRECT -> PetSignal(expressionFor(state.cue), "¡Correcto!", PetSound.CORRECTO)
             TutorScreen.UNAIDED_INTRO -> PetSignal(expressionFor(state.cue), "Ahora, sin ayuda")
             TutorScreen.SUMMARY -> summarySignal(state.cue)

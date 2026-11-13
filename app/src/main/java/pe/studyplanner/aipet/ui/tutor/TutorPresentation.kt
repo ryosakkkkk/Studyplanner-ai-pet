@@ -18,7 +18,7 @@ internal object TutorPresentation {
         val p = state.progress
         return when (state.phase) {
             Phase.LEARN -> "Aprender · paso ${p.current} de ${p.total}"
-            Phase.GUIDED_PRACTICE -> "Práctica guiada · ejercicio ${p.current} de ${p.total}"
+            Phase.GUIDED_PRACTICE -> "Práctica · ${p.current} de ${p.total}"
             Phase.UNAIDED_CHECK ->
                 if (p.current <= 0) "Comprobación sin ayuda" else "Comprobación sin ayuda · ${p.current} de ${p.total}"
             Phase.SUMMARY -> "Resumen"
@@ -76,9 +76,8 @@ internal object TutorPresentation {
     fun nextLabel(state: TutorState): String = when (state.screen) {
         TutorScreen.WORKED_EXAMPLE -> "Empezar a practicar"
         TutorScreen.UNAIDED_INTRO -> "Empezar la comprobación"
-        TutorScreen.CORRECT ->
+        TutorScreen.CORRECT, TutorScreen.SOLUTION ->
             if (state.progress.current >= state.progress.total) "Ir a la comprobación sin ayuda" else "Siguiente ejercicio"
-        TutorScreen.SOLUTION -> "Seguir sin repetir"
         else -> "Continuar"
     }
 }

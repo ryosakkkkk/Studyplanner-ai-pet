@@ -208,8 +208,7 @@ fun StudyPlannerApp(model: ProfileViewModel, academicRepository: AcademicReposit
                                             onBack={nav.popBackStack()},onOpenAgenda={scope->nav.navigate("academic/${scope.name}")},
                                             onOpenPlanner={scope->nav.navigate("planner/${scope.name}")},
                                             onOpenAlerts={scope->nav.navigate("alerts/${scope.name}")},
-                                            voiceEnabled=voiceEnabled,profile=current,onTogglePet=model::togglePet,onNavigate=navigateSection,
-                                            onAiSettings={nav.navigate("ai/connection")})
+                                            voiceEnabled=voiceEnabled,profile=current,onTogglePet=model::togglePet,onNavigate=navigateSection)
                                 }
                             }
                             composable("create/{kind}") { entry ->
@@ -248,25 +247,15 @@ fun StudyPlannerApp(model: ProfileViewModel, academicRepository: AcademicReposit
                             composable("appearance") {
                                 pe.studyplanner.aipet.ui.companion.AppearanceScreen(current,saveState,onTheme={theme->model.save(current.copy(theme=theme))},onBack={nav.popBackStack()})
                             }
-                            composable("ai/connection") {
-                                val app=LocalContext.current.applicationContext as? pe.studyplanner.aipet.StudyPlannerApplication
-                                if(app!=null)pe.studyplanner.aipet.ui.agent.AiConnectionScreen(app.aiConnection,onBack={nav.popBackStack()})
-                            }
                             composable("pet/reactions") {
                                 pe.studyplanner.aipet.ui.companion.PetReactionsScreen(current,onBack={nav.popBackStack()})
                             }
                             composable("camino") {
                                 val app=LocalContext.current.applicationContext as? pe.studyplanner.aipet.StudyPlannerApplication
-                                if(app!=null) {
-                                    val aiState by app.aiConnection.state.collectAsStateWithLifecycle()
-                                    // El tutor del camino conversa con la misma IA en la nube que el resto de la app, solo si está activa.
-                                    val transport=remember(aiState.enabled,aiState.hasToken,aiState.endpoint) {
-                                        if(aiState.enabled && aiState.hasToken && aiState.endpoint.isNotBlank()) pe.studyplanner.aipet.data.ai.GeminiProxyClient(app.aiConnection) else null
-                                    }
-                                    pe.studyplanner.aipet.ui.tutor.CaminoScreen(profile=current,history=app.tutorHistory,ai=transport,
-                                        onBack={nav.popBackStack()},
-                                        onOpenTopic={id->nav.navigate("tutor/$id"){launchSingleTop=true}})
-                                }
+                                // El camino funciona sin Internet; la mascota lee y escucha con la voz del teléfono.
+                                if(app!=null) pe.studyplanner.aipet.ui.tutor.CaminoScreen(profile=current,history=app.tutorHistory,voiceEnabled=voiceEnabled,
+                                    onBack={nav.popBackStack()},
+                                    onOpenTopic={id->nav.navigate("tutor/$id"){launchSingleTop=true}})
                             }
                             composable(AppSection.PRACTICE.route) {
                                 val app=LocalContext.current.applicationContext as? pe.studyplanner.aipet.StudyPlannerApplication
@@ -278,24 +267,14 @@ fun StudyPlannerApp(model: ProfileViewModel, academicRepository: AcademicReposit
                                 androidx.navigation.navArgument("comprobar") { type = androidx.navigation.NavType.BoolType; defaultValue = false },
                             )) { entry ->
                                 val app=LocalContext.current.applicationContext as? pe.studyplanner.aipet.StudyPlannerApplication
-                                if(app!=null) {
-                                    val aiState by app.aiConnection.state.collectAsStateWithLifecycle()
-                                    // «Otra explicación (IA)» solo aparece si el estudiante ya activó la IA en la nube.
-                                    val explainer=remember(aiState.enabled,aiState.hasToken,aiState.endpoint) {
-                                        if(aiState.enabled && aiState.hasToken && aiState.endpoint.isNotBlank())
-                                            pe.studyplanner.aipet.data.tutor.TutorAiExplainer(pe.studyplanner.aipet.data.ai.GeminiProxyClient(app.aiConnection))
-                                        else null
-                                    }
-                                    pe.studyplanner.aipet.ui.tutor.TutorScreen(
-                                        topicId=entry.arguments?.getString("topicId").orEmpty(),
-                                        history=app.tutorHistory,petLink=app.petLink,academic=academicRepository,ai=explainer,
-                                        profile=current,voiceEnabled=voiceEnabled,
-                                        onBack={nav.popBackStack()},
-                                        onOpenAgenda={nav.navigate("calendar"){launchSingleTop=true}},
-                                        startAtCheck=entry.arguments?.getBoolean("comprobar") == true,
-                                        // Con la IA activa, la pregunta abierta se puede conversar con el tutor (página del camino).
-                                        onAskTutor=if(explainer!=null){json->pe.studyplanner.aipet.data.tutor.CaminoHandoff.put(json);nav.navigate("camino"){launchSingleTop=true}}else null)
-                                }
+                                // La práctica funciona sin Internet: explicación, ejemplo resuelto y solución inmediata al fallar.
+                                if(app!=null) pe.studyplanner.aipet.ui.tutor.TutorScreen(
+                                    topicId=entry.arguments?.getString("topicId").orEmpty(),
+                                    history=app.tutorHistory,petLink=app.petLink,academic=academicRepository,
+                                    profile=current,voiceEnabled=voiceEnabled,
+                                    onBack={nav.popBackStack()},
+                                    onOpenAgenda={nav.navigate("calendar"){launchSingleTop=true}},
+                                    startAtCheck=entry.arguments?.getBoolean("comprobar") == true)
                             }
                             composable("account") {
                                 val account = pe.studyplanner.aipet.ui.account.rememberCloudAccount()
@@ -306,7 +285,7 @@ fun StudyPlannerApp(model: ProfileViewModel, academicRepository: AcademicReposit
                                 if(app!=null)pe.studyplanner.aipet.ui.companion.PhysicalPetScreen(app.petLink,onBack={nav.popBackStack()})
                             }
                             composable(AppSection.SETTINGS.route) {
-                                ProfileHubScreen(current,onBack={nav.popBackStack()},onEdit={nav.navigate("profile/edit")},onPersonalize={nav.navigate("personalize")},onAppearance={nav.navigate("appearance")},onNavigate=navigateSection,onAiSettings={nav.navigate("ai/connection")},onPhysicalPet={nav.navigate("physical-pet")},onAccount={nav.navigate("account")})
+                                ProfileHubScreen(current,onBack={nav.popBackStack()},onEdit={nav.navigate("profile/edit")},onPersonalize={nav.navigate("personalize")},onAppearance={nav.navigate("appearance")},onNavigate=navigateSection,onPhysicalPet={nav.navigate("physical-pet")},onAccount={nav.navigate("account")})
                             }
                             listOf("profile/edit","personalize").forEach { route -> composable(route) {
                                 ProfileEditor(current,false,saveState,model::save,model::clearSaveMessage,onBack={nav.popBackStack()},voiceEnabled=voiceEnabled,hasAlerts=alertService!=null,

@@ -65,7 +65,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import pe.studyplanner.aipet.data.tutor.TutorAiExplainer
 import pe.studyplanner.aipet.data.tutor.TutorHistory
 import pe.studyplanner.aipet.domain.academic.AcademicRepository
 import pe.studyplanner.aipet.domain.companion.PetFeedback
@@ -100,13 +99,11 @@ fun TutorScreen(
     history: TutorHistory,
     petLink: PetLink,
     academic: AcademicRepository?,
-    ai: TutorAiExplainer?,
     profile: UserProfile,
     voiceEnabled: Boolean,
     onBack: () -> Unit,
     onOpenAgenda: () -> Unit,
     startAtCheck: Boolean = false,
-    onAskTutor: ((String) -> Unit)? = null,
 ) {
     LaunchedEffect(history) { history.start() }
     val data by history.state.collectAsStateWithLifecycle()
@@ -125,7 +122,7 @@ fun TutorScreen(
             actionLabel = "Volver",
             onAction = onBack,
         )
-        else -> TutorSessionScreen(topicId, history, petLink, academic, ai, profile, voiceEnabled, onBack, onOpenAgenda, startAtCheck, onAskTutor)
+        else -> TutorSessionScreen(topicId, history, petLink, academic, profile, voiceEnabled, onBack, onOpenAgenda, startAtCheck)
     }
 }
 
@@ -160,32 +157,23 @@ private fun TutorSessionScreen(
     history: TutorHistory,
     petLink: PetLink,
     academic: AcademicRepository?,
-    ai: TutorAiExplainer?,
     profile: UserProfile,
     voiceEnabled: Boolean,
     onBack: () -> Unit,
     onOpenAgenda: () -> Unit,
     startAtCheck: Boolean,
-    onAskTutor: ((String) -> Unit)?,
 ) {
     val model: TutorViewModel = viewModel(
         key = "tutor-$topicId",
-        factory = remember(topicId, history, petLink, academic, ai, profile.zoneId) {
+        factory = remember(topicId, history, petLink, academic, profile.zoneId) {
             object : ViewModelProvider.Factory {
                 @Suppress("UNCHECKED_CAST")
                 override fun <T : ViewModel> create(modelClass: Class<T>): T =
-                    TutorViewModel(topicId, history, petLink, academic, ai, profile.zoneId) as T
+                    TutorViewModel(topicId, history, petLink, academic, profile.zoneId) as T
             }
         },
     )
     val coordinator = model.coordinator
-    // «Preguntarle al tutor»: abre la conversación con la IA sobre el ejercicio abierto (solo en la práctica guiada).
-    val askTutor: (() -> Unit)? = if (onAskTutor == null) null else {
-        {
-            val brief = coordinator.tutorBrief()
-            if (brief != null) onAskTutor(brief.toJson())
-        }
-    }
     // «Comprobar» desde Hoy: una sola vez por sesión, aunque la pantalla se recree.
     var checkRequested by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(coordinator, startAtCheck) {
@@ -374,7 +362,6 @@ private fun TutorSessionScreen(
                         tutor = tutor,
                         ui = ui,
                         listenButton = { ListenButton(voice, caps?.ttsEngineAvailable == true, reading, tutor.speech) },
-                        onRequestAi = { coordinator.requestAiExplanation() },
                         onBack = { coordinator.back() },
                         onNext = { coordinator.next() },
                         onSkip = { coordinator.skipLearn() },
@@ -410,7 +397,6 @@ private fun TutorSessionScreen(
                         onRetry = { coordinator.retry() },
                         onNext = { coordinator.next() },
                         onVoice = { beginVoiceAnswer() },
-                        onAskTutor = askTutor,
                     )
                 }
             }
@@ -526,14 +512,12 @@ private fun LearnContent(
     tutor: TutorState,
     ui: TutorUiState,
     listenButton: @Composable () -> Unit,
-    onRequestAi: () -> Unit,
     onBack: () -> Unit,
     onNext: () -> Unit,
     onSkip: () -> Unit,
 ) {
     TutorMessageCard(tutor.title, tutor.text)
     listenButton()
-    if (tutor.screen == TutorStep.EXPLANATION) AiExplanationBlock(ui.ai, onRequestAi)
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         if (TutorAction.BACK in tutor.actions) {
             OutlinedButton(
@@ -579,7 +563,6 @@ private fun ExerciseContent(
     onRetry: () -> Unit,
     onNext: () -> Unit,
     onVoice: () -> Unit,
-    onAskTutor: (() -> Unit)?,
 ) {
     val exercise = tutor.exercise ?: return
     if (tutor.screen == TutorStep.QUESTION) {
@@ -610,13 +593,6 @@ private fun ExerciseContent(
         ) { Text("Responder con la voz") }
     }
     listenButton()
-    // El tutor no da la respuesta: conversa con preguntas. En la comprobación sin ayuda no se ofrece.
-    if (onAskTutor != null && tutor.phase == Phase.GUIDED_PRACTICE) {
-        TextButton(
-            onClick = onAskTutor,
-            modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).testTag("tutor_ask"),
-        ) { Text("Preguntarle al tutor") }
-    }
     if (TutorAction.SHOW_SOLUTION in tutor.actions) {
         OutlinedButton(
             onClick = onSolution,
@@ -766,7 +742,7 @@ private fun VoiceAnswerCard(
 private fun feedbackTitle(screen: TutorStep): String = when (screen) {
     TutorStep.WRONG_ANSWER -> "Revisemos"
     TutorStep.CORRECT -> "¡Muy bien!"
-    TutorStep.SOLUTION -> "Solución paso a paso"
+    TutorStep.SOLUTION -> "Mira la solución"
     else -> "Tutor"
 }
 

@@ -16,8 +16,6 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import pe.studyplanner.aipet.data.tutor.AiExplanation
-import pe.studyplanner.aipet.data.tutor.TutorAiExplainer
 import pe.studyplanner.aipet.data.tutor.TutorHistory
 import pe.studyplanner.aipet.domain.academic.AcademicRepository
 import pe.studyplanner.aipet.domain.academic.DatasetScope
@@ -35,7 +33,6 @@ import pe.studyplanner.aipet.domain.tutor.ReviewProposal
 import pe.studyplanner.aipet.domain.tutor.SessionConfig
 import pe.studyplanner.aipet.domain.tutor.Topic
 import pe.studyplanner.aipet.domain.tutor.TutorAction
-import pe.studyplanner.aipet.domain.tutor.TutorBrief
 import pe.studyplanner.aipet.domain.tutor.TutorClock
 import pe.studyplanner.aipet.domain.tutor.TutorCatalog
 import pe.studyplanner.aipet.domain.tutor.TutorContent
@@ -68,15 +65,6 @@ sealed interface ReviewUi {
     data object Declined : ReviewUi
 }
 
-/** Otra explicación generada por IA (solo si el estudiante configuró la conexión). */
-sealed interface AiUi {
-    data object Unavailable : AiUi
-    data object Idle : AiUi
-    data object Loading : AiUi
-    data class Ready(val text: String) : AiUi
-    data class Failed(val message: String) : AiUi
-}
-
 /** Pedidos de la mascota física que solo la pantalla puede atender. */
 enum class TutorEffect {
     /** `BTN:TALK`: empezar a escuchar una respuesta dictada (la pantalla pide el aviso y el permiso del micrófono). */
@@ -92,13 +80,12 @@ data class TutorUiState(
     val topic: Topic,
     val tutor: TutorState,
     val review: ReviewUi = ReviewUi.None,
-    val ai: AiUi = AiUi.Unavailable,
     val hintsUsed: Int = 0,
 )
 
 /**
  * Orquesta una sesión de práctica: la máquina de estados del motor ([TutorSession]), el historial en disco, la
- * mascota física, el repaso en la agenda y la explicación opcional por IA. No depende de Android ni de Compose: la
+ * mascota física y el repaso en la agenda. Funciona sin Internet. No depende de Android ni de Compose: la
  * pantalla solo dibuja [ui] y llama a estos métodos, y las pruebas de la JVM lo ejercitan completo.
  *
  * Hay que usarla desde un solo hilo (el principal): [TutorSession] no es segura entre hilos.
@@ -115,7 +102,6 @@ class TutorCoordinator(
     private val history: TutorHistory,
     private val petLink: PetLink,
     private val academic: AcademicRepository?,
-    private val ai: TutorAiExplainer?,
     private val zoneId: String,
     private val clock: TutorClock = TutorClock.SYSTEM,
     private val today: () -> LocalDate = { todayIn(zoneId) },
@@ -170,9 +156,6 @@ class TutorCoordinator(
     fun showSolution() = advance { it.showSolution() }
     fun retry() = advance { it.retry() }
     fun dontKnow() = advance { it.dontKnow() }
-
-    /** Material del ejercicio abierto para conversar con el tutor; `null` fuera de la práctica guiada. */
-    fun tutorBrief(): TutorBrief? = session.tutorBrief()
 
     /** Empieza una sesión nueva del mismo tema, con ejercicios distintos. */
     fun restart() {
@@ -230,22 +213,6 @@ class TutorCoordinator(
         }
     }
 
-    // ---- explicación opcional por IA ----
-
-    fun requestAiExplanation() {
-        val explainer = ai ?: return
-        val current = mutableUi.value.ai
-        if (current is AiUi.Loading || current is AiUi.Unavailable) return
-        mutableUi.update { it.copy(ai = AiUi.Loading) }
-        scope.launch {
-            val outcome = when (val result = explainer.explain(topic, zoneId)) {
-                is AiExplanation.Success -> AiUi.Ready(result.text)
-                is AiExplanation.Failure -> AiUi.Failed(result.message)
-            }
-            mutableUi.update { it.copy(ai = outcome) }
-        }
-    }
-
     /** Se llama al salir de la pantalla: la mascota vuelve a reposo. */
     fun close() {
         speechSync.release(restoreFace = false)
@@ -264,7 +231,6 @@ class TutorCoordinator(
     private fun initialUi(): TutorUiState = TutorUiState(
         topic = topic,
         tutor = session.start(),
-        ai = if (ai == null) AiUi.Unavailable else AiUi.Idle,
     )
 
     private fun advance(action: (TutorSession) -> TutorState) {

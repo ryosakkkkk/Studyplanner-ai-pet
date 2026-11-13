@@ -69,7 +69,7 @@ class AiConnectionStore(context:Context,private val preferencesName:String="ai_c
             val cipher=Cipher.getInstance("AES/GCM/NoPadding")
             cipher.init(Cipher.DECRYPT_MODE,key(),GCMParameterSpec(128,Base64.decode(parts[0],Base64.NO_WRAP)))
             String(cipher.doFinal(Base64.decode(parts[1],Base64.NO_WRAP)),Charsets.UTF_8)
-        } catch(_:Exception){error("No se pudo abrir el código guardado. Introdúcelo de nuevo en Conectar IA.")}
+        } catch(_:Exception){error("No se pudo abrir el código guardado de la IA.")}
     }
     private fun key():SecretKey {
         val store=KeyStore.getInstance("AndroidKeyStore").apply{load(null)}

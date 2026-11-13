@@ -41,8 +41,7 @@ import pe.studyplanner.aipet.ui.voice.VoicePanel
 fun AgentScreen(gateway:AgentGateway,onBack:()->Unit,onOpenAgenda:(DatasetScope)->Unit,
     onOpenPlanner:(DatasetScope)->Unit,onOpenAlerts:(DatasetScope)->Unit,
     voiceEnabled:Boolean=false,profile:UserProfile=UserProfile(),onTogglePet:()->Unit={},
-    voiceSession:VoiceSession?=null, onNavigate:((pe.studyplanner.aipet.ui.components.AppSection)->Unit)?=null,
-    onAiSettings:(()->Unit)?=null) {
+    voiceSession:VoiceSession?=null, onNavigate:((pe.studyplanner.aipet.ui.components.AppSection)->Unit)?=null) {
     val model:AgentChatViewModel=viewModel(factory=remember(gateway){object:ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST") override fun <T:ViewModel> create(modelClass:Class<T>):T=AgentChatViewModel(gateway) as T
     }})
@@ -141,8 +140,7 @@ fun AgentScreen(gateway:AgentGateway,onBack:()->Unit,onOpenAgenda:(DatasetScope)
         LazyColumn(Modifier.fillMaxSize().padding(padding).testTag("agent_content"),state=listState,
             contentPadding=PaddingValues(20.dp),verticalArrangement=Arrangement.spacedBy(14.dp)) {
             item {
-                Text(if(aiConnection?.enabled==true && state.scope==DatasetScope.PERSONAL) "IA en la nube activada · las órdenes conocidas se resuelven en el teléfono" else "Comandos locales · funcionan sin conectar IA", style=MaterialTheme.typography.bodySmall)
-                if(onAiSettings!=null && aiConnection?.builtIn!=true)TextButton(onClick=onAiSettings,enabled=canSend){Text(if(aiConnection?.enabled==true)"Conexión IA" else "Conectar IA")}
+                Text(if(aiConnection?.enabled==true && state.scope==DatasetScope.PERSONAL) "Responde sin Internet con lo que sabe; con Internet puede preguntar a la IA" else "Responde sin Internet con lo que sabe", style=MaterialTheme.typography.bodySmall)
                 if(chatSettings) {
                 Row(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     FilterChip(selected=state.scope==DatasetScope.PERSONAL,onClick={if(state.scope!=DatasetScope.PERSONAL){voice?.discardTranscript();showVoice=false;text="";model.changeScope(DatasetScope.PERSONAL)}},

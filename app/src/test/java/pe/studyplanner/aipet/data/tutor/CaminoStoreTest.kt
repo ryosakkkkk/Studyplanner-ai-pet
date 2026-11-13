@@ -87,42 +87,4 @@ class CaminoStoreTest {
         assertNull(CaminoSummary.parse("no es json"))
         assertNull(CaminoSummary.parse("[1,2]"))
     }
-
-    @Test
-    fun laPeticionDelTutorVaEnUnaSolaLineaYConTope() {
-        val prompt = CaminoAiPrompt.relay("  Eres un tutor.\nPregunta: «Si x + 1 = 5,\tcalcula x»\u0000\r\n El estudiante dice ahora: «no sé»  ")
-        assertEquals("Eres un tutor. Pregunta: «Si x + 1 = 5, calcula x» El estudiante dice ahora: «no sé»", prompt)
-        val long = CaminoAiPrompt.relay("palabra\n".repeat(2_000))
-        assertFalse(long.any { Character.isISOControl(it) })
-        assertTrue(long.length <= CaminoAiPrompt.MAX_REQUEST)
-        assertTrue(CaminoAiPrompt.MAX_REQUEST <= 4_000)
-    }
-
-    @Test
-    fun elTutorMuestraPreguntasYRespuestasPeroNoOrdenes() {
-        assertEquals("¿Qué fórmula usarías?", CaminoAiPrompt.replyText("answer", "**¿Qué fórmula usarías?**"))
-        assertEquals("¿Cuánto vale a?", CaminoAiPrompt.replyText("clarify", " ¿Cuánto vale a? "))
-        assertEquals(CaminoAiPrompt.ONLY_STUDY, CaminoAiPrompt.replyText("command", "muestra mis pendientes"))
-        assertNull(CaminoAiPrompt.replyText("answer", "  "))
-        assertNull(CaminoAiPrompt.replyText("otro", "texto"))
-    }
-
-    @Test
-    fun elFalloDelServidorSeExplicaSinHablarDeComandos() {
-        val limit = CaminoAiPrompt.failureText("Se alcanzó el límite de uso. Puedes continuar con los comandos locales.")
-        assertTrue(limit.contains("límite"))
-        assertFalse(limit.contains("comandos"))
-        assertTrue(CaminoAiPrompt.failureText("El código de acceso no es válido. Revisa Conectar IA.").contains("Conectar IA"))
-        assertEquals("", CaminoAiPrompt.failureText("La IA no respondió (HTTP 502). No se aplicó ningún cambio."))
-        assertEquals("", CaminoAiPrompt.failureText(null))
-    }
-
-    @Test
-    fun laPreguntaParaElTutorSeEntregaUnaSolaVez() {
-        assertEquals("", CaminoHandoff.take())
-        CaminoHandoff.put("{\"e\":\"2 + 2\"}")
-        CaminoHandoff.put("{\"e\":\"3 + 3\"}")
-        assertEquals("{\"e\":\"3 + 3\"}", CaminoHandoff.take())
-        assertEquals("", CaminoHandoff.take())
-    }
 }
