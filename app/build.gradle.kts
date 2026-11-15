@@ -13,8 +13,8 @@ android {
         applicationId = "pe.studyplanner.aipet"
         minSdk = 26
         targetSdk = 36
-        versionCode = 42
-        versionName = "0.25.0"
+        versionCode = 43
+        versionName = "0.26.0"
         // Conexión opcional al servidor de IA (GPT-5 mini o IA gratuita): ACTIVAR_IA.bat crea ia_local.properties (no se sube a git).
         val ia = Properties().apply {
             val file = rootProject.file("ia_local.properties")

@@ -1,6 +1,21 @@
-# StudyPlanner AI Pet — estado del proyecto (13 nov 2026, 02:15)
+# StudyPlanner AI Pet — estado del proyecto (15 nov 2026, 19:00)
 
 Entrega FERCYT categoría E (artículo + diseño). Presentación con la APK: 13 nov. Se trabaja en dos PC: `desktop-1n2njj8` (usuario `USER`) y `desktop-8sqpasg` (usuario `Usuario`, con emulador). Rutas de cada una en `CLAUDE.md`.
+
+## Versión 0.26.0 (15 nov, PC desktop-8sqpasg): «Exámenes UNAMBA» con las preguntas reales
+- **Pedido del usuario:** usar todas las preguntas de los exámenes (informó que la UNAMBA lo autorizó). Van **dentro de la APK** y **nunca en el repositorio**: `examenes.js` y `exfig/` están en `.gitignore`; tampoco se suben PDF, páginas, OCR ni el banco `.jsonl` (quedan en `D:\StudyPlanner-Android-Toolchain\examenes_trabajo` y copia en `Downloads\examenes\banco`).
+- **Cómo se hizo:** páginas a imagen y OCR con el motor de Windows; cada cuadernillo lo transcribió y **resolvió** un agente (los cuadernillos no traen clave), con figuras recortadas. Fuentes: 19 cuadernillos fechados (2009, 2012, 2013 ×2, 2014 ×7, 2016, 2019, 2020, 2023 ×4, becas 2024) y las cuatro compilaciones «Primeros/Segundos exámenes CPU, tomo I/II» (pliegos de dos páginas; ubicados por el folio impreso; en el tomo I de Segundos las imágenes impares desde p35 van corridas y falta la hoja de los folios 49 y 52).
+- **Banco:** 2664 preguntas transcritas; **2265 en la app, en 46 exámenes, con 354 figuras**. Fuera: 195 no verificadas (errata del cuadernillo, dos respuestas defendibles, escaneo ilegible; detalle en `descartes.txt` del banco), 202 repetidas y 2 de un examen que era casi entero copia de otro. Por curso: RM 344, RV 304, ALG 213, ARI 196, GEO 188, LEN 187, ECO 180, QUI 178, TRI 177, FIS 173, ECN 31, LIT 30, CIV 16, PSF 14, BIO 11, HIS 10, GEG 8, EST 5 (casi todos los cuadernillos son del grupo A).
+- **Armador** (`herramientas/examenes/arma_examenes.js`, sin preguntas dentro; `LEEME.md`): valida (5 alternativas distintas, respuesta, curso, explicación, KaTeX, figura), quita repetidas idénticas y casi iguales (enunciado ≥ 0,75 y alternativas ≥ 0,8 de parecido; deja las de la misma plantilla con otros datos), junta un examen de compilación con su cuadernillo fechado si es el mismo, une trozos con `nombres.json`, renombra los de los tomos («Segundos exámenes CPU, tomo I: examen 7») y **baraja las alternativas** de las compilaciones que traían la respuesta casi siempre en la A (220 preguntas; se corrige el «Respuesta: X»; quedan A–E 446, 449, 462, 471, 437).
+- **En la app:** tarjeta «Exámenes UNAMBA» en el camino → exámenes → partes de 10; «Preguntas reales de examen (N)» en cada curso. Misma práctica con respuesta inmediata y voz; no cuenta para el dominio de los temas.
+- **Verificado:**
+  - `assembleDebug` correcto, **554 pruebas con 0 fallas** (51 clases), **lint 0 errores y 48 avisos**. APK de 47 MB (los exámenes suman 1,4 MB de texto y 4,9 MB de figuras).
+  - Node: `gen_test` (21 600, 0 fallas), `plan_test`, `repaso_test` y el nuevo `examenes_test` (46 exámenes, 2265 preguntas, 0 fallas), todos en 0 fallas.
+  - Armador: las 220 barajadas conservan su alternativa correcta y su explicación (comprobado contra el banco original); las 13 figuras que un agente rehízo por error se revisaron una por una.
+  - Navegador (servidor local, tamaño de teléfono): lista, partes, acierto y fallo con «Era la E · Te la pregunto otra vez al final», una barajada de compilación.
+  - **Emulador** (Android 35, sin ventana): APK 0.26.0 instalada; tarjeta «46 exámenes · 2265 preguntas reales», lista, partes, pregunta con figura (circuito lógico) y fórmulas, respuesta correcta con «Ver por qué», nota y «Explicar con voz».
+- **Sin probar:** en un teléfono real; la voz leyendo preguntas reales (en el emulador no se escuchó); las pruebas de pantallas con Playwright (no está instalado).
+- **Pendiente:** revisar a mano las 195 no verificadas (varias son errata del cuadernillo y podrían entrar con nota); pocos exámenes de los grupos B y C (Biología, Historia, Geografía con muy pocas preguntas reales).
 
 ## Versión 0.25.0 (13 nov, madrugada, PC desktop-8sqpasg): nuevo método de práctica, voz en el Camino y «Hablar» sin Internet
 - **Estado:** compilada en `desktop-8sqpasg` desde el clon de GitHub (rama `v0.25-practica-voz-offline`), versionCode 42. `assembleDebug` correcto, **554 pruebas con 0 fallas** (51 clases), **lint 0 errores y 48 avisos**. Antes de tocar nada se compiló la 0.24.2 sin cambios en esta PC: 563 pruebas con 0 fallas y lint 0 errores, 48 avisos.

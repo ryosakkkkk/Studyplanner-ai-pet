@@ -36,6 +36,7 @@ preguntas fijas.
 | `datos.js` | Cursos, grupos, lista de temas, idea clave y preguntas fijas (primera tanda). |
 | `datos2.js` | Distribución 2025–2026, curso Zoología y los 18 temas agregados con «examenes 2». |
 | `plan.js` | Lógica sin interfaz: `Plan.diagnostico`, `dominio`, `camino`, `avance`, `anotar`, `pregunta` y el repaso espaciado (`programar`, `vencidos`, `repaso`, `diasParaRepaso`). |
+| `examenes.js` + `exfig/` | Preguntas reales de los exámenes UNAMBA (`window.EXAMENES`). **No están en el repositorio** (ver «Exámenes UNAMBA»); si faltan, `index.html` pone `EXAMENES = null` y la sección no aparece. |
 | `app.js` | Pantallas, navegación, práctica con respuesta inmediata, repaso, voz y puente con la app. |
 | `camino.css` | Estilos, tema claro y oscuro (`?tema=oscuro`). |
 
@@ -80,6 +81,23 @@ práctica de recuperación, retroalimentación explicativa, ejemplos resueltos, 
   2 o menos vuelve a mañana. «Repaso de hoy» junta los temas vencidos y pregunta uno de cada tema, en rueda.
 - La mascota dice el veredicto corto (si la voz no está silenciada en Perfil); «Escuchar» lee la pregunta,
   «Explicar con voz» lee la solución y «Responder con voz» marca la alternativa dictada (no responde sola).
+
+## Exámenes UNAMBA (preguntas reales, desde la 0.26.0)
+
+El usuario informó que la UNAMBA lo autorizó a usar sus exámenes en la app. Van dentro de la APK y nunca en el
+repositorio público (`examenes.js` y `exfig/` están en `.gitignore`). Los cuadernillos no traen clave: cada pregunta
+la transcribió y resolvió el equipo, y solo entran las verificadas (una sola alternativa correcta, datos completos).
+
+- Tarjeta «Exámenes UNAMBA» en el camino → lista de exámenes (los fechados primero, del más nuevo al más viejo;
+  luego las compilaciones «Primeros/Segundos exámenes CPU, tomo I/II») → partes de 10 preguntas.
+- En cada curso, «Preguntas reales de examen (N)»: 10 de ese curso, primero las no vistas y luego las falladas.
+- La práctica es la misma de las lecciones (respuesta inmediata, lo fallado vuelve al final, voz), pero no cuenta
+  para el dominio de los temas. Debajo de la explicación: «Pregunta del examen real. Solución del equipo».
+- Se arma con `node herramientas/examenes/arma_examenes.js` (ver `herramientas/examenes/LEEME.md`): valida, quita
+  repetidas (idénticas y casi iguales: tronco común entre grupos, exámenes reciclados, copias entre tomos), junta un
+  examen de compilación con su cuadernillo fechado si es el mismo y baraja las alternativas de las compilaciones que
+  traían la respuesta casi siempre en la A.
+- Prueba: `pruebas-web/examenes_test.js`.
 
 ## Puente con Kotlin
 

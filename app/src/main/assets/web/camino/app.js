@@ -8,7 +8,10 @@
   'use strict';
   const D = window.DATOS, P = window.Plan, A = window.AndroidCamino || null, app = document.getElementById('app');
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const LET = 'ABCDE', SESION = 5, DIFS = [1, 2, 2, 3, 2];
+  const LET = 'ABCDE', SESION = 5, DIFS = [1, 2, 2, 3, 2], PARTE = 10;
+  // Exámenes reales (examenes.js, solo si está en la app): { lista: [{id, nombre, anio, grupo, total}], preg: [{id, ex, n, curso, tema, e, o, c, x, fig}] }
+  const EX = window.EXAMENES && Array.isArray(window.EXAMENES.preg) && window.EXAMENES.preg.length ? window.EXAMENES : null;
+  if (EX && !D.cursos.EST) D.cursos.EST = { n: 'Estadística', k: 'mat' };
   const qs = new URLSearchParams(location.search);
   if (qs.get('tema') === 'oscuro') document.documentElement.setAttribute('data-tema', 'oscuro');
 
@@ -209,6 +212,7 @@
     const resto = cam.slice(1, todas ? cam.length : 6);
     const cursos = av.cursos.map(c => `<button class="fila" data-c="${c.c}"><span class="cuerpo"><div class="tit">${esc(D.cursos[c.c].n)}</div><div class="det">${c.peso} preguntas · ${c.hechos}/${c.total} temas</div></span><span style="width:64px;flex:none">${barra(c.nivel, c.nivel >= 0.7 ? 'ok' : c.nivel < 0.4 ? 'nar' : '')}</span><span class="fle">›</span></button>`).join('');
     app.innerHTML = `<div class="portada"><div class="g">Grupo ${S.grupo}</div><div class="n">${esc(G.n)}</div>${barra(av.total ? av.hechos / av.total : 0)}<div class="pie"><span>${av.hechos} de ${av.total} temas dominados</span><button id="cg">Cambiar</button></div></div>
+      ${EX ? `<button class="tarjeta exam" id="ex"><span class="cuerpo"><span class="tit">Exámenes UNAMBA</span><span class="sub">${EX.lista.length} exámenes · ${EX.preg.length} preguntas reales</span></span><span class="fle">›</span></button>` : ''}
       ${venc.length ? `<div class="tarjeta repaso"><div class="tit">Repaso de hoy</div><p class="sub" style="margin:2px 0 12px">${venc.length === 1 ? '1 tema' : venc.length + ' temas'} · preguntas mezcladas</p><button class="btn nar" id="rp">Repasar</button></div>` : ''}
       ${S.diag && S.diag.hecho ? '' : `<div class="tarjeta"><div class="tit">Haz tu diagnóstico</div><p class="sub" style="margin:2px 0 12px">Para ordenar tu camino.</p><button class="btn chico" id="hd">Empezar</button></div>`}
       ${sig ? `<div class="tarjeta sigue"><div class="rot" style="margin:0">Sigue con</div><div class="tit">${esc(sig.t.t)}</div><div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">${chip(sig.t.curso)}${est(sig.estado)}</div><button class="btn" id="sg">${sig.estado === 'nuevo' ? 'Empezar' : 'Seguir'}</button></div>` : `<div class="tarjeta"><b>Dominaste todos los temas de tu grupo.</b></div>`}
@@ -219,15 +223,68 @@
     const on = (id, fn) => { const b = document.getElementById(id); if (b) b.onclick = fn; };
     on('cg', () => ir('grupo')); on('hd', () => ir('diag')); on('rd', () => ir('diag')); on('sg', () => abrirTema(sig.t)); on('vt', () => { todas = !todas; pintar(); });
     on('rp', () => empezarRepaso());
+    on('ex', () => ir('examenes'));
     app.querySelectorAll('[data-t]').forEach(b => b.onclick = () => abrirTema(P.tema(b.getAttribute('data-t'))));
     app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => ir('curso', b.getAttribute('data-c')));
   };
 
   V.curso = c => {
-    const ts = P.temasCurso(c), peso = D.grupos[S.grupo].cursos[c];
+    const ts = P.temasCurso(c), peso = D.grupos[S.grupo].cursos[c], reales = EX ? EX.preg.filter(p => p.curso === c).length : 0;
     cab(D.cursos[c].n, P.nivelCurso(S, N, c));
-    app.innerHTML = `<h1>${esc(D.cursos[c].n)}</h1>${peso ? `<p class="sub">${peso} de 60 preguntas en tu grupo</p>` : ''}<div class="grupo">${ts.map((t, i) => `<button class="fila" data-t="${t.id}"><span class="num">${i + 1}</span><span class="cuerpo"><div class="tit">${esc(t.t)}</div></span>${est(P.estado(P.dominio(S, N, t)))}<span class="fle">›</span></button>`).join('')}</div>`;
+    app.innerHTML = `<h1>${esc(D.cursos[c].n)}</h1>${peso ? `<p class="sub">${peso} de 60 preguntas en tu grupo</p>` : ''}
+      ${reales ? `<button class="btn sec" id="rc" style="margin-bottom:12px">Preguntas reales de examen (${reales})</button>` : ''}
+      <div class="grupo">${ts.map((t, i) => `<button class="fila" data-t="${t.id}"><span class="num">${i + 1}</span><span class="cuerpo"><div class="tit">${esc(t.t)}</div></span>${est(P.estado(P.dominio(S, N, t)))}<span class="fle">›</span></button>`).join('')}</div>`;
     app.querySelectorAll('[data-t]').forEach(b => b.onclick = () => abrirTema(P.tema(b.getAttribute('data-t'))));
+    const rc = document.getElementById('rc'); if (rc) rc.onclick = () => empezarCursoReal(c);
+  };
+
+  // ---------------------------------------------------------------- exámenes reales de la UNAMBA
+  // Preguntas de los cuadernillos (uso autorizado por la universidad). Viven en examenes.js y exfig/, que no se suben al
+  // repositorio público. Los cuadernillos no traen clave: la respuesta y la explicación son del equipo del proyecto.
+  const vistas = () => { S.ex = S.ex || {}; S.ex.v = S.ex.v || {}; return S.ex.v; };
+  function preguntaReal(p) {
+    const fig = p.fig ? `<img class="fig foto" src="${esc(p.fig)}" alt="Figura de la pregunta ${p.n}">` : '';
+    return { e: p.e + fig, o: p.o.slice(), c: p.c, pasos: p.x && p.x.length ? p.x : ['Respuesta: ' + LET[p.c] + '.'], ref: '', id: p.id, curso: p.curso, real: true };
+  }
+  const temaReal = (titulo, curso) => ({ id: 'examen', t: titulo, curso: D.cursos[curso] ? curso : 'RM', nat: false });
+  const delExamen = id => EX.preg.filter(p => p.ex === id).sort((a, b) => a.n - b.n);
+  function empezarReal(titulo, lista, info) {
+    if (!lista.length) return pintar();
+    ses = Object.assign({ modo: 'examen', titulo, cola: lista.map(p => ({ tipo: 'r', t: temaReal(titulo, p.curso), q: preguntaReal(p) })), i: 0, nuevas: lista.length, ok: 0, corr: 0, racha: 0, mejor: 0, q: null, sel: null, visto: false }, info);
+    ir('practica');
+  }
+  function empezarParte(exId, desde) {
+    const ex = EX.lista.find(x => x.id === exId);
+    empezarReal(ex.nombre, delExamen(exId).slice(desde, desde + PARTE), { exId, desde });
+  }
+  // 10 preguntas reales del curso: primero las que nunca respondió, luego las que falló; en desorden.
+  function empezarCursoReal(c) {
+    const v = vistas(), R = window.Gen.rng(semilla());
+    const todas = R.sh(EX.preg.filter(p => p.curso === c));
+    const orden = todas.filter(p => !(p.id in v)).concat(todas.filter(p => v[p.id] === 0), todas.filter(p => v[p.id] === 1));
+    empezarReal('Preguntas reales · ' + D.cursos[c].n, orden.slice(0, PARTE), { cursoReal: c });
+  }
+  const resumenReal = lista => { const v = vistas(); let hechas = 0, ok = 0; lista.forEach(p => { if (p.id in v) { hechas++; ok += v[p.id]; } }); return { hechas, ok }; };
+
+  V.examenes = () => {
+    if (!EX) return V.inicio();
+    cab('Exámenes UNAMBA', null);
+    const filas = EX.lista.map(x => { const r = resumenReal(delExamen(x.id));
+      return `<button class="fila" data-x="${x.id}"><span class="cuerpo"><div class="tit">${esc(x.nombre)}</div><div class="det">${x.total} preguntas${r.hechas ? ` · ${r.hechas} respondidas, ${r.ok} bien` : ''}</div></span>${barra(x.total ? r.hechas / x.total : 0)}<span class="fle">›</span></button>`; }).join('');
+    app.innerHTML = `<h1>Exámenes UNAMBA</h1><p class="sub">Preguntas reales de los cuadernillos. La solución es del equipo: los cuadernillos no traen clave.</p><div class="grupo lista-ex">${filas}</div>`;
+    app.querySelectorAll('[data-x]').forEach(b => b.onclick = () => ir('examen', b.getAttribute('data-x')));
+  };
+  V.examen = id => {
+    const x = EX && EX.lista.find(e => e.id === id); if (!x) return V.inicio();
+    const qs = delExamen(id);
+    cab(x.nombre, resumenReal(qs).hechas / Math.max(1, qs.length));
+    const partes = [];
+    for (let d = 0; d < qs.length; d += PARTE) {
+      const tramo = qs.slice(d, d + PARTE), r = resumenReal(tramo), cursos = [...new Set(tramo.map(p => p.curso))].filter(c => D.cursos[c]).map(c => D.cursos[c].n).join(', ');
+      partes.push(`<button class="fila" data-d="${d}"><span class="num">${d / PARTE + 1}</span><span class="cuerpo"><div class="tit">Preguntas ${tramo[0].n}–${tramo[tramo.length - 1].n}</div><div class="det">${esc(cursos)}</div></span><span class="est${r.hechas === tramo.length ? ' dom' : ''}">${r.hechas ? `${r.ok}/${tramo.length}` : 'Nuevo'}</span><span class="fle">›</span></button>`);
+    }
+    app.innerHTML = `<h1>${esc(x.nombre)}</h1><p class="sub">${qs.length} preguntas en partes de ${PARTE}.</p><div class="grupo">${partes.join('')}</div>`;
+    app.querySelectorAll('[data-d]').forEach(b => b.onclick = () => empezarParte(id, +b.getAttribute('data-d')));
   };
 
   V.tema = id => {
@@ -275,8 +332,9 @@
     const q = ses.q, t = it.t, corrige = it.tipo === 'c';
     const hechas = Math.min(ses.nuevas, ses.i + (ses.visto && !corrige ? 1 : 0));
     const cuenta = corrige ? 'las que fallaste' : `${ses.i + 1} de ${ses.nuevas}`;
-    cab(`${ses.modo === 'repaso' ? 'Repaso' : t.t} · ${cuenta}`, corrige ? 1 : hechas / ses.nuevas);
-    const arriba = `<div class="fila-top">${corrige ? '<span class="chip nar">Otra vez</span>' : ses.modo === 'repaso' ? chip(t.curso) : '<span></span>'}${btnVoz('esc', 'Escuchar')}</div>`;
+    const real = ses.modo === 'examen';
+    cab(`${ses.modo === 'repaso' ? 'Repaso' : real ? ses.titulo : t.t} · ${cuenta}`, corrige ? 1 : hechas / ses.nuevas);
+    const arriba = `<div class="fila-top">${corrige ? '<span class="chip nar">Otra vez</span>' : ses.modo === 'repaso' || real ? chip(t.curso) : '<span></span>'}${btnVoz('esc', 'Escuchar')}</div>`;
     let h = `${arriba}<div class="enun">${q.e}</div><div id="ops">${opciones(q, ses.sel, ses.visto)}</div>`;
     if (!ses.visto) {
       h += `${btnMic()}${oidoMsj ? `<p class="oido">${esc(oidoMsj)}</p>` : ''}
@@ -287,6 +345,7 @@
       const nota = ses.bien ? (corrige ? 'Ahora sí.' : ses.racha >= 3 ? `${ses.racha} seguidas` : '') : (corrige ? '' : 'Te la pregunto otra vez al final.');
       h += `<div class="veredicto ${ses.bien ? 'ok' : ses.nose ? 'nose' : 'no'}" id="ver"><div class="vt">${titulo}</div>${nota ? `<div class="vn">${esc(nota)}</div>` : ''}</div>
         ${ses.bien ? `<details class="tarjeta porque"><summary>Ver por qué</summary>${explicacion(q)}</details>` : `<div class="tarjeta">${explicacion(q)}</div>`}
+        ${q.real ? '<p class="ref">Pregunta del examen real. Solución del equipo (el cuadernillo no trae clave).</p>' : ''}
         ${btnVoz('expl', 'Explicar con voz')}
         <div class="botones"><button class="btn${ses.bien ? ' ok' : ''}" id="sig">${ultima ? 'Ver resultado' : 'Continuar'}</button></div>`;
     }
@@ -299,9 +358,14 @@
       callar(); oidoMsj = '';
       const primera = !corrige;
       if (primera) {   // el primer intento es el que cuenta para el dominio del tema (y para su repaso)
-        P.anotar(S, t.id, ok, q.i);
-        if (ses.modo === 'repaso') { const x = ses.temas[t.id] = ses.temas[t.id] || { ok: 0, n: 0 }; x.n++; if (ok) x.ok++; }
-        if (!ok) ses.cola.push({ tipo: 'c', t, dif: it.dif || 2, fija: t.gen ? null : (q.i != null ? q.i : null) });
+        if (real) {    // pregunta real: se guarda si salió bien a la primera; la que falla vuelve igual al final
+          vistas()[q.id] = ok ? 1 : 0;
+          if (!ok) ses.cola.push({ tipo: 'c', t, q: Object.assign({}, q) });
+        } else {
+          P.anotar(S, t.id, ok, q.i);
+          if (ses.modo === 'repaso') { const x = ses.temas[t.id] = ses.temas[t.id] || { ok: 0, n: 0 }; x.n++; if (ok) x.ok++; }
+          if (!ok) ses.cola.push({ tipo: 'c', t, dif: it.dif || 2, fija: t.gen ? null : (q.i != null ? q.i : null) });
+        }
         guardar();
       }
       ses.visto = true; ses.bien = ok; ses.nose = sel < 0;
@@ -329,8 +393,22 @@
     if (!ses.cerrada) {   // se programa el próximo repaso una sola vez por sesión
       ses.cerrada = true;
       if (ses.modo === 'tema') ses.rep = P.programar(S, ses.t.id, ses.ok, ses.nuevas, dia);
-      else Object.keys(ses.temas).forEach(id => P.programar(S, id, ses.temas[id].ok, ses.temas[id].n, dia));
+      else if (ses.modo === 'repaso') Object.keys(ses.temas).forEach(id => P.programar(S, id, ses.temas[id].ok, ses.temas[id].n, dia));
       guardar();
+    }
+    if (ses.modo === 'examen') {
+      cab(ses.titulo, 1);
+      const sigue = ses.exId != null && delExamen(ses.exId).length > ses.desde + PARTE;
+      app.innerHTML = `<div class="tarjeta centro"><div class="rot" style="margin:0">${ses.ok >= ses.nuevas * 0.8 ? '¡Muy bien!' : ses.ok >= ses.nuevas / 2 ? 'Vas avanzando' : 'A reforzar'}</div><div class="nota">${ses.ok} <small>de ${ses.nuevas} a la primera</small></div>
+          <div class="datos"><span>${ses.corr ? `Corregiste ${ses.corr}` : 'Sin errores pendientes'}</span><span>Mejor racha: ${ses.mejor}</span></div></div>
+        <div class="botones">${sigue ? `<button class="btn" id="sx">Siguiente parte</button>` : ''}<button class="btn${sigue ? ' sec' : ''}" id="ot">${ses.cursoReal ? 'Otras 10 del curso' : 'Repetir esta parte'}</button><button class="btn txt" id="vx">${ses.cursoReal ? 'Volver al curso' : 'Volver al examen'}</button></div>`;
+      if (ses.ok >= ses.nuevas - 1 && !ses.festejo) { ses.festejo = true; ev('logro'); confeti(); }
+      const on = (id, fn) => { const b = document.getElementById(id); if (b) b.onclick = fn; };
+      const s = ses;
+      on('sx', () => { pila.pop(); empezarParte(s.exId, s.desde + PARTE); });
+      on('ot', () => { pila.pop(); if (s.cursoReal) empezarCursoReal(s.cursoReal); else empezarParte(s.exId, s.desde); });
+      on('vx', () => { ses = null; pila.pop(); pintar(); });
+      return;
     }
     if (ses.modo === 'repaso') {
       cab('Repaso de hoy', 1);

@@ -2,7 +2,7 @@
   "name": "pruebas-camino",
   "private": true,
   "scripts": {
-    "datos": "node gen_test.js 40 && node plan_test.js && node repaso_test.js",
+    "datos": "node gen_test.js 40 && node plan_test.js && node repaso_test.js && node examenes_test.js",
     "servidor": "python -m http.server 8771 --directory ../app/src/main/assets/web",
     "pantallas": "node puente_test.js && node nuevos_test.js claro && node ui1.js claro && node ui2.js claro && node ui3.js oscuro"
   },

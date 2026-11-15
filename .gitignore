@@ -15,6 +15,10 @@ ia_local.properties
 .env
 .env.*
 
+# Exámenes UNAMBA: uso autorizado dentro de la app, pero NUNCA en el repositorio público
+app/src/main/assets/web/camino/examenes.js
+app/src/main/assets/web/camino/exfig/
+
 # APK: llevan dentro la conexión de IA (BuildConfig)
 *.apk
 *.aab

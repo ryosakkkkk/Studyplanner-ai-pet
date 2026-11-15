@@ -2,7 +2,7 @@
 
 App Android para postulantes a la UNAMBA (Abancay, Perú): agenda de estudio, mascota 3D con voz, práctica por temas
 y «Camino UNAMBA» (ruta personalizada por grupo A, B o C). Proyecto de feria FERCYT, categoría E (artículo + diseño).
-**Presentación con la APK: 13 de noviembre de 2026.** Versión actual: 0.25.0 (versionCode 42).
+**Presentación con la APK: 13 de noviembre de 2026.** Versión actual: 0.26.0 (versionCode 43).
 
 Historial, qué está probado y qué falta: `docs/ESTADO.md`. Detalle del módulo web del camino: `docs/CAMINO.md`.
 
@@ -10,13 +10,14 @@ Historial, qué está probado y qué falta: `docs/ESTADO.md`. Detalle del módul
 
 | Qué | Dónde |
 |---|---|
-| El proyecto (clon de GitHub) | `C:\Users\Usuario\Documents\studyplanner-ai-pet` (trabajar siempre aquí; `Documents\ChatGPT\FERCYT 2\android-app` es la copia vieja 0.23.0) |
+| El proyecto (clon de GitHub) | `D:\Documentos\studyplanner-ai-pet` (desde el 15 nov; trabajar siempre aquí; `D:\Documentos\ChatGPT\FERCYT 2\android-app` es la copia vieja 0.23.0) |
 | JDK 17 | `C:\Program Files\Java\jdk-17` |
 | Android SDK (adb, emulador) | `D:\StudyPlanner-Android-Toolchain\sdk` (`local.properties`: `sdk.dir=D\:/StudyPlanner-Android-Toolchain/sdk`) |
 | Emulador | AVD `StudyPlanner35` en `D:\StudyPlanner-Android-Toolchain\avd`; arranca mejor sin ventana: `-no-window -gpu auto` |
 | Caché de Gradle | `D:\StudyPlanner-Android-Toolchain\gradle-home` (compila con `--offline`) |
-| Servidor de IA desplegado | `C:\Users\Usuario\Documents\ChatGPT\FERCYT 2\backend-ia` (con `wrangler`) |
-| Node | `D:\Universidad Nacional Micaela Batidas\node.exe` (no está en el PATH). Python: Anaconda. |
+| Servidor de IA desplegado | `D:\Documentos\ChatGPT\FERCYT 2\backend-ia` (con `wrangler`) |
+| Node | `D:\Universidad Nacional Micaela Batidas\node.exe` (no está en el PATH). Python: Anaconda (`-I` al leer archivos ajenos). |
+| Exámenes UNAMBA (fuera del repositorio) | Originales en `C:\Users\Usuario\Downloads\examenes`. Trabajo (páginas, OCR, banco `.jsonl`, figuras) en `D:\StudyPlanner-Android-Toolchain\examenes_trabajo`. `herramientas/examenes/arma_examenes.js` arma `examenes.js` y `exfig/` en el camino (ambos en `.gitignore`). |
 
 Aquí sí hay `gradlew` (Gradle 9.6.0). El disco C: tiene poco espacio: no descargar nada grande sin preguntar.
 
@@ -62,7 +63,7 @@ $g = "$b\herramientas\gradle-9.6.0\bin\gradle.bat"
 ```
 
 - APK: `app\build\outputs\apk\debug\app-debug.apk`. Informes: `app\build\reports\` y `app\build\test-results\`.
-- El lint corta la compilación si hay errores (`abortOnError = true`). Hoy (0.25.0): 0 errores, 48 avisos de estilo.
+- El lint corta la compilación si hay errores (`abortOnError = true`). Hoy (0.26.0): 0 errores, 48 avisos de estilo.
 - `local.properties` debe decir `sdk.dir=C\:/Users/USER/studyplanner-build/herramientas/sdk` (con `C\:`).
 - Otra forma: doble clic en `CONSTRUIR_APK.bat`. Compila, copia la APK a Descargas y deja `construir_log.txt`,
   `errores_compilacion.txt`, `resumen_pruebas.txt` y `lint_<versión>.txt`. Si hay un `parche.zip` a su lado, antes
@@ -131,9 +132,11 @@ Workers AI.
    `PONER_CLAVE_*.bat` del servidor.
 2. **Interfaz:** español sencillo del Perú, sin emojis, sin marcas de «hecho con IA», sin opciones que el usuario
    no pidió. Todo texto generado por IA en pantalla lleva su aviso («Responde una IA y puede equivocarse…»).
-3. **Preguntas de admisión:** siempre propias. Los exámenes se leen solo para saber qué tipo de pregunta sale y
-   cuánto pesa cada curso; no se copian enunciados (son de la universidad y los «TOMO» son de un tercero). Mismo
-   tipo y dificultad, datos distintos, respuesta calculada o verificada y explicación.
+3. **Preguntas de admisión:** las de las lecciones del camino son propias (mismo tipo y dificultad, datos distintos,
+   respuesta calculada o verificada y explicación). Desde el 14 nov el usuario informó que la UNAMBA lo autorizó a usar
+   sus exámenes en la app: la sección «Exámenes UNAMBA» trae las preguntas reales transcritas y resueltas por el
+   equipo (los cuadernillos no traen clave). Van **dentro de la APK**, pero **nunca en el repositorio**: `examenes.js`
+   y `exfig/` están en `.gitignore`, y tampoco se suben los PDF, las páginas, el OCR ni el banco `.jsonl`.
 4. **Método de práctica (desde el 13 nov reemplaza al socrático, por pedido del usuario):** práctica de recuperación con
    respuesta inmediata. El estudiante responde primero; al comprobar ve al instante si acertó y la explicación paso a
    paso (al fallar, como ejemplo resuelto); lo que falla vuelve al final de la lección con datos nuevos o «uno
@@ -146,7 +149,8 @@ Workers AI.
 7. **Descargas e instalaciones** en la PC: pedir permiso antes, diciendo archivo, origen y tamaño.
 8. No crear cuentas de prueba en el servidor de producción.
 9. **El repositorio es público.** Nunca subir `ia_local.properties`, `local.properties`, APK (llevan la conexión
-   dentro), claves ni los exámenes o su texto. `.gitignore` ya los excluye; revisa `git status` antes de cada commit.
+   dentro), claves ni los exámenes o su texto (`examenes.js`, `exfig/`). `.gitignore` ya los excluye; revisa
+   `git status` antes de cada commit.
 
 ## Forma de trabajar
 
@@ -164,10 +168,12 @@ Con Claude Code ya no hace falta el parche: se edita y se compila directamente e
 
 ## Pendiente (lo más urgente primero)
 
-- Probar la 0.25.0 en un teléfono real: voz en el Camino (leer y responder «la B»), «Hablar» sin Internet y con
-  Internet, repaso de hoy.
+- Probar la 0.26.0 en un teléfono real: «Exámenes UNAMBA» (figuras, voz en preguntas reales), voz en el Camino
+  (leer y responder «la B»), «Hablar» sin Internet y con Internet, repaso de hoy.
+- Revisar a mano las 195 preguntas de examen no verificadas (`descartes.txt` del banco); faltan exámenes de los
+  grupos B y C.
 - Averiguar y corregir la demora del servidor de IA (ver arriba).
-- Actualizar el artículo de la feria a la versión 0.25.0 (método, voz, conocimiento sin Internet).
+- Actualizar el artículo de la feria a la versión 0.26.0 (método, voz, conocimiento sin Internet, exámenes reales).
 - Después de la feria: simulacro con tiempo (15–20 preguntas mezcladas y luego 60 con el tiempo oficial), copia en la
   nube del avance del camino, más preguntas de Biología y Química teórica, correr las pruebas de pantallas de
   `pruebas-web` (Playwright), poner al día `androidTest`.

@@ -117,6 +117,11 @@ details.porque[open] summary { margin-bottom: 8px; }
 .chip.nar { background: var(--nar-c); color: var(--sobre-nar-c); }
 .tarjeta .tit { font-size: 18px; line-height: 24px; font-weight: 700; }
 .tarjeta.repaso { border: 2px solid var(--nar); }
+/* exámenes reales */
+.tarjeta.exam { display: flex; align-items: center; gap: 12px; width: 100%; border: 2px solid var(--ok); color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.tarjeta.exam .cuerpo { flex: 1; display: flex; flex-direction: column; } .tarjeta.exam .sub { margin: 2px 0 0; }
+.lista-ex .barra { width: 56px; flex: none; }
+.fig.foto { max-width: 100%; height: auto; border-radius: 12px; background: #fff; margin: 12px auto 4px; }
 .fila-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 6px 0 4px; min-height: 40px; }
 /* voz de la mascota: escuchar y responder hablando */
 .vozb { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 14px; border: 0; border-radius: 99px; background: var(--pri-c); color: var(--sobre-pri-c); font: 600 14px/1 inherit; font-family: inherit; cursor: pointer; }

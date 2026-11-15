@@ -8,7 +8,11 @@ Desde esta carpeta (`pruebas-web`), en PowerShell.
 npm run datos          # generadores (40 semillas x 3 dificultades), datos y plan, repaso espaciado
 ```
 
-Esperado: `total 4320 fallas 0`, `fallas 0`, `repaso: … fallas 0`.
+Esperado: `total 4320 fallas 0`, `fallas 0`, `repaso: … fallas 0`, `examenes: … fallas 0`.
+
+`examenes_test.js` revisa el banco de exámenes UNAMBA armado (`examenes.js`: ids, alternativas, respuesta, figuras,
+fórmulas KaTeX, totales por examen y que ninguna letra domine). Ese archivo no está en el repositorio; si falta, la
+prueba se omite.
 
 ## Pantallas (Playwright, a tamaño de teléfono)
 
